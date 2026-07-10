@@ -135,6 +135,44 @@
     }
   }
 
+  // ---------- gyro tilt: on phones the card leans with the device ----------
+  var gyroTilt = document.getElementById('aboutPhoto');
+  if (gyroTilt && 'DeviceOrientationEvent' in window &&
+      window.matchMedia('(hover: none) and (pointer: coarse)').matches &&
+      !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var gBase = null, gtx = 0, gty = 0, gcx = 0, gcy = 0, gRaf = null;
+    function gyroApply() {
+      gRaf = null;
+      gcx += (gtx - gcx) * 0.12;
+      gcy += (gty - gcy) * 0.12;
+      gyroTilt.style.transform = 'perspective(1000px) rotateX(' + gcx.toFixed(2) + 'deg) rotateY(' + gcy.toFixed(2) + 'deg)';
+      var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+      gyroTilt.style.boxShadow = (gcy * -2.2).toFixed(1) + 'px ' + (26 + gcx * -2.2).toFixed(1) + 'px 60px -26px rgba(' + (dark ? '0, 0, 0, 0.75' : '23, 21, 15, 0.55') + ')';
+      if (Math.abs(gcx - gtx) > 0.04 || Math.abs(gcy - gty) > 0.04) gRaf = requestAnimationFrame(gyroApply);
+    }
+    function gyroRead(e) {
+      if (e.beta === null || e.gamma === null) return;
+      if (gBase === null) gBase = { b: e.beta, g: e.gamma };
+      // deltas from how the phone was being held when the page loaded
+      var db = Math.max(-18, Math.min(18, e.beta - gBase.b));
+      var dg = Math.max(-18, Math.min(18, e.gamma - gBase.g));
+      gtx = (db / 18) * -8;
+      gty = (dg / 18) * 8;
+      if (!gRaf) gRaf = requestAnimationFrame(gyroApply);
+    }
+    function gyroStart() { window.addEventListener('deviceorientation', gyroRead); }
+    if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+      // iOS: sensor access needs a user gesture; the card wakes on first tap
+      gyroTilt.addEventListener('click', function gyroAsk() {
+        DeviceOrientationEvent.requestPermission().then(function (r) {
+          if (r === 'granted') { gyroTilt.removeEventListener('click', gyroAsk); gyroStart(); }
+        }).catch(function () {});
+      });
+    } else {
+      gyroStart();
+    }
+  }
+
   // ---------- proof register: the seal stamps the document once, on scroll ----------
   var register = document.querySelector('.register');
   if (register) {
