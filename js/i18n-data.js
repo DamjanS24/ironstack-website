@@ -10,7 +10,7 @@ window.I18N = {
 
     "hero.kicker": "SOVEREIGN INFRASTRUCTURE · AMSTERDAM",
     "hero.title": "Own your infrastructure.<br>Own your data.",
-    "hero.sub": "Ironstack builds and runs the systems your business lives on, on servers you own. CRM, invoicing, file storage, team chat, AI automation: nearly everything you rent today can be owned instead, kept running for one fixed monthly price. No lock-in. You can leave any month and take everything with you.",
+    "hero.sub": "Ironstack builds and runs the systems your business lives on: owned by you, cared for by me, for one fixed monthly price. Leave any month and take everything with you.",
     "hero.cta1": "Start a conversation",
     "hero.cta2": "See the services",
 
@@ -150,7 +150,7 @@ window.I18N = {
 
     "hero.kicker": "SOEVEREINE INFRASTRUCTUUR · AMSTERDAM",
     "hero.title": "Eigen infrastructuur.<br>Eigen data.",
-    "hero.sub": "Ironstack bouwt en beheert de systemen waar je bedrijf op draait, op servers die van jou zijn. CRM, facturatie, bestandsopslag, teamchat, AI-automatisering: bijna alles wat je nu huurt kan ook in eigendom, draaiend gehouden voor één vast maandbedrag. Geen lock-in. Je kunt elke maand weg en neemt alles mee.",
+    "hero.sub": "Ironstack bouwt en beheert de systemen waar je bedrijf op draait: in jouw eigendom, door mij verzorgd, voor één vast maandbedrag. Stap op wanneer je wilt en neem alles mee.",
     "hero.cta1": "Begin een gesprek",
     "hero.cta2": "Bekijk de diensten",
 
