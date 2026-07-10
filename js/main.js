@@ -48,44 +48,6 @@
     if (e.target.tagName === 'A') links.classList.remove('open');
   });
 
-  // ---------- terminal placeholder (removed when the showcase video lands) ----------
-  var LINES = [
-    { t: '$ ironstack audit --client voorbeeld-bv', c: '' },
-    { t: '  mapping 14 services across 3 providers…', c: 'dim' },
-    { t: '  ✓ audit complete — 11 services reclaimable', c: 'ok' },
-    { t: '$ ironstack migrate --phase 3 --dry-run', c: '' },
-    { t: '  ✓ 42/42 steps verified · rollback ready', c: 'ok' },
-    { t: '$ ironstack status', c: '' },
-    { t: '  crm ✓  projects ✓  invoicing ✓  monitoring ✓', c: 'ok' },
-    { t: '  sovereignty: 100% — no third-party processors', c: 'dim' }
-  ];
-  var term = document.getElementById('terminal');
-  if (term) {
-    var i = 0;
-    function nextLine() {
-      if (i >= LINES.length) return;
-      var line = LINES[i];
-      var el = document.createElement('div');
-      if (line.c) el.className = line.c;
-      term.appendChild(el);
-      var j = 0;
-      var typer = setInterval(function () {
-        el.textContent = line.t.slice(0, ++j);
-        if (j >= line.t.length) {
-          clearInterval(typer);
-          i++;
-          setTimeout(nextLine, 340);
-        }
-      }, 14);
-    }
-    // start typing when the device scrolls into view
-    var started = false;
-    var io = new IntersectionObserver(function (entries) {
-      if (!started && entries[0].isIntersecting) { started = true; nextLine(); io.disconnect(); }
-    }, { threshold: 0.35 });
-    io.observe(term);
-  }
-
   // ---------- scroll-reveal (hero stays static: no blank flash above the fold) ----------
   var revealables = document.querySelectorAll(
     '.section-title, .section-sub, .svc, .phases li, .register, .proof-line, ' +

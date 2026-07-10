@@ -13,10 +13,9 @@ window.I18N = {
     "hero.sub": "Ironstack builds and runs the systems your business lives on, on servers you own. CRM, invoicing, file storage, team chat, AI automation: nearly everything you rent today can be owned instead, kept running for one fixed monthly price. No lock-in. You can leave any month and take everything with you.",
     "hero.cta1": "Start a conversation",
     "hero.cta2": "See the services",
-    "hero.showcase": "A guided tour of the running stack is being filmed. It will show the real thing, not a mock-up.",
 
     "manifesto.quote": "“If your business runs on someone else’s cloud, your data is part of someone else’s business model. It doesn’t have to be.”",
-    "manifesto.body": "Every migration Ironstack does starts from one conviction: a company should be able to point at its infrastructure and say <em>ours</em>. It should not be rented, mined, or one price increase away from a problem. It should be owned, understood, and documented.",
+    "manifesto.body": "Everything Ironstack builds and runs starts from one conviction: a company should be able to point at its infrastructure and say <em>ours</em>. It should not be rented, mined, or one price increase away from a problem. It should be owned, understood, and documented.",
 
     "method.title": "The method",
     "method.sub": "Five controlled phases. This is how an existing environment moves onto infrastructure you own. Your current environment keeps running untouched until we deliberately switch. The switch happens in a window you approve, with a tested rollback plan.",
@@ -155,10 +154,9 @@ window.I18N = {
     "hero.sub": "Ironstack bouwt en beheert de systemen waar je bedrijf op draait, op servers die van jou zijn. CRM, facturatie, bestandsopslag, teamchat, AI-automatisering: bijna alles wat je nu huurt kan ook in eigendom, draaiend gehouden voor één vast maandbedrag. Geen lock-in. Je kunt elke maand weg en neemt alles mee.",
     "hero.cta1": "Begin een gesprek",
     "hero.cta2": "Bekijk de diensten",
-    "hero.showcase": "Een rondleiding door de draaiende infrastructuur wordt gefilmd. Het laat het echte werk zien, geen mock-up.",
 
     "manifesto.quote": "“Draait je bedrijf op andermans cloud, dan is jouw data onderdeel van andermans verdienmodel. Dat hoeft niet.”",
-    "manifesto.body": "Elke migratie van Ironstack begint bij één overtuiging: een bedrijf moet naar zijn infrastructuur kunnen wijzen en <em>van ons</em> kunnen zeggen. Het is niet gehuurd, niet uitgelezen en niet één prijsverhoging verwijderd van een probleem. Het is in eigendom, begrepen en gedocumenteerd.",
+    "manifesto.body": "Alles wat Ironstack bouwt en beheert begint bij één overtuiging: een bedrijf moet naar zijn infrastructuur kunnen wijzen en <em>van ons</em> kunnen zeggen. Het is niet gehuurd, niet uitgelezen en niet één prijsverhoging verwijderd van een probleem. Het is in eigendom, begrepen en gedocumenteerd.",
 
     "method.title": "De methode",
     "method.sub": "Vijf beheerste fasen. Zo verhuist een bestaande omgeving naar infrastructuur die van jou is. Je huidige omgeving blijft onaangetast draaien tot we bewust overschakelen. De overstap gebeurt in een venster dat jij goedkeurt, met een getest rollback-plan.",

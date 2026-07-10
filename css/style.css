@@ -68,17 +68,6 @@ a { color: inherit; }
 .showcase { margin: clamp(46px, 6vw, 76px) auto 0; max-width: 900px; border-radius: 12px; overflow: hidden; box-shadow: 0 28px 80px -32px rgba(23, 21, 15, 0.5); }
 .showcase-video { display: block; width: 100%; height: auto; }
 
-/* device frame / showcase */
-.device { margin: clamp(46px, 6vw, 76px) auto 0; max-width: 880px; border-radius: 10px; overflow: hidden; border: 1px solid #C9C2B2; box-shadow: 0 24px 70px -30px rgba(23, 21, 15, 0.45); text-align: left; }
-.device-bar { display: flex; align-items: center; gap: 7px; background: #E9E4D7; padding: 11px 16px; border-bottom: 1px solid #D5CEBD; }
-.device-bar .dot { width: 11px; height: 11px; border-radius: 50%; background: #C9C2B2; }
-.device-url { margin-left: 12px; font-family: var(--mono); font-size: 11.5px; color: var(--muted); background: var(--paper); border-radius: 4px; padding: 3px 14px; }
-.device-screen { background: #12110C; aspect-ratio: 16 / 9; position: relative; display: flex; align-items: center; justify-content: center; }
-.terminal { position: absolute; inset: 0; padding: 26px 30px; font-family: var(--mono); font-size: clamp(10px, 1.4vw, 13px); line-height: 2.05; color: #B9B29E; white-space: pre-wrap; overflow: hidden; }
-.terminal .ok { color: #EAE3D2; }
-.terminal .dim { color: #6E6857; }
-.showcase-note { position: absolute; bottom: 18px; left: 0; right: 0; text-align: center; font-family: var(--garamond); font-style: italic; font-size: 13.5px; color: #8A8374; }
-
 /* ---------- manifesto ---------- */
 .manifesto { max-width: 760px; margin: 0 auto; padding: clamp(64px, 8vw, 110px) 24px; text-align: center; }
 .diamond-rule { display: flex; align-items: center; gap: 16px; color: var(--ink); margin-bottom: 36px; }
@@ -367,5 +356,4 @@ a { color: inherit; }
 [data-theme="dark"] .lead-form input:focus, [data-theme="dark"] .lead-form textarea:focus { box-shadow: 0 0 0 3px rgba(234, 227, 210, 0.12); }
 /* shadows read differently on ink; soften the loud ones */
 [data-theme="dark"] .showcase { box-shadow: 0 28px 80px -32px rgba(0, 0, 0, 0.8); }
-[data-theme="dark"] .tilt3d:hover, [data-theme="dark"] .combo:hover { box-shadow: none; }
 [data-theme="dark"] .tilt-tag { background: rgba(20, 18, 13, 0.78); border-color: rgba(234, 227, 210, 0.16); }
