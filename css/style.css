@@ -48,8 +48,13 @@ a { color: inherit; }
 .nav-links a:hover { color: var(--ink); }
 .nav-cta { border: 1px solid var(--ink); border-radius: 10px; padding: 7px 16px; color: var(--ink) !important; }
 .nav-cta:hover { background: var(--ink); color: var(--rev) !important; }
-.lang-toggle { border: none; background: none; font-family: var(--mono); font-size: 12px; letter-spacing: 1px; color: var(--muted); cursor: pointer; padding: 6px; }
-.lang-toggle:hover { color: var(--ink); }
+.switch { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--rule); border-radius: 999px; padding: 5px 12px; background: transparent;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 1px; color: var(--muted); cursor: pointer; transition: border-color .18s ease, color .18s ease; }
+.switch:hover { border-color: var(--ink); }
+.switch .on { color: var(--ink); font-weight: 500; }
+.switch .sep { font-size: 6px; opacity: .55; transform: translateY(-0.5px); }
+.switch-icon { font-size: 12.5px; padding: 5px 11px; line-height: 1.2; }
+.switch-icon:hover { color: var(--ink); }
 .nav-burger { display: none; border: none; background: none; font-size: 22px; cursor: pointer; color: var(--ink); }
 
 /* ---------- hero ---------- */

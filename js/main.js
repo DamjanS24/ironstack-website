@@ -11,7 +11,9 @@
       if (dict[key]) el.innerHTML = dict[key];
     });
     document.documentElement.lang = l;
-    toggle.textContent = l === 'en' ? 'NL' : 'EN';
+    toggle.querySelectorAll('[data-lang]').forEach(function (sp) {
+      sp.classList.toggle('on', sp.getAttribute('data-lang') === l);
+    });
     localStorage.setItem('ironstack-lang', l);
     lang = l;
   }
