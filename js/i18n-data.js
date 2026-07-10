@@ -9,7 +9,7 @@ window.I18N = {
 
     "hero.kicker": "SOVEREIGN INFRASTRUCTURE · AMSTERDAM",
     "hero.title": "Own your infrastructure.<br>Own your data.",
-    "hero.sub": "Ironstack builds and runs the business systems of small companies on servers they own: CRM, projects, invoicing, automation and monitoring, kept running for one fixed monthly price. No lock-in. You can leave any month and take everything with you.",
+    "hero.sub": "Ironstack builds and runs the systems your business lives on, on servers you own. CRM, invoicing, file storage, team chat, automation: nearly everything you rent today can be owned instead, kept running for one fixed monthly price. No lock-in. You can leave any month and take everything with you.",
     "hero.cta1": "Start a conversation",
     "hero.cta2": "See the services",
     "hero.showcase": "A guided tour of the running stack is being filmed. It will show the real thing, not a mock-up.",
@@ -35,7 +35,7 @@ window.I18N = {
     "services.s1t": "The Audit",
     "services.s1b": "Where does your data live, what does everything cost, and what could you reclaim? A fixed price investigation of your infrastructure, costs and GDPR position. You receive a written report and a concrete plan that stay useful whatever you decide next. The starting point for everything below.",
     "services.s2t": "The Ironstack Stack",
-    "services.s2b": "A complete set of business systems installed on a server you own: CRM, project management, invoicing, automation and monitoring, wired together and configured for how you work. The same stack that runs Ironstack itself. One fixed setup fee, then a fixed monthly price to keep it running.",
+    "services.s2b": "Your business systems installed on a server you own, wired together and configured for how you work. CRM, projects, invoicing and automation form the usual core, and nearly every tool you rent has an owned equivalent: file storage, team chat, wikis, analytics, password management, booking and more. The core is the same stack that runs Ironstack itself. One fixed setup fee, then a fixed monthly price to keep it all running.",
     "services.s3t": "Managed Sovereignty",
     "services.s3b": "The heart of Ironstack. I stay responsible for your environment: updates, backups, monitoring and response, included hours, and a monthly health report in plain language. A fixed monthly price per tier, and the exit clause applies every single month. You can end it whenever you want and keep everything.",
     "services.s4t": "Migration",
@@ -52,6 +52,8 @@ window.I18N = {
     "proof.i6k": "This website", "proof.i6v": "self-hosted",
     "proof.line": "Every tool is wired together with automations I built myself. A new client conversation flows from this website into the CRM, projects, and invoicing without a single third-party data processor in between.",
     "proof.line2": "All six systems run on one server in an EU data center, under EU law, for less than €20 a month. The equivalent SaaS subscriptions start around €80 a month for a single seat, and they grow with every user you add.",
+    "proof.line3": "That is my stack, because that is what my company needs. Yours will look different, and that is the point: nearly every tool a business rents today has a mature open-source equivalent that can run on a server you own. A few examples:",
+    "proof.catalog": "File storage · Team chat · Docs &amp; wikis · Email · Calendars &amp; booking · Analytics · Password management · Forms &amp; surveys · Helpdesk · E&#8209;commerce · Single sign&#8209;on",
 
     "about.title": "The person behind the seal",
     "about.photo": "photo soon",
@@ -132,7 +134,7 @@ window.I18N = {
 
     "hero.kicker": "SOEVEREINE INFRASTRUCTUUR · AMSTERDAM",
     "hero.title": "Eigen infrastructuur.<br>Eigen data.",
-    "hero.sub": "Ironstack bouwt en beheert de bedrijfssystemen van kleine bedrijven op servers die van hen zijn: CRM, projecten, facturatie, automatisering en monitoring, draaiend gehouden voor één vast maandbedrag. Geen lock-in. Je kunt elke maand weg en neemt alles mee.",
+    "hero.sub": "Ironstack bouwt en beheert de systemen waar je bedrijf op draait, op servers die van jou zijn. CRM, facturatie, bestandsopslag, teamchat, automatisering: bijna alles wat je nu huurt kan ook in eigendom, draaiend gehouden voor één vast maandbedrag. Geen lock-in. Je kunt elke maand weg en neemt alles mee.",
     "hero.cta1": "Begin een gesprek",
     "hero.cta2": "Bekijk de diensten",
     "hero.showcase": "Een rondleiding door de draaiende infrastructuur wordt gefilmd. Het laat het echte werk zien, geen mock-up.",
@@ -158,7 +160,7 @@ window.I18N = {
     "services.s1t": "De Audit",
     "services.s1b": "Waar staat je data, wat kost alles, en wat kun je terugwinnen? Een onderzoek met vaste prijs naar je infrastructuur, kosten en AVG-positie. Je ontvangt een schriftelijk rapport en een concreet plan die waardevol blijven, wat je hierna ook beslist. Het startpunt voor alles hieronder.",
     "services.s2t": "De Ironstack Stack",
-    "services.s2b": "Een complete set bedrijfssystemen, geïnstalleerd op een server die van jou is: CRM, projectmanagement, facturatie, automatisering en monitoring, gekoppeld en ingericht op hoe jij werkt. Dezelfde stack waar Ironstack zelf op draait. Eén vaste installatieprijs, daarna een vast maandbedrag om alles draaiend te houden.",
+    "services.s2b": "Jouw bedrijfssystemen, geïnstalleerd op een server die van jou is, gekoppeld en ingericht op hoe jij werkt. CRM, projecten, facturatie en automatisering vormen de gebruikelijke kern, en bijna elke tool die je huurt heeft een equivalent in eigendom: bestandsopslag, teamchat, wiki's, analytics, wachtwoordbeheer, boekingen en meer. De kern is dezelfde stack waar Ironstack zelf op draait. Eén vaste installatieprijs, daarna een vast maandbedrag om alles draaiend te houden.",
     "services.s3t": "Beheerde Soevereiniteit",
     "services.s3b": "Het hart van Ironstack. Ik blijf verantwoordelijk voor je omgeving: updates, back-ups, monitoring en respons, inbegrepen uren en een maandelijkse gezondheidsrapportage in gewone taal. Een vast maandbedrag per niveau, en de exit-clausule geldt elke maand opnieuw. Je kunt er wanneer je wilt mee stoppen en houdt alles.",
     "services.s4t": "Migratie",
@@ -175,6 +177,8 @@ window.I18N = {
     "proof.i6k": "Deze website", "proof.i6v": "zelf-gehost",
     "proof.line": "Elke tool is gekoppeld met automatiseringen die ik zelf heb gebouwd. Een nieuw klantgesprek stroomt van deze website naar het CRM, de projecten en de facturatie, zonder één externe dataverwerker ertussen.",
     "proof.line2": "Alle zes systemen draaien op één server in een EU-datacenter, onder EU-recht, voor minder dan €20 per maand. De vergelijkbare SaaS-abonnementen beginnen rond de €80 per maand voor één gebruiker, en ze groeien met elke gebruiker die erbij komt.",
+    "proof.line3": "Dat is mijn stack, omdat mijn bedrijf dat nodig heeft. Die van jou ziet er anders uit, en dat is precies de bedoeling: bijna elke tool die een bedrijf vandaag huurt heeft een volwassen open-source-equivalent dat op je eigen server kan draaien. Een paar voorbeelden:",
+    "proof.catalog": "Bestandsopslag · Teamchat · Docs &amp; wiki's · E&#8209;mail · Agenda's &amp; boekingen · Analytics · Wachtwoordbeheer · Formulieren &amp; enquêtes · Helpdesk · E&#8209;commerce · Single sign&#8209;on",
 
     "about.title": "De persoon achter het zegel",
     "about.photo": "foto volgt",
