@@ -124,6 +124,55 @@
     });
   }
 
+  // ---------- 3D cards (services + AI): parallax tilt; the seal stamp is CSS-only ----------
+  if (canTilt) {
+    document.querySelectorAll('.card-3d').forEach(function (card) {
+      var ghost = card.querySelector('.ghost-no');
+      card.addEventListener('mousemove', function (e) {
+        var r = card.getBoundingClientRect();
+        var px = (e.clientX - r.left) / r.width - 0.5;
+        var py = (e.clientY - r.top) / r.height - 0.5;
+        card.style.transition = 'transform 0.09s ease-out, box-shadow 0.3s ease';
+        card.style.transform = 'perspective(900px) rotateX(' + (-py * 9).toFixed(2) + 'deg) rotateY(' + (px * 9).toFixed(2) + 'deg) scale3d(1.03, 1.03, 1.03)';
+        if (ghost) ghost.style.transform = 'translate(-50%, -50%) translate(' + (-px * 30).toFixed(1) + 'px, ' + (-py * 30).toFixed(1) + 'px)';
+      });
+      card.addEventListener('mouseleave', function () {
+        card.style.transition = 'transform 0.45s ease, box-shadow 0.45s ease';
+        card.style.transform = '';
+        if (ghost) ghost.style.transform = 'translate(-50%, -50%)';
+      });
+    });
+  }
+
+  // ---------- proof tags: one split-flap wave when the grid scrolls in ----------
+  var proofGrid = document.querySelector('.proof-grid');
+  if (proofGrid && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var FLAP_CHARS = 'abcdefghijklmnopqrstuvwxyz-';
+    function flapEl(el, delay) {
+      var text = el.textContent;
+      el.innerHTML = text.split('').map(function () { return '<span class="fl">&nbsp;</span>'; }).join('');
+      Array.prototype.forEach.call(el.children, function (sp, i) {
+        setTimeout(function () {
+          var n = 0, max = 3 + Math.floor(i / 2);
+          sp.classList.add('spin');
+          var iv = setInterval(function () {
+            sp.textContent = FLAP_CHARS[Math.floor(Math.random() * FLAP_CHARS.length)];
+            if (++n >= max) { clearInterval(iv); sp.textContent = text[i]; sp.classList.remove('spin'); }
+          }, 55);
+        }, delay + i * 40);
+      });
+    }
+    var flapped = false;
+    var fio = new IntersectionObserver(function (entries) {
+      if (!flapped && entries[0].isIntersecting) {
+        flapped = true;
+        proofGrid.querySelectorAll('.proof-v').forEach(function (v, row) { flapEl(v, row * 120); });
+        fio.disconnect();
+      }
+    }, { threshold: 0.35 });
+    fio.observe(proofGrid);
+  }
+
   // ---------- lead form ----------
   var WEBHOOK = 'https://n8n.ironstack.nl/webhook/website-lead';
   var form = document.getElementById('leadForm');
