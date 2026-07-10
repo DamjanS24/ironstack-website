@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ironstack · Card Animation Demos</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="assets/favicon.ico" sizes="48x48">
+<link rel="stylesheet" href="css/fonts.css">
+<style>
+  :root {
+    --ink: #17150F; --cream: #F6F3EC; --paper: #FBF8F1; --rev: #EAE3D2;
+    --muted: #8A8374; --rule: #DCD5C4; --body: #3F3A2F;
+    --serif: 'Fraunces', serif; --garamond: 'EB Garamond', serif;
+    --sans: 'Space Grotesk', sans-serif; --mono: 'IBM Plex Mono', monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--cream); color: var(--ink); font-family: var(--sans); line-height: 1.6; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 56px 32px 120px; }
+  h1 { font-family: var(--serif); font-weight: 600; font-size: 34px; margin-bottom: 8px; }
+  .lead { color: var(--body); max-width: 640px; margin-bottom: 10px; }
+  .hint { font-family: var(--garamond); font-style: italic; color: var(--muted); margin-bottom: 40px; }
+
+  .demo { margin-top: 72px; padding-top: 40px; border-top: 1px solid var(--rule); }
+  .demo-tag { display: inline-block; font-family: var(--mono); font-size: 12px; letter-spacing: 2px; border: 1px solid var(--ink); border-radius: 20px; padding: 3px 14px; margin-bottom: 14px; }
+  .demo h2 { font-family: var(--serif); font-weight: 600; font-size: 24px; margin-bottom: 6px; }
+  .demo-note { color: var(--body); max-width: 620px; margin-bottom: 30px; font-size: 15px; }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 18px; }
+  .card { position: relative; background: var(--paper); border: 1px solid var(--rule); border-radius: 12px; padding: 30px 26px; overflow: hidden; }
+  .card-no { font-family: var(--mono); font-size: 12px; letter-spacing: 2px; color: var(--muted); }
+  .card h3 { font-family: var(--serif); font-weight: 600; font-size: 20px; margin: 12px 0 10px; }
+  .card p { color: var(--body); font-size: 14.5px; position: relative; }
+
+  /* ============ B: layered parallax depth ============ */
+  .tilt3d { transform-style: preserve-3d; will-change: transform; transition: transform .35s ease, box-shadow .35s ease; }
+  .tilt3d:hover { box-shadow: 0 26px 60px -30px rgba(23,21,15,.45); }
+  .tilt3d .ghost-no { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: var(--serif); font-weight: 600; font-size: 190px; color: rgba(23,21,15,.055); pointer-events: none; user-select: none; transition: transform .4s ease; }
+  .tilt3d .card-no, .tilt3d h3, .tilt3d p { transform: translateZ(0px); }
+  .tilt3d h3 { transform: translateZ(34px); }
+  .tilt3d .card-no { transform: translateZ(20px); }
+  .tilt3d p { transform: translateZ(12px); }
+
+  /* ============ D: the seal stamp ============ */
+  .stampable { transition: transform .22s ease, box-shadow .22s ease; }
+  .stampable:hover { transform: translateY(2px) scale(.992); box-shadow: inset 0 3px 14px rgba(23,21,15,.09); }
+  .stamp { position: absolute; right: 14px; bottom: 10px; width: 112px; height: 112px; opacity: 0; pointer-events: none; transform: scale(1.7) rotate(-16deg); }
+  .stampable:hover .stamp { animation: stampIn .5s cubic-bezier(.16,1.1,.3,1) forwards; }
+  @keyframes stampIn {
+    0%   { opacity: 0;   transform: scale(1.7) rotate(-16deg); }
+    55%  { opacity: .22; transform: scale(.94) rotate(-7deg); }
+    75%  { opacity: .15; transform: scale(1.03) rotate(-8.5deg); }
+    100% { opacity: .17; transform: scale(1) rotate(-8deg); }
+  }
+  /* featured: permanently embossed */
+  .card-featured { border-color: var(--ink); border-width: 1.5px; }
+  .stamp-embossed { position: absolute; right: 14px; bottom: 10px; width: 112px; height: 112px; opacity: .11; transform: rotate(-8deg); pointer-events: none;
+    filter: drop-shadow(0 1px 0 rgba(255,255,255,.75)) drop-shadow(0 -1px 0 rgba(23,21,15,.28)); }
+  .stampable:hover .stamp-embossed { animation: none; }
+
+  /* ============ B+D combined ============ */
+  .combo { transform-style: preserve-3d; will-change: transform; transition: transform .35s ease, box-shadow .35s ease; }
+  .combo:hover { box-shadow: 0 26px 60px -30px rgba(23,21,15,.45), inset 0 2px 10px rgba(23,21,15,.05); }
+  .combo .ghost-no { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: var(--serif); font-weight: 600; font-size: 190px; color: rgba(23,21,15,.055); pointer-events: none; user-select: none; transition: transform .4s ease; }
+  .combo .card-no { transform: translateZ(20px); }
+  .combo h3 { transform: translateZ(34px); }
+  .combo p { transform: translateZ(12px); }
+  .combo .stamp { transform: scale(1.7) rotate(-16deg) translateZ(6px); }
+  .combo:hover .stamp { animation: stampIn .5s cubic-bezier(.16,1.1,.3,1) forwards; }
+
+  /* ============ F: split-flap proof tags ============ */
+  .proof-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 0; border: 1px solid var(--rule); border-radius: 12px; overflow: hidden; background: var(--paper); }
+  .proof-item { display: flex; justify-content: space-between; align-items: center; padding: 22px 26px; border-bottom: 1px solid var(--rule); border-right: 1px solid var(--rule); }
+  .proof-k { font-size: 15px; }
+  .proof-v { font-family: var(--mono); font-size: 12.5px; letter-spacing: 2px; color: var(--muted); perspective: 300px; }
+  .proof-v .fl { display: inline-block; min-width: .62em; text-align: center; backface-visibility: hidden; }
+  .proof-v .fl.spin { animation: flapflip .12s linear infinite; }
+  @keyframes flapflip { 0% { transform: rotateX(0); } 50% { transform: rotateX(-78deg); } 100% { transform: rotateX(0); } }
+  .replay { margin-top: 22px; font-family: var(--sans); font-size: 14px; background: var(--ink); color: var(--rev); border: none; border-radius: 24px; padding: 10px 24px; cursor: pointer; }
+  .replay:hover { opacity: .85; }
+
+  .verdict { margin-top: 80px; padding: 30px; border: 1.5px solid var(--ink); border-radius: 12px; max-width: 720px; }
+  .verdict h2 { font-family: var(--serif); font-size: 20px; margin-bottom: 8px; }
+  .verdict p { color: var(--body); font-size: 15px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tilt3d, .combo, .stampable { transition: none; }
+    .stampable:hover .stamp, .combo:hover .stamp { animation: none; opacity: .15; transform: scale(1) rotate(-8deg); }
+    .proof-v .fl.spin { animation: none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Card animation demos</h1>
+  <p class="lead">Four candidates for the content cards, using the real services copy. Everything is pure CSS and vanilla JS: no libraries, nothing loaded from outside.</p>
+  <p class="hint">Move your cursor over the cards. Use a mouse; these degrade to static cards on touch.</p>
+
+  <!-- ============ B ============ -->
+  <section class="demo">
+    <span class="demo-tag">B</span>
+    <h2>Layered parallax depth</h2>
+    <p class="demo-note">The card tilts toward the cursor. A ghost numeral floats behind the text and drifts against the movement, while the title rides above the card plane. The card reads as an object with layers inside it.</p>
+    <div class="cards">
+      <article class="card tilt3d" data-tilt>
+        <span class="ghost-no">01</span>
+        <span class="card-no">01</span>
+        <h3>The Audit</h3>
+        <p>Where does your data live, what does everything cost, and what could you reclaim? A fixed price investigation of your infrastructure, costs and GDPR position.</p>
+      </article>
+      <article class="card tilt3d" data-tilt>
+        <span class="ghost-no">02</span>
+        <span class="card-no">02</span>
+        <h3>AI &amp; Automation</h3>
+        <p>Voice assistants that answer and book appointments, chat assistants that know your business, and automations that read, classify and route the busywork away.</p>
+      </article>
+      <article class="card tilt3d" data-tilt>
+        <span class="ghost-no">03</span>
+        <span class="card-no">03</span>
+        <h3>The Ironstack Stack</h3>
+        <p>Your business systems installed on a server you own, wired together and configured for how you work. The core is the same stack that runs Ironstack itself.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ D ============ -->
+  <section class="demo">
+    <span class="demo-tag">D</span>
+    <h2>The seal stamp</h2>
+    <p class="demo-note">On hover the card presses down like paper under a stamp, and the Ironstack seal strikes in and settles as a watermark. The featured card carries the seal permanently embossed.</p>
+    <div class="cards">
+      <article class="card stampable">
+        <span class="card-no">01</span>
+        <h3>The Audit</h3>
+        <p>Where does your data live, what does everything cost, and what could you reclaim? A fixed price investigation of your infrastructure, costs and GDPR position.</p>
+        <img class="stamp" src="assets/ironstack-seal-full-ink.svg" alt="">
+      </article>
+      <article class="card stampable">
+        <span class="card-no">02</span>
+        <h3>AI &amp; Automation</h3>
+        <p>Voice assistants that answer and book appointments, chat assistants that know your business, and automations that read, classify and route the busywork away.</p>
+        <img class="stamp" src="assets/ironstack-seal-full-ink.svg" alt="">
+      </article>
+      <article class="card card-featured stampable">
+        <span class="card-no">04</span>
+        <h3>Managed Sovereignty</h3>
+        <p>The heart of Ironstack. I stay responsible for your environment, and the exit clause applies every single month. Permanently sealed, like a notarized page.</p>
+        <img class="stamp-embossed" src="assets/ironstack-seal-full-ink.svg" alt="">
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ B+D ============ -->
+  <section class="demo">
+    <span class="demo-tag">B + D</span>
+    <h2>Parallax depth with the seal stamp</h2>
+    <p class="demo-note">Both together: the card tilts with layered depth, and entering it triggers the stamp. The recommended combination.</p>
+    <div class="cards">
+      <article class="card combo" data-tilt>
+        <span class="ghost-no">01</span>
+        <span class="card-no">01</span>
+        <h3>The Audit</h3>
+        <p>Where does your data live, what does everything cost, and what could you reclaim? A fixed price investigation of your infrastructure, costs and GDPR position.</p>
+        <img class="stamp" src="assets/ironstack-seal-full-ink.svg" alt="">
+      </article>
+      <article class="card combo" data-tilt>
+        <span class="ghost-no">02</span>
+        <span class="card-no">02</span>
+        <h3>AI &amp; Automation</h3>
+        <p>Voice assistants that answer and book appointments, chat assistants that know your business, and automations that read, classify and route the busywork away.</p>
+        <img class="stamp" src="assets/ironstack-seal-full-ink.svg" alt="">
+      </article>
+      <article class="card combo" data-tilt>
+        <span class="ghost-no">03</span>
+        <span class="card-no">03</span>
+        <h3>The Ironstack Stack</h3>
+        <p>Your business systems installed on a server you own, wired together and configured for how you work. The core is the same stack that runs Ironstack itself.</p>
+        <img class="stamp" src="assets/ironstack-seal-full-ink.svg" alt="">
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ F ============ -->
+  <section class="demo">
+    <span class="demo-tag">F</span>
+    <h2>Split-flap proof tags</h2>
+    <p class="demo-note">The six tags in the Proof section flip in letter by letter like a mechanical departure board, staggered across the rows, once, when the section scrolls into view.</p>
+    <div class="proof-grid" id="flapGrid">
+      <div class="proof-item"><span class="proof-k">CRM &amp; sales</span><span class="proof-v" data-text="SELF-HOSTED"></span></div>
+      <div class="proof-item"><span class="proof-k">Project management</span><span class="proof-v" data-text="SELF-HOSTED"></span></div>
+      <div class="proof-item"><span class="proof-k">Invoicing</span><span class="proof-v" data-text="SELF-HOSTED"></span></div>
+      <div class="proof-item"><span class="proof-k">Automation</span><span class="proof-v" data-text="SELF-HOSTED"></span></div>
+      <div class="proof-item"><span class="proof-k">Monitoring &amp; alerting</span><span class="proof-v" data-text="SELF-HOSTED"></span></div>
+      <div class="proof-item"><span class="proof-k">This website</span><span class="proof-v" data-text="SELF-HOSTED"></span></div>
+    </div>
+    <button class="replay" id="replayFlap">Replay the flip</button>
+  </section>
+
+  <div class="verdict">
+    <h2>Recommendation</h2>
+    <p>B+D on the services and AI cards, with the permanent embossed seal reserved for the featured Managed Sovereignty card, and F on the proof grid. The photo card keeps its own deeper tilt so it stays the crown jewel.</p>
+  </div>
+</div>
+
+<script>
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  // ---------- tilt with parallax ghost (B and B+D) ----------
+  if (canHover && !reduce) {
+    document.querySelectorAll('[data-tilt]').forEach(function (card) {
+      var ghost = card.querySelector('.ghost-no');
+      card.addEventListener('mousemove', function (e) {
+        var r = card.getBoundingClientRect();
+        var px = (e.clientX - r.left) / r.width - 0.5;
+        var py = (e.clientY - r.top) / r.height - 0.5;
+        card.style.transition = 'box-shadow .35s ease';
+        card.style.transform = 'perspective(900px) rotateX(' + (-py * 9).toFixed(2) + 'deg) rotateY(' + (px * 9).toFixed(2) + 'deg) scale3d(1.03,1.03,1.03)';
+        if (ghost) ghost.style.transform = 'translate(-50%,-50%) translate(' + (-px * 30).toFixed(1) + 'px,' + (-py * 30).toFixed(1) + 'px)';
+      });
+      card.addEventListener('mouseleave', function () {
+        card.style.transition = 'transform .45s ease, box-shadow .45s ease';
+        card.style.transform = '';
+        if (ghost) ghost.style.transform = 'translate(-50%,-50%)';
+      });
+    });
+  }
+
+  // ---------- split-flap (F) ----------
+  var CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ-';
+  function flap(el, rowDelay) {
+    var final = el.dataset.text;
+    el.innerHTML = final.split('').map(function (c) { return '<span class="fl">&nbsp;</span>'; }).join('');
+    var spans = el.children;
+    Array.prototype.forEach.call(spans, function (sp, i) {
+      setTimeout(function () {
+        if (reduce) { sp.textContent = final[i]; return; }
+        var n = 0, max = 3 + Math.floor(i / 2);
+        sp.classList.add('spin');
+        var iv = setInterval(function () {
+          sp.textContent = CHARS[Math.floor(Math.random() * CHARS.length)];
+          if (++n >= max) { clearInterval(iv); sp.textContent = final[i]; sp.classList.remove('spin'); }
+        }, 60);
+      }, rowDelay + i * 45);
+    });
+  }
+  function runFlaps() {
+    document.querySelectorAll('#flapGrid .proof-v').forEach(function (v, row) { flap(v, row * 160); });
+  }
+  var flapped = false;
+  var io = new IntersectionObserver(function (entries) {
+    if (!flapped && entries[0].isIntersecting) { flapped = true; runFlaps(); io.disconnect(); }
+  }, { threshold: 0.4 });
+  io.observe(document.getElementById('flapGrid'));
+  document.getElementById('replayFlap').addEventListener('click', runFlaps);
+})();
+</script>
+</body>
+</html>
