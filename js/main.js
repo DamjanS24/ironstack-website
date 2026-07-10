@@ -101,12 +101,16 @@
       var y = e.clientY - r.top;
       var rx = ((y - r.height / 2) / (r.height / 2)) * -8;  // max 8deg
       var ry = ((x - r.width / 2) / (r.width / 2)) * 8;
-      tilt.style.transition = 'transform 0.1s ease-out';
+      tilt.style.transition = 'transform 0.1s ease-out, box-shadow 0.15s ease-out';
       tilt.style.transform = 'perspective(1000px) rotateX(' + rx.toFixed(2) + 'deg) rotateY(' + ry.toFixed(2) + 'deg) scale3d(1.04, 1.04, 1.04)';
+      // the shadow falls away from the tilt, like a card lifted under a light
+      var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+      tilt.style.boxShadow = (ry * -2.2).toFixed(1) + 'px ' + (26 + rx * -2.2).toFixed(1) + 'px 60px -26px rgba(' + (dark ? '0, 0, 0, 0.75' : '23, 21, 15, 0.55') + ')';
     });
     tilt.addEventListener('mouseleave', function () {
-      tilt.style.transition = 'transform 0.4s ease-in-out';
+      tilt.style.transition = 'transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out';
       tilt.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+      tilt.style.boxShadow = '';
     });
   }
 
