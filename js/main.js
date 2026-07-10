@@ -128,18 +128,26 @@
   var WEBHOOK = 'https://n8n.ironstack.nl/webhook/website-lead';
   var form = document.getElementById('leadForm');
   var status = document.getElementById('formStatus');
+  var loadedAt = Date.now();
 
   function msg(key) {
     status.textContent = (window.I18N[lang] || window.I18N.en)[key];
   }
 
-  form.addEventListener('submit', function (e) {
+  if (form) form.addEventListener('submit', function (e) {
     e.preventDefault();
+    // spam gate: honeypot filled or form submitted inhumanly fast → pretend success, send nothing
+    if (form.website.value !== '' || Date.now() - loadedAt < 3000) {
+      form.reset();
+      msg('contact.ok');
+      return;
+    }
     var data = {
       name: form.name.value.trim(),
       company: form.company.value.trim(),
       email: form.email.value.trim(),
       message: form.message.value.trim(),
+      website: form.website.value,
       lang: lang,
       page: location.href
     };

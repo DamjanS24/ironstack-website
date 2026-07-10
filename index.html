@@ -45,7 +45,8 @@
     {"@type": "Question", "name": "What does it cost?", "acceptedAnswer": {"@type": "Answer", "text": "The audit has a small fixed price, the migration a fixed project fee based on the audit findings, and the retainer a fixed monthly price per tier. The number is known before anything starts and does not move."}},
     {"@type": "Question", "name": "Do we have to migrate everything at once?", "acceptedAnswer": {"@type": "Answer", "text": "No. Migrations are phased by design, and starting with a single system is a good way to begin."}},
     {"@type": "Question", "name": "Is self-hosted actually safe enough for a business?", "acceptedAnswer": {"@type": "Answer", "text": "Safety comes from practice: updates, backups, monitoring, and hardening are part of every environment. You also gain certainty about exactly where your data is and who can touch it."}},
-    {"@type": "Question", "name": "What if we want to leave Ironstack later?", "acceptedAnswer": {"@type": "Answer", "text": "You take everything with you: accounts, servers, and documentation. No lock-in — it is written into the agreement."}}
+    {"@type": "Question", "name": "What if we want to leave Ironstack later?", "acceptedAnswer": {"@type": "Answer", "text": "You take everything with you: accounts, servers, and documentation. No lock-in — it is written into the agreement."}},
+    {"@type": "Question", "name": "Where does our data live, and what about the GDPR?", "acceptedAnswer": {"@type": "Answer", "text": "On servers you own, in an EU data center, under EU jurisdiction. No American cloud provider in the chain means no CLOUD Act ambiguity and a shorter GDPR processor register."}}
   ]
 }
 </script>
@@ -147,6 +148,7 @@
     <div class="proof-item"><span class="proof-k" data-i18n="proof.i6k">This website</span><span class="proof-v" data-i18n="proof.i6v">self-hosted</span></div>
   </div>
   <p class="proof-line" data-i18n="proof.line">Every tool is wired together with automations I built myself. A new client conversation flows from this website into the CRM, projects, and invoicing without a single third-party data processor in between.</p>
+  <p class="proof-line" data-i18n="proof.line2">All six systems run on one server in an EU data center, under EU law, for less than €20 a month. The equivalent SaaS subscriptions start around €80 a month for a single seat — and grow with every user you add.</p>
 </section>
 
 <!-- ============ EXIT CLAUSE ============ -->
@@ -183,9 +185,9 @@
     </div>
     <div class="about-text">
       <h2 class="section-title" data-i18n="about.title">The person behind the seal</h2>
-      <p data-i18n="about.p1">I am Damjan Sajinovic, a 22-year-old software engineering student at the Amsterdam University of Applied Sciences with Serbian roots. In Serbian there’s a word, <em>inat</em>: the stubborn refusal to accept “that’s just how it is.” It’s the most accurate description of why Ironstack exists.</p>
+      <p data-i18n="about.p1">I am Damjan Sajinovic, an infrastructure engineer in Amsterdam with Serbian roots. In Serbian there’s a word, <em>inat</em>: the stubborn refusal to accept “that’s just how it is.” It’s the most accurate description of why Ironstack exists.</p>
       <p data-i18n="about.p2">A few years ago I decided I no longer accepted that my data lives in other people’s data lakes, where it is harvested, profiled, and sold as someone else’s product. So I rebuilt my digital life on infrastructure I own. Then I rebuilt my company on it. With Ironstack I do the same for businesses that feel the same discomfort.</p>
-      <p data-i18n="about.p3">I am younger than your average consultant, and I will show you more than any of them. You see every design decision, every runbook, and every line of the audit. That’s the deal. Full transparency is what ownership looks like.</p>
+      <p data-i18n="about.p3">I am younger than your average consultant, so I don’t ask you to take experience on faith. You see every design decision, every runbook, and every line of the audit. That’s the deal. Full transparency is what ownership looks like.</p>
       <div class="about-links">
         <a href="https://www.linkedin.com/in/dsajinovic/" target="_blank" rel="noopener">LinkedIn</a>
         <span>◆</span>
@@ -223,6 +225,10 @@
       <summary data-i18n="faq.q6">What if we want to leave Ironstack later?</summary>
       <p data-i18n="faq.a6">Then you leave, and you take everything with you. That is the exit clause above, and it is written into the agreement. Lock-in would contradict everything this company stands for.</p>
     </details>
+    <details class="faq-item">
+      <summary data-i18n="faq.q7">Where does our data live, and what about the GDPR?</summary>
+      <p data-i18n="faq.a7">On servers you own, in an EU data center, under EU jurisdiction. With no American cloud provider in the chain there is no CLOUD Act ambiguity, your GDPR processor register gets shorter instead of longer, and “where is our data?” becomes a question you can answer by pointing.</p>
+    </details>
   </div>
 </section>
 
@@ -244,7 +250,9 @@
       </div>
       <label><span data-i18n="contact.email">Email</span><input type="email" name="email" required autocomplete="email"></label>
       <label><span data-i18n="contact.message">What runs where today?</span><textarea name="message" rows="5" required></textarea></label>
+      <label class="hp-field" aria-hidden="true"><span>Leave this field empty</span><input type="text" name="website" tabindex="-1" autocomplete="off"></label>
       <button type="submit" class="btn btn-primary" data-i18n="contact.send">Send</button>
+      <p class="form-note" data-i18n="contact.response">You get a reply within one working day.</p>
       <p class="form-status" id="formStatus" role="status"></p>
     </form>
     <div class="contact-aside">
@@ -264,6 +272,7 @@
     <a href="mailto:d.sajinovic@ironstack.nl">d.sajinovic@ironstack.nl</a>
     <a href="https://www.linkedin.com/in/dsajinovic/" target="_blank" rel="noopener">LinkedIn</a>
     <a href="https://github.com/DamjanS24" target="_blank" rel="noopener">GitHub</a>
+    <a href="privacy.html" data-i18n="footer.privacy">Privacy</a>
   </div>
   <p class="footer-fine" data-i18n="footer.fine">Built and hosted on Ironstack’s own infrastructure. No analytics, no trackers, no cookies.</p>
 </footer>

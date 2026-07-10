@@ -288,3 +288,19 @@ a { color: inherit; }
   .nav-burger { display: block; }
   .form-row { grid-template-columns: 1fr; }
 }
+
+/* ---------- honeypot (spam trap: visually gone, present for bots) ---------- */
+.hp-field { position: absolute !important; left: -9999px !important; width: 1px; height: 1px; overflow: hidden; }
+
+/* ---------- form note ---------- */
+.form-note { font-size: 0.88rem; color: var(--muted); margin-top: 10px; }
+
+/* ---------- legal / privacy page ---------- */
+.legal { max-width: 720px; margin: 0 auto; }
+.legal .section-title { margin-bottom: 6px; }
+.legal-updated { font-family: var(--garamond); font-style: italic; color: var(--muted); margin-bottom: 28px; }
+.legal h2 { font-family: var(--serif); font-weight: 600; font-size: 1.25rem; margin: 34px 0 10px; color: var(--ink); }
+.legal p { color: var(--body); line-height: 1.65; margin-bottom: 12px; }
+.legal a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--rule); padding-bottom: 1px; transition: border-color .18s ease; }
+.legal a:hover { border-color: var(--ink); }
+.legal-back { margin-top: 40px; }

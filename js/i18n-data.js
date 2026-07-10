@@ -48,12 +48,13 @@ window.I18N = {
     "proof.i5k": "Monitoring & alerting", "proof.i5v": "self-hosted",
     "proof.i6k": "This website", "proof.i6v": "self-hosted",
     "proof.line": "Every tool is wired together with automations I built myself. A new client conversation flows from this website into the CRM, projects, and invoicing without a single third-party data processor in between.",
+    "proof.line2": "All six systems run on one server in an EU data center, under EU law, for less than €20 a month. The equivalent SaaS subscriptions start around €80 a month for a single seat — and grow with every user you add.",
 
     "about.title": "The person behind the seal",
     "about.photo": "photo soon",
-    "about.p1": "I am Damjan Sajinovic, a 22-year-old software engineering student at the Amsterdam University of Applied Sciences with Serbian roots. In Serbian there’s a word, <em>inat</em>: the stubborn refusal to accept “that’s just how it is.” It’s the most accurate description of why Ironstack exists.",
+    "about.p1": "I am Damjan Sajinovic, an infrastructure engineer in Amsterdam with Serbian roots. In Serbian there’s a word, <em>inat</em>: the stubborn refusal to accept “that’s just how it is.” It’s the most accurate description of why Ironstack exists.",
     "about.p2": "A few years ago I decided I no longer accepted that my data lives in other people’s data lakes, where it is harvested, profiled, and sold as someone else’s product. So I rebuilt my digital life on infrastructure I own. Then I rebuilt my company on it. With Ironstack I do the same for businesses that feel the same discomfort.",
-    "about.p3": "I am younger than your average consultant, and I will show you more than any of them. You see every design decision, every runbook, and every line of the audit. That’s the deal. Full transparency is what ownership looks like.",
+    "about.p3": "I am younger than your average consultant, so I don’t ask you to take experience on faith. You see every design decision, every runbook, and every line of the audit. That’s the deal. Full transparency is what ownership looks like.",
 
     "contact.title": "Start a conversation",
     "contact.sub": "Tell me what runs where and what bothers you about it. You will get a straight answer. Sometimes the honest answer is that you do not need me.",
@@ -62,6 +63,7 @@ window.I18N = {
     "contact.email": "Email",
     "contact.message": "What runs where today?",
     "contact.send": "Send",
+    "contact.response": "You get a reply within one working day.",
     "contact.direct": "Prefer direct email?",
     "contact.sending": "Sending…",
     "contact.ok": "Received. You’ll hear from me within one business day.",
@@ -86,6 +88,8 @@ window.I18N = {
     "faq.a5": "Safety comes from practice, not from a vendor logo. Updates, backups, monitoring, and hardening are part of every environment I hand over. What you gain on top is certainty: you know exactly where your data is and who can touch it.",
     "faq.q6": "What if we want to leave Ironstack later?",
     "faq.a6": "Then you leave, and you take everything with you. That is the exit clause above, and it is written into the agreement. Lock-in would contradict everything this company stands for.",
+    "faq.q7": "Where does our data live, and what about the GDPR?",
+    "faq.a7": "On servers you own, in an EU data center, under EU jurisdiction. With no American cloud provider in the chain there is no CLOUD Act ambiguity, your GDPR processor register gets shorter instead of longer, and “where is our data?” becomes a question you can answer by pointing.",
 
     "start.s1t": "A 30-minute call",
     "start.s1b": "Free and without obligation. We find out whether this fits.",
@@ -94,7 +98,26 @@ window.I18N = {
     "start.s3t": "A proposal with one number",
     "start.s3b": "A fixed project fee based on the audit. It does not move.",
 
-    "footer.fine": "Built and hosted on Ironstack’s own infrastructure. No analytics, no trackers, no cookies."
+    "footer.fine": "Built and hosted on Ironstack’s own infrastructure. No analytics, no trackers, no cookies.",
+    "footer.privacy": "Privacy",
+
+    "privacy.title": "Privacy",
+    "privacy.updated": "Last updated: 10 July 2026",
+    "privacy.intro": "This website practices what it preaches: no analytics, no trackers, no advertising cookies, no third-party scripts. This page describes the little data that is processed, why, and your rights under the GDPR.",
+    "privacy.whoT": "Who is responsible",
+    "privacy.whoB": "Ironstack, operated by Damjan Sajinovic, Amsterdam, the Netherlands. For anything related to your data, email <a href=\"mailto:d.sajinovic@ironstack.nl\">d.sajinovic@ironstack.nl</a>.",
+    "privacy.formT": "The contact form",
+    "privacy.formB": "When you submit the form, the name, company, email address, and message you enter are delivered to Ironstack’s own self-hosted systems: the automation platform and the CRM. Both run on a server in an EU data center, managed solely by me. No third party receives or processes this data.",
+    "privacy.formB2": "This data is used for one purpose: answering you. The legal basis is legitimate interest in responding to your own inquiry and, where a project follows, the preparation of a contract. Inquiries that lead nowhere are deleted within twelve months; client data is kept for as long as the relationship and legal retention periods require.",
+    "privacy.mailT": "Direct email",
+    "privacy.mailB": "If you email me directly, your message lives in Ironstack’s mailbox and follows the same principles: it is used only to answer you and shared with no one.",
+    "privacy.localT": "Local storage",
+    "privacy.localB": "The site stores exactly one thing in your browser: your language choice, English or Dutch. It never leaves your device, contains nothing personal, and is not a tracking cookie.",
+    "privacy.logsT": "Server logs",
+    "privacy.logsB": "Like any web server, the reverse proxy that serves this site keeps short-lived technical logs — IP address, time, requested page — for security and troubleshooting. They are rotated automatically and used for nothing else.",
+    "privacy.rightsT": "Your rights",
+    "privacy.rightsB": "Under the GDPR you can request access to, correction of, or deletion of your data at any time; one email is enough. You also have the right to lodge a complaint with the Dutch supervisory authority, the Autoriteit Persoonsgegevens.",
+    "privacy.back": "← Back to the site"
   },
 
   nl: {
@@ -145,12 +168,13 @@ window.I18N = {
     "proof.i5k": "Monitoring & alerts", "proof.i5v": "zelf-gehost",
     "proof.i6k": "Deze website", "proof.i6v": "zelf-gehost",
     "proof.line": "Elke tool is gekoppeld met automatiseringen die ik zelf heb gebouwd. Een nieuw klantgesprek stroomt van deze website naar het CRM, de projecten en de facturatie, zonder één externe dataverwerker ertussen.",
+    "proof.line2": "Alle zes systemen draaien op één server in een EU-datacenter, onder EU-recht, voor minder dan €20 per maand. De vergelijkbare SaaS-abonnementen beginnen rond de €80 per maand voor één gebruiker — en groeien met elke gebruiker die erbij komt.",
 
     "about.title": "De persoon achter het zegel",
     "about.photo": "foto volgt",
-    "about.p1": "Ik ben Damjan Sajinovic, een 22-jarige student Software Engineering aan de Hogeschool van Amsterdam met Servische roots. In het Servisch bestaat een woord, <em>inat</em>: de koppige weigering om “zo is het nu eenmaal” te accepteren. Het is de meest accurate beschrijving van waarom Ironstack bestaat.",
+    "about.p1": "Ik ben Damjan Sajinovic, infrastructuur-engineer in Amsterdam met Servische roots. In het Servisch bestaat een woord, <em>inat</em>: de koppige weigering om “zo is het nu eenmaal” te accepteren. Het is de meest accurate beschrijving van waarom Ironstack bestaat.",
     "about.p2": "Een paar jaar geleden besloot ik niet langer te accepteren dat mijn data in andermans datalakes ligt, waar het wordt geoogst, geprofileerd en verkocht als andermans product. Dus herbouwde ik mijn digitale leven op infrastructuur die van mij is. Daarna herbouwde ik mijn bedrijf erop. Met Ironstack doe ik hetzelfde voor bedrijven die datzelfde ongemak voelen.",
-    "about.p3": "Ik ben jonger dan je gemiddelde consultant, en ik laat je meer zien dan welke dan ook. Je ziet elke ontwerpkeuze, elk runbook, elke regel van de audit. Dat is de afspraak. Volledige transparantie is hoe eigendom eruitziet.",
+    "about.p3": "Ik ben jonger dan je gemiddelde consultant, dus ik vraag je niet om ervaring op goed vertrouwen aan te nemen. Je ziet elke ontwerpkeuze, elk runbook, elke regel van de audit. Dat is de afspraak. Volledige transparantie is hoe eigendom eruitziet.",
 
     "contact.title": "Begin een gesprek",
     "contact.sub": "Vertel me wat waar draait en wat je eraan dwarszit. Je krijgt een eerlijk antwoord. Soms is het eerlijke antwoord dat je mij niet nodig hebt.",
@@ -159,6 +183,7 @@ window.I18N = {
     "contact.email": "E-mail",
     "contact.message": "Wat draait er vandaag waar?",
     "contact.send": "Versturen",
+    "contact.response": "Je krijgt binnen één werkdag antwoord.",
     "contact.direct": "Liever direct mailen?",
     "contact.sending": "Versturen…",
     "contact.ok": "Ontvangen. Je hoort binnen één werkdag van me.",
@@ -183,6 +208,8 @@ window.I18N = {
     "faq.a5": "Veiligheid komt van de praktijk, niet van een leverancierslogo. Updates, back-ups, monitoring en hardening horen bij elke omgeving die ik oplever. Wat je erbij krijgt is zekerheid: je weet precies waar je data staat en wie erbij kan.",
     "faq.q6": "Wat als we later bij Ironstack weg willen?",
     "faq.a6": "Dan ga je weg, en neem je alles mee. Dat is de exit-clausule hierboven, en die staat in de overeenkomst. Lock-in zou haaks staan op alles waar dit bedrijf voor staat.",
+    "faq.q7": "Waar staat onze data, en hoe zit het met de AVG?",
+    "faq.a7": "Op servers die van jou zijn, in een EU-datacenter, onder EU-jurisdictie. Zonder Amerikaanse cloudprovider in de keten is er geen CLOUD Act-onzekerheid, wordt je AVG-verwerkersregister korter in plaats van langer, en wordt “waar staat onze data?” een vraag die je kunt beantwoorden door te wijzen.",
 
     "start.s1t": "Een gesprek van 30 minuten",
     "start.s1b": "Gratis en vrijblijvend. We ontdekken of het past.",
@@ -191,6 +218,25 @@ window.I18N = {
     "start.s3t": "Een voorstel met één bedrag",
     "start.s3b": "Een vaste projectprijs op basis van de audit. Dat bedrag beweegt niet.",
 
-    "footer.fine": "Gebouwd en gehost op Ironstacks eigen infrastructuur. Geen analytics, geen trackers, geen cookies."
+    "footer.fine": "Gebouwd en gehost op Ironstacks eigen infrastructuur. Geen analytics, geen trackers, geen cookies.",
+    "footer.privacy": "Privacy",
+
+    "privacy.title": "Privacy",
+    "privacy.updated": "Laatst bijgewerkt: 10 juli 2026",
+    "privacy.intro": "Deze website doet wat hij predikt: geen analytics, geen trackers, geen advertentiecookies, geen scripts van derden. Deze pagina beschrijft de weinige data die wordt verwerkt, waarom, en je rechten onder de AVG.",
+    "privacy.whoT": "Wie is verantwoordelijk",
+    "privacy.whoB": "Ironstack, gedreven door Damjan Sajinovic, Amsterdam, Nederland. Voor alles rondom je data: mail <a href=\"mailto:d.sajinovic@ironstack.nl\">d.sajinovic@ironstack.nl</a>.",
+    "privacy.formT": "Het contactformulier",
+    "privacy.formB": "Als je het formulier verstuurt, komen de naam, het bedrijf, het e-mailadres en het bericht dat je invult terecht in Ironstacks eigen zelf-gehoste systemen: het automatiseringsplatform en het CRM. Beide draaien op een server in een EU-datacenter, uitsluitend door mij beheerd. Geen enkele derde partij ontvangt of verwerkt deze data.",
+    "privacy.formB2": "Deze data wordt voor één doel gebruikt: jou antwoorden. De rechtsgrond is gerechtvaardigd belang bij het beantwoorden van je eigen vraag en, als er een project uit volgt, de voorbereiding van een overeenkomst. Aanvragen die nergens toe leiden worden binnen twaalf maanden verwijderd; klantdata wordt bewaard zolang de relatie en wettelijke bewaartermijnen dat vereisen.",
+    "privacy.mailT": "Directe e-mail",
+    "privacy.mailB": "Mail je mij direct, dan staat je bericht in Ironstacks mailbox en gelden dezelfde principes: het wordt alleen gebruikt om je te antwoorden en met niemand gedeeld.",
+    "privacy.localT": "Lokale opslag",
+    "privacy.localB": "De site slaat precies één ding op in je browser: je taalkeuze, Engels of Nederlands. Die verlaat je apparaat nooit, bevat niets persoonlijks en is geen tracking-cookie.",
+    "privacy.logsT": "Serverlogs",
+    "privacy.logsB": "Zoals elke webserver houdt de reverse proxy die deze site serveert kortlevende technische logs bij — IP-adres, tijdstip, opgevraagde pagina — voor beveiliging en probleemoplossing. Ze worden automatisch geroteerd en nergens anders voor gebruikt.",
+    "privacy.rightsT": "Je rechten",
+    "privacy.rightsB": "Onder de AVG kun je op elk moment inzage, correctie of verwijdering van je data vragen; één mail is genoeg. Je hebt ook het recht om een klacht in te dienen bij de Autoriteit Persoonsgegevens.",
+    "privacy.back": "← Terug naar de site"
   }
 };
