@@ -66,7 +66,7 @@
 
   // ---------- scroll-reveal (hero stays static: no blank flash above the fold) ----------
   var revealables = document.querySelectorAll(
-    '.section-title, .section-sub, .card, .phases li, .proof-item, .proof-line, ' +
+    '.section-title, .section-sub, .card, .phases li, .register, .proof-line, ' +
     '.services-note, .manifesto blockquote, .manifesto p, .about-photo, .about-text > *, ' +
     '.lead-form, .contact-aside, .exit-inner > *, .faq-item, .step'
   );
@@ -144,33 +144,13 @@
     });
   }
 
-  // ---------- proof tags: one split-flap wave when the grid scrolls in ----------
-  var proofGrid = document.querySelector('.proof-grid');
-  if (proofGrid && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    var FLAP_CHARS = 'abcdefghijklmnopqrstuvwxyz-';
-    function flapEl(el, delay) {
-      var text = el.textContent;
-      el.innerHTML = text.split('').map(function () { return '<span class="fl">&nbsp;</span>'; }).join('');
-      Array.prototype.forEach.call(el.children, function (sp, i) {
-        setTimeout(function () {
-          var n = 0, max = 3 + Math.floor(i / 2);
-          sp.classList.add('spin');
-          var iv = setInterval(function () {
-            sp.textContent = FLAP_CHARS[Math.floor(Math.random() * FLAP_CHARS.length)];
-            if (++n >= max) { clearInterval(iv); sp.textContent = text[i]; sp.classList.remove('spin'); }
-          }, 55);
-        }, delay + i * 40);
-      });
-    }
-    var flapped = false;
-    var fio = new IntersectionObserver(function (entries) {
-      if (!flapped && entries[0].isIntersecting) {
-        flapped = true;
-        proofGrid.querySelectorAll('.proof-v').forEach(function (v, row) { flapEl(v, row * 120); });
-        fio.disconnect();
-      }
-    }, { threshold: 0.35 });
-    fio.observe(proofGrid);
+  // ---------- proof register: the seal stamps the document once, on scroll ----------
+  var register = document.querySelector('.register');
+  if (register) {
+    var rio = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) { register.classList.add('stamped'); rio.disconnect(); }
+    }, { threshold: 0.5 });
+    rio.observe(register);
   }
 
   // ---------- lead form ----------
