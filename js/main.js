@@ -52,7 +52,7 @@
   var revealables = document.querySelectorAll(
     '.section-title, .section-sub, .svc, .phases li, .register, .proof-line, ' +
     '.services-note, .manifesto blockquote, .manifesto p, .about-photo, .about-text > *, ' +
-    '.lead-form, .contact-aside, .exit-inner > *, .faq-item, .step'
+    '.lead-form, .contact-aside, .exit-inner > *, .faq-item, .step, .catalog-item'
   );
   revealables.forEach(function (el) { el.classList.add('reveal'); });
   var ro = new IntersectionObserver(function (entries) {
