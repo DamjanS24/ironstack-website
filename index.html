@@ -40,8 +40,8 @@
 </script>
 <link rel="preload" href="assets/fonts/Fraunces-600-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/SpaceGrotesk-500-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/fonts.css?v=13">
-<link rel="stylesheet" href="css/style.css?v=13">
+<link rel="stylesheet" href="css/fonts.css?v=14">
+<link rel="stylesheet" href="css/style.css?v=14">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -69,8 +69,8 @@
     <span>Ironstack</span>
   </a>
   <nav class="nav-links" id="navLinks">
-    <a href="#method" data-i18n="nav.method">Method</a>
     <a href="#services" data-i18n="nav.services">Services</a>
+    <a href="#method" data-i18n="nav.method">Method</a>
     <a href="#proof" data-i18n="nav.proof">Proof</a>
     <a href="#ai" data-i18n="nav.ai">AI</a>
     <a href="#about" data-i18n="nav.about">About</a>
@@ -108,57 +108,72 @@
   <p data-i18n="manifesto.body">Everything Ironstack builds and runs starts from one conviction: a company should be able to point at its infrastructure and say <em>ours</em>. It should not be rented, mined, or one price increase away from a problem. It should be owned, understood, and documented.</p>
 </section>
 
+<!-- ============ SERVICES ============ -->
+<section class="section section-alt" id="services">
+  <h2 class="section-title" data-i18n="services.title">Services</h2>
+  <p class="section-sub" data-i18n="services.sub">Not a menu, and not a rigid ladder. There are two ways to start, two ways to build, and one way everything ends up: running with care, on infrastructure you own.</p>
+
+  <div class="svc-group">
+    <p class="svc-group-label" data-i18n="services.g1">WHERE YOU START</p>
+    <div class="svc-grid">
+      <article class="svc">
+        <span class="svc-no">01</span>
+        <h3 data-i18n="services.s1t">The Audit</h3>
+        <p data-i18n="services.s1b">The entry for clarity. Where does your data live, what does everything cost, what could you reclaim, and where do GDPR and AI expose you? A fixed price investigation with a written report that stays useful whatever you decide next.</p>
+        <img class="stamp" src="assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
+      </article>
+      <article class="svc">
+        <span class="svc-no">02</span>
+        <h3 data-i18n="services.s2t">AI &amp; Automation</h3>
+        <p data-i18n="services.s2b">The entry for quick wins. Voice assistants that answer and book, chat assistants that know your business, and automations that clear the busywork away, built on the systems you already have. Fixed scope, fixed price per project.</p>
+        <img class="stamp" src="assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
+      </article>
+    </div>
+  </div>
+
+  <div class="svc-group">
+    <p class="svc-group-label" data-i18n="services.g2">WHAT GETS BUILT</p>
+    <div class="svc-grid">
+      <article class="svc">
+        <span class="svc-no">03</span>
+        <h3 data-i18n="services.s3t">The Ironstack Stack</h3>
+        <p data-i18n="services.s3b">The build for a fresh start. Your business systems installed on a server you own, wired together and configured for how you work, with little or nothing to migrate. The core is the same stack that runs Ironstack itself: one fixed setup fee, then a fixed monthly price.</p>
+        <img class="stamp" src="assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
+      </article>
+      <article class="svc">
+        <span class="svc-no">04</span>
+        <h3 data-i18n="services.s4t">Migration</h3>
+        <p data-i18n="services.s4b">The build for an existing environment. A complete transfer from rented cloud or legacy hosting to infrastructure you own, executed in the five phases below at a fixed project fee.</p>
+        <img class="stamp" src="assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
+      </article>
+    </div>
+  </div>
+
+  <div class="svc-group">
+    <p class="svc-group-label" data-i18n="services.g3">HOW IT KEEPS RUNNING</p>
+    <article class="svc svc-featured">
+      <span class="svc-no">05</span>
+      <h3 data-i18n="services.s5t">Managed Sovereignty</h3>
+      <p data-i18n="services.s5b">Every path above ends here. I stay responsible for what we built: updates, backups, monitoring and response, included hours, and a monthly health report in plain language. A fixed monthly price per tier, and the exit clause applies every single month. This is the heart of Ironstack; the rest is how you arrive.</p>
+      <img class="stamp-embossed" src="assets/ironstack-seal-full-cream.svg" alt="" loading="lazy">
+    </article>
+  </div>
+
+  <p class="services-note" data-i18n="services.note">You will not find prices on this website, because every environment is different. You get a fixed number in the proposal before anything starts, and that number does not move.</p>
+</section>
+
 <!-- ============ METHOD ============ -->
 <section class="section" id="method">
   <div class="bg-mark bg-seal-method" aria-hidden="true"></div>
   <h2 class="section-title" data-i18n="method.title">The method</h2>
-  <p class="section-sub" data-i18n="method.sub">Five controlled phases. This is how an existing environment moves onto infrastructure you own. Your current environment keeps running untouched until we deliberately switch. The switch happens in a window you approve, with a tested rollback plan.</p>
+  <p class="section-sub" data-i18n="method.sub">Every build runs through the same five controlled phases, whether we install a fresh stack or move an existing environment. Your current setup keeps running untouched until we deliberately switch, in a window you approve, with a tested rollback plan. Smaller automation projects follow the same discipline, just lighter.</p>
   <ol class="phases">
     <li><span class="phase-no">I</span><div><h3 data-i18n="method.p1t">Discovery &amp; Audit</h3><p data-i18n="method.p1b">I map your infrastructure, dependencies, costs, and risks. You receive a written audit that stays useful even if we never work together again.</p></div></li>
     <li><span class="phase-no">II</span><div><h3 data-i18n="method.p2t">Architecture &amp; Planning</h3><p data-i18n="method.p2b">Target design plus a step-by-step migration runbook with a rollback per step. Nothing executes without your sign-off.</p></div></li>
-    <li><span class="phase-no">III</span><div><h3 data-i18n="method.p3t">Migration Execution</h3><p data-i18n="method.p3b">The new environment is built and filled while your production keeps running, untouched.</p></div></li>
-    <li><span class="phase-no">IV</span><div><h3 data-i18n="method.p4t">Validation &amp; Cutover</h3><p data-i18n="method.p4b">Full testing, then the switch in your approved window, followed by close monitoring.</p></div></li>
+    <li><span class="phase-no">III</span><div><h3 data-i18n="method.p3t">The Build</h3><p data-i18n="method.p3b">The new environment is built and filled next to your production, which keeps running untouched.</p></div></li>
+    <li><span class="phase-no">IV</span><div><h3 data-i18n="method.p4t">Validation &amp; Go-live</h3><p data-i18n="method.p4b">Full testing, then the switch or launch in a window you approve, followed by close monitoring.</p></div></li>
     <li><span class="phase-no">V</span><div><h3 data-i18n="method.p5t">Handover &amp; Custodianship</h3><p data-i18n="method.p5b">Documentation, knowledge transfer, and a trained team. The old environment is safely decommissioned, and Managed Sovereignty takes over from there.</p></div></li>
   </ol>
-</section>
-
-<!-- ============ SERVICES ============ -->
-<section class="section section-alt" id="services">
-  <h2 class="section-title" data-i18n="services.title">Services</h2>
-  <p class="section-sub" data-i18n="services.sub">Five steps on one ladder. Each one stands on its own, and each one makes the next easier. Start with clarity, or start with a quick win. The destination is always the same: infrastructure you own, run with care.</p>
-  <div class="svc-grid">
-    <article class="svc">
-      <span class="svc-no">01</span>
-      <h3 data-i18n="services.s1t">The Audit</h3>
-      <p data-i18n="services.s1b">Where does your data live, what does everything cost, and what could you reclaim? A fixed price investigation of your infrastructure, costs and GDPR position, with a written report that stays useful whatever you decide next.</p>
-      <img class="stamp" src="assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
-    </article>
-    <article class="svc">
-      <span class="svc-no">02</span>
-      <h3 data-i18n="services.s2t">AI &amp; Automation</h3>
-      <p data-i18n="services.s2b">Voice assistants that answer and book, chat assistants that know your business, and automations that clear the busywork away. Fixed scope and a fixed price per project, built on the systems you already have.</p>
-      <img class="stamp" src="assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
-    </article>
-    <article class="svc">
-      <span class="svc-no">03</span>
-      <h3 data-i18n="services.s3t">The Ironstack Stack</h3>
-      <p data-i18n="services.s3b">Your business systems installed on a server you own, wired together and configured for how you work. The core is the same stack that runs Ironstack itself: one fixed setup fee, then a fixed monthly price.</p>
-      <img class="stamp" src="assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
-    </article>
-    <article class="svc svc-featured">
-      <span class="svc-no">04</span>
-      <h3 data-i18n="services.s4t">Managed Sovereignty</h3>
-      <p data-i18n="services.s4b">The heart of Ironstack. I stay responsible: updates, backups, monitoring and response, included hours, and a monthly health report in plain language. A fixed monthly price per tier, and the exit clause applies every single month.</p>
-      <img class="stamp-embossed" src="assets/ironstack-seal-full-cream.svg" alt="" loading="lazy">
-    </article>
-    <article class="svc">
-      <span class="svc-no">05</span>
-      <h3 data-i18n="services.s5t">Migration</h3>
-      <p data-i18n="services.s5b">For companies with an existing environment to move: a complete transfer from rented cloud or legacy hosting to infrastructure you own, executed in the five phases above at a fixed project fee.</p>
-      <img class="stamp" src="assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
-    </article>
-  </div>
-  <p class="services-note" data-i18n="services.note">You will not find prices on this website, because every environment is different. You get a fixed number in the proposal before anything starts, and that number does not move.</p>
 </section>
 
 <!-- ============ PROOF ============ -->
@@ -340,7 +355,7 @@
   <p class="footer-fine" data-i18n="footer.fine">Built and hosted on Ironstack’s own infrastructure. No analytics, no trackers, no cookies.</p>
 </footer>
 
-<script src="js/i18n-data.js?v=13"></script>
-<script src="js/main.js?v=13"></script>
+<script src="js/i18n-data.js?v=14"></script>
+<script src="js/main.js?v=14"></script>
 </body>
 </html>
