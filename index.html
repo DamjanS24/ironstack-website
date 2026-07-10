@@ -42,11 +42,12 @@
   "mainEntity": [
     {"@type": "Question", "name": "You are one person. What happens when you are ill or on holiday?", "acceptedAnswer": {"@type": "Answer", "text": "Monitoring never sleeps, and everything is documented so no knowledge exists only in one head. Planned absences are announced in advance, and retainer clients get honestly defined response windows."}},
     {"@type": "Question", "name": "How long does a migration take?", "acceptedAnswer": {"@type": "Answer", "text": "A typical small-business migration runs four to eight weeks from audit to handover. The audit gives an exact timeline before any commitment."}},
-    {"@type": "Question", "name": "What does it cost?", "acceptedAnswer": {"@type": "Answer", "text": "The audit has a small fixed price, the Stack a fixed setup fee, Managed Sovereignty a fixed monthly price per tier, and migrations a fixed project fee based on the audit findings. The number is known before anything starts and does not move."}},
+    {"@type": "Question", "name": "What does it cost?", "acceptedAnswer": {"@type": "Answer", "text": "The audit has a small fixed price, AI and automation work a fixed price per project, the Stack a fixed setup fee, Managed Sovereignty a fixed monthly price per tier, and migrations a fixed project fee based on the audit findings. The number is known before anything starts and does not move."}},
     {"@type": "Question", "name": "Do we have to migrate everything at once?", "acceptedAnswer": {"@type": "Answer", "text": "No. Migrations are phased by design, and starting with a single system is a good way to begin."}},
     {"@type": "Question", "name": "Is self-hosted actually safe enough for a business?", "acceptedAnswer": {"@type": "Answer", "text": "Safety comes from practice: updates, backups, monitoring, and hardening are part of every environment. You also gain certainty about exactly where your data is and who can touch it."}},
     {"@type": "Question", "name": "What if we want to leave Ironstack later?", "acceptedAnswer": {"@type": "Answer", "text": "You take everything with you: accounts, servers, and documentation. No lock-in; it is written into the agreement."}},
-    {"@type": "Question", "name": "Where does our data live, and what about the GDPR?", "acceptedAnswer": {"@type": "Answer", "text": "On servers you own, in an EU data center, under EU jurisdiction. No American cloud provider in the chain means no CLOUD Act ambiguity and a shorter GDPR processor register."}}
+    {"@type": "Question", "name": "Where does our data live, and what about the GDPR?", "acceptedAnswer": {"@type": "Answer", "text": "On servers you own, in an EU data center, under EU jurisdiction. No American cloud provider in the chain means no CLOUD Act ambiguity and a shorter GDPR processor register."}},
+    {"@type": "Question", "name": "And AI? Can we use it without leaking data?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, if you are deliberate about it. Ironstack builds assistants and automations that work against your own systems, on your own server where possible, and through a disclosed EU-hosted model where not."}}
   ]
 }
 </script>
@@ -64,6 +65,7 @@
     <a href="#method" data-i18n="nav.method">Method</a>
     <a href="#services" data-i18n="nav.services">Services</a>
     <a href="#proof" data-i18n="nav.proof">Proof</a>
+    <a href="#ai" data-i18n="nav.ai">AI</a>
     <a href="#about" data-i18n="nav.about">About</a>
     <a class="nav-cta" href="#contact" data-i18n="nav.contact">Contact</a>
     <button class="lang-toggle" id="langToggle" aria-label="Switch language">NL</button>
@@ -77,7 +79,7 @@
   <div class="bg-mark bg-seal-hero" aria-hidden="true"></div>
   <p class="kicker" data-i18n="hero.kicker">SOVEREIGN INFRASTRUCTURE · AMSTERDAM</p>
   <h1 data-i18n="hero.title">Own your infrastructure.<br>Own your data.</h1>
-  <p class="hero-sub" data-i18n="hero.sub">Ironstack builds and runs the systems your business lives on, on servers you own. CRM, invoicing, file storage, team chat, automation: nearly everything you rent today can be owned instead, kept running for one fixed monthly price. No lock-in. You can leave any month and take everything with you.</p>
+  <p class="hero-sub" data-i18n="hero.sub">Ironstack builds and runs the systems your business lives on, on servers you own. CRM, invoicing, file storage, team chat, AI automation: nearly everything you rent today can be owned instead, kept running for one fixed monthly price. No lock-in. You can leave any month and take everything with you.</p>
   <div class="hero-ctas">
     <a class="btn btn-primary" href="#contact" data-i18n="hero.cta1">Start a conversation</a>
     <a class="btn btn-ghost" href="#services" data-i18n="hero.cta2">See the services</a>
@@ -113,7 +115,7 @@
 <!-- ============ SERVICES ============ -->
 <section class="section section-alt" id="services">
   <h2 class="section-title" data-i18n="services.title">Services</h2>
-  <p class="section-sub" data-i18n="services.sub">Four steps on one ladder. Each one stands on its own, and each one makes the next easier. The destination is always the same: infrastructure you own, run with care.</p>
+  <p class="section-sub" data-i18n="services.sub">Five steps on one ladder. Each one stands on its own, and each one makes the next easier. Start with clarity, or start with a quick win. The destination is always the same: infrastructure you own, run with care.</p>
   <div class="cards">
     <article class="card">
       <span class="card-no">01</span>
@@ -122,18 +124,23 @@
     </article>
     <article class="card">
       <span class="card-no">02</span>
-      <h3 data-i18n="services.s2t">The Ironstack Stack</h3>
-      <p data-i18n="services.s2b">Your business systems installed on a server you own, wired together and configured for how you work. CRM, projects, invoicing and automation form the usual core, and nearly every tool you rent has an owned equivalent: file storage, team chat, wikis, analytics, password management, booking and more. The core is the same stack that runs Ironstack itself. One fixed setup fee, then a fixed monthly price to keep it all running.</p>
-    </article>
-    <article class="card card-featured">
-      <span class="card-no">03</span>
-      <h3 data-i18n="services.s3t">Managed Sovereignty</h3>
-      <p data-i18n="services.s3b">The heart of Ironstack. I stay responsible for your environment: updates, backups, monitoring and response, included hours, and a monthly health report in plain language. A fixed monthly price per tier, and the exit clause applies every single month. You can end it whenever you want and keep everything.</p>
+      <h3 data-i18n="services.s2t">AI &amp; Automation</h3>
+      <p data-i18n="services.s2b">This is where my last few years went. Voice assistants that answer and book appointments, chat assistants that know your business, and automations that read, classify and route the busywork away. Fixed scope and a fixed price per project, built on the systems you already have. No new infrastructure required, and every automation comes documented like everything else I make.</p>
     </article>
     <article class="card">
+      <span class="card-no">03</span>
+      <h3 data-i18n="services.s3t">The Ironstack Stack</h3>
+      <p data-i18n="services.s3b">Your business systems installed on a server you own, wired together and configured for how you work. CRM, projects, invoicing and automation form the usual core, and nearly every tool you rent has an owned equivalent: file storage, team chat, wikis, analytics, password management, booking and more. The core is the same stack that runs Ironstack itself. One fixed setup fee, then a fixed monthly price to keep it all running.</p>
+    </article>
+    <article class="card card-featured">
       <span class="card-no">04</span>
-      <h3 data-i18n="services.s4t">Migration</h3>
-      <p data-i18n="services.s4b">For companies with an existing environment to move. A complete transfer from rented cloud or legacy hosting to infrastructure you own, executed in the five phases above at a fixed project fee. This is how clients with history come on board.</p>
+      <h3 data-i18n="services.s4t">Managed Sovereignty</h3>
+      <p data-i18n="services.s4b">The heart of Ironstack. I stay responsible for your environment: updates, backups, monitoring and response, included hours, and a monthly health report in plain language. A fixed monthly price per tier, and the exit clause applies every single month. You can end it whenever you want and keep everything.</p>
+    </article>
+    <article class="card">
+      <span class="card-no">05</span>
+      <h3 data-i18n="services.s5t">Migration</h3>
+      <p data-i18n="services.s5b">For companies with an existing environment to move. A complete transfer from rented cloud or legacy hosting to infrastructure you own, executed in the five phases above at a fixed project fee. This is how clients with history come on board.</p>
     </article>
   </div>
   <p class="services-note" data-i18n="services.note">You will not find prices on this website, because every environment is different. You get a fixed number in the proposal before anything starts, and that number does not move.</p>
@@ -156,7 +163,28 @@
   <p class="proof-line" data-i18n="proof.line">Every tool is wired together with automations I built myself. A new client conversation flows from this website into the CRM, projects, and invoicing without a single third-party data processor in between.</p>
   <p class="proof-line" data-i18n="proof.line2">All six systems run on one server in an EU data center, under EU law, for less than €20 a month. The equivalent SaaS subscriptions start around €80 a month for a single seat, and they grow with every user you add.</p>
   <p class="proof-line" data-i18n="proof.line3">That is my stack, because that is what my company needs. Yours will look different, and that is the point: nearly every tool a business rents today has a mature open-source equivalent that can run on a server you own. A few examples:</p>
-  <p class="proof-line proof-catalog" data-i18n="proof.catalog">File storage · Team chat · Docs &amp; wikis · Email · Calendars &amp; booking · Analytics · Password management · Forms &amp; surveys · Helpdesk · E&#8209;commerce · Single sign&#8209;on</p>
+  <p class="proof-line proof-catalog" data-i18n="proof.catalog">File storage · Team chat · Customer service inbox · Video calls · Newsletters · Docs &amp; wikis · Email · Calendars &amp; booking · Analytics · Forms &amp; surveys · Password management · Helpdesk · E&#8209;commerce · Private AI &amp; search · Single sign&#8209;on</p>
+</section>
+
+<!-- ============ AI ============ -->
+<section class="section section-alt" id="ai">
+  <h2 class="section-title" data-i18n="ai.title">AI, on your terms</h2>
+  <p class="section-sub" data-i18n="ai.sub">Every business is being told to adopt AI, and almost every AI product wants your data in someone else’s cloud. That is the same trade this company exists to end. So AI at Ironstack follows one rule: the model comes to your data, your data does not go to the model.</p>
+  <div class="cards">
+    <article class="card">
+      <h3 data-i18n="ai.c1t">An assistant where you already talk</h3>
+      <p data-i18n="ai.c1b">A private assistant in Telegram, WhatsApp or your team chat, and on the phone if you want it to have a voice. It searches your files, looks up a client, books an appointment, creates a task, drafts an invoice. It works against your systems and runs under your control.</p>
+    </article>
+    <article class="card">
+      <h3 data-i18n="ai.c2t">Automations that think</h3>
+      <p data-i18n="ai.c2b">The automation layer that wires your stack together can read now. Incoming leads get triaged, documents get classified and filed, meeting notes become tasks, receipts land in the books. AI is used where it earns its place, and skipped where a plain rule does the job better.</p>
+    </article>
+    <article class="card">
+      <h3 data-i18n="ai.c3t">Answers from your own knowledge</h3>
+      <p data-i18n="ai.c3b">A private search across your wiki, documents and archives that answers in plain language, with sources. Indexed on your server, inside your walls. Your company’s memory finally becomes usable, without becoming someone else’s training data.</p>
+    </article>
+  </div>
+  <p class="services-note" data-i18n="ai.note">The honest version: small open models run on your own hardware, and some tasks need bigger ones. When they do, I use an EU-hosted model under a written agreement, disclosed in your documentation, and only for the data that task needs. You always know which is which.</p>
 </section>
 
 <!-- ============ EXIT CLAUSE ============ -->
@@ -219,7 +247,7 @@
     </details>
     <details class="faq-item">
       <summary data-i18n="faq.q3">What does it cost?</summary>
-      <p data-i18n="faq.a3">The audit has a small fixed price. The Stack has a fixed setup fee. Managed Sovereignty has a fixed monthly price per tier. Migrations have a fixed project fee based on the audit findings. You always know the number before anything starts, and the number does not move.</p>
+      <p data-i18n="faq.a3">The audit has a small fixed price. AI and automation work has a fixed price per project. The Stack has a fixed setup fee. Managed Sovereignty has a fixed monthly price per tier. Migrations have a fixed project fee based on the audit findings. You always know the number before anything starts, and the number does not move.</p>
     </details>
     <details class="faq-item">
       <summary data-i18n="faq.q4">Do we have to migrate everything at once?</summary>
@@ -236,6 +264,10 @@
     <details class="faq-item">
       <summary data-i18n="faq.q7">Where does our data live, and what about the GDPR?</summary>
       <p data-i18n="faq.a7">On servers you own, in an EU data center, under EU jurisdiction. With no American cloud provider in the chain there is no CLOUD Act ambiguity, your GDPR processor register gets shorter instead of longer, and “where is our data?” becomes a question you can answer by pointing.</p>
+    </details>
+    <details class="faq-item">
+      <summary data-i18n="faq.q8">And AI? Can we use it without leaking data?</summary>
+      <p data-i18n="faq.a8">Yes, if you are deliberate about it. The biggest AI risk in most companies today is employees pasting client data into free chatbots. I build the deliberate version: assistants and automations that work against your own systems, on your own server where possible, and through a disclosed EU-hosted model where not. The audit can map your current AI exposure as well.</p>
     </details>
   </div>
 </section>
