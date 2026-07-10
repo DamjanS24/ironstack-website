@@ -66,7 +66,7 @@
 
   // ---------- scroll-reveal (hero stays static: no blank flash above the fold) ----------
   var revealables = document.querySelectorAll(
-    '.section-title, .section-sub, .card, .phases li, .register, .proof-line, ' +
+    '.section-title, .section-sub, .svc, .phases li, .register, .proof-line, ' +
     '.services-note, .manifesto blockquote, .manifesto p, .about-photo, .about-text > *, ' +
     '.lead-form, .contact-aside, .exit-inner > *, .faq-item, .step'
   );
@@ -121,26 +121,6 @@
     tilt.addEventListener('mouseleave', function () {
       tilt.style.transition = 'transform 0.4s ease-in-out';
       tilt.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
-    });
-  }
-
-  // ---------- 3D cards (services + AI): parallax tilt; the seal stamp is CSS-only ----------
-  if (canTilt) {
-    document.querySelectorAll('.card-3d').forEach(function (card) {
-      var ghost = card.querySelector('.ghost-no');
-      card.addEventListener('mousemove', function (e) {
-        var r = card.getBoundingClientRect();
-        var px = (e.clientX - r.left) / r.width - 0.5;
-        var py = (e.clientY - r.top) / r.height - 0.5;
-        card.style.transition = 'transform 0.09s ease-out, box-shadow 0.3s ease';
-        card.style.transform = 'perspective(900px) rotateX(' + (-py * 9).toFixed(2) + 'deg) rotateY(' + (px * 9).toFixed(2) + 'deg) scale3d(1.03, 1.03, 1.03)';
-        if (ghost) ghost.style.transform = 'translate(-50%, -50%) translate(' + (-px * 30).toFixed(1) + 'px, ' + (-py * 30).toFixed(1) + 'px)';
-      });
-      card.addEventListener('mouseleave', function () {
-        card.style.transition = 'transform 0.45s ease, box-shadow 0.45s ease';
-        card.style.transform = '';
-        if (ghost) ghost.style.transform = 'translate(-50%, -50%)';
-      });
     });
   }
 
