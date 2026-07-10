@@ -126,10 +126,6 @@ a { color: inherit; }
   .register-v { margin-left: auto; }
 }
 .proof-line { margin-top: 28px; max-width: 720px; color: var(--body); font-size: 15.5px; }
-.catalog { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px 30px; max-width: 860px; margin-top: 20px; }
-.catalog-item { border-top: 1px solid var(--rule); padding-top: 9px; }
-.catalog-k { display: block; font-size: 14px; font-weight: 500; color: var(--ink); }
-.catalog-v { font-family: var(--garamond); font-style: italic; font-size: 13.5px; color: var(--muted); }
 
 /* about — interactive tilt card */
 .about { display: grid; grid-template-columns: 320px 1fr; gap: clamp(28px, 5vw, 64px); align-items: start; }
