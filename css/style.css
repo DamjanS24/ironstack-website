@@ -333,3 +333,39 @@ a { color: inherit; }
 .legal a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--rule); padding-bottom: 1px; transition: border-color .18s ease; }
 .legal a:hover { border-color: var(--ink); }
 .legal-back { margin-top: 40px; }
+
+/* ---------- dark mode: the reversed brand page (cream on ink) ---------- */
+[data-theme="dark"] {
+  --ink: #EAE3D2;
+  --cream: #14120D;
+  --paper: #1C1912;
+  --rev: #17150F;
+  --muted: #8A8374;
+  --muted-d: #6E6857;
+  --rule: #35301F;
+  --body: #C9C2AE;
+  color-scheme: dark;
+}
+/* watermarks flip to the cream seal */
+[data-theme="dark"] .bg-seal-hero,
+[data-theme="dark"] .bg-seal-method,
+[data-theme="dark"] .bg-seal-contact { background-image: url('../assets/ironstack-seal-full-cream.svg'); }
+[data-theme="dark"] .bg-diamond { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 13"><path d="M5 0 L10 6.5 L5 13 L0 6.5 Z" fill="%23EAE3D2"/></svg>'); }
+/* ink bands become cream bands; their hardcoded light text flips to ink */
+[data-theme="dark"] .exit { color: #17150F; }
+[data-theme="dark"] .exit h2, [data-theme="dark"] .exit .exit-line { color: #17150F; }
+[data-theme="dark"] .exit p { color: #4A4433; }
+[data-theme="dark"] .exit-diamond { color: #6E6857; }
+[data-theme="dark"] .footer-fine { color: #7A7362; }
+[data-theme="dark"] .footer-links a { border-bottom-color: #C9C1AC; }
+[data-theme="dark"] .footer-links a:hover { border-color: var(--rev); }
+/* controls and details that carry hardcoded light-mode colors */
+[data-theme="dark"] .btn-primary:hover { background: #F7F1E0; }
+[data-theme="dark"] .register-dots { border-bottom-color: #4A4433; }
+[data-theme="dark"] .lead-form input, [data-theme="dark"] .lead-form textarea { color: var(--ink); }
+[data-theme="dark"] .lead-form input:hover, [data-theme="dark"] .lead-form textarea:hover { border-color: #565040; }
+[data-theme="dark"] .lead-form input:focus, [data-theme="dark"] .lead-form textarea:focus { box-shadow: 0 0 0 3px rgba(234, 227, 210, 0.12); }
+/* shadows read differently on ink; soften the loud ones */
+[data-theme="dark"] .showcase { box-shadow: 0 28px 80px -32px rgba(0, 0, 0, 0.8); }
+[data-theme="dark"] .tilt3d:hover, [data-theme="dark"] .combo:hover { box-shadow: none; }
+[data-theme="dark"] .tilt-tag { background: rgba(20, 18, 13, 0.78); border-color: rgba(234, 227, 210, 0.16); }

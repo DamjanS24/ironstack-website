@@ -18,6 +18,28 @@
   toggle.addEventListener('click', function () { apply(lang === 'en' ? 'nl' : 'en'); });
   if (lang !== 'en') apply(lang);
 
+  // ---------- theme (light / dark) ----------
+  // the inline head script already set data-theme; here we sync the button and the seal artwork
+  var themeBtn = document.getElementById('themeToggle');
+  function applyTheme(t, persist) {
+    document.documentElement.setAttribute('data-theme', t);
+    if (persist) localStorage.setItem('ironstack-theme', t);
+    if (themeBtn) themeBtn.textContent = t === 'dark' ? '☀' : '☾';
+    // seals exist in ink and cream variants; swap artwork to match the ground it sits on
+    document.querySelectorAll('img[src*="-ink.svg"], img[src*="-cream.svg"], img[data-osrc]').forEach(function (img) {
+      if (!img.dataset.osrc) img.dataset.osrc = img.getAttribute('src');
+      var src = img.dataset.osrc;
+      if (t === 'dark') {
+        src = src.indexOf('-ink.svg') > -1 ? src.replace('-ink.svg', '-cream.svg') : src.replace('-cream.svg', '-ink.svg');
+      }
+      img.setAttribute('src', src);
+    });
+  }
+  applyTheme(document.documentElement.getAttribute('data-theme') || 'light', false);
+  if (themeBtn) themeBtn.addEventListener('click', function () {
+    applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark', true);
+  });
+
   // ---------- mobile nav ----------
   var burger = document.getElementById('navBurger');
   var links = document.getElementById('navLinks');
