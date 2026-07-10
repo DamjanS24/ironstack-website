@@ -110,6 +110,27 @@
     });
   }
 
+  // ---------- living portrait: load the loop only where it earns its bytes ----------
+  var lp = document.querySelector('.tilt-video');
+  if (lp && lp.dataset.src) {
+    var wantLoop = window.matchMedia('(min-width: 860px)').matches &&
+                   !window.matchMedia('(prefers-reduced-motion: reduce)').matches &&
+                   !(navigator.connection && navigator.connection.saveData);
+    if (wantLoop) {
+      var lio = new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) {
+          lp.addEventListener('playing', function () { lp.classList.add('on'); });
+          lp.src = lp.dataset.src;
+          lp.play().catch(function () {});
+          lio.disconnect();
+        }
+      }, { rootMargin: '300px' });
+      lio.observe(lp);
+    } else {
+      lp.remove();
+    }
+  }
+
   // ---------- proof register: the seal stamps the document once, on scroll ----------
   var register = document.querySelector('.register');
   if (register) {

@@ -142,8 +142,8 @@ a { color: inherit; }
 }
 .tilt-inner { position: absolute; inset: 0; border-radius: 16px; overflow: hidden; transform-style: preserve-3d; }
 .tilt-media { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
-.about-photo-seal { width: 52%; opacity: 0.13; }
-.photo-note { position: absolute; top: 16px; left: 0; right: 0; text-align: center; font-family: var(--garamond); font-style: italic; font-size: 13px; color: var(--muted); }
+.tilt-video { opacity: 0; transition: opacity .6s ease; }
+.tilt-video.on { opacity: 1; }
 .tilt-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .tilt-shade { position: absolute; inset: 0; background: linear-gradient(to top, rgba(23, 21, 15, 0.22), rgba(23, 21, 15, 0.04) 45%, transparent 70%); pointer-events: none; }
 .tilt-tag {
