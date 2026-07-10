@@ -44,7 +44,7 @@ window.I18N = {
     "services.s5b": "For companies with an existing environment to move: a complete transfer from rented cloud or legacy hosting to infrastructure you own, executed in the five phases above at a fixed project fee.",
     "services.note": "You will not find prices on this website, because every environment is different. You get a fixed number in the proposal before anything starts, and that number does not move.",
 
-    "proof.title": "I run everything I sell",
+    "proof.title": "I run everything I recommend",
     "proof.sub": "This isn’t theory. The company itself runs end-to-end on self-hosted, self-managed infrastructure. It is the same kind I build for clients.",
     "proof.reghead": "Register of systems · in production",
     "proof.r1k": "CRM & sales", "proof.r1v": "replaces HubSpot",
@@ -199,7 +199,7 @@ window.I18N = {
     "services.s5b": "Voor bedrijven met een bestaande omgeving die moet verhuizen: een complete overstap van gehuurde cloud of legacy hosting naar infrastructuur in eigendom, uitgevoerd in de vijf fasen hierboven tegen een vaste projectprijs.",
     "services.note": "Je vindt geen prijzen op deze website, omdat elke omgeving anders is. Je krijgt een vast bedrag in het voorstel voordat er iets begint, en dat bedrag beweegt niet.",
 
-    "proof.title": "Ik draai alles wat ik verkoop",
+    "proof.title": "Ik draai alles wat ik aanraad",
     "proof.sub": "Dit is geen theorie. Het bedrijf zelf draait van begin tot eind op zelf-gehoste, zelf-beheerde infrastructuur. Het is dezelfde soort die ik voor klanten bouw.",
     "proof.reghead": "Register van systemen · in productie",
     "proof.r1k": "CRM & sales", "proof.r1v": "vervangt HubSpot",
