@@ -32,7 +32,13 @@
   // the inline head script already set data-theme; here we run the three-way mode switch and the seal artwork
   var themeBtn = document.getElementById('themeToggle');
   var sysDark = window.matchMedia('(prefers-color-scheme: dark)');
-  var themeMode = localStorage.getItem('ironstack-theme-mode') || 'system';
+  var themeMode = (function () {
+    try {
+      var q = new URLSearchParams(location.search).get('theme');
+      if (q === 'dark' || q === 'light') return q;
+    } catch (e) {}
+    return localStorage.getItem('ironstack-theme-mode') || 'system';
+  })();
   function applyTheme(mode, persist) {
     themeMode = mode;
     var t = mode === 'system' ? (sysDark.matches ? 'dark' : 'light') : mode;
