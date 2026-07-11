@@ -45,10 +45,24 @@
   // ---------- mobile nav ----------
   var burger = document.getElementById('navBurger');
   var links = document.getElementById('navLinks');
-  burger.addEventListener('click', function () { links.classList.toggle('open'); });
+  function setMenu(open) {
+    links.classList.toggle('open', open);
+    burger.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', String(open));
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Menu');
+  }
+  burger.addEventListener('click', function () { setMenu(!links.classList.contains('open')); });
   links.addEventListener('click', function (e) {
-    if (e.target.tagName === 'A') links.classList.remove('open');
+    if (e.target.tagName === 'A') setMenu(false);
   });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && links.classList.contains('open')) { setMenu(false); burger.focus(); }
+  });
+  document.addEventListener('click', function (e) {
+    if (links.classList.contains('open') && !e.target.closest('.nav')) setMenu(false);
+  });
+  var navMq = window.matchMedia('(min-width: 721px)');
+  if (navMq.addEventListener) navMq.addEventListener('change', function (e) { if (e.matches) setMenu(false); });
 
   // ---------- scroll-reveal (hero stays static: no blank flash above the fold) ----------
   var revealables = document.querySelectorAll(

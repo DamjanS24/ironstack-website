@@ -55,7 +55,21 @@ a { color: inherit; }
 .switch .sep { font-size: 6px; opacity: .55; transform: translateY(-0.5px); }
 .switch-icon { font-size: 12.5px; padding: 5px 11px; line-height: 1.2; }
 .switch-icon:hover { color: var(--ink); }
-.nav-burger { display: none; border: none; background: none; font-size: 22px; cursor: pointer; color: var(--ink); }
+.nav-burger { display: none; position: relative; width: 42px; height: 42px; padding: 0; border: none; background: none; cursor: pointer; color: var(--ink); }
+/* three engraved lines that fold into a closing mark; the whole icon turns as it does */
+.nav-burger .burger { position: absolute; inset: 0; transition: transform .5s cubic-bezier(.2, .6, .2, 1); }
+.nav-burger .burger span {
+  position: absolute; left: 50%; top: 50%; width: 21px; height: 1.6px;
+  background: currentColor; border-radius: 2px;
+  transition: transform .42s cubic-bezier(.3, 1.4, .3, 1), opacity .28s ease;
+}
+.nav-burger .burger span:nth-child(1) { transform: translate(-50%, calc(-50% - 6.5px)); }
+.nav-burger .burger span:nth-child(2) { transform: translate(-50%, -50%); }
+.nav-burger .burger span:nth-child(3) { transform: translate(-50%, calc(-50% + 6.5px)); }
+.nav-burger.open .burger { transform: rotate(90deg); }
+.nav-burger.open .burger span:nth-child(1) { transform: translate(-50%, -50%) rotate(45deg); }
+.nav-burger.open .burger span:nth-child(2) { opacity: 0; transform: translate(-50%, -50%) scaleX(0.25); }
+.nav-burger.open .burger span:nth-child(3) { transform: translate(-50%, -50%) rotate(-45deg); }
 
 /* ---------- hero ---------- */
 .hero { text-align: center; padding: clamp(56px, 9vw, 110px) 20px 30px; max-width: 1060px; margin: 0 auto; }
@@ -273,6 +287,21 @@ a { color: inherit; }
 .nav-burger { transition: transform .15s ease; }
 .nav-burger:active { transform: scale(0.9); }
 
+/* nav: settles in from above on first paint; desktop links follow one by one */
+@keyframes nav-in { from { opacity: 0; transform: translateY(-14px); } }
+.nav { animation: nav-in .6s cubic-bezier(.2, .6, .2, 1) both; }
+@media (min-width: 721px) {
+  .nav-links > * { animation: nav-in .5s cubic-bezier(.2, .6, .2, 1) backwards; }
+  .nav-links > :nth-child(1) { animation-delay: .08s; }
+  .nav-links > :nth-child(2) { animation-delay: .13s; }
+  .nav-links > :nth-child(3) { animation-delay: .18s; }
+  .nav-links > :nth-child(4) { animation-delay: .23s; }
+  .nav-links > :nth-child(5) { animation-delay: .28s; }
+  .nav-links > :nth-child(6) { animation-delay: .34s; }
+  .nav-links > :nth-child(7) { animation-delay: .40s; }
+  .nav-links > :nth-child(8) { animation-delay: .44s; }
+}
+
 /* text links: underline thickens/fills */
 .about-links a, .footer-links a { text-decoration: none; border-bottom: 1px solid var(--rule); transition: border-color .18s ease, color .18s ease; padding-bottom: 1px; }
 .about-links a:hover { border-color: var(--ink); }
@@ -292,6 +321,8 @@ a { color: inherit; }
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
   .btn:hover, .btn:active, .nav-brand:hover img, .nav-cta:active, .lang-toggle:active { transform: none; }
+  .nav, .nav-links > * { animation: none; }
+  .nav-burger .burger, .nav-burger .burger span { transition: none; }
 }
 
 /* ---------- responsive ---------- */
@@ -302,10 +333,59 @@ a { color: inherit; }
   .contact-aside { border-left: none; border-top: 1px solid var(--rule); padding: 24px 0 0; }
 }
 @media (max-width: 720px) {
-  .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--cream); border-bottom: 1px solid var(--rule); flex-direction: column; padding: 18px 24px; align-items: flex-start; }
-  .nav-links.open { display: flex; }
   .nav-burger { display: block; }
+
+  /* the panel: a curtain that draws down from under the header rule */
+  .nav-links {
+    position: absolute; top: 100%; left: 0; right: 0;
+    flex-flow: row wrap; align-items: center; gap: 0 12px;
+    padding: 8px 28px 24px;
+    background: var(--cream);
+    border-bottom: 1px solid var(--rule);
+    box-shadow: 0 36px 46px -34px rgba(23, 21, 15, 0.4);
+    clip-path: inset(0 0 100% 0);
+    visibility: hidden;
+    transition: clip-path .55s cubic-bezier(.2, .6, .2, 1), visibility 0s linear .55s;
+  }
+  .nav-links.open {
+    clip-path: inset(0 0 -90px 0);
+    visibility: visible;
+    transition: clip-path .55s cubic-bezier(.2, .6, .2, 1);
+  }
+  [data-theme="dark"] .nav-links { box-shadow: 0 36px 46px -34px rgba(0, 0, 0, 0.85); }
+
+  /* links become an editorial index: full-width rows over hairlines */
+  .nav-links > a:not(.nav-cta) { width: 100%; padding: 13px 0; font-size: 15.5px; border-bottom: 1px solid color-mix(in srgb, var(--rule) 55%, transparent); }
+  .nav-links > a:not(.nav-cta)::after { display: none; }
+  .nav-cta { width: 100%; text-align: center; padding: 12px 16px; margin-top: 18px; }
+
+  /* diamond rule between the index and the switches, echoing the section ornament */
+  .nav-links::after {
+    content: '◆'; order: 1; width: 100%; text-align: center;
+    font-size: 7px; line-height: 1; color: var(--muted); margin: 18px 0 14px;
+    background:
+      linear-gradient(var(--rule), var(--rule)) no-repeat left center / calc(50% - 22px) 1px,
+      linear-gradient(var(--rule), var(--rule)) no-repeat right center / calc(50% - 22px) 1px;
+  }
+  .nav-links .switch { order: 2; }
+
+  /* each row settles in a beat after the curtain passes it */
+  .nav-links > *, .nav-links::after { opacity: 0; transform: translateY(-14px); transition: opacity .3s ease, transform .4s cubic-bezier(.2, .6, .2, 1); }
+  .nav-links.open > *, .nav-links.open::after { opacity: 1; transform: none; }
+  .nav-links.open > :nth-child(1) { transition-delay: .10s; }
+  .nav-links.open > :nth-child(2) { transition-delay: .14s; }
+  .nav-links.open > :nth-child(3) { transition-delay: .18s; }
+  .nav-links.open > :nth-child(4) { transition-delay: .22s; }
+  .nav-links.open > :nth-child(5) { transition-delay: .26s; }
+  .nav-links.open > :nth-child(6) { transition-delay: .32s; }
+  .nav-links.open::after { transition-delay: .38s; }
+  .nav-links.open .switch { transition-delay: .44s; }
+
   .form-row { grid-template-columns: 1fr; }
+}
+@media (max-width: 720px) and (prefers-reduced-motion: reduce) {
+  .nav-links, .nav-links > *, .nav-links::after { transition: none; }
+  .nav-links > *, .nav-links::after { opacity: 1; transform: none; }
 }
 
 /* ---------- honeypot (spam trap: visually gone, present for bots) ---------- */
