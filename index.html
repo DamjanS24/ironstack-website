@@ -40,8 +40,20 @@
 </script>
 <link rel="preload" href="assets/fonts/Fraunces-600-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/SpaceGrotesk-500-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/fonts.css?v=16">
-<link rel="stylesheet" href="css/style.css?v=16">
+<link rel="stylesheet" href="css/fonts.css?v=17">
+<link rel="stylesheet" href="css/style.css?v=17">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Ironstack",
+  "url": "https://ironstack.nl",
+  "logo": "https://ironstack.nl/assets/ironstack-seal-full-ink.svg",
+  "founder": { "@type": "Person", "name": "Damjan Sajinovic" },
+  "address": { "@type": "PostalAddress", "addressLocality": "Amsterdam", "addressCountry": "NL" },
+  "sameAs": ["https://www.linkedin.com/in/dsajinovic/", "https://github.com/DamjanS24"]
+}
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -122,12 +134,14 @@
         <span class="svc-no">01</span>
         <h3 data-i18n="services.s1t">The Audit</h3>
         <p data-i18n="services.s1b">The entry for clarity. Where does your data live, what does everything cost, what could you reclaim, and where do GDPR and AI expose you? A fixed price investigation with a written report that stays useful whatever you decide next.</p>
+        <a class="read-more" href="/audit.html" data-i18n="misc.more">Read more →</a>
         <img class="stamp" src="assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
       </article>
       <article class="svc">
         <span class="svc-no">02</span>
         <h3 data-i18n="services.s2t">AI &amp; Automation</h3>
         <p data-i18n="services.s2b">The entry for quick wins. Voice assistants that answer and book, chat assistants that know your business, and automations that clear the busywork away, built on the systems you already have. Fixed scope, fixed price per project.</p>
+        <a class="read-more" href="/ai-automation.html" data-i18n="misc.more">Read more →</a>
         <img class="stamp" src="assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
       </article>
     </div>
@@ -140,12 +154,14 @@
         <span class="svc-no">03</span>
         <h3 data-i18n="services.s3t">The Ironstack Stack</h3>
         <p data-i18n="services.s3b">The build for a fresh start. Your business systems installed on a server you own, wired together and configured for how you work, with little or nothing to migrate. The core is the same stack that runs Ironstack itself: one fixed setup fee, then a fixed monthly price.</p>
+        <a class="read-more" href="/stack.html" data-i18n="misc.more">Read more →</a>
         <img class="stamp" src="assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
       </article>
       <article class="svc">
         <span class="svc-no">04</span>
         <h3 data-i18n="services.s4t">Migration</h3>
         <p data-i18n="services.s4b">The build for an existing environment. A complete transfer from rented cloud or legacy hosting to infrastructure you own, executed in the five phases below at a fixed project fee.</p>
+        <a class="read-more" href="/migration.html" data-i18n="misc.more">Read more →</a>
         <img class="stamp" src="assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
       </article>
     </div>
@@ -157,6 +173,7 @@
       <span class="svc-no">05</span>
       <h3 data-i18n="services.s5t">Managed Sovereignty</h3>
       <p data-i18n="services.s5b">Every path above ends here. I stay responsible for what we built: updates, backups, monitoring and response, included hours, and a monthly health report in plain language. A fixed monthly price per tier, and the exit clause applies every single month. This is the heart of Ironstack; the rest is how you arrive.</p>
+      <a class="read-more" href="/managed-sovereignty.html" data-i18n="misc.more">Read more →</a>
       <img class="stamp-embossed" src="assets/ironstack-seal-full-cream.svg" alt="" loading="lazy">
     </article>
   </div>
@@ -203,6 +220,7 @@
     </article>
   </div>
   <p class="services-note" data-i18n="ai.note">The honest version: small open models run on your own hardware, and some tasks need bigger ones. When they do, I use an EU-hosted model under a written agreement, disclosed in your documentation, and only for the data that task needs. You always know which is which.</p>
+  <p><a class="read-more" href="/ai-automation.html" data-i18n="ai.more">Read more about AI &amp; Automation →</a></p>
 </section>
 
 <!-- ============ PROOF ============ -->
@@ -348,6 +366,15 @@
 <footer class="footer">
   <img src="assets/ironstack-seal-full-cream.svg" alt="Ironstack seal" width="104" height="104">
   <p class="footer-line">IRONSTACK · AMSTERDAM · EST MMXXVI</p>
+  <div class="footer-nav">
+    <a href="/audit.html" data-i18n="footer.audit">The Audit</a>
+    <a href="/ai-automation.html" data-i18n="footer.ai">AI &amp; Automation</a>
+    <a href="/stack.html" data-i18n="footer.stack">The Stack</a>
+    <a href="/migration.html" data-i18n="footer.migration">Migration</a>
+    <a href="/managed-sovereignty.html" data-i18n="footer.managed">Managed Sovereignty</a>
+    <a href="/method.html" data-i18n="footer.method">The Method</a>
+    <a href="/stack-register.html" data-i18n="footer.register">Stack Register</a>
+  </div>
   <div class="footer-links">
     <a href="mailto:d.sajinovic@ironstack.nl">d.sajinovic@ironstack.nl</a>
     <a href="https://www.linkedin.com/in/dsajinovic/" target="_blank" rel="noopener">LinkedIn</a>
@@ -357,7 +384,7 @@
   <p class="footer-fine" data-i18n="footer.fine">Built and hosted on Ironstack’s own infrastructure. No analytics, no trackers, no cookies.</p>
 </footer>
 
-<script src="js/i18n-data.js?v=16"></script>
-<script src="js/main.js?v=16"></script>
+<script src="js/i18n-data.js?v=17"></script>
+<script src="js/main.js?v=17"></script>
 </body>
 </html>

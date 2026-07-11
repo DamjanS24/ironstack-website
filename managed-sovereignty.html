@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Managed Sovereignty · Ironstack · Sovereign Infrastructure</title>
+<meta name="description" content="Managed care for self-hosted business systems: updates, backups, monitoring and a plain-language monthly report. Fixed monthly price, exit clause every month.">
+<link rel="canonical" href="https://ironstack.nl/managed-sovereignty.html">
+<meta property="og:title" content="Managed Sovereignty · Ironstack">
+<meta property="og:description" content="Your systems stay yours; I stay responsible for them. Updates, backups, monitoring and response for a fixed monthly price, with an exit clause every month.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ironstack.nl/managed-sovereignty.html">
+<meta property="og:image" content="https://ironstack.nl/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ironstack.nl/assets/og-image.png">
+<link rel="icon" href="/assets/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon-180.png">
+<script>
+(function () { try {
+  var t = new URLSearchParams(location.search).get('theme') || localStorage.getItem('ironstack-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  document.documentElement.setAttribute('data-theme', t);
+} catch (e) {} })();
+</script>
+<link rel="preload" href="/assets/fonts/Fraunces-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/SpaceGrotesk-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/fonts.css?v=17">
+<link rel="stylesheet" href="/css/style.css?v=17">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Ironstack",
+  "url": "https://ironstack.nl",
+  "logo": "https://ironstack.nl/assets/ironstack-seal-full-ink.svg",
+  "founder": { "@type": "Person", "name": "Damjan Sajinovic" },
+  "address": { "@type": "PostalAddress", "addressLocality": "Amsterdam", "addressCountry": "NL" },
+  "sameAs": ["https://www.linkedin.com/in/dsajinovic/", "https://github.com/DamjanS24"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Managed Sovereignty",
+  "serviceType": "Managed self-hosted infrastructure",
+  "description": "Ongoing care for self-hosted business systems on client-owned servers: updates, backups, monitoring and response, included hours, and a monthly health report. Fixed monthly price per tier, exit clause every month.",
+  "url": "https://ironstack.nl/managed-sovereignty.html",
+  "provider": { "@type": "Organization", "name": "Ironstack", "url": "https://ironstack.nl" },
+  "areaServed": "NL"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "What exactly is included in the monthly price?", "acceptedAnswer": {"@type": "Answer", "text": "Updates and security patching, backups with tested restores, monitoring with response, a set of included hours for changes and questions, and a monthly health report in plain language. The tiers differ in response windows and included hours, not in whether your systems are cared for."}},
+    {"@type": "Question", "name": "What happens if the server goes down at night?", "acceptedAnswer": {"@type": "Answer", "text": "Monitoring never sleeps and alerts me before most people notice anything. Each tier has an honestly defined response window, agreed in writing. I will not promise a 24/7 operations center, because I am one person; I promise a defined window and a documented recovery procedure that works without heroics."}},
+    {"@type": "Question", "name": "Can we do maintenance ourselves instead?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Everything is documented for your team, not for me, so you can take over any month. Some clients run day-to-day themselves and keep a smaller tier for escalations. Both are fine; the documentation is the same either way."}},
+    {"@type": "Question", "name": "Does the price go up once we depend on you?", "acceptedAnswer": {"@type": "Answer", "text": "No. The monthly price is fixed per tier and agreed before anything starts. It changes only if you change tier or the environment materially grows, and then only with a new fixed number you approve first. And you never depend on me: the exit clause applies every single month."}},
+    {"@type": "Question", "name": "What does the monthly health report contain?", "acceptedAnswer": {"@type": "Answer", "text": "What was updated, what the backups did and whether restores were tested, uptime, anything that needs a decision from you, and what I recommend next. Written in plain language, not log excerpts."}},
+    {"@type": "Question", "name": "We did not build our systems with Ironstack. Can you still run them?", "acceptedAnswer": {"@type": "Answer", "text": "Usually yes, after an audit. I need to know what is running before I take responsibility for it, and the audit is exactly that investigation. If your environment is something I cannot honestly care for, I will say so."}}
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <a class="nav-brand" href="/">
+    <img src="/assets/ironstack-seal-small-ink.svg" alt="Ironstack seal" width="38" height="38">
+    <span>Ironstack</span>
+  </a>
+  <nav class="nav-links" id="navLinks">
+    <a href="/#services">Services</a>
+    <a href="/#method">Method</a>
+    <a href="/#ai">AI</a>
+    <a href="/#proof">Proof</a>
+    <a href="/#about">About</a>
+    <a class="nav-cta" href="/#contact">Contact</a>
+    <button class="switch switch-icon" id="themeToggle" aria-label="Switch between light and dark mode">☾</button>
+  </nav>
+  <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
+    <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>
+  </button>
+</header>
+
+<main id="content">
+<!-- ============ HERO ============ -->
+<section class="hero page-hero">
+  <div class="bg-mark bg-seal-hero" aria-hidden="true"></div>
+  <p class="kicker">SERVICES · HOW IT KEEPS RUNNING</p>
+  <h1>Your systems, cared for.<br>Still yours.</h1>
+  <p class="hero-sub">Managed Sovereignty is the ongoing custodianship of infrastructure you own: updates, backups, monitoring and response, and a monthly report you can actually read. A fixed monthly price per tier, and the exit clause applies every single month.</p>
+  <div class="hero-ctas">
+    <a class="btn btn-primary" href="/#contact">Start a conversation</a>
+    <a class="btn btn-ghost" href="/method.html">See the method</a>
+  </div>
+</section>
+
+<!-- ============ THE PROBLEM ============ -->
+<section class="section section-alt">
+  <p class="svc-group-label">I · THE PROBLEM</p>
+  <h2 class="section-title">“Self-hosting sounds great, until something breaks”</h2>
+  <div class="prose">
+    <p>Most companies do not stay on rented cloud because they love it. They stay because someone else carries the pager. The honest fear behind “we could never self-host” is rarely about features; it is the 3 a.m. question: who patches this, who notices when the disk fills up, who restores the backup, and does the backup even restore?</p>
+    <p>That fear is legitimate. A server nobody maintains is worse than a subscription. Owned infrastructure without care is not sovereignty, it is neglect with extra steps.</p>
+    <p>Managed Sovereignty exists to close exactly that gap: you get the ownership, and I carry the care. Not as a favor bolted onto a project, but as the actual product, with defined response windows and a report every month that tells you what happened in plain language.</p>
+  </div>
+</section>
+
+<!-- ============ WHAT IT IS ============ -->
+<section class="section">
+  <p class="svc-group-label">II · WHAT IT IS, CONCRETELY</p>
+  <h2 class="section-title">Custodianship with a fixed price</h2>
+  <div class="prose">
+    <p>Managed Sovereignty is a monthly agreement per tier. The tiers differ in response windows and included hours, not in whether your systems are looked after; every environment I run gets the same discipline, because my monitoring does not know which tier you are on.</p>
+    <div class="register">
+      <p class="register-head">What custodianship covers · every month</p>
+      <div class="register-row"><span class="register-no">I.</span><span class="register-k">Updates &amp; patching</span><span class="register-dots" aria-hidden="true"></span><span class="register-v">tested, then applied</span></div>
+      <div class="register-row"><span class="register-no">II.</span><span class="register-k">Backups</span><span class="register-dots" aria-hidden="true"></span><span class="register-v">with tested restores</span></div>
+      <div class="register-row"><span class="register-no">III.</span><span class="register-k">Monitoring &amp; response</span><span class="register-dots" aria-hidden="true"></span><span class="register-v">defined windows</span></div>
+      <div class="register-row"><span class="register-no">IV.</span><span class="register-k">Included hours</span><span class="register-dots" aria-hidden="true"></span><span class="register-v">changes &amp; questions</span></div>
+      <div class="register-row"><span class="register-no">V.</span><span class="register-k">Health report</span><span class="register-dots" aria-hidden="true"></span><span class="register-v">plain language</span></div>
+      <p class="register-foot">Fixed monthly price per tier · exit clause every month</p>
+      <img class="stamp-doc" src="/assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
+    </div>
+    <p>What you hold in your hands: the server under your accounts, the documentation and runbooks written for your team, and twelve health reports a year that double as an audit trail. If I disappear tomorrow, any competent engineer continues from the runbook. That is not a slogan; it is the design requirement.</p>
+    <p>The price is fixed and agreed before anything starts, and the number does not move. It changes only if you change tier or your environment materially grows, and then only with a new fixed number you approve first.</p>
+  </div>
+</section>
+
+<!-- ============ WHO FOR ============ -->
+<section class="section section-alt">
+  <p class="svc-group-label">III · A FAIR MATCH</p>
+  <h2 class="section-title">Who this is for, and who it is not for</h2>
+  <div class="svc-grid">
+    <article class="svc">
+      <span class="svc-no">FOR YOU IF</span>
+      <ul class="diamond-list">
+        <li>You want to own your systems but nobody on your team wants to be the sysadmin.</li>
+        <li>You value one accountable person over an anonymous support queue.</li>
+        <li>You want to know, every month, what your infrastructure did and what it cost.</li>
+        <li>You want the option to leave, every month, without a penalty clause.</li>
+      </ul>
+      <img class="stamp" src="/assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
+    </article>
+    <article class="svc">
+      <span class="svc-no">NOT FOR YOU IF</span>
+      <ul class="diamond-list">
+        <li>You need a contractual 24/7 operations center with sub-hour response at any hour. I am one person and will not pretend otherwise.</li>
+        <li>Your environment must stay on a US hyperscaler for reasons that are real and yours. Then this whole company is the wrong fit, and I will say so on the first call.</li>
+        <li>You want the cheapest possible hosting. Care costs money; neglect costs more, but later.</li>
+      </ul>
+      <img class="stamp" src="/assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
+    </article>
+  </div>
+</section>
+
+<!-- ============ HOW IT CONNECTS ============ -->
+<section class="section">
+  <p class="svc-group-label">IV · WHERE IT SITS</p>
+  <h2 class="section-title">Every path ends here</h2>
+  <div class="prose">
+    <p>Managed Sovereignty is the heart of Ironstack; the other services are how you arrive. <a href="/audit.html">The Audit</a> tells you what you have and what it costs. <a href="/stack.html">The Stack</a> builds fresh; <a href="/migration.html">Migration</a> moves an existing environment, both through the same <a href="/method.html">five-phase method</a>. Phase five is literally called Handover &amp; Custodianship: the moment the build ends, this service begins.</p>
+    <p>You can also arrive sideways. Some clients start with a single <a href="/ai-automation.html">automation project</a> and grow into a stack; some bring an environment someone else built. The entry matters less than the destination: systems you own, running with care.</p>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section section-alt">
+  <h2 class="section-title">Fair questions</h2>
+  <div class="faq">
+    <details class="faq-item">
+      <summary>What exactly is included in the monthly price?</summary>
+      <p>Updates and security patching, backups with tested restores, monitoring with response, a set of included hours for changes and questions, and a monthly health report in plain language. The tiers differ in response windows and included hours, not in whether your systems are cared for.</p>
+    </details>
+    <details class="faq-item">
+      <summary>What happens if the server goes down at night?</summary>
+      <p>Monitoring never sleeps and alerts me before most people notice anything. Each tier has an honestly defined response window, agreed in writing. I will not promise a 24/7 operations center, because I am one person; I promise a defined window and a documented recovery procedure that works without heroics.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Can we do maintenance ourselves instead?</summary>
+      <p>Yes. Everything is documented for your team, not for me, so you can take over any month. Some clients run day-to-day themselves and keep a smaller tier for escalations. Both are fine; the documentation is the same either way.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Does the price go up once we depend on you?</summary>
+      <p>No. The monthly price is fixed per tier and agreed before anything starts. It changes only if you change tier or the environment materially grows, and then only with a new fixed number you approve first. And you never depend on me: the exit clause applies every single month.</p>
+    </details>
+    <details class="faq-item">
+      <summary>What does the monthly health report contain?</summary>
+      <p>What was updated, what the backups did and whether restores were tested, uptime, anything that needs a decision from you, and what I recommend next. Written in plain language, not log excerpts.</p>
+    </details>
+    <details class="faq-item">
+      <summary>We did not build our systems with Ironstack. Can you still run them?</summary>
+      <p>Usually yes, after an audit. I need to know what is running before I take responsibility for it, and the audit is exactly that investigation. If your environment is something I cannot honestly care for, I will say so.</p>
+    </details>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="section cta-final">
+  <div class="diamond-rule"><span>◆</span></div>
+  <h2 class="section-title">Start a conversation</h2>
+  <p class="section-sub">Tell me what runs where and what bothers you about it. You will get a straight answer. Sometimes the honest answer is that you do not need me.</p>
+  <div class="hero-ctas">
+    <a class="btn btn-primary" href="/#contact">Start a conversation</a>
+    <a class="btn btn-ghost" href="/audit.html">Or begin with the audit</a>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <img src="/assets/ironstack-seal-full-cream.svg" alt="Ironstack seal" width="104" height="104">
+  <p class="footer-line">IRONSTACK · AMSTERDAM · EST MMXXVI</p>
+  <div class="footer-nav">
+    <a href="/audit.html">The Audit</a>
+    <a href="/ai-automation.html">AI &amp; Automation</a>
+    <a href="/stack.html">The Stack</a>
+    <a href="/migration.html">Migration</a>
+    <a href="/managed-sovereignty.html">Managed Sovereignty</a>
+    <a href="/method.html">The Method</a>
+    <a href="/stack-register.html">Stack Register</a>
+  </div>
+  <div class="footer-links">
+    <a href="mailto:d.sajinovic@ironstack.nl">d.sajinovic@ironstack.nl</a>
+    <a href="https://www.linkedin.com/in/dsajinovic/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/DamjanS24" target="_blank" rel="noopener">GitHub</a>
+    <a href="/privacy.html">Privacy</a>
+  </div>
+  <p class="footer-fine">Built and hosted on Ironstack’s own infrastructure. No analytics, no trackers, no cookies.</p>
+</footer>
+
+<script src="/js/main.js?v=17"></script>
+</body>
+</html>

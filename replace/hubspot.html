@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Replace HubSpot · Ironstack · Sovereign Infrastructure</title>
+<meta name="description" content="What HubSpot costs at 5, 10 and 25 seats, and the self-hosted alternative: Twenty CRM on a server you own, wired to your own automation. Honest comparison.">
+<link rel="canonical" href="https://ironstack.nl/replace/hubspot.html">
+<meta property="og:title" content="Replace HubSpot with a CRM you own · Ironstack">
+<meta property="og:description" content="Twenty CRM on your own EU server replaces HubSpot for pipeline and contacts, without the per-seat meter or the Professional-tier cliff. What matches, what doesn't.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ironstack.nl/replace/hubspot.html">
+<meta property="og:image" content="https://ironstack.nl/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ironstack.nl/assets/og-image.png">
+<link rel="icon" href="/assets/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon-180.png">
+<script>
+(function () { try {
+  var t = new URLSearchParams(location.search).get('theme') || localStorage.getItem('ironstack-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  document.documentElement.setAttribute('data-theme', t);
+} catch (e) {} })();
+</script>
+<link rel="preload" href="/assets/fonts/Fraunces-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/SpaceGrotesk-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/fonts.css?v=17">
+<link rel="stylesheet" href="/css/style.css?v=17">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Ironstack",
+  "url": "https://ironstack.nl",
+  "logo": "https://ironstack.nl/assets/ironstack-seal-full-ink.svg",
+  "founder": { "@type": "Person", "name": "Damjan Sajinovic" },
+  "address": { "@type": "PostalAddress", "addressLocality": "Amsterdam", "addressCountry": "NL" },
+  "sameAs": ["https://www.linkedin.com/in/dsajinovic/", "https://github.com/DamjanS24"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "HubSpot replacement",
+  "serviceType": "Migration from HubSpot to self-hosted CRM",
+  "description": "Migration from HubSpot to Twenty CRM on a client-owned EU server, wired to self-hosted automation. Fixed project fee, five-phase method, no lock-in.",
+  "url": "https://ironstack.nl/replace/hubspot.html",
+  "provider": { "@type": "Organization", "name": "Ironstack", "url": "https://ironstack.nl" },
+  "areaServed": "NL"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Is there a real self-hosted alternative to HubSpot for a small company?", "acceptedAnswer": {"@type": "Answer", "text": "For the CRM core, yes: Twenty covers contacts, companies, pipelines, notes, tasks and a full API, and it is what runs Ironstack's own sales. For the full marketing suite around it, the honest answer is that no single open-source tool replaces everything; the automation and email pieces come from separate tools, wired together."}},
+    {"@type": "Question", "name": "Do we lose our HubSpot data if we leave?", "acceptedAnswer": {"@type": "Answer", "text": "No. Contacts, companies and deals export cleanly and import into Twenty, where they land in a Postgres database on your own server. What does not transfer one-to-one is configuration: workflows and email templates are rebuilt deliberately, which is also the moment to drop the ones nobody remembers making."}},
+    {"@type": "Question", "name": "Can a self-hosted CRM send our marketing emails?", "acceptedAnswer": {"@type": "Answer", "text": "Campaign email is a separate concern from the CRM, and bulk sending from your own server is a deliverability trap. The honest setup is a self-hosted campaign tool or the CRM feeding an EU email service with its own sending reputation. I will not quietly self-host your newsletter and let it land in spam."}},
+    {"@type": "Question", "name": "What does HubSpot actually cost compared to self-hosting?", "acceptedAnswer": {"@type": "Answer", "text": "HubSpot Starter runs about €15 per seat per month, and the Professional tiers jump to roughly €90 per seat plus a mandatory onboarding fee, as of early 2026. The owned equivalent runs on server capacity that costs a few euros a month regardless of seats; what you pay for is the build, once, at a fixed fee."}},
+    {"@type": "Question", "name": "How long does a HubSpot migration take?", "acceptedAnswer": {"@type": "Answer", "text": "For a CRM alone, usually at the short end of the four-to-eight-week range, because the data model is small: contacts, companies, deals, notes. HubSpot keeps running until the new system is validated and your team has been walked through it."}},
+    {"@type": "Question", "name": "Does Twenty CRM integrate with our website forms?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, over its API. This exact website is the demonstration: the contact form flows through self-hosted automation into Twenty without a single third-party processor in between. The stack register page shows the whole chain."}}
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <a class="nav-brand" href="/">
+    <img src="/assets/ironstack-seal-small-ink.svg" alt="Ironstack seal" width="38" height="38">
+    <span>Ironstack</span>
+  </a>
+  <nav class="nav-links" id="navLinks">
+    <a href="/#services">Services</a>
+    <a href="/#method">Method</a>
+    <a href="/#ai">AI</a>
+    <a href="/#proof">Proof</a>
+    <a href="/#about">About</a>
+    <a class="nav-cta" href="/#contact">Contact</a>
+    <button class="switch switch-icon" id="themeToggle" aria-label="Switch between light and dark mode">☾</button>
+  </nav>
+  <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
+    <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>
+  </button>
+</header>
+
+<main id="content">
+<!-- ============ HERO ============ -->
+<section class="hero page-hero">
+  <div class="bg-mark bg-seal-hero" aria-hidden="true"></div>
+  <p class="kicker">REPLACE · HUBSPOT</p>
+  <h1>Replace HubSpot<br>with a CRM you own</h1>
+  <p class="hero-sub">Your pipeline, contacts and deal history are some of the most sensitive data your company holds. Twenty CRM puts them in a database on your own EU server, without the per-seat meter, and it is the CRM Ironstack itself runs on.</p>
+  <div class="hero-ctas">
+    <a class="btn btn-primary" href="/audit.html">Start with the audit</a>
+    <a class="btn btn-ghost" href="/stack-register.html">See it in my own stack</a>
+  </div>
+</section>
+
+<!-- ============ COSTS ============ -->
+<section class="section section-alt">
+  <p class="svc-group-label">I · WHAT HUBSPOT ACTUALLY COSTS</p>
+  <h2 class="section-title">Cheap to enter, expensive to need</h2>
+  <div class="prose">
+    <p>HubSpot’s pricing is a staircase with a famous step in the middle. Starter costs about €15 per seat per month as of early 2026, and it is genuinely good value, which is the point: your data, your workflows and your team’s habits settle in. Then you need one Professional feature, and the price per seat roughly sextuples, with a mandatory onboarding fee on top of it. The numbers below are the conservative published tiers.</p>
+    <div class="register">
+      <p class="register-head">HubSpot Starter · ≈ €15 per seat per month · as of 2026</p>
+      <div class="register-row"><span class="register-no">I.</span><span class="register-k">5 seats</span><span class="register-dots" aria-hidden="true"></span><span class="register-v">≈ €900 a year</span></div>
+      <div class="register-row"><span class="register-no">II.</span><span class="register-k">10 seats</span><span class="register-dots" aria-hidden="true"></span><span class="register-v">≈ €1,800 a year</span></div>
+      <div class="register-row"><span class="register-no">III.</span><span class="register-k">25 seats</span><span class="register-dots" aria-hidden="true"></span><span class="register-v">≈ €4,500 a year</span></div>
+      <div class="register-row"><span class="register-no">IV.</span><span class="register-k">Professional, 5 seats</span><span class="register-dots" aria-hidden="true"></span><span class="register-v">≈ €5,400 a year, plus onboarding</span></div>
+      <p class="register-foot">The step to Professional is where the lock-in earns its keep</p>
+      <img class="stamp-doc" src="/assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
+    </div>
+    <p>By the time Professional is on the table, leaving feels unthinkable: the CRM holds your entire commercial memory. That is not an accident of pricing. It is the business model, and it is exactly the kind of dependency this company exists to end.</p>
+  </div>
+</section>
+
+<!-- ============ THE OWNED EQUIVALENT ============ -->
+<section class="section">
+  <p class="svc-group-label">II · THE OWNED EQUIVALENT</p>
+  <h2 class="section-title">Twenty CRM, on your own server</h2>
+  <div class="prose">
+    <p><strong>Twenty</strong> is a modern open-source CRM: contacts, companies, deal pipelines, notes, tasks, and a full API, backed by a Postgres database that sits on a server you own. It looks and feels like the current generation of SaaS CRMs rather than a nostalgia project, and it is not a hypothetical recommendation: it is the CRM <a href="/stack-register.html">Ironstack itself runs on</a>, receiving the leads from this very website.</p>
+    <p>The honest framing: HubSpot is not just a CRM, it is a suite. The owned equivalent is a CRM plus an automation layer, wired together. That wiring is real work, which is why this is a service and not a download link.</p>
+  </div>
+  <div class="svc-grid" style="margin-top:34px">
+    <article class="svc">
+      <span class="svc-no">WHAT MATCHES</span>
+      <ul class="diamond-list">
+        <li>Contacts, companies, pipelines, notes and tasks, in a clean modern interface.</li>
+        <li>Website forms flowing straight into the CRM, via your own automation.</li>
+        <li>Lead routing, follow-up reminders and enrichment, built with n8n to your rules.</li>
+        <li>A full API, without a paywall deciding which endpoints you deserve.</li>
+      </ul>
+      <img class="stamp" src="/assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
+    </article>
+    <article class="svc">
+      <span class="svc-no">WHAT DOESN’T</span>
+      <ul class="diamond-list">
+        <li>HubSpot’s all-in-one marketing suite: landing pages, ads management and campaign email in one roof. The owned version assembles these from separate tools, or honestly skips them.</li>
+        <li>Bulk marketing email needs a proper sending setup; I will not quietly self-host your newsletter into spam folders.</li>
+        <li>The ecosystem of one-click HubSpot integrations. With Twenty, integrations are built, not installed.</li>
+      </ul>
+      <img class="stamp" src="/assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
+    </article>
+    <article class="svc">
+      <span class="svc-no">WHAT’S BETTER</span>
+      <ul class="diamond-list">
+        <li>Seats are free. The intern can have an account; so can the bookkeeper.</li>
+        <li>Your commercial history sits in your Postgres, exportable any minute, forever.</li>
+        <li>No feature you rely on can be moved up a tier next quarter.</li>
+        <li>Automations run on your server and can touch all your systems, not just the CRM.</li>
+      </ul>
+      <img class="stamp" src="/assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
+    </article>
+  </div>
+</section>
+
+<!-- ============ MIGRATION ============ -->
+<section class="section section-alt">
+  <p class="svc-group-label">III · WHAT THE MOVE INVOLVES</p>
+  <h2 class="section-title">HubSpot keeps running until we switch</h2>
+  <div class="prose">
+    <p>The move follows the <a href="/method.html">five-phase method</a>. For a CRM alone it usually sits at the short end of the four-to-eight-week range, because the data model is small: contacts, companies, deals, notes and their history export cleanly and import into Twenty, where every record is verified against the source.</p>
+    <p>What does not transfer one-to-one is configuration. Workflows, templates and automations are rebuilt deliberately in n8n rather than copied, which is also the healthiest moment your CRM will ever have: the automations nobody remembers making simply do not get rebuilt.</p>
+    <p>HubSpot stays live and untouched until validation is done, your team has been walked through the new system, and you approve the switch. The rollback is unusually gentle here: until the day you cancel the subscription, the old system is still there, read-only in practice, holding nothing you have not already taken.</p>
+  </div>
+</section>
+
+<!-- ============ WHERE THE DATA ENDS UP ============ -->
+<section class="section">
+  <p class="svc-group-label">IV · WHERE YOUR DATA ENDS UP</p>
+  <h2 class="section-title">Your pipeline, inside your walls</h2>
+  <div class="prose">
+    <p>After the move, every contact, deal and conversation note lives in a Postgres database on a server you own, in an EU data center, under EU jurisdiction, under your accounts. Your prospects’ personal data stops flowing through an American marketing platform, which means one large entry disappears from your GDPR processor register and no CLOUD Act ambiguity hangs over your sales data.</p>
+    <p>And because the database is yours, the exit clause is not a promise, it is physics: leaving Ironstack later is a copy operation, not a data ransom negotiation.</p>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section section-alt">
+  <h2 class="section-title">Fair questions</h2>
+  <div class="faq">
+    <details class="faq-item">
+      <summary>Is there a real self-hosted alternative to HubSpot for a small company?</summary>
+      <p>For the CRM core, yes: Twenty covers contacts, companies, pipelines, notes, tasks and a full API, and it is what runs Ironstack’s own sales. For the full marketing suite around it, the honest answer is that no single open-source tool replaces everything; the automation and email pieces come from separate tools, wired together.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Do we lose our HubSpot data if we leave?</summary>
+      <p>No. Contacts, companies and deals export cleanly and import into Twenty, where they land in a Postgres database on your own server. What does not transfer one-to-one is configuration: workflows and email templates are rebuilt deliberately, which is also the moment to drop the ones nobody remembers making.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Can a self-hosted CRM send our marketing emails?</summary>
+      <p>Campaign email is a separate concern from the CRM, and bulk sending from your own server is a deliverability trap. The honest setup is a self-hosted campaign tool or the CRM feeding an EU email service with its own sending reputation. I will not quietly self-host your newsletter and let it land in spam.</p>
+    </details>
+    <details class="faq-item">
+      <summary>What does HubSpot actually cost compared to self-hosting?</summary>
+      <p>HubSpot Starter runs about €15 per seat per month, and the Professional tiers jump to roughly €90 per seat plus a mandatory onboarding fee, as of early 2026. The owned equivalent runs on server capacity that costs a few euros a month regardless of seats; what you pay for is the build, once, at a fixed fee.</p>
+    </details>
+    <details class="faq-item">
+      <summary>How long does a HubSpot migration take?</summary>
+      <p>For a CRM alone, usually at the short end of the four-to-eight-week range, because the data model is small: contacts, companies, deals, notes. HubSpot keeps running until the new system is validated and your team has been walked through it.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Does Twenty CRM integrate with our website forms?</summary>
+      <p>Yes, over its API. This exact website is the demonstration: the contact form flows through self-hosted automation into Twenty without a single third-party processor in between. The <a href="/stack-register.html">stack register</a> shows the whole chain.</p>
+    </details>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="section cta-final">
+  <div class="diamond-rule"><span>◆</span></div>
+  <h2 class="section-title">The low-risk first step</h2>
+  <p class="section-sub">The audit maps what you actually use inside HubSpot, what it costs you per year, and what an owned CRM would take, for a small fixed price, with a written report that is yours whatever you decide. If Starter genuinely covers you, the report will say: stay.</p>
+  <div class="hero-ctas">
+    <a class="btn btn-primary" href="/audit.html">Read about the audit</a>
+    <a class="btn btn-ghost" href="/#contact">Start a conversation</a>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <img src="/assets/ironstack-seal-full-cream.svg" alt="Ironstack seal" width="104" height="104">
+  <p class="footer-line">IRONSTACK · AMSTERDAM · EST MMXXVI</p>
+  <div class="footer-nav">
+    <a href="/audit.html">The Audit</a>
+    <a href="/ai-automation.html">AI &amp; Automation</a>
+    <a href="/stack.html">The Stack</a>
+    <a href="/migration.html">Migration</a>
+    <a href="/managed-sovereignty.html">Managed Sovereignty</a>
+    <a href="/method.html">The Method</a>
+    <a href="/stack-register.html">Stack Register</a>
+  </div>
+  <div class="footer-links">
+    <a href="mailto:d.sajinovic@ironstack.nl">d.sajinovic@ironstack.nl</a>
+    <a href="https://www.linkedin.com/in/dsajinovic/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/DamjanS24" target="_blank" rel="noopener">GitHub</a>
+    <a href="/privacy.html">Privacy</a>
+  </div>
+  <p class="footer-fine">Built and hosted on Ironstack’s own infrastructure. No analytics, no trackers, no cookies.</p>
+</footer>
+
+<script src="/js/main.js?v=17"></script>
+</body>
+</html>

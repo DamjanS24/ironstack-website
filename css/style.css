@@ -417,6 +417,37 @@ a { color: inherit; }
 .legal a:hover { border-color: var(--ink); }
 .legal-back { margin-top: 40px; }
 
+/* ---------- subpages (service / replace / proof pages) ---------- */
+.page-hero { padding-bottom: clamp(36px, 5vw, 64px); }
+.page-hero h1 { font-size: clamp(34px, 5.2vw, 58px); }
+.page-hero .hero-sub { max-width: 680px; }
+.prose { max-width: 720px; }
+.prose p { color: var(--body); margin-bottom: 16px; font-size: 16px; }
+.prose p:last-child { margin-bottom: 0; }
+.prose em { font-family: var(--garamond); font-size: 1.06em; }
+.prose a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--rule); padding-bottom: 1px; transition: border-color .18s ease; }
+.prose a:hover { border-color: var(--ink); }
+.prose h3 { font-family: var(--serif); font-weight: 600; font-size: 19px; margin: 26px 0 8px; }
+.prose .register { margin: 26px 0; }
+.diamond-list { list-style: none; max-width: 720px; }
+.diamond-list li { position: relative; padding: 8px 0 8px 26px; color: var(--body); font-size: 15px; }
+.diamond-list li::before { content: '◆'; position: absolute; left: 2px; top: 15px; font-size: 8px; color: var(--muted); }
+.svc .diamond-list li { font-size: 14.5px; padding: 6px 0 6px 24px; }
+.read-more { display: inline-block; margin-top: 14px; font-size: 13.5px; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--rule); padding-bottom: 1px; transition: border-color .18s ease; }
+.read-more:hover { border-color: var(--ink); }
+.svc-featured .read-more { color: var(--rev); border-bottom-color: color-mix(in srgb, var(--rev) 35%, transparent); }
+.svc-featured .read-more:hover { border-bottom-color: var(--rev); }
+.phase-facts { list-style: none; margin-top: 16px; border-top: 1px solid var(--rule); }
+.phase-facts li { display: flex; gap: 14px; padding: 9px 0; border-bottom: 1px solid var(--rule); font-size: 14.5px; color: var(--body); }
+.phase-facts li:last-child { border-bottom: none; }
+.phase-facts b { flex-shrink: 0; min-width: 122px; font-weight: 500; font-family: var(--garamond); font-style: italic; color: var(--muted); }
+@media (max-width: 560px) { .phase-facts li { flex-direction: column; gap: 2px; } }
+.cta-final { text-align: center; }
+.cta-final .section-sub { margin-left: auto; margin-right: auto; }
+.footer-nav { display: flex; gap: 10px 22px; flex-wrap: wrap; justify-content: center; font-size: 12.5px; max-width: 680px; }
+.footer-nav a { color: var(--muted-d); text-decoration: none; transition: color .18s ease; }
+.footer-nav a:hover { color: var(--rev); }
+
 /* ---------- dark mode: the reversed brand page (cream on ink) ---------- */
 [data-theme="dark"] {
   --ink: #EAE3D2;

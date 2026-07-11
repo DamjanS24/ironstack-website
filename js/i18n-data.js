@@ -70,6 +70,8 @@ window.I18N = {
     "ai.c3t": "Answers from your own knowledge",
     "ai.c3b": "A private search across your wiki, documents and archives that answers in plain language, with sources. Indexed on your server, inside your walls, without becoming someone else’s training data.",
     "ai.note": "The honest version: small open models run on your own hardware, and some tasks need bigger ones. When they do, I use an EU-hosted model under a written agreement, disclosed in your documentation, and only for the data that task needs. You always know which is which.",
+    "ai.more": "Read more about AI &amp; Automation →",
+    "misc.more": "Read more →",
 
     "about.title": "The person behind the seal",
     "about.p1": "I am Damjan Sajinovic, an infrastructure engineer in Amsterdam with Serbian roots. In Serbian there’s a word, <em>inat</em>: the stubborn refusal to accept “that’s just how it is.” It’s the most accurate description of why Ironstack exists.",
@@ -122,6 +124,13 @@ window.I18N = {
 
     "footer.fine": "Built and hosted on Ironstack’s own infrastructure. No analytics, no trackers, no cookies.",
     "footer.privacy": "Privacy",
+    "footer.audit": "The Audit",
+    "footer.ai": "AI &amp; Automation",
+    "footer.stack": "The Stack",
+    "footer.migration": "Migration",
+    "footer.managed": "Managed Sovereignty",
+    "footer.method": "The Method",
+    "footer.register": "Stack Register",
 
     "privacy.title": "Privacy",
     "privacy.updated": "Last updated: 10 July 2026",
@@ -212,6 +221,8 @@ window.I18N = {
     "ai.c3t": "Antwoorden uit je eigen kennis",
     "ai.c3b": "Een privé-zoekfunctie over je wiki, documenten en archieven die antwoordt in gewone taal, met bronnen. Geïndexeerd op jouw server, binnen jouw muren, zonder andermans trainingsdata te worden.",
     "ai.note": "De eerlijke versie: kleine open modellen draaien op je eigen hardware, en sommige taken hebben grotere nodig. In dat geval gebruik ik een in de EU gehost model onder een schriftelijke overeenkomst, vermeld in je documentatie, en alleen voor de data die die taak nodig heeft. Je weet altijd welke van de twee het is.",
+    "ai.more": "Lees meer over AI &amp; Automatisering →",
+    "misc.more": "Lees verder →",
 
     "about.title": "De persoon achter het zegel",
     "about.p1": "Ik ben Damjan Sajinovic, infrastructuur-engineer in Amsterdam met Servische roots. In het Servisch bestaat een woord, <em>inat</em>: de koppige weigering om “zo is het nu eenmaal” te accepteren. Het is de meest accurate beschrijving van waarom Ironstack bestaat.",
@@ -264,6 +275,13 @@ window.I18N = {
 
     "footer.fine": "Gebouwd en gehost op Ironstacks eigen infrastructuur. Geen analytics, geen trackers, geen cookies.",
     "footer.privacy": "Privacy",
+    "footer.audit": "De Audit",
+    "footer.ai": "AI &amp; Automatisering",
+    "footer.stack": "De Stack",
+    "footer.migration": "Migratie",
+    "footer.managed": "Beheerde Soevereiniteit",
+    "footer.method": "De Methode",
+    "footer.register": "Stackregister",
 
     "privacy.title": "Privacy",
     "privacy.updated": "Laatst bijgewerkt: 10 juli 2026",
