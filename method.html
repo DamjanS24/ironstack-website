@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Method · Ironstack · Sovereign Infrastructure</title>
+<meta name="description" content="Ironstack's five-phase migration method in full: what happens per phase, what you approve, what the rollback is, and what you hold at the end. No surprises.">
+<link rel="canonical" href="https://ironstack.nl/method.html">
+<meta property="og:title" content="The Method · Ironstack">
+<meta property="og:description" content="Five controlled phases from audit to handover. Your current setup keeps running untouched until we deliberately switch, in a window you approve, with a tested rollback.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ironstack.nl/method.html">
+<meta property="og:image" content="https://ironstack.nl/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ironstack.nl/assets/og-image.png">
+<link rel="icon" href="/assets/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon-180.png">
+<script>
+(function () { try {
+  var t = new URLSearchParams(location.search).get('theme') || localStorage.getItem('ironstack-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  document.documentElement.setAttribute('data-theme', t);
+} catch (e) {} })();
+</script>
+<link rel="preload" href="/assets/fonts/Fraunces-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/SpaceGrotesk-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/fonts.css?v=17">
+<link rel="stylesheet" href="/css/style.css?v=17">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Ironstack",
+  "url": "https://ironstack.nl",
+  "logo": "https://ironstack.nl/assets/ironstack-seal-full-ink.svg",
+  "founder": { "@type": "Person", "name": "Damjan Sajinovic" },
+  "address": { "@type": "PostalAddress", "addressLocality": "Amsterdam", "addressCountry": "NL" },
+  "sameAs": ["https://www.linkedin.com/in/dsajinovic/", "https://github.com/DamjanS24"]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <a class="nav-brand" href="/">
+    <img src="/assets/ironstack-seal-small-ink.svg" alt="Ironstack seal" width="38" height="38">
+    <span>Ironstack</span>
+  </a>
+  <nav class="nav-links" id="navLinks">
+    <a href="/#services">Services</a>
+    <a href="/#method">Method</a>
+    <a href="/#ai">AI</a>
+    <a href="/#proof">Proof</a>
+    <a href="/#about">About</a>
+    <a class="nav-cta" href="/#contact">Contact</a>
+    <button class="switch switch-icon" id="themeToggle" aria-label="Switch between light and dark mode">☾</button>
+  </nav>
+  <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
+    <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>
+  </button>
+</header>
+
+<main id="content">
+<!-- ============ HERO ============ -->
+<section class="hero page-hero">
+  <div class="bg-mark bg-seal-hero" aria-hidden="true"></div>
+  <p class="kicker">THE METHOD · FIVE PHASES</p>
+  <h1>Five phases.<br>No surprises.</h1>
+  <p class="hero-sub">Every build runs through the same five controlled phases, whether we install a fresh stack or move an existing environment. Your current setup keeps running untouched until we deliberately switch, in a window you approve, with a tested rollback. This page is each phase in full: what happens, what you approve, what the way back is, and what you hold at the end.</p>
+  <div class="hero-ctas">
+    <a class="btn btn-primary" href="/#contact">Start a conversation</a>
+    <a class="btn btn-ghost" href="/audit.html">Phase one, sold on its own</a>
+  </div>
+</section>
+
+<!-- ============ THE PHASES ============ -->
+<section class="section section-alt">
+  <p class="svc-group-label">THE FIVE PHASES · IN FULL</p>
+  <h2 class="section-title">From map to handover</h2>
+  <p class="section-sub">Two rules govern all five phases. Nothing executes without your sign-off, and every step has a rollback that was tested before it was needed. The result is that the riskiest moment of the project, the switch, is also the most rehearsed.</p>
+  <ol class="phases">
+    <li>
+      <span class="phase-no">I</span>
+      <div>
+        <h3>Discovery &amp; Audit</h3>
+        <p>I map your infrastructure: every system, every data flow, every dependency, what each costs per year, and where GDPR and AI expose you. This phase is pure investigation; nothing in your environment is touched, and most of your involvement is a kickoff conversation and a walkthrough.</p>
+        <ul class="phase-facts">
+          <li><b>You see &amp; approve</b><span>the findings, before anything is planned on top of them.</span></li>
+          <li><b>Rollback</b><span>nothing to roll back; nothing was changed.</span></li>
+          <li><b>You hold</b><span>a written audit report that stays useful even if we never work together again. <a href="/audit.html">Sold on its own</a>, at a small fixed price.</span></li>
+        </ul>
+      </div>
+    </li>
+    <li>
+      <span class="phase-no">II</span>
+      <div>
+        <h3>Architecture &amp; Planning</h3>
+        <p>The audit findings become a target design and a step-by-step migration runbook: which system moves when, in what order, with what dependencies, and what happens if a step fails. Every step gets its own rollback written before we start, not improvised at midnight. This is also where the proposal lands: a fixed project fee and a fixed monthly price, and neither moves.</p>
+        <ul class="phase-facts">
+          <li><b>You see &amp; approve</b><span>the design, the runbook, the timeline and the numbers. Nothing executes without your sign-off.</span></li>
+          <li><b>Rollback</b><span>still nothing running; declining the proposal is the rollback, and the audit report remains yours.</span></li>
+          <li><b>You hold</b><span>the runbook itself, written for your team, not for me.</span></li>
+        </ul>
+      </div>
+    </li>
+    <li>
+      <span class="phase-no">III</span>
+      <div>
+        <h3>The Build</h3>
+        <p>The new environment is built and filled next to your production, which keeps running untouched. Server hardening, the systems from the design, the wiring between them, backups with tested restores, and monitoring, all constructed and loaded with real data copies while your business notices nothing.</p>
+        <ul class="phase-facts">
+          <li><b>You see &amp; approve</b><span>progress against the runbook, and working previews you can log into and poke at.</span></li>
+          <li><b>Rollback</b><span>trivial by design: production has not been touched. The build can pause or stop at any point with zero operational impact.</span></li>
+          <li><b>You hold</b><span>a complete parallel environment, under your accounts, from the first day of the build.</span></li>
+        </ul>
+      </div>
+    </li>
+    <li>
+      <span class="phase-no">IV</span>
+      <div>
+        <h3>Validation &amp; Go-live</h3>
+        <p>Full testing against the real workload: your documents open, your workflows run, your team's daily tasks work in the new environment, verified before the switch rather than discovered after it. Then the switch itself, in a window you approve, usually outside business hours, followed by days of close monitoring.</p>
+        <ul class="phase-facts">
+          <li><b>You see &amp; approve</b><span>the validation results and the switch window. The go/no-go is yours.</span></li>
+          <li><b>Rollback</b><span>the tested plan: the old environment is still intact and can be restored to primary in minutes, not rebuilt in days.</span></li>
+          <li><b>You hold</b><span>a live environment that has already proven itself, and an old one still standing as the safety net.</span></li>
+        </ul>
+      </div>
+    </li>
+    <li>
+      <span class="phase-no">V</span>
+      <div>
+        <h3>Handover &amp; Custodianship</h3>
+        <p>Documentation, knowledge transfer, and a trained team: your people learn the new systems from me, not from a PDF alone. The old environment is safely decommissioned only after the new one has earned trust, and its subscriptions are cancelled with receipts. From here, <a href="/managed-sovereignty.html">Managed Sovereignty</a> takes over: updates, backups, monitoring and a monthly report, at a fixed monthly price with the exit clause applying every single month.</p>
+        <ul class="phase-facts">
+          <li><b>You see &amp; approve</b><span>the handover checklist and the decommissioning of the old environment, item by item.</span></li>
+          <li><b>Rollback</b><span>the exit clause itself: everything is yours, so you can continue with me, alone, or with anyone else, from the runbook.</span></li>
+          <li><b>You hold</b><span>everything. Server, accounts, domains, documentation, and a team that knows how to use it. That is the point.</span></li>
+        </ul>
+      </div>
+    </li>
+  </ol>
+</section>
+
+<!-- ============ THE DISCIPLINE ============ -->
+<section class="section">
+  <p class="svc-group-label">WHY IT LOOKS BUREAUCRATIC</p>
+  <h2 class="section-title">Boring is the deliverable</h2>
+  <div class="prose">
+    <p>Five phases with sign-offs and rollback plans can read as ceremony for what is, technically, moving software between computers. But every migration horror story you have heard is a missing phase: the discovery that skipped the one system everyone forgot, the switch attempted without a way back, the handover that never happened and turned a consultant into a hostage-taker.</p>
+    <p>The method is also why every price at Ironstack can be fixed. I can promise a number that does not move because phase one measured the work before phase two priced it. Vendors who quote before they map are guessing, and their surprises become your invoices.</p>
+    <p>Smaller projects, an <a href="/ai-automation.html">automation, an assistant</a>, follow the same discipline, just lighter: scope, build next to production, validate, hand over documented. The phases scale down; the promises do not. Where the build is a fresh <a href="/stack.html">Stack</a> with nothing to migrate, phases three and four compress, which is why a fresh build is faster than a <a href="/migration.html">migration</a>.</p>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="section cta-final">
+  <div class="diamond-rule"><span>◆</span></div>
+  <h2 class="section-title">Start at phase one</h2>
+  <p class="section-sub">The audit is the method's front door: a small fixed price, a written report, and an exact timeline for everything after it. You commit to nothing beyond clarity.</p>
+  <div class="hero-ctas">
+    <a class="btn btn-primary" href="/audit.html">Read about the audit</a>
+    <a class="btn btn-ghost" href="/#contact">Start a conversation</a>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <img src="/assets/ironstack-seal-full-cream.svg" alt="Ironstack seal" width="104" height="104">
+  <p class="footer-line">IRONSTACK · AMSTERDAM · EST MMXXVI</p>
+  <div class="footer-nav">
+    <a href="/audit.html">The Audit</a>
+    <a href="/ai-automation.html">AI &amp; Automation</a>
+    <a href="/stack.html">The Stack</a>
+    <a href="/migration.html">Migration</a>
+    <a href="/managed-sovereignty.html">Managed Sovereignty</a>
+    <a href="/method.html">The Method</a>
+    <a href="/stack-register.html">Stack Register</a>
+  </div>
+  <div class="footer-links">
+    <a href="mailto:d.sajinovic@ironstack.nl">d.sajinovic@ironstack.nl</a>
+    <a href="https://www.linkedin.com/in/dsajinovic/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/DamjanS24" target="_blank" rel="noopener">GitHub</a>
+    <a href="/privacy.html">Privacy</a>
+  </div>
+  <p class="footer-fine">Built and hosted on Ironstack’s own infrastructure. No analytics, no trackers, no cookies.</p>
+</footer>
+
+<script src="/js/main.js?v=17"></script>
+</body>
+</html>

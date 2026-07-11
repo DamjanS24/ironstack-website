@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Replace Google Workspace · Ironstack · Sovereign Infrastructure</title>
+<meta name="description" content="What Google Workspace costs at 5, 10 and 25 seats, and the self-hosted alternative: Nextcloud plus an EU mail provider, on a server you own. Honest comparison.">
+<link rel="canonical" href="https://ironstack.nl/replace/google-workspace.html">
+<meta property="og:title" content="Replace Google Workspace with infrastructure you own · Ironstack">
+<meta property="og:description" content="Nextcloud plus an EU mail provider replaces Drive, Docs, Calendar and Gmail on a server you own. What matches, what doesn't, and what migration honestly involves.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ironstack.nl/replace/google-workspace.html">
+<meta property="og:image" content="https://ironstack.nl/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ironstack.nl/assets/og-image.png">
+<link rel="icon" href="/assets/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon-180.png">
+<script>
+(function () { try {
+  var t = new URLSearchParams(location.search).get('theme') || localStorage.getItem('ironstack-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  document.documentElement.setAttribute('data-theme', t);
+} catch (e) {} })();
+</script>
+<link rel="preload" href="/assets/fonts/Fraunces-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/SpaceGrotesk-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/fonts.css?v=17">
+<link rel="stylesheet" href="/css/style.css?v=17">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Ironstack",
+  "url": "https://ironstack.nl",
+  "logo": "https://ironstack.nl/assets/ironstack-seal-full-ink.svg",
+  "founder": { "@type": "Person", "name": "Damjan Sajinovic" },
+  "address": { "@type": "PostalAddress", "addressLocality": "Amsterdam", "addressCountry": "NL" },
+  "sameAs": ["https://www.linkedin.com/in/dsajinovic/", "https://github.com/DamjanS24"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Google Workspace replacement",
+  "serviceType": "Migration from Google Workspace to self-hosted infrastructure",
+  "description": "Migration from Google Workspace to Nextcloud on a client-owned EU server, with email at an EU mail provider on the client's own domain. Fixed project fee, five-phase method, no lock-in.",
+  "url": "https://ironstack.nl/replace/google-workspace.html",
+  "provider": { "@type": "Organization", "name": "Ironstack", "url": "https://ironstack.nl" },
+  "areaServed": "NL"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Is Nextcloud a real alternative to Google Drive for a company?", "acceptedAnswer": {"@type": "Answer", "text": "For files, sharing, calendars and contacts, yes, and it has been for years. Nextcloud runs desktop sync on Windows and Mac, mobile apps, link sharing with passwords and expiry, and document collaboration through Nextcloud Office. The honest caveats are search and third-party integrations, where Google is still ahead."}},
+    {"@type": "Question", "name": "Can we keep using Gmail addresses after we leave Google Workspace?", "acceptedAnswer": {"@type": "Answer", "text": "You keep your email addresses because they are on your own domain, and the domain moves with you. What changes is the provider behind them. Mail history migrates over IMAP, and the switch is a DNS change performed in a window you approve."}},
+    {"@type": "Question", "name": "Why do you recommend an EU mail provider instead of self-hosting email?", "acceptedAnswer": {"@type": "Answer", "text": "Because self-hosted email deliverability is genuinely hard: one reputation problem on your IP and your invoices land in spam folders. A specialized EU provider on your own domain gives you EU jurisdiction and portability without that risk. If you insist on fully self-hosted mail, I will build it, but I will put the trade-off in writing first."}},
+    {"@type": "Question", "name": "What happens to Google Docs files in a migration?", "acceptedAnswer": {"@type": "Answer", "text": "They are exported to open formats and imported into Nextcloud, where Nextcloud Office edits them collaboratively. Complex documents get spot-checked during validation, before the switch, not after. Formatting quirks are found in the test phase or not at all."}},
+    {"@type": "Question", "name": "How long does leaving Google Workspace take?", "acceptedAnswer": {"@type": "Answer", "text": "A typical small-business migration runs four to eight weeks from audit to handover, with Google running untouched until the deliberate switch. You are never in a state where the old environment is gone and the new one is not ready."}},
+    {"@type": "Question", "name": "Is self-hosted cheaper than Google Workspace?", "acceptedAnswer": {"@type": "Answer", "text": "The running costs are lower and, more importantly, they stop scaling per seat: a server plus EU mailboxes typically costs less than a 10-seat Workspace subscription and does not double when your team does. The build itself is a fixed project fee, so the honest comparison is an investment that pays back over time, not instant savings."}}
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <a class="nav-brand" href="/">
+    <img src="/assets/ironstack-seal-small-ink.svg" alt="Ironstack seal" width="38" height="38">
+    <span>Ironstack</span>
+  </a>
+  <nav class="nav-links" id="navLinks">
+    <a href="/#services">Services</a>
+    <a href="/#method">Method</a>
+    <a href="/#ai">AI</a>
+    <a href="/#proof">Proof</a>
+    <a href="/#about">About</a>
+    <a class="nav-cta" href="/#contact">Contact</a>
+    <button class="switch switch-icon" id="themeToggle" aria-label="Switch between light and dark mode">☾</button>
+  </nav>
+  <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
+    <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>
+  </button>
+</header>
+
+<main id="content">
+<!-- ============ HERO ============ -->
+<section class="hero page-hero">
+  <div class="bg-mark bg-seal-hero" aria-hidden="true"></div>
+  <p class="kicker">REPLACE · GOOGLE WORKSPACE</p>
+  <h1>Replace Google Workspace<br>with infrastructure you own</h1>
+  <p class="hero-sub">Drive, Docs, Calendar and Gmail have owned equivalents: Nextcloud on a server that is yours, and email at an EU provider on your own domain. Here is what that costs, what matches, what does not, and what the move honestly involves.</p>
+  <div class="hero-ctas">
+    <a class="btn btn-primary" href="/audit.html">Start with the audit</a>
+    <a class="btn btn-ghost" href="/method.html">See the method</a>
+  </div>
+</section>
+
+<!-- ============ COSTS ============ -->
+<section class="section section-alt">
+  <p class="svc-group-label">I · WHAT GOOGLE WORKSPACE ACTUALLY COSTS</p>
+  <h2 class="section-title">The per-seat meter never stops</h2>
+  <div class="prose">
+    <p>Google Workspace Business Standard, the plan most small companies end up on, runs at roughly €14 per user per month on the annual plan as of early 2026; Business Starter is about half that with a fraction of the storage, and the flexible monthly plan costs more. The prices below are the conservative published tiers; Google has raised them more than once, most recently while bundling in Gemini, and the direction only goes one way.</p>
+    <div class="register">
+      <p class="register-head">Business Standard · ≈ €14 per user per month · as of 2026</p>
+      <div class="register-row"><span class="register-no">I.</span><span class="register-k">5 seats</span><span class="register-dots" aria-hidden="true"></span><span class="register-v">≈ €840 a year</span></div>
+      <div class="register-row"><span class="register-no">II.</span><span class="register-k">10 seats</span><span class="register-dots" aria-hidden="true"></span><span class="register-v">≈ €1,680 a year</span></div>
+      <div class="register-row"><span class="register-no">III.</span><span class="register-k">25 seats</span><span class="register-dots" aria-hidden="true"></span><span class="register-v">≈ €4,200 a year</span></div>
+      <p class="register-foot">Every hire raises it · every price increase compounds it</p>
+      <img class="stamp-doc" src="/assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
+    </div>
+    <p>The number on the invoice is only half the price. The other half is that your files, mail and calendars sit in an American cloud, under American jurisdiction, inside a business model that profiles usage. You pay the meter and you are still the product surface.</p>
+  </div>
+</section>
+
+<!-- ============ THE OWNED EQUIVALENT ============ -->
+<section class="section">
+  <p class="svc-group-label">II · THE OWNED EQUIVALENT</p>
+  <h2 class="section-title">Nextcloud, plus an EU mail provider</h2>
+  <div class="prose">
+    <p>The replacement is two pieces. <strong>Nextcloud</strong> on a server you own covers Drive, Docs, Calendar and Contacts: desktop sync on every platform, mobile apps, link sharing with passwords and expiry dates, and collaborative document editing through Nextcloud Office. <strong>Email</strong> goes to a specialized EU mail provider, on your own domain.</p>
+    <p>That second piece deserves the honest sentence most migration pitches skip: self-hosted email deliverability is hard. Running your own mail server is technically possible, but one reputation problem on your IP address and your invoices start landing in spam folders. A dedicated EU provider gives you EU jurisdiction, your own domain, and full portability without that risk. If you insist on fully self-hosted mail, I will build it, and I will put the trade-off in writing first.</p>
+  </div>
+  <div class="svc-grid" style="margin-top:34px">
+    <article class="svc">
+      <span class="svc-no">WHAT MATCHES</span>
+      <ul class="diamond-list">
+        <li>File storage, sync and sharing, on desktop and mobile.</li>
+        <li>Shared calendars, contacts and resource booking.</li>
+        <li>Collaborative editing of documents, spreadsheets and slides.</li>
+        <li>Email on your own domain, with your history migrated.</li>
+      </ul>
+      <img class="stamp" src="/assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
+    </article>
+    <article class="svc">
+      <span class="svc-no">WHAT DOESN’T</span>
+      <ul class="diamond-list">
+        <li>Google’s search inside your mail and files is still the best in the business.</li>
+        <li>Gmail’s spam filtering is better than almost anything; a good EU provider comes close.</li>
+        <li>Some third-party tools only offer a “sign in with Google” style integration.</li>
+      </ul>
+      <img class="stamp" src="/assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
+    </article>
+    <article class="svc">
+      <span class="svc-no">WHAT’S BETTER</span>
+      <ul class="diamond-list">
+        <li>Storage costs disks, not seats: 2&nbsp;TB more is a hardware line, not 25 upgraded licenses.</li>
+        <li>No account suspension can lock you out of your own business.</li>
+        <li>Your data is not scanned, profiled, or used to train anything.</li>
+        <li>Leaving is a copy operation, because everything already sits on your server.</li>
+      </ul>
+      <img class="stamp" src="/assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
+    </article>
+  </div>
+</section>
+
+<!-- ============ MIGRATION ============ -->
+<section class="section section-alt">
+  <p class="svc-group-label">III · WHAT THE MOVE INVOLVES</p>
+  <h2 class="section-title">Google keeps running until we switch</h2>
+  <div class="prose">
+    <p>The migration runs through the <a href="/method.html">five-phase method</a>: audit, plan, build, validate, hand over. For a typical small company it takes four to eight weeks from audit to handover, and the audit gives you the exact timeline before you commit to anything.</p>
+    <p>The part that matters: Google Workspace keeps running untouched while the new environment is built and filled next to it. Files are synced across, mail history is migrated over IMAP, calendars and contacts are exported and verified. The actual switch is a DNS change and a final sync, performed in a window you approve, with a tested rollback: if anything is wrong, mail flows back to Google within minutes and you have lost nothing.</p>
+    <p>The realistic risks are the unglamorous ones: shared drives with chaotic permissions that need untangling, Docs with heavy formatting that need spot-checking after export, and the one colleague whose workflow depends on a Google-only feature. That is why validation is its own phase, and why it happens before the switch, not after.</p>
+  </div>
+</section>
+
+<!-- ============ WHERE THE DATA ENDS UP ============ -->
+<section class="section">
+  <p class="svc-group-label">IV · WHERE YOUR DATA ENDS UP</p>
+  <h2 class="section-title">A question you can answer by pointing</h2>
+  <div class="prose">
+    <p>After the move, your files live on a server you own, in an EU data center, under EU jurisdiction, running under your accounts. Your mail lives at an EU provider under a GDPR processor agreement, on your own domain. No American cloud provider in the chain means no CLOUD Act ambiguity, and your GDPR processor register gets shorter instead of longer.</p>
+    <p>“Where is our data?” stops being a compliance essay and becomes a sentence. And the exit clause applies here as everywhere: the server, accounts and documentation are yours from day one, so leaving me later is a decision, not a project.</p>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section section-alt">
+  <h2 class="section-title">Fair questions</h2>
+  <div class="faq">
+    <details class="faq-item">
+      <summary>Is Nextcloud a real alternative to Google Drive for a company?</summary>
+      <p>For files, sharing, calendars and contacts, yes, and it has been for years. Nextcloud runs desktop sync on Windows and Mac, mobile apps, link sharing with passwords and expiry, and document collaboration through Nextcloud Office. The honest caveats are search and third-party integrations, where Google is still ahead.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Can we keep using Gmail addresses after we leave Google Workspace?</summary>
+      <p>You keep your email addresses because they are on your own domain, and the domain moves with you. What changes is the provider behind them. Mail history migrates over IMAP, and the switch is a DNS change performed in a window you approve.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Why do you recommend an EU mail provider instead of self-hosting email?</summary>
+      <p>Because self-hosted email deliverability is genuinely hard: one reputation problem on your IP and your invoices land in spam folders. A specialized EU provider on your own domain gives you EU jurisdiction and portability without that risk. If you insist on fully self-hosted mail, I will build it, but I will put the trade-off in writing first.</p>
+    </details>
+    <details class="faq-item">
+      <summary>What happens to Google Docs files in a migration?</summary>
+      <p>They are exported to open formats and imported into Nextcloud, where Nextcloud Office edits them collaboratively. Complex documents get spot-checked during validation, before the switch, not after. Formatting quirks are found in the test phase or not at all.</p>
+    </details>
+    <details class="faq-item">
+      <summary>How long does leaving Google Workspace take?</summary>
+      <p>A typical small-business migration runs four to eight weeks from audit to handover, with Google running untouched until the deliberate switch. You are never in a state where the old environment is gone and the new one is not ready.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Is self-hosted cheaper than Google Workspace?</summary>
+      <p>The running costs are lower and, more importantly, they stop scaling per seat: a server plus EU mailboxes typically costs less than a 10-seat Workspace subscription and does not double when your team does. The build itself is a fixed project fee, so the honest comparison is an investment that pays back over time, not instant savings.</p>
+    </details>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="section cta-final">
+  <div class="diamond-rule"><span>◆</span></div>
+  <h2 class="section-title">The low-risk first step</h2>
+  <p class="section-sub">The audit maps what you actually use inside Google Workspace, what it costs you, and what the move would take, for a small fixed price, with a written report that is yours whatever you decide. Sometimes the honest answer is that you should stay. Then that is what the report says.</p>
+  <div class="hero-ctas">
+    <a class="btn btn-primary" href="/audit.html">Read about the audit</a>
+    <a class="btn btn-ghost" href="/#contact">Start a conversation</a>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <img src="/assets/ironstack-seal-full-cream.svg" alt="Ironstack seal" width="104" height="104">
+  <p class="footer-line">IRONSTACK · AMSTERDAM · EST MMXXVI</p>
+  <div class="footer-nav">
+    <a href="/audit.html">The Audit</a>
+    <a href="/ai-automation.html">AI &amp; Automation</a>
+    <a href="/stack.html">The Stack</a>
+    <a href="/migration.html">Migration</a>
+    <a href="/managed-sovereignty.html">Managed Sovereignty</a>
+    <a href="/method.html">The Method</a>
+    <a href="/stack-register.html">Stack Register</a>
+  </div>
+  <div class="footer-links">
+    <a href="mailto:d.sajinovic@ironstack.nl">d.sajinovic@ironstack.nl</a>
+    <a href="https://www.linkedin.com/in/dsajinovic/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/DamjanS24" target="_blank" rel="noopener">GitHub</a>
+    <a href="/privacy.html">Privacy</a>
+  </div>
+  <p class="footer-fine">Built and hosted on Ironstack’s own infrastructure. No analytics, no trackers, no cookies.</p>
+</footer>
+
+<script src="/js/main.js?v=17"></script>
+</body>
+</html>

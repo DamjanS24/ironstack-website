@@ -17,8 +17,13 @@
     localStorage.setItem('ironstack-lang', l);
     lang = l;
   }
-  toggle.addEventListener('click', function () { apply(lang === 'en' ? 'nl' : 'en'); });
-  if (lang !== 'en') apply(lang);
+  // subpages are EN-only: they ship without the language switch and without the dictionaries
+  if (toggle && window.I18N) {
+    toggle.addEventListener('click', function () { apply(lang === 'en' ? 'nl' : 'en'); });
+    if (lang !== 'en') apply(lang);
+  } else {
+    lang = 'en';
+  }
 
   // ---------- theme (light / dark) ----------
   // the inline head script already set data-theme; here we sync the button and the seal artwork
@@ -68,7 +73,7 @@
   var revealables = document.querySelectorAll(
     '.section-title, .section-sub, .svc, .phases li, .register, .proof-line, ' +
     '.services-note, .manifesto blockquote, .manifesto p, .about-photo, .about-text > *, ' +
-    '.lead-form, .contact-aside, .exit-inner > *, .faq-item, .step'
+    '.lead-form, .contact-aside, .exit-inner > *, .faq-item, .step, .prose > *'
   );
   revealables.forEach(function (el) { el.classList.add('reveal'); });
   var ro = new IntersectionObserver(function (entries) {

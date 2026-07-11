@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://ironstack.nl/</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://ironstack.nl/</loc><lastmod>2026-07-11</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://ironstack.nl/audit.html</loc><lastmod>2026-07-11</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://ironstack.nl/ai-automation.html</loc><lastmod>2026-07-11</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://ironstack.nl/stack.html</loc><lastmod>2026-07-11</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://ironstack.nl/migration.html</loc><lastmod>2026-07-11</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://ironstack.nl/managed-sovereignty.html</loc><lastmod>2026-07-11</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://ironstack.nl/replace/google-workspace.html</loc><lastmod>2026-07-11</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://ironstack.nl/replace/hubspot.html</loc><lastmod>2026-07-11</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://ironstack.nl/replace/microsoft-365.html</loc><lastmod>2026-07-11</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://ironstack.nl/stack-register.html</loc><lastmod>2026-07-11</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://ironstack.nl/method.html</loc><lastmod>2026-07-11</lastmod><changefreq>monthly</changefreq></url>
 </urlset>

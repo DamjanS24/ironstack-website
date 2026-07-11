@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Stack Register · Ironstack · Sovereign Infrastructure</title>
+<meta name="description" content="Every system Ironstack runs on, named: Twenty CRM, Plane, n8n, Invoice Ninja, Uptime Kuma and this website, self-hosted on one EU server for under €20 a month.">
+<link rel="canonical" href="https://ironstack.nl/stack-register.html">
+<meta property="og:title" content="The Stack Register · Ironstack">
+<meta property="og:description" content="The full register of self-hosted systems Ironstack runs in production, what each replaces, what the server costs, and how everything is wired together.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ironstack.nl/stack-register.html">
+<meta property="og:image" content="https://ironstack.nl/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ironstack.nl/assets/og-image.png">
+<link rel="icon" href="/assets/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon-180.png">
+<script>
+(function () { try {
+  var t = new URLSearchParams(location.search).get('theme') || localStorage.getItem('ironstack-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  document.documentElement.setAttribute('data-theme', t);
+} catch (e) {} })();
+</script>
+<link rel="preload" href="/assets/fonts/Fraunces-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/SpaceGrotesk-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/fonts.css?v=17">
+<link rel="stylesheet" href="/css/style.css?v=17">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Ironstack",
+  "url": "https://ironstack.nl",
+  "logo": "https://ironstack.nl/assets/ironstack-seal-full-ink.svg",
+  "founder": { "@type": "Person", "name": "Damjan Sajinovic" },
+  "address": { "@type": "PostalAddress", "addressLocality": "Amsterdam", "addressCountry": "NL" },
+  "sameAs": ["https://www.linkedin.com/in/dsajinovic/", "https://github.com/DamjanS24"]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <a class="nav-brand" href="/">
+    <img src="/assets/ironstack-seal-small-ink.svg" alt="Ironstack seal" width="38" height="38">
+    <span>Ironstack</span>
+  </a>
+  <nav class="nav-links" id="navLinks">
+    <a href="/#services">Services</a>
+    <a href="/#method">Method</a>
+    <a href="/#ai">AI</a>
+    <a href="/#proof">Proof</a>
+    <a href="/#about">About</a>
+    <a class="nav-cta" href="/#contact">Contact</a>
+    <button class="switch switch-icon" id="themeToggle" aria-label="Switch between light and dark mode">☾</button>
+  </nav>
+  <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
+    <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>
+  </button>
+</header>
+
+<main id="content">
+<!-- ============ HERO ============ -->
+<section class="hero page-hero">
+  <div class="bg-mark bg-seal-hero" aria-hidden="true"></div>
+  <p class="kicker">PROOF · IN PRODUCTION</p>
+  <h1>The register, in full:<br>every system, named</h1>
+  <p class="hero-sub">I run everything I recommend. This page is the complete register of the self-hosted systems Ironstack runs on, what each one replaces, what the whole thing costs, and how the pieces are wired together. No theory; this is the production environment behind the website you are reading.</p>
+  <div class="hero-ctas">
+    <a class="btn btn-primary" href="/stack.html">Get this built for your company</a>
+    <a class="btn btn-ghost" href="/#contact">Start a conversation</a>
+  </div>
+</section>
+
+<!-- ============ THE REGISTER ============ -->
+<section class="section section-alt">
+  <p class="svc-group-label">I · REGISTER OF SYSTEMS</p>
+  <h2 class="section-title">Six systems, one server</h2>
+  <div class="prose">
+    <div class="register">
+      <p class="register-head">Register of systems · in production</p>
+      <div class="register-row"><span class="register-no">I.</span><span class="register-k">Twenty CRM</span><span class="register-dots" aria-hidden="true"></span><span class="register-v">replaces HubSpot</span></div>
+      <div class="register-row"><span class="register-no">II.</span><span class="register-k">Plane</span><span class="register-dots" aria-hidden="true"></span><span class="register-v">replaces Asana</span></div>
+      <div class="register-row"><span class="register-no">III.</span><span class="register-k">Invoice Ninja</span><span class="register-dots" aria-hidden="true"></span><span class="register-v">replaces Moneybird</span></div>
+      <div class="register-row"><span class="register-no">IV.</span><span class="register-k">n8n</span><span class="register-dots" aria-hidden="true"></span><span class="register-v">replaces Zapier</span></div>
+      <div class="register-row"><span class="register-no">V.</span><span class="register-k">Uptime Kuma</span><span class="register-dots" aria-hidden="true"></span><span class="register-v">replaces Pingdom</span></div>
+      <div class="register-row"><span class="register-no">VI.</span><span class="register-k">This website</span><span class="register-dots" aria-hidden="true"></span><span class="register-v">replaces Squarespace</span></div>
+      <p class="register-foot">One server · EU data center · under €20 a month</p>
+      <img class="stamp-doc" src="/assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
+    </div>
+    <p>Everything above runs on a single server at an EU provider, in an EU data center, under Ironstack’s own accounts. Total infrastructure cost: under €20 a month, including backups to a second location. The rented equivalents of this register start around €80 a month for a single seat, and they grow with every user you add. Mine does not.</p>
+  </div>
+</section>
+
+<!-- ============ SYSTEM BY SYSTEM ============ -->
+<section class="section">
+  <p class="svc-group-label">II · SYSTEM BY SYSTEM</p>
+  <h2 class="section-title">What each piece does</h2>
+  <div class="prose">
+    <h3>I. Twenty CRM — replaces HubSpot</h3>
+    <p>Every lead, client, company and deal lives in Twenty, a modern open-source CRM backed by Postgres. It receives leads from this website’s contact form automatically, holds the pipeline, and its API lets the automation layer read and write records without asking anyone’s permission tier. This is the same CRM I propose for clients, which is easy to demonstrate, because it is the one processing their inquiry. More on that swap: <a href="/replace/hubspot.html">replacing HubSpot</a>.</p>
+    <h3>II. Plane — replaces Asana</h3>
+    <p>Client projects, internal work and the roadmap run in Plane: issues, cycles and boards, self-hosted. When a deal in Twenty is won, an n8n automation creates the project skeleton in Plane, so nothing starts as a blank page.</p>
+    <h3>III. Invoice Ninja — replaces Moneybird</h3>
+    <p>Quotes and invoices come from Invoice Ninja, with clients and amounts synced from the CRM rather than retyped. It tracks what is sent, viewed and paid, and reminds politely when something is overdue.</p>
+    <h3>IV. n8n — replaces Zapier</h3>
+    <p>n8n is the wiring. It runs the workflows that connect everything on this page: website leads into the CRM, won deals into projects, finished projects into draft invoices, alerts into my chat. Where Zapier bills per task and holds your credentials in its own cloud, n8n executes on my server, and the workflows are exportable JSON, documented in the runbook like everything else.</p>
+    <h3>V. Uptime Kuma — replaces Pingdom</h3>
+    <p>Uptime Kuma watches every service in this register, plus the client environments I care for under <a href="/managed-sovereignty.html">Managed Sovereignty</a>, and pages me when something misbehaves. Monitoring never sleeps; that sentence on the homepage is this container.</p>
+    <h3>VI. This website — replaces Squarespace</h3>
+    <p>Static HTML and CSS, self-hosted fonts, no builder, no analytics, no trackers, no cookies. It is served from the same infrastructure by Coolify, the self-hosted deployment platform that also runs the containers above. The absence of a website builder subscription is a feature: there is nothing here to rent.</p>
+  </div>
+</section>
+
+<!-- ============ THE WIRING ============ -->
+<section class="section section-alt">
+  <p class="svc-group-label">III · THE WIRING</p>
+  <h2 class="section-title">One flow, zero third-party processors</h2>
+  <div class="prose">
+    <p>The register is not six separate tools; it is one flow. When you submit the contact form on this website, the data goes to an n8n webhook on my server, which creates the person and company in Twenty and notifies me. If we start working together, the won deal triggers the project structure in Plane; when work completes, the invoice is drafted in Invoice Ninja from the same records. Uptime Kuma watches every link in that chain.</p>
+    <p>From form to invoice, your data passes through exactly zero third-party processors. Not “trusted partners”, not “anonymized analytics”: zero. That is why <a href="/privacy.html">the privacy page</a> of this site is short, and why my GDPR processor register fits on one hand.</p>
+    <p>Two honest footnotes. Email is the deliberate exception: it lives at a specialized EU provider on my own domain, because self-hosted email deliverability is a risk I advise clients against taking, and I follow my own advice. And this register is what <em>my</em> company needs; yours will look different, and that is the point. Dropbox has an owned equivalent. So do Slack, Notion, Zoom, Calendly, Mailchimp, Typeform, Zendesk and Shopify. If your business runs on it, there is almost certainly a version you can own, and where there is not, I will say so.</p>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="section cta-final">
+  <div class="diamond-rule"><span>◆</span></div>
+  <h2 class="section-title">Your register will look different</h2>
+  <p class="section-sub">That is the point of an audit: mapping which of your systems have owned equivalents worth having, and which honestly do not. Small fixed price, written report, yours to keep.</p>
+  <div class="hero-ctas">
+    <a class="btn btn-primary" href="/audit.html">Read about the audit</a>
+    <a class="btn btn-ghost" href="/#contact">Start a conversation</a>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <img src="/assets/ironstack-seal-full-cream.svg" alt="Ironstack seal" width="104" height="104">
+  <p class="footer-line">IRONSTACK · AMSTERDAM · EST MMXXVI</p>
+  <div class="footer-nav">
+    <a href="/audit.html">The Audit</a>
+    <a href="/ai-automation.html">AI &amp; Automation</a>
+    <a href="/stack.html">The Stack</a>
+    <a href="/migration.html">Migration</a>
+    <a href="/managed-sovereignty.html">Managed Sovereignty</a>
+    <a href="/method.html">The Method</a>
+    <a href="/stack-register.html">Stack Register</a>
+  </div>
+  <div class="footer-links">
+    <a href="mailto:d.sajinovic@ironstack.nl">d.sajinovic@ironstack.nl</a>
+    <a href="https://www.linkedin.com/in/dsajinovic/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/DamjanS24" target="_blank" rel="noopener">GitHub</a>
+    <a href="/privacy.html">Privacy</a>
+  </div>
+  <p class="footer-fine">Built and hosted on Ironstack’s own infrastructure. No analytics, no trackers, no cookies.</p>
+</footer>
+
+<script src="/js/main.js?v=17"></script>
+</body>
+</html>
