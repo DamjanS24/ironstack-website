@@ -184,6 +184,14 @@ a { color: inherit; }
   box-shadow: 0 20px 50px -28px rgba(23, 21, 15, 0.4);
   transform-style: preserve-3d; will-change: transform;
 }
+/* the card has a body: a slab sits 16px behind the face, so tilting shows an edge */
+.tilt-card::before {
+  content: ''; position: absolute; inset: 0; border-radius: 16px;
+  background: color-mix(in srgb, var(--cream) 74%, var(--ink));
+  border: 1px solid color-mix(in srgb, var(--rule) 60%, var(--ink));
+  transform: translateZ(-16px);
+  box-shadow: 0 26px 48px -24px rgba(23, 21, 15, 0.45);
+}
 .tilt-inner { position: absolute; inset: 0; border-radius: 16px; overflow: hidden; transform-style: preserve-3d; }
 .tilt-media { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
 .tilt-video { opacity: 0; transition: opacity .6s ease; }
