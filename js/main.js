@@ -320,4 +320,9 @@
       sendBtn.disabled = false;
     });
   });
+
+  // ---------- service worker: fonts and versioned assets from local cache ----------
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js').catch(function () {});
+  }
 })();
