@@ -322,32 +322,6 @@
     }
   }
 
-  // ---------- contact: write ◆ book a call ----------
-  // the calendar is Ironstack's own self-hosted Cal.com instance; nothing loads until the visitor asks for it
-  var CAL_URL = 'https://cal.ironstack.nl/damjan/intro';
-  var cmBtn = document.getElementById('contactMode');
-  var calWrap = document.getElementById('calEmbed');
-  var leadFormEl = document.getElementById('leadForm');
-  if (cmBtn && calWrap && leadFormEl) {
-    cmBtn.addEventListener('click', function (e) {
-      var sp = e.target.closest('[data-cmode]');
-      var mode = sp ? sp.getAttribute('data-cmode') : (calWrap.hidden ? 'call' : 'write');
-      var call = mode === 'call';
-      leadFormEl.hidden = call;
-      calWrap.hidden = !call;
-      cmBtn.querySelectorAll('[data-cmode]').forEach(function (s) {
-        s.classList.toggle('on', s.getAttribute('data-cmode') === mode);
-      });
-      if (call && !calWrap.querySelector('iframe')) {
-        var f = document.createElement('iframe');
-        f.src = CAL_URL + '?theme=' + (document.documentElement.getAttribute('data-theme') || 'light') + '&hide_event_type_details=1';
-        f.loading = 'lazy';
-        f.title = 'Book a call';
-        calWrap.insertBefore(f, calWrap.firstChild);
-      }
-    });
-  }
-
   // ---------- lead form ----------
   var WEBHOOK = 'https://n8n.ironstack.nl/webhook/website-lead';
   var form = document.getElementById('leadForm');

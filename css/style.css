@@ -583,11 +583,6 @@ a { color: inherit; }
 /* ---------- form note ---------- */
 .form-note { font-size: 0.88rem; color: var(--muted); margin-top: 10px; }
 
-/* ---------- contact: write ◆ book a call ---------- */
-.contact-mode-row { margin-bottom: 22px; }
-.cal-embed iframe { width: 100%; height: 640px; border: 1px solid var(--rule); border-radius: 12px; background: var(--paper); }
-.cal-note { font-family: var(--garamond); font-style: italic; font-size: 15px; color: var(--muted); margin: 14px 0 6px; }
-
 /* ---------- the seal stamp ---------- */
 @keyframes stamp-in {
   0%   { opacity: 0;   transform: scale(1.7) rotate(-16deg); }
