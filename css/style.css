@@ -20,14 +20,22 @@ html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 /* ---------- page transitions (cross-document view transitions) ----------
    Browsers without support (Firefox) simply navigate instantly. */
 @view-transition { navigation: auto; }
-/* the old page lifts away, a beat of bare canvas, then the new page rises into place */
-::view-transition-old(root) { animation: 240ms cubic-bezier(.4, 0, .8, .4) both vt-out; }
-::view-transition-new(root) { animation: 480ms 140ms cubic-bezier(.16, .7, .25, 1) both vt-in; }
-@keyframes vt-out { to { opacity: 0; transform: translateY(-24px); } }
-@keyframes vt-in { from { opacity: 0; transform: translateY(36px); } }
-/* the nav transitions as its own group: identical on both pages, so it appears to stay put */
-.nav { view-transition-name: site-nav; }
-::view-transition-old(site-nav), ::view-transition-new(site-nav) { animation: none; }
+/* the page turn is a stamping: old page fades to bare canvas, the seal alone
+   holds the screen for a second, then the new page fades in. The seal lives on
+   the transition overlay's background, so it is only ever visible while both
+   page snapshots are transparent — the order is strict by construction. */
+::view-transition {
+  background-color: var(--cream);
+  background-image: url('../assets/ironstack-seal-full-ink.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: min(46vw, 240px);
+}
+[data-theme="dark"]::view-transition { background-image: url('../assets/ironstack-seal-full-cream.svg'); }
+::view-transition-old(root) { animation: 250ms ease-out both vt-out; }
+::view-transition-new(root) { animation: 350ms 1250ms ease-in both vt-in; }
+@keyframes vt-out { to { opacity: 0; } }
+@keyframes vt-in { from { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) {
   ::view-transition-old(root), ::view-transition-new(root),
   ::view-transition-group(*) { animation: none; }
