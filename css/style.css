@@ -179,7 +179,7 @@ a { color: inherit; }
 .proof-line { margin-top: 28px; max-width: 720px; color: var(--body); font-size: 15.5px; }
 
 /* about — interactive tilt card */
-.about { display: grid; grid-template-columns: 320px 1fr; gap: clamp(28px, 5vw, 64px); align-items: start; }
+.about { display: grid; grid-template-columns: 320px 1fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
 .tilt-card {
   position: relative; aspect-ratio: 9 / 12; max-width: 340px;
   border-radius: 16px;
