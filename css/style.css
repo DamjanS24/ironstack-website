@@ -17,12 +17,13 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 html, body { overflow-x: hidden; overflow-x: clip; }
-/* iOS Safari paints the status-bar / Dynamic Island area from the html background; without this it falls back to white */
+/* iOS Safari paints the status-bar / Dynamic Island area from the html background; without this it falls back to white.
+   body must stay transparent: an opaque body background paints over the z-index:-1 seal watermarks */
 html { background: var(--cream); }
-body { background: var(--cream); color: var(--ink); font-family: var(--sans); line-height: 1.7; font-size: 16px; }
+body { background: transparent; color: var(--ink); font-family: var(--sans); line-height: 1.7; font-size: 16px; }
 
 /* ---------- background texture (seal watermarks) ---------- */
-.hero, #method, #proof, #contact { position: relative; }
+.hero, #method, #proof, #contact, .legal { position: relative; }
 .bg-mark { position: absolute; pointer-events: none; z-index: -1; background-repeat: no-repeat; background-size: contain; aspect-ratio: 1; }
 .bg-seal-hero { width: min(74vw, 960px); right: max(-30vw, -400px); top: -130px; background-image: url('../assets/ironstack-seal-full-ink.svg'); opacity: 0.05; }
 .bg-seal-method { width: 820px; left: -400px; bottom: -140px; background-image: url('../assets/ironstack-seal-full-ink.svg'); opacity: 0.045; }
