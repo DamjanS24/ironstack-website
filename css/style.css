@@ -16,6 +16,21 @@
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+/* ---------- page transitions (cross-document view transitions) ----------
+   Browsers without support (Firefox) simply navigate instantly. */
+@view-transition { navigation: auto; }
+::view-transition-old(root) { animation: 160ms ease both vt-out; }
+::view-transition-new(root) { animation: 260ms cubic-bezier(.2, .6, .2, 1) both vt-in; }
+@keyframes vt-out { to { opacity: 0; } }
+@keyframes vt-in { from { opacity: 0; transform: translateY(10px); } }
+/* the nav transitions as its own group: identical on both pages, so it appears to stay put */
+.nav { view-transition-name: site-nav; }
+::view-transition-old(site-nav), ::view-transition-new(site-nav) { animation: none; }
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root), ::view-transition-new(root),
+  ::view-transition-group(*) { animation: none; }
+}
 html, body { overflow-x: hidden; overflow-x: clip; }
 /* iOS Safari paints the status-bar / Dynamic Island area from the html background; without this it falls back to white.
    body must stay transparent: an opaque body background paints over the z-index:-1 seal watermarks */
@@ -309,9 +324,11 @@ a { color: inherit; }
 .nav-burger { transition: transform .15s ease; }
 .nav-burger:active { transform: scale(0.9); }
 
-/* nav: settles in from above on first paint; desktop links follow one by one */
+/* nav: settles in from above on first paint; desktop links follow one by one.
+   Plays once per session — later navigations keep the nav still (html gets .nav-seen pre-paint) */
 @keyframes nav-in { from { opacity: 0; transform: translateY(-14px); } }
 .nav { animation: nav-in .6s cubic-bezier(.2, .6, .2, 1) both; }
+.nav-seen .nav, .nav-seen .nav-links > * { animation: none; }
 @media (min-width: 721px) {
   .nav-links > * { animation: nav-in .5s cubic-bezier(.2, .6, .2, 1) backwards; }
   .nav-links > :nth-child(1) { animation-delay: .08s; }
