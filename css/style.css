@@ -186,13 +186,18 @@ a { color: inherit; }
   box-shadow: 0 20px 50px -28px rgba(23, 21, 15, 0.4);
   transform-style: preserve-3d; will-change: transform;
 }
-/* the card has a body: a slab sits 34px behind the face, so tilting shows a real edge */
+/* the card has a body: a slab sits 44px behind the face, so tilting shows a real edge */
 .tilt-card::before {
   content: ''; position: absolute; inset: 0; border-radius: 16px;
-  background: color-mix(in srgb, var(--cream) 74%, var(--ink));
+  background: color-mix(in srgb, var(--cream) 68%, var(--ink));
   border: 1px solid color-mix(in srgb, var(--rule) 60%, var(--ink));
-  transform: translateZ(-34px);
+  transform: translateZ(-44px);
   box-shadow: 0 30px 54px -24px rgba(23, 21, 15, 0.5);
+}
+/* dark theme: the edge catches light instead of shadow, or it vanishes into the page */
+[data-theme="dark"] .tilt-card::before {
+  background: color-mix(in srgb, var(--cream) 45%, var(--ink));
+  border-color: color-mix(in srgb, var(--cream) 30%, var(--ink));
 }
 .tilt-inner { position: absolute; inset: 0; border-radius: 16px; overflow: hidden; transform-style: preserve-3d; }
 .tilt-media { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
@@ -202,8 +207,22 @@ a { color: inherit; }
 .tilt-shade { position: absolute; inset: 0; background: linear-gradient(to top, rgba(23, 21, 15, 0.22), rgba(23, 21, 15, 0.04) 45%, transparent 70%); pointer-events: none; }
 /* lens glare: a specular hotspot and a sweeping streak chase the light as the card tilts;
    driven by --gx/--gy/--gs set from the mouse and gyro handlers */
+/* a glass pane floats 18px above the print: bright rim, two standing reflections.
+   It parallaxes against the photo on tilt, which is what sells the depth. */
+.tilt-glass {
+  position: absolute; inset: 0; border-radius: 16px; pointer-events: none;
+  transform: translateZ(18px);
+  background:
+    linear-gradient(118deg, transparent 28%, rgba(255, 255, 255, 0.10) 38%, rgba(255, 255, 255, 0.02) 47%, transparent 54%),
+    linear-gradient(118deg, transparent 60%, rgba(255, 255, 255, 0.06) 69%, transparent 78%);
+  border: 1px solid rgba(255, 255, 255, 0.30);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), inset 0 -1px 0 rgba(255, 255, 255, 0.10);
+}
+[data-theme="dark"] .tilt-glass { border-color: rgba(255, 255, 255, 0.22); }
+/* the moving glare is a reflection ON the glass, so it rides the same plane */
 .tilt-glare {
   position: absolute; inset: 0; pointer-events: none; mix-blend-mode: screen;
+  border-radius: 16px; transform: translateZ(22px);
   background:
     radial-gradient(circle 210px at var(--gx, 50%) var(--gy, 42%), rgba(255, 251, 240, 0.45), rgba(255, 251, 240, 0.1) 45%, transparent 72%),
     linear-gradient(105deg, transparent calc(var(--gx, 50%) - 15%), rgba(255, 251, 240, 0.2) var(--gx, 50%), transparent calc(var(--gx, 50%) + 15%));
