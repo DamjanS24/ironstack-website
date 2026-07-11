@@ -37,6 +37,9 @@
     themeMode = mode;
     var t = mode === 'system' ? (sysDark.matches ? 'dark' : 'light') : mode;
     document.documentElement.setAttribute('data-theme', t);
+    // Safari paints the browser chrome (status bar, toolbar) from theme-color; keep it in step
+    var mc = document.querySelector('meta[name="theme-color"]');
+    if (mc) mc.setAttribute('content', t === 'dark' ? '#14120D' : '#F6F3EC');
     if (persist) localStorage.setItem('ironstack-theme-mode', mode);
     if (themeBtn) themeBtn.querySelectorAll('[data-mode]').forEach(function (sp) {
       sp.classList.toggle('on', sp.getAttribute('data-mode') === mode);
@@ -223,7 +226,7 @@
         entries.forEach(function (en) {
           if (en.isIntersecting) { en.target.classList.add('stamped'); sio.unobserve(en.target); }
         });
-      }, { threshold: 0.55 });
+      }, { rootMargin: '0px 0px -45% 0px', threshold: 0 });
       svcCards.forEach(function (el) { sio.observe(el); });
     }
   }

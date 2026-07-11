@@ -18,17 +18,20 @@
 <link rel="icon" href="/assets/favicon.ico" sizes="48x48">
 <link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon-180.png">
+<meta name="theme-color" content="#F6F3EC">
 <script>
 (function () { try {
   var m = new URLSearchParams(location.search).get('theme') || localStorage.getItem('ironstack-theme-mode') || 'system';
   var t = (m === 'dark' || m === 'light') ? m : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
   document.documentElement.setAttribute('data-theme', t);
+  var mc = document.querySelector('meta[name="theme-color"]');
+  if (mc) mc.setAttribute('content', t === 'dark' ? '#14120D' : '#F6F3EC');
 } catch (e) {} })();
 </script>
 <link rel="preload" href="/assets/fonts/Fraunces-600-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/SpaceGrotesk-500-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/css/fonts.css?v=19">
-<link rel="stylesheet" href="/css/style.css?v=19">
+<link rel="stylesheet" href="/css/fonts.css?v=20">
+<link rel="stylesheet" href="/css/style.css?v=20">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -108,9 +111,6 @@
         </div>
       </div>
     </div>
-    <a href="/method.html" data-i18n="nav.method">Method</a>
-    <a href="/ai-automation.html" data-i18n="nav.ai">AI</a>
-    <a href="/stack-register.html" data-i18n="nav.proof">Proof</a>
     <a href="/#about" data-i18n="nav.about">About</a>
     <a class="nav-cta" href="/#contact" data-i18n="nav.contact">Contact</a>
     <button class="switch" id="langToggle" aria-label="Switch language"><span data-lang="en" class="on">EN</span><span class="sep" aria-hidden="true">◆</span><span data-lang="nl">NL</span></button>
@@ -268,8 +268,8 @@
   <p class="footer-fine">Built and hosted on Ironstack’s own infrastructure. No analytics, no trackers, no cookies.</p>
 </footer>
 
-<script src="/js/i18n-data.js?v=19"></script>
-<script src="/js/i18n/stack.nl.js?v=19"></script>
-<script src="/js/main.js?v=19"></script>
+<script src="/js/i18n-data.js?v=20"></script>
+<script src="/js/i18n/stack.nl.js?v=20"></script>
+<script src="/js/main.js?v=20"></script>
 </body>
 </html>
