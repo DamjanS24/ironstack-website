@@ -172,6 +172,17 @@ a { color: inherit; }
 .tilt-video.on { opacity: 1; }
 .tilt-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .tilt-shade { position: absolute; inset: 0; background: linear-gradient(to top, rgba(23, 21, 15, 0.22), rgba(23, 21, 15, 0.04) 45%, transparent 70%); pointer-events: none; }
+/* lens glare: a specular hotspot and a sweeping streak chase the light as the card tilts;
+   driven by --gx/--gy/--gs set from the mouse and gyro handlers */
+.tilt-glare {
+  position: absolute; inset: 0; pointer-events: none; mix-blend-mode: screen;
+  background:
+    radial-gradient(circle 210px at var(--gx, 50%) var(--gy, 42%), rgba(255, 251, 240, 0.45), rgba(255, 251, 240, 0.1) 45%, transparent 72%),
+    linear-gradient(105deg, transparent calc(var(--gx, 50%) - 15%), rgba(255, 251, 240, 0.2) var(--gx, 50%), transparent calc(var(--gx, 50%) + 15%));
+  opacity: calc(var(--gs, 0) * 0.85);
+  transition: opacity .45s ease;
+}
+[data-theme="dark"] .tilt-glare { opacity: calc(var(--gs, 0) * 0.55); }
 /* the tag is a 3D stack floating above the card: plate lowest, then email,
    subtitle, name, seal on top; each layer parallaxes at its own rate on tilt */
 .tilt-tag {

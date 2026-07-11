@@ -148,11 +148,16 @@
       // the shadow falls away from the tilt, like a card lifted under a light
       var dark = document.documentElement.getAttribute('data-theme') === 'dark';
       tilt.style.boxShadow = (ry * -2.2).toFixed(1) + 'px ' + (26 + rx * -2.2).toFixed(1) + 'px 60px -26px rgba(' + (dark ? '0, 0, 0, 0.75' : '23, 21, 15, 0.55') + ')';
+      // the glare sits where the cursor is: that's where the light hits
+      tilt.style.setProperty('--gx', (x / r.width * 100).toFixed(1) + '%');
+      tilt.style.setProperty('--gy', (y / r.height * 100).toFixed(1) + '%');
+      tilt.style.setProperty('--gs', '1');
     });
     tilt.addEventListener('mouseleave', function () {
       tilt.style.transition = 'transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out';
       tilt.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
       tilt.style.boxShadow = '';
+      tilt.style.setProperty('--gs', '0');
     });
   }
 
@@ -190,6 +195,10 @@
       gyroTilt.style.transform = 'perspective(1000px) rotateX(' + gcx.toFixed(2) + 'deg) rotateY(' + gcy.toFixed(2) + 'deg)';
       var dark = document.documentElement.getAttribute('data-theme') === 'dark';
       gyroTilt.style.boxShadow = (gcy * -2.2).toFixed(1) + 'px ' + (26 + gcx * -2.2).toFixed(1) + 'px 60px -26px rgba(' + (dark ? '0, 0, 0, 0.75' : '23, 21, 15, 0.55') + ')';
+      // glare slides toward the raised edge; brightness grows with the lean, so a flat phone shows none
+      gyroTilt.style.setProperty('--gx', (50 + (gcy / 8) * 45).toFixed(1) + '%');
+      gyroTilt.style.setProperty('--gy', (42 - (gcx / 8) * 45).toFixed(1) + '%');
+      gyroTilt.style.setProperty('--gs', Math.min(1, Math.sqrt(gcx * gcx + gcy * gcy) / 5).toFixed(2));
       if (Math.abs(gcx - gtx) > 0.04 || Math.abs(gcy - gty) > 0.04) gRaf = requestAnimationFrame(gyroApply);
     }
     function gyroRead(e) {
