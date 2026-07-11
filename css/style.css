@@ -119,9 +119,11 @@ a { color: inherit; }
 /* ---------- sections ---------- */
 .section { padding: clamp(64px, 8vw, 110px) clamp(20px, 5vw, 64px); max-width: 1120px; margin: 0 auto; }
 .section-alt { max-width: none; background: var(--paper); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
-.section-alt > * { max-width: 1120px; margin-left: auto; margin-right: auto; }
+/* alt children get the same inner column as a plain section (1120 minus its side
+   padding, box-sizing border-box), so left edges line up across the striping */
+.section-alt > * { max-width: calc(1120px - 2 * clamp(20px, 5vw, 64px)); margin-left: auto; margin-right: auto; }
 /* section-sub, prose and faq are narrower than the 1120px column, so auto margins would center them; pin their left edge to the column instead */
-.section-alt > .section-sub, .section-alt > .prose, .section-alt > .faq { margin-left: max(0px, calc((100% - 1120px) / 2)); margin-right: auto; }
+.section-alt > .section-sub, .section-alt > .prose, .section-alt > .faq { margin-left: max(0px, calc((100% - (1120px - 2 * clamp(20px, 5vw, 64px))) / 2)); margin-right: auto; }
 .section-title { font-family: var(--serif); font-weight: 600; font-size: clamp(28px, 3.6vw, 40px); margin-bottom: 14px; }
 .section-sub { max-width: 640px; color: var(--body); margin-bottom: 44px; }
 
