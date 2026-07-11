@@ -187,14 +187,37 @@ a { color: inherit; }
   transform-style: preserve-3d; will-change: transform;
   perspective: 1100px;
 }
-/* the spinner: the whole card body turns slowly; hover holds it still to read */
+/* the spinner: on first reveal the card whips through one and a half turns and
+   decelerates to rest; clicking the card replays it */
 .card-spin {
-  position: absolute; inset: 0; transform-style: preserve-3d;
-  animation: card-spin 16s linear infinite; will-change: transform;
+  position: absolute; inset: 0; transform-style: preserve-3d; will-change: transform;
 }
-@keyframes card-spin { from { transform: rotateY(0deg); } to { transform: rotateY(360deg); } }
-@media (hover: hover) { .tilt-card:hover .card-spin { animation-play-state: paused; } }
-.tilt-card:active .card-spin { animation-play-state: paused; } /* touch: press to hold */
+.about-photo.reveal.in .card-spin { animation: card-spin-in 2.9s cubic-bezier(.17, .74, .22, 1) both; }
+@keyframes card-spin-in { from { transform: rotateY(540deg); } to { transform: rotateY(0deg); } }
+/* the card is a closed box: four walls span the 60px between the faces.
+   Inset 14px past the corner radius; the interior slabs cover the corners. */
+.card-side {
+  position: absolute; background: color-mix(in srgb, var(--cream) 72%, var(--ink));
+  backface-visibility: hidden; -webkit-backface-visibility: hidden;
+}
+[data-theme="dark"] .card-side { background: color-mix(in srgb, var(--cream) 52%, var(--ink)); }
+.side-l, .side-r { top: 14px; bottom: 14px; width: 60px; }
+.side-t, .side-b { left: 14px; right: 14px; height: 60px; }
+.side-l { left: 0; transform-origin: left center; transform: rotateY(90deg); }
+.side-r { right: 0; transform-origin: right center; transform: rotateY(-90deg); }
+.side-t { top: 0; transform-origin: center top; transform: rotateX(-90deg); }
+.side-b { bottom: 0; transform-origin: center bottom; transform: rotateX(90deg); }
+/* the glass is laminated on: translucent walls close the 18px gap to the face */
+.glass-side {
+  position: absolute; background: rgba(255, 255, 255, 0.10);
+  backface-visibility: hidden; -webkit-backface-visibility: hidden;
+}
+.gside-l, .gside-r { top: 14px; bottom: 14px; width: 18px; }
+.gside-t, .gside-b { left: 14px; right: 14px; height: 18px; }
+.gside-l { left: 0; transform-origin: left center; transform: rotateY(-90deg); }
+.gside-r { right: 0; transform-origin: right center; transform: rotateY(90deg); }
+.gside-t { top: 0; transform-origin: center top; transform: rotateX(90deg); }
+.gside-b { bottom: 0; transform-origin: center bottom; transform: rotateX(-90deg); }
 /* the front of the card hides when it faces away */
 .tilt-inner, .tilt-glass, .tilt-glare, .tilt-tag, .tilt-tag * {
   backface-visibility: hidden; -webkit-backface-visibility: hidden;

@@ -321,6 +321,14 @@
     });
   });
 
+  // ---------- click the portrait card: the spin flourish replays ----------
+  var spinner = document.querySelector('#aboutPhoto .card-spin');
+  if (spinner) document.getElementById('aboutPhoto').addEventListener('click', function () {
+    spinner.style.animation = 'none';
+    void spinner.offsetWidth; // reflow so the animation restarts
+    spinner.style.animation = '';
+  });
+
   // ---------- service worker: fonts and versioned assets from local cache ----------
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/sw.js').catch(function () {});
