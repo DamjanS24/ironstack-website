@@ -20,14 +20,15 @@
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon-180.png">
 <script>
 (function () { try {
-  var t = new URLSearchParams(location.search).get('theme') || localStorage.getItem('ironstack-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  var m = new URLSearchParams(location.search).get('theme') || localStorage.getItem('ironstack-theme-mode') || 'system';
+  var t = (m === 'dark' || m === 'light') ? m : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
   document.documentElement.setAttribute('data-theme', t);
 } catch (e) {} })();
 </script>
 <link rel="preload" href="/assets/fonts/Fraunces-600-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/SpaceGrotesk-500-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/css/fonts.css?v=18">
-<link rel="stylesheet" href="/css/style.css?v=18">
+<link rel="stylesheet" href="/css/fonts.css?v=19">
+<link rel="stylesheet" href="/css/style.css?v=19">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -112,7 +113,8 @@
     <a href="/stack-register.html" data-i18n="nav.proof">Proof</a>
     <a href="/#about" data-i18n="nav.about">About</a>
     <a class="nav-cta" href="/#contact" data-i18n="nav.contact">Contact</a>
-    <button class="switch switch-icon" id="themeToggle" aria-label="Switch between light and dark mode">☾</button>
+    <button class="switch" id="langToggle" aria-label="Switch language"><span data-lang="en" class="on">EN</span><span class="sep" aria-hidden="true">◆</span><span data-lang="nl">NL</span></button>
+    <button class="switch" id="themeToggle" aria-label="Theme: light, dark or follow system"><span data-mode="light">☀&#xFE0E;</span><span class="sep" aria-hidden="true">◆</span><span data-mode="dark">☾</span><span class="sep" aria-hidden="true">◆</span><span data-mode="system" title="Follow system">◐</span></button>
   </nav>
   <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
     <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>
@@ -123,68 +125,68 @@
 <!-- ============ HERO ============ -->
 <section class="hero page-hero">
   <div class="bg-mark bg-seal-hero" aria-hidden="true"></div>
-  <p class="kicker">SERVICES · WHAT GETS BUILT</p>
-  <h1>A complete business stack,<br>on a server you own</h1>
-  <p class="hero-sub">The Ironstack Stack is the build for a fresh start: CRM, files, projects, invoicing, automation and monitoring, installed on your own server, wired together, and configured for how you work. One fixed setup fee, then a fixed monthly price.</p>
+  <p class="kicker" data-i18n="st.1">SERVICES · WHAT GETS BUILT</p>
+  <h1 data-i18n="st.2">A complete business stack,<br>on a server you own</h1>
+  <p class="hero-sub" data-i18n="st.3">The Ironstack Stack is the build for a fresh start: CRM, files, projects, invoicing, automation and monitoring, installed on your own server, wired together, and configured for how you work. One fixed setup fee, then a fixed monthly price.</p>
   <div class="hero-ctas">
-    <a class="btn btn-primary" href="/#contact">Start a conversation</a>
-    <a class="btn btn-ghost" href="/stack-register.html">See the stack I run myself</a>
+    <a class="btn btn-primary" href="/#contact" data-i18n="st.4">Start a conversation</a>
+    <a class="btn btn-ghost" href="/stack-register.html" data-i18n="st.5">See the stack I run myself</a>
   </div>
 </section>
 
 <!-- ============ THE PROBLEM ============ -->
 <section class="section section-alt">
-  <p class="svc-group-label">I · THE PROBLEM</p>
-  <h2 class="section-title">“We’re starting fresh. Why start on rented ground?”</h2>
+  <p class="svc-group-label" data-i18n="st.6">I · THE PROBLEM</p>
+  <h2 class="section-title" data-i18n="st.7">“We’re starting fresh. Why start on rented ground?”</h2>
   <div class="prose">
-    <p>A new company, a new branch, a spin-off, or a business that has simply outgrown the shoebox-of-free-tiers phase: this is the one moment you get to choose your foundations without moving anything. Most companies spend that moment signing up for the same six subscriptions as everyone else, and by year three they are welded in, paying per seat for tools that hold their entire operation hostage to the next price increase.</p>
-    <p>You do not have to start there. For the price of a modest server and one deliberate setup, the same categories of tooling can run on ground that is yours, from day one, with nothing to unwind later.</p>
-    <p>This is not idealism. It is the cheaper path in the long run, and the audit-grade numbers are on the <a href="/stack-register.html">stack register page</a>: my own register runs on one server for under €20 a month, where the rented equivalents start around €80 a month for a single seat.</p>
+    <p data-i18n="st.8">A new company, a new branch, a spin-off, or a business that has simply outgrown the shoebox-of-free-tiers phase: this is the one moment you get to choose your foundations without moving anything. Most companies spend that moment signing up for the same six subscriptions as everyone else, and by year three they are welded in, paying per seat for tools that hold their entire operation hostage to the next price increase.</p>
+    <p data-i18n="st.9">You do not have to start there. For the price of a modest server and one deliberate setup, the same categories of tooling can run on ground that is yours, from day one, with nothing to unwind later.</p>
+    <p data-i18n="st.10">This is not idealism. It is the cheaper path in the long run, and the audit-grade numbers are on the <a href="/stack-register.html">stack register page</a>: my own register runs on one server for under €20 a month, where the rented equivalents start around €80 a month for a single seat.</p>
   </div>
 </section>
 
 <!-- ============ WHAT IT IS ============ -->
 <section class="section">
-  <p class="svc-group-label">II · WHAT IT IS, CONCRETELY</p>
-  <h2 class="section-title">Proven pieces, wired for how you work</h2>
+  <p class="svc-group-label" data-i18n="st.11">II · WHAT IT IS, CONCRETELY</p>
+  <h2 class="section-title" data-i18n="st.12">Proven pieces, wired for how you work</h2>
   <div class="prose">
-    <p>The Stack is not a bundle; it is a composition. The core is the same stack that runs Ironstack itself, every piece of it in daily production, and the selection is configured to your business: a workshop needs different systems than a law firm.</p>
+    <p data-i18n="st.13">The Stack is not a bundle; it is a composition. The core is the same stack that runs Ironstack itself, every piece of it in daily production, and the selection is configured to your business: a workshop needs different systems than a law firm.</p>
     <div class="register">
-      <p class="register-head">The usual composition</p>
-      <div class="register-row"><span class="register-no">I.</span><span class="register-k">CRM &amp; sales</span><span class="register-dots" aria-hidden="true"></span><span class="register-v">instead of HubSpot</span></div>
-      <div class="register-row"><span class="register-no">II.</span><span class="register-k">Files &amp; documents</span><span class="register-dots" aria-hidden="true"></span><span class="register-v">instead of Drive or OneDrive</span></div>
-      <div class="register-row"><span class="register-no">III.</span><span class="register-k">Projects &amp; tasks</span><span class="register-dots" aria-hidden="true"></span><span class="register-v">instead of Asana</span></div>
-      <div class="register-row"><span class="register-no">IV.</span><span class="register-k">Invoicing</span><span class="register-dots" aria-hidden="true"></span><span class="register-v">instead of Moneybird</span></div>
-      <div class="register-row"><span class="register-no">V.</span><span class="register-k">Automation</span><span class="register-dots" aria-hidden="true"></span><span class="register-v">instead of Zapier</span></div>
-      <div class="register-row"><span class="register-no">VI.</span><span class="register-k">Monitoring</span><span class="register-dots" aria-hidden="true"></span><span class="register-v">instead of Pingdom</span></div>
-      <p class="register-foot">On your server · under your accounts · wired together</p>
+      <p class="register-head" data-i18n="st.14">The usual composition</p>
+      <div class="register-row"><span class="register-no">I.</span><span class="register-k" data-i18n="st.15">CRM &amp; sales</span><span class="register-dots" aria-hidden="true"></span><span class="register-v" data-i18n="st.16">instead of HubSpot</span></div>
+      <div class="register-row"><span class="register-no">II.</span><span class="register-k" data-i18n="st.17">Files &amp; documents</span><span class="register-dots" aria-hidden="true"></span><span class="register-v" data-i18n="st.18">instead of Drive or OneDrive</span></div>
+      <div class="register-row"><span class="register-no">III.</span><span class="register-k" data-i18n="st.19">Projects &amp; tasks</span><span class="register-dots" aria-hidden="true"></span><span class="register-v" data-i18n="st.20">instead of Asana</span></div>
+      <div class="register-row"><span class="register-no">IV.</span><span class="register-k" data-i18n="st.21">Invoicing</span><span class="register-dots" aria-hidden="true"></span><span class="register-v" data-i18n="st.22">instead of Moneybird</span></div>
+      <div class="register-row"><span class="register-no">V.</span><span class="register-k" data-i18n="st.23">Automation</span><span class="register-dots" aria-hidden="true"></span><span class="register-v" data-i18n="st.24">instead of Zapier</span></div>
+      <div class="register-row"><span class="register-no">VI.</span><span class="register-k" data-i18n="st.25">Monitoring</span><span class="register-dots" aria-hidden="true"></span><span class="register-v" data-i18n="st.26">instead of Pingdom</span></div>
+      <p class="register-foot" data-i18n="st.27">On your server · under your accounts · wired together</p>
       <img class="stamp-doc" src="/assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
     </div>
-    <p>“Wired together” is the part that separates a stack from a pile of installs: a lead from your website lands in the CRM, a won deal becomes a project, a finished project becomes an invoice, and the monitoring watches all of it. Email goes to an EU provider on your own domain rather than the stack server, because self-hosted email deliverability is a risk I recommend against, and I put that in writing.</p>
-    <p>Setup usually takes two to four weeks through a lighter version of the <a href="/method.html">five-phase method</a>. You hold the server, the accounts, the documentation, and a system your team has actually been trained on. One fixed setup fee, then a fixed monthly price under <a href="/managed-sovereignty.html">Managed Sovereignty</a>; both numbers are known before anything starts, and neither moves.</p>
+    <p data-i18n="st.28">“Wired together” is the part that separates a stack from a pile of installs: a lead from your website lands in the CRM, a won deal becomes a project, a finished project becomes an invoice, and the monitoring watches all of it. Email goes to an EU provider on your own domain rather than the stack server, because self-hosted email deliverability is a risk I recommend against, and I put that in writing.</p>
+    <p data-i18n="st.29">Setup usually takes two to four weeks through a lighter version of the <a href="/method.html">five-phase method</a>. You hold the server, the accounts, the documentation, and a system your team has actually been trained on. One fixed setup fee, then a fixed monthly price under <a href="/managed-sovereignty.html">Managed Sovereignty</a>; both numbers are known before anything starts, and neither moves.</p>
   </div>
 </section>
 
 <!-- ============ WHO FOR ============ -->
 <section class="section section-alt">
-  <p class="svc-group-label">III · A FAIR MATCH</p>
-  <h2 class="section-title">Who this is for, and who it is not for</h2>
+  <p class="svc-group-label" data-i18n="st.30">III · A FAIR MATCH</p>
+  <h2 class="section-title" data-i18n="st.31">Who this is for, and who it is not for</h2>
   <div class="svc-grid">
     <article class="svc">
-      <span class="svc-no">FOR YOU IF</span>
+      <span class="svc-no" data-i18n="st.32">FOR YOU IF</span>
       <ul class="diamond-list">
-        <li>You are starting, restarting, or still small enough that there is little to migrate.</li>
-        <li>You would rather own six systems than rent six subscriptions, and want them to actually talk to each other.</li>
-        <li>You want your costs flat as the team grows, not multiplied by it.</li>
+        <li data-i18n="st.33">You are starting, restarting, or still small enough that there is little to migrate.</li>
+        <li data-i18n="st.34">You would rather own six systems than rent six subscriptions, and want them to actually talk to each other.</li>
+        <li data-i18n="st.35">You want your costs flat as the team grows, not multiplied by it.</li>
       </ul>
       <img class="stamp" src="/assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
     </article>
     <article class="svc">
-      <span class="svc-no">NOT FOR YOU IF</span>
+      <span class="svc-no" data-i18n="st.36">NOT FOR YOU IF</span>
       <ul class="diamond-list">
-        <li>You have years of data in existing tools. Then you need a <a href="/migration.html">migration</a>, not a fresh build, and pretending otherwise loses your history.</li>
-        <li>Your team lives inside one specific SaaS whose workflow you love. Ownership is a priority call; if it is not yours, this is not your build.</li>
-        <li>You expect enterprise SSO, compliance certifications and a procurement process. I serve small companies, honestly.</li>
+        <li data-i18n="st.37">You have years of data in existing tools. Then you need a <a href="/migration.html">migration</a>, not a fresh build, and pretending otherwise loses your history.</li>
+        <li data-i18n="st.38">Your team lives inside one specific SaaS whose workflow you love. Ownership is a priority call; if it is not yours, this is not your build.</li>
+        <li data-i18n="st.39">You expect enterprise SSO, compliance certifications and a procurement process. I serve small companies, honestly.</li>
       </ul>
       <img class="stamp" src="/assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
     </article>
@@ -193,41 +195,41 @@
 
 <!-- ============ HOW IT CONNECTS ============ -->
 <section class="section">
-  <p class="svc-group-label">IV · WHERE IT SITS</p>
-  <h2 class="section-title">The build for a fresh start</h2>
+  <p class="svc-group-label" data-i18n="st.40">IV · WHERE IT SITS</p>
+  <h2 class="section-title" data-i18n="st.41">The build for a fresh start</h2>
   <div class="prose">
-    <p>The Stack is one of the two builds. Where <a href="/migration.html">Migration</a> moves an existing environment, the Stack starts clean, which makes it the faster and cheaper of the two. A short <a href="/audit.html">audit</a> still precedes it when there is anything to inventory; both builds run through the <a href="/method.html">five-phase method</a> and end in <a href="/managed-sovereignty.html">Managed Sovereignty</a>, where I stay responsible for what we built.</p>
-    <p>And once the stack runs, the <a href="/ai-automation.html">AI &amp; Automation</a> layer has a home: assistants and automations work best when they can reach every system, and here they can, because every system is on the same server, under your keys.</p>
+    <p data-i18n="st.42">The Stack is one of the two builds. Where <a href="/migration.html">Migration</a> moves an existing environment, the Stack starts clean, which makes it the faster and cheaper of the two. A short <a href="/audit.html">audit</a> still precedes it when there is anything to inventory; both builds run through the <a href="/method.html">five-phase method</a> and end in <a href="/managed-sovereignty.html">Managed Sovereignty</a>, where I stay responsible for what we built.</p>
+    <p data-i18n="st.43">And once the stack runs, the <a href="/ai-automation.html">AI &amp; Automation</a> layer has a home: assistants and automations work best when they can reach every system, and here they can, because every system is on the same server, under your keys.</p>
   </div>
 </section>
 
 <!-- ============ FAQ ============ -->
 <section class="section section-alt">
-  <h2 class="section-title">Fair questions</h2>
+  <h2 class="section-title" data-i18n="st.44">Fair questions</h2>
   <div class="faq">
     <details class="faq-item">
-      <summary>What is actually in the Stack?</summary>
-      <p>Whatever your business needs, drawn from a core of proven pieces: CRM, file storage and sharing, project management, invoicing, an automation layer, and monitoring. The core is the same stack that runs Ironstack itself; the composition is configured to how you work, not sold as a bundle.</p>
+      <summary data-i18n="st.45">What is actually in the Stack?</summary>
+      <p data-i18n="st.46">Whatever your business needs, drawn from a core of proven pieces: CRM, file storage and sharing, project management, invoicing, an automation layer, and monitoring. The core is the same stack that runs Ironstack itself; the composition is configured to how you work, not sold as a bundle.</p>
     </details>
     <details class="faq-item">
-      <summary>How is the Stack different from a migration?</summary>
-      <p>The Stack is the build for a fresh start: little or nothing to move, so no parallel-running and switch-over choreography. It is faster and cheaper than a migration for the same reason a new house is easier than a renovation.</p>
+      <summary data-i18n="st.47">How is the Stack different from a migration?</summary>
+      <p data-i18n="st.48">The Stack is the build for a fresh start: little or nothing to move, so no parallel-running and switch-over choreography. It is faster and cheaper than a migration for the same reason a new house is easier than a renovation.</p>
     </details>
     <details class="faq-item">
-      <summary>What does the Stack cost?</summary>
-      <p>One fixed setup fee, then a fixed monthly price for the care under <a href="/managed-sovereignty.html">Managed Sovereignty</a>. Both numbers are in the proposal before anything starts, and neither moves. The server itself is yours and typically costs under €20 a month at an EU provider.</p>
+      <summary data-i18n="st.49">What does the Stack cost?</summary>
+      <p data-i18n="st.50">One fixed setup fee, then a fixed monthly price for the care under <a href="/managed-sovereignty.html">Managed Sovereignty</a>. Both numbers are in the proposal before anything starts, and neither moves. The server itself is yours and typically costs under €20 a month at an EU provider.</p>
     </details>
     <details class="faq-item">
-      <summary>How long does the setup take?</summary>
-      <p>Usually two to four weeks from kickoff to handover, since there is little to migrate. The five-phase method still applies, just lighter: design, build, validate, hand over.</p>
+      <summary data-i18n="st.51">How long does the setup take?</summary>
+      <p data-i18n="st.52">Usually two to four weeks from kickoff to handover, since there is little to migrate. The five-phase method still applies, just lighter: design, build, validate, hand over.</p>
     </details>
     <details class="faq-item">
-      <summary>Can the Stack grow with us?</summary>
-      <p>Yes, and without per-seat fees. New team members cost nothing; new systems are added to the same server or a second one when the time comes. The architecture is documented, so growth is a plan, not an archaeology project.</p>
+      <summary data-i18n="st.53">Can the Stack grow with us?</summary>
+      <p data-i18n="st.54">Yes, and without per-seat fees. New team members cost nothing; new systems are added to the same server or a second one when the time comes. The architecture is documented, so growth is a plan, not an archaeology project.</p>
     </details>
     <details class="faq-item">
-      <summary>And email?</summary>
-      <p>Email goes to a specialized EU provider on your own domain rather than the stack server, because self-hosted email deliverability is a risk I recommend against. You get EU jurisdiction and portability without gambling your inbox placement; if you insist on self-hosted mail, I will build it with the trade-off in writing.</p>
+      <summary data-i18n="st.55">And email?</summary>
+      <p data-i18n="st.56">Email goes to a specialized EU provider on your own domain rather than the stack server, because self-hosted email deliverability is a risk I recommend against. You get EU jurisdiction and portability without gambling your inbox placement; if you insist on self-hosted mail, I will build it with the trade-off in writing.</p>
     </details>
   </div>
 </section>
@@ -235,11 +237,11 @@
 <!-- ============ CTA ============ -->
 <section class="section cta-final">
   <div class="diamond-rule"><span>◆</span></div>
-  <h2 class="section-title">Start a conversation</h2>
-  <p class="section-sub">Tell me what you are building and what should run underneath it. You will get a straight answer. Sometimes the honest answer is that you do not need me.</p>
+  <h2 class="section-title" data-i18n="st.57">Start a conversation</h2>
+  <p class="section-sub" data-i18n="st.58">Tell me what you are building and what should run underneath it. You will get a straight answer. Sometimes the honest answer is that you do not need me.</p>
   <div class="hero-ctas">
-    <a class="btn btn-primary" href="/#contact">Start a conversation</a>
-    <a class="btn btn-ghost" href="/stack-register.html">See the stack in production</a>
+    <a class="btn btn-primary" href="/#contact" data-i18n="st.59">Start a conversation</a>
+    <a class="btn btn-ghost" href="/stack-register.html" data-i18n="st.60">See the stack in production</a>
   </div>
 </section>
 </main>
@@ -266,6 +268,8 @@
   <p class="footer-fine">Built and hosted on Ironstack’s own infrastructure. No analytics, no trackers, no cookies.</p>
 </footer>
 
-<script src="/js/main.js?v=18"></script>
+<script src="/js/i18n-data.js?v=19"></script>
+<script src="/js/i18n/stack.nl.js?v=19"></script>
+<script src="/js/main.js?v=19"></script>
 </body>
 </html>

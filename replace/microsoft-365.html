@@ -20,14 +20,15 @@
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon-180.png">
 <script>
 (function () { try {
-  var t = new URLSearchParams(location.search).get('theme') || localStorage.getItem('ironstack-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  var m = new URLSearchParams(location.search).get('theme') || localStorage.getItem('ironstack-theme-mode') || 'system';
+  var t = (m === 'dark' || m === 'light') ? m : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
   document.documentElement.setAttribute('data-theme', t);
 } catch (e) {} })();
 </script>
 <link rel="preload" href="/assets/fonts/Fraunces-600-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/SpaceGrotesk-500-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/css/fonts.css?v=18">
-<link rel="stylesheet" href="/css/style.css?v=18">
+<link rel="stylesheet" href="/css/fonts.css?v=19">
+<link rel="stylesheet" href="/css/style.css?v=19">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -112,7 +113,8 @@
     <a href="/stack-register.html" data-i18n="nav.proof">Proof</a>
     <a href="/#about" data-i18n="nav.about">About</a>
     <a class="nav-cta" href="/#contact" data-i18n="nav.contact">Contact</a>
-    <button class="switch switch-icon" id="themeToggle" aria-label="Switch between light and dark mode">☾</button>
+    <button class="switch" id="langToggle" aria-label="Switch language"><span data-lang="en" class="on">EN</span><span class="sep" aria-hidden="true">◆</span><span data-lang="nl">NL</span></button>
+    <button class="switch" id="themeToggle" aria-label="Theme: light, dark or follow system"><span data-mode="light">☀&#xFE0E;</span><span class="sep" aria-hidden="true">◆</span><span data-mode="dark">☾</span><span class="sep" aria-hidden="true">◆</span><span data-mode="system" title="Follow system">◐</span></button>
   </nav>
   <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
     <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>
@@ -123,69 +125,69 @@
 <!-- ============ HERO ============ -->
 <section class="hero page-hero">
   <div class="bg-mark bg-seal-hero" aria-hidden="true"></div>
-  <p class="kicker">REPLACE · MICROSOFT 365</p>
-  <h1>Replace Microsoft 365<br>with infrastructure you own</h1>
-  <p class="hero-sub">OneDrive, SharePoint and Office have owned equivalents: Nextcloud with Collabora or OnlyOffice on a server that is yours, and Exchange replaced by an EU mail provider on your own domain. Here is the honest version of what that swap involves.</p>
+  <p class="kicker" data-i18n="m3.1">REPLACE · MICROSOFT 365</p>
+  <h1 data-i18n="m3.2">Replace Microsoft 365<br>with infrastructure you own</h1>
+  <p class="hero-sub" data-i18n="m3.3">OneDrive, SharePoint and Office have owned equivalents: Nextcloud with Collabora or OnlyOffice on a server that is yours, and Exchange replaced by an EU mail provider on your own domain. Here is the honest version of what that swap involves.</p>
   <div class="hero-ctas">
-    <a class="btn btn-primary" href="/audit.html">Start with the audit</a>
-    <a class="btn btn-ghost" href="/method.html">See the method</a>
+    <a class="btn btn-primary" href="/audit.html" data-i18n="m3.4">Start with the audit</a>
+    <a class="btn btn-ghost" href="/method.html" data-i18n="m3.5">See the method</a>
   </div>
 </section>
 
 <!-- ============ COSTS ============ -->
 <section class="section section-alt">
-  <p class="svc-group-label">I · WHAT MICROSOFT 365 ACTUALLY COSTS</p>
-  <h2 class="section-title">A subscription that learned to grow</h2>
+  <p class="svc-group-label" data-i18n="m3.6">I · WHAT MICROSOFT 365 ACTUALLY COSTS</p>
+  <h2 class="section-title" data-i18n="m3.7">A subscription that learned to grow</h2>
   <div class="prose">
-    <p>Microsoft 365 Business Standard runs at roughly €12.50 per user per month on the annual plan as of early 2026; Business Premium, which many companies get pushed toward for security features, is around €22. On top of the base tiers sits the perpetual upsell, currently wearing the name Copilot, at a price per seat that can exceed the plan it is bolted onto. The numbers below are the conservative published tiers.</p>
+    <p data-i18n="m3.8">Microsoft 365 Business Standard runs at roughly €12.50 per user per month on the annual plan as of early 2026; Business Premium, which many companies get pushed toward for security features, is around €22. On top of the base tiers sits the perpetual upsell, currently wearing the name Copilot, at a price per seat that can exceed the plan it is bolted onto. The numbers below are the conservative published tiers.</p>
     <div class="register">
-      <p class="register-head">Business Standard · ≈ €12.50 per user per month · as of 2026</p>
-      <div class="register-row"><span class="register-no">I.</span><span class="register-k">5 seats</span><span class="register-dots" aria-hidden="true"></span><span class="register-v">≈ €750 a year</span></div>
-      <div class="register-row"><span class="register-no">II.</span><span class="register-k">10 seats</span><span class="register-dots" aria-hidden="true"></span><span class="register-v">≈ €1,500 a year</span></div>
-      <div class="register-row"><span class="register-no">III.</span><span class="register-k">25 seats</span><span class="register-dots" aria-hidden="true"></span><span class="register-v">≈ €3,750 a year</span></div>
-      <div class="register-row"><span class="register-no">IV.</span><span class="register-k">Business Premium, 25 seats</span><span class="register-dots" aria-hidden="true"></span><span class="register-v">≈ €6,600 a year</span></div>
-      <p class="register-foot">Before the Copilot upsell · rising with every renewal</p>
+      <p class="register-head" data-i18n="m3.9">Business Standard · ≈ €12.50 per user per month · as of 2026</p>
+      <div class="register-row"><span class="register-no">I.</span><span class="register-k" data-i18n="m3.10">5 seats</span><span class="register-dots" aria-hidden="true"></span><span class="register-v" data-i18n="m3.11">≈ €750 a year</span></div>
+      <div class="register-row"><span class="register-no">II.</span><span class="register-k" data-i18n="m3.12">10 seats</span><span class="register-dots" aria-hidden="true"></span><span class="register-v" data-i18n="m3.13">≈ €1,500 a year</span></div>
+      <div class="register-row"><span class="register-no">III.</span><span class="register-k" data-i18n="m3.14">25 seats</span><span class="register-dots" aria-hidden="true"></span><span class="register-v" data-i18n="m3.15">≈ €3,750 a year</span></div>
+      <div class="register-row"><span class="register-no">IV.</span><span class="register-k" data-i18n="m3.16">Business Premium, 25 seats</span><span class="register-dots" aria-hidden="true"></span><span class="register-v" data-i18n="m3.17">≈ €6,600 a year</span></div>
+      <p class="register-foot" data-i18n="m3.18">Before the Copilot upsell · rising with every renewal</p>
       <img class="stamp-doc" src="/assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
     </div>
-    <p>And as with Google, the invoice is only half the price. Your documents, mail and internal conversations sit in an American cloud under American jurisdiction, and every renewal is an opportunity for the terms to shift under you.</p>
+    <p data-i18n="m3.19">And as with Google, the invoice is only half the price. Your documents, mail and internal conversations sit in an American cloud under American jurisdiction, and every renewal is an opportunity for the terms to shift under you.</p>
   </div>
 </section>
 
 <!-- ============ THE OWNED EQUIVALENT ============ -->
 <section class="section">
-  <p class="svc-group-label">II · THE OWNED EQUIVALENT</p>
-  <h2 class="section-title">Nextcloud, an office suite, and an EU mail provider</h2>
+  <p class="svc-group-label" data-i18n="m3.20">II · THE OWNED EQUIVALENT</p>
+  <h2 class="section-title" data-i18n="m3.21">Nextcloud, an office suite, and an EU mail provider</h2>
   <div class="prose">
-    <p>The replacement is three pieces. <strong>Nextcloud</strong> on a server you own covers OneDrive and SharePoint: files, sync, sharing, calendars and contacts. An open <strong>office suite</strong>, Collabora or OnlyOffice, runs inside it for collaborative documents; OnlyOffice has the best .docx and .xlsx fidelity of the open suites, which matters when your history is twenty years of Word files. <strong>Exchange</strong> is replaced by a specialized EU mail provider on your own domain.</p>
-    <p>The email sentence again, because it applies here too: self-hosted email deliverability is hard, and I recommend a dedicated EU provider rather than running your own mail server. You get EU jurisdiction and portability without gambling your invoices’ inbox placement. If you insist on fully self-hosted mail, I will build it, with the trade-off in writing first.</p>
+    <p data-i18n="m3.22">The replacement is three pieces. <strong>Nextcloud</strong> on a server you own covers OneDrive and SharePoint: files, sync, sharing, calendars and contacts. An open <strong>office suite</strong>, Collabora or OnlyOffice, runs inside it for collaborative documents; OnlyOffice has the best .docx and .xlsx fidelity of the open suites, which matters when your history is twenty years of Word files. <strong>Exchange</strong> is replaced by a specialized EU mail provider on your own domain.</p>
+    <p data-i18n="m3.23">The email sentence again, because it applies here too: self-hosted email deliverability is hard, and I recommend a dedicated EU provider rather than running your own mail server. You get EU jurisdiction and portability without gambling your invoices’ inbox placement. If you insist on fully self-hosted mail, I will build it, with the trade-off in writing first.</p>
   </div>
   <div class="svc-grid" style="margin-top:34px">
     <article class="svc">
-      <span class="svc-no">WHAT MATCHES</span>
+      <span class="svc-no" data-i18n="m3.24">WHAT MATCHES</span>
       <ul class="diamond-list">
-        <li>Files, folders, sync clients and link sharing, replacing OneDrive and SharePoint libraries.</li>
-        <li>Everyday Word and Excel work, edited collaboratively in the browser.</li>
-        <li>Email on your own domain, shared calendars, contacts and resource booking.</li>
-        <li>Internal chat and video calls through Nextcloud Talk.</li>
+        <li data-i18n="m3.25">Files, folders, sync clients and link sharing, replacing OneDrive and SharePoint libraries.</li>
+        <li data-i18n="m3.26">Everyday Word and Excel work, edited collaboratively in the browser.</li>
+        <li data-i18n="m3.27">Email on your own domain, shared calendars, contacts and resource booking.</li>
+        <li data-i18n="m3.28">Internal chat and video calls through Nextcloud Talk.</li>
       </ul>
       <img class="stamp" src="/assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
     </article>
     <article class="svc">
-      <span class="svc-no">WHAT DOESN’T</span>
+      <span class="svc-no" data-i18n="m3.29">WHAT DOESN’T</span>
       <ul class="diamond-list">
-        <li>Heavy Excel: macros, Power Query and plugin-dependent models do not translate. Those seats may honestly need to keep a desktop Office license.</li>
-        <li>Teams at scale, with its ecosystem of bots and enterprise features.</li>
-        <li>Deep SharePoint customization: Power Automate flows and embedded apps are rebuilt or retired, not copied.</li>
+        <li data-i18n="m3.30">Heavy Excel: macros, Power Query and plugin-dependent models do not translate. Those seats may honestly need to keep a desktop Office license.</li>
+        <li data-i18n="m3.31">Teams at scale, with its ecosystem of bots and enterprise features.</li>
+        <li data-i18n="m3.32">Deep SharePoint customization: Power Automate flows and embedded apps are rebuilt or retired, not copied.</li>
       </ul>
       <img class="stamp" src="/assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
     </article>
     <article class="svc">
-      <span class="svc-no">WHAT’S BETTER</span>
+      <span class="svc-no" data-i18n="m3.33">WHAT’S BETTER</span>
       <ul class="diamond-list">
-        <li>No per-seat meter: the bookkeeper, the intern and the board member all cost nothing extra.</li>
-        <li>Storage is a disk, not a license tier.</li>
-        <li>No forced ribbon redesigns, retired features, or AI assistants appearing in your documents uninvited.</li>
-        <li>Your files are exactly where you can point, exportable any minute.</li>
+        <li data-i18n="m3.34">No per-seat meter: the bookkeeper, the intern and the board member all cost nothing extra.</li>
+        <li data-i18n="m3.35">Storage is a disk, not a license tier.</li>
+        <li data-i18n="m3.36">No forced ribbon redesigns, retired features, or AI assistants appearing in your documents uninvited.</li>
+        <li data-i18n="m3.37">Your files are exactly where you can point, exportable any minute.</li>
       </ul>
       <img class="stamp" src="/assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
     </article>
@@ -194,52 +196,52 @@
 
 <!-- ============ MIGRATION ============ -->
 <section class="section section-alt">
-  <p class="svc-group-label">III · WHAT THE MOVE INVOLVES</p>
-  <h2 class="section-title">Microsoft keeps running until we switch</h2>
+  <p class="svc-group-label" data-i18n="m3.38">III · WHAT THE MOVE INVOLVES</p>
+  <h2 class="section-title" data-i18n="m3.39">Microsoft keeps running until we switch</h2>
   <div class="prose">
-    <p>The migration runs through the <a href="/method.html">five-phase method</a>: four to eight weeks from audit to handover for a typical small company, with the exact timeline fixed in the audit before you commit to anything.</p>
-    <p>Microsoft 365 keeps running untouched while the new environment is built next to it. Files move from OneDrive and SharePoint with their structure and sharing deliberately rebuilt rather than blindly copied; mail history migrates over IMAP; calendars and contacts are exported and verified. Documents that matter get opened and checked in the new suite during validation, before the switch. The switch itself is a DNS change and a final sync in a window you approve, with a tested rollback.</p>
-    <p>The realistic risks: the two Excel power users nobody mentioned at kickoff, SharePoint automations that only surface when they stop firing, and old shared mailboxes with unclear ownership. This is precisely why the audit comes first, and why validation is a phase rather than a hope.</p>
+    <p data-i18n="m3.40">The migration runs through the <a href="/method.html">five-phase method</a>: four to eight weeks from audit to handover for a typical small company, with the exact timeline fixed in the audit before you commit to anything.</p>
+    <p data-i18n="m3.41">Microsoft 365 keeps running untouched while the new environment is built next to it. Files move from OneDrive and SharePoint with their structure and sharing deliberately rebuilt rather than blindly copied; mail history migrates over IMAP; calendars and contacts are exported and verified. Documents that matter get opened and checked in the new suite during validation, before the switch. The switch itself is a DNS change and a final sync in a window you approve, with a tested rollback.</p>
+    <p data-i18n="m3.42">The realistic risks: the two Excel power users nobody mentioned at kickoff, SharePoint automations that only surface when they stop firing, and old shared mailboxes with unclear ownership. This is precisely why the audit comes first, and why validation is a phase rather than a hope.</p>
   </div>
 </section>
 
 <!-- ============ WHERE THE DATA ENDS UP ============ -->
 <section class="section">
-  <p class="svc-group-label">IV · WHERE YOUR DATA ENDS UP</p>
-  <h2 class="section-title">A question you can answer by pointing</h2>
+  <p class="svc-group-label" data-i18n="m3.43">IV · WHERE YOUR DATA ENDS UP</p>
+  <h2 class="section-title" data-i18n="m3.44">A question you can answer by pointing</h2>
   <div class="prose">
-    <p>After the move, your files and calendars live on a server you own, in an EU data center, under EU jurisdiction, under your accounts. Your mail lives at an EU provider under a GDPR processor agreement, on your own domain. No American cloud provider in the chain means no CLOUD Act ambiguity, and your GDPR processor register gets shorter instead of longer.</p>
-    <p>The exit clause applies from day one: server, accounts and documentation are yours, so whether you later leave Microsoft, or me, you take everything with you.</p>
+    <p data-i18n="m3.45">After the move, your files and calendars live on a server you own, in an EU data center, under EU jurisdiction, under your accounts. Your mail lives at an EU provider under a GDPR processor agreement, on your own domain. No American cloud provider in the chain means no CLOUD Act ambiguity, and your GDPR processor register gets shorter instead of longer.</p>
+    <p data-i18n="m3.46">The exit clause applies from day one: server, accounts and documentation are yours, so whether you later leave Microsoft, or me, you take everything with you.</p>
   </div>
 </section>
 
 <!-- ============ FAQ ============ -->
 <section class="section section-alt">
-  <h2 class="section-title">Fair questions</h2>
+  <h2 class="section-title" data-i18n="m3.47">Fair questions</h2>
   <div class="faq">
     <details class="faq-item">
-      <summary>Can a company really work without Word and Excel?</summary>
-      <p>Most companies can; some people in them cannot, and the audit finds out which is which. OnlyOffice has the best .docx and .xlsx fidelity of the open suites and covers everyday documents and spreadsheets well. Heavy Excel work with macros and Power Query is the honest exception: for those two finance seats, keeping a desktop Office license alongside the owned stack is a perfectly sane outcome.</p>
+      <summary data-i18n="m3.48">Can a company really work without Word and Excel?</summary>
+      <p data-i18n="m3.49">Most companies can; some people in them cannot, and the audit finds out which is which. OnlyOffice has the best .docx and .xlsx fidelity of the open suites and covers everyday documents and spreadsheets well. Heavy Excel work with macros and Power Query is the honest exception: for those two finance seats, keeping a desktop Office license alongside the owned stack is a perfectly sane outcome.</p>
     </details>
     <details class="faq-item">
-      <summary>What replaces Exchange and Outlook for email and calendars?</summary>
-      <p>Email goes to a specialized EU mail provider on your own domain, because self-hosted email deliverability is a risk I recommend against; calendars and contacts live in Nextcloud and sync to phones and mail clients over open standards. Your addresses do not change, and your history migrates over IMAP.</p>
+      <summary data-i18n="m3.50">What replaces Exchange and Outlook for email and calendars?</summary>
+      <p data-i18n="m3.51">Email goes to a specialized EU mail provider on your own domain, because self-hosted email deliverability is a risk I recommend against; calendars and contacts live in Nextcloud and sync to phones and mail clients over open standards. Your addresses do not change, and your history migrates over IMAP.</p>
     </details>
     <details class="faq-item">
-      <summary>What replaces Teams?</summary>
-      <p>Nextcloud Talk covers chat and video calls for internal use. Honestly: it is not Teams at enterprise scale, and if your clients live in Teams meetings you can keep joining those from a browser without paying for the whole suite. Chat with real self-hosted depth would be a separate tool, which the audit can scope.</p>
+      <summary data-i18n="m3.52">What replaces Teams?</summary>
+      <p data-i18n="m3.53">Nextcloud Talk covers chat and video calls for internal use. Honestly: it is not Teams at enterprise scale, and if your clients live in Teams meetings you can keep joining those from a browser without paying for the whole suite. Chat with real self-hosted depth would be a separate tool, which the audit can scope.</p>
     </details>
     <details class="faq-item">
-      <summary>Is SharePoint data hard to migrate?</summary>
-      <p>The files themselves move cleanly to Nextcloud with structure and sharing rebuilt deliberately. What takes real planning is everything bolted onto SharePoint over the years: Power Automate flows, embedded lists, forms. The audit maps exactly that before anything is promised, so the proposal is grounded in your environment, not a template.</p>
+      <summary data-i18n="m3.54">Is SharePoint data hard to migrate?</summary>
+      <p data-i18n="m3.55">The files themselves move cleanly to Nextcloud with structure and sharing rebuilt deliberately. What takes real planning is everything bolted onto SharePoint over the years: Power Automate flows, embedded lists, forms. The audit maps exactly that before anything is promised, so the proposal is grounded in your environment, not a template.</p>
     </details>
     <details class="faq-item">
-      <summary>How long does leaving Microsoft 365 take?</summary>
-      <p>A typical small-business migration runs four to eight weeks from audit to handover. Microsoft 365 keeps running untouched until the deliberate switch, in a window you approve, with a tested rollback.</p>
+      <summary data-i18n="m3.56">How long does leaving Microsoft 365 take?</summary>
+      <p data-i18n="m3.57">A typical small-business migration runs four to eight weeks from audit to handover. Microsoft 365 keeps running untouched until the deliberate switch, in a window you approve, with a tested rollback.</p>
     </details>
     <details class="faq-item">
-      <summary>Is self-hosting cheaper than Microsoft 365?</summary>
-      <p>The running costs stop scaling per seat: a server plus EU mailboxes typically undercuts a 10-seat Business Standard subscription, and the gap widens with every hire and every Copilot-style upsell you skip. The build is a fixed project fee, so think payback over a year or two, not overnight savings.</p>
+      <summary data-i18n="m3.58">Is self-hosting cheaper than Microsoft 365?</summary>
+      <p data-i18n="m3.59">The running costs stop scaling per seat: a server plus EU mailboxes typically undercuts a 10-seat Business Standard subscription, and the gap widens with every hire and every Copilot-style upsell you skip. The build is a fixed project fee, so think payback over a year or two, not overnight savings.</p>
     </details>
   </div>
 </section>
@@ -247,11 +249,11 @@
 <!-- ============ CTA ============ -->
 <section class="section cta-final">
   <div class="diamond-rule"><span>◆</span></div>
-  <h2 class="section-title">The low-risk first step</h2>
-  <p class="section-sub">The audit maps what your team actually uses inside Microsoft 365, what it costs per year, and which seats genuinely need to keep Office, for a small fixed price, with a written report that is yours whatever you decide.</p>
+  <h2 class="section-title" data-i18n="m3.60">The low-risk first step</h2>
+  <p class="section-sub" data-i18n="m3.61">The audit maps what your team actually uses inside Microsoft 365, what it costs per year, and which seats genuinely need to keep Office, for a small fixed price, with a written report that is yours whatever you decide.</p>
   <div class="hero-ctas">
-    <a class="btn btn-primary" href="/audit.html">Read about the audit</a>
-    <a class="btn btn-ghost" href="/#contact">Start a conversation</a>
+    <a class="btn btn-primary" href="/audit.html" data-i18n="m3.62">Read about the audit</a>
+    <a class="btn btn-ghost" href="/#contact" data-i18n="m3.63">Start a conversation</a>
   </div>
 </section>
 </main>
@@ -278,6 +280,8 @@
   <p class="footer-fine">Built and hosted on Ironstack’s own infrastructure. No analytics, no trackers, no cookies.</p>
 </footer>
 
-<script src="/js/main.js?v=18"></script>
+<script src="/js/i18n-data.js?v=19"></script>
+<script src="/js/i18n/microsoft-365.nl.js?v=19"></script>
+<script src="/js/main.js?v=19"></script>
 </body>
 </html>

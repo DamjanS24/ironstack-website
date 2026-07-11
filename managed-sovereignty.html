@@ -20,14 +20,15 @@
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon-180.png">
 <script>
 (function () { try {
-  var t = new URLSearchParams(location.search).get('theme') || localStorage.getItem('ironstack-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  var m = new URLSearchParams(location.search).get('theme') || localStorage.getItem('ironstack-theme-mode') || 'system';
+  var t = (m === 'dark' || m === 'light') ? m : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
   document.documentElement.setAttribute('data-theme', t);
 } catch (e) {} })();
 </script>
 <link rel="preload" href="/assets/fonts/Fraunces-600-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/SpaceGrotesk-500-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/css/fonts.css?v=18">
-<link rel="stylesheet" href="/css/style.css?v=18">
+<link rel="stylesheet" href="/css/fonts.css?v=19">
+<link rel="stylesheet" href="/css/style.css?v=19">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -112,7 +113,8 @@
     <a href="/stack-register.html" data-i18n="nav.proof">Proof</a>
     <a href="/#about" data-i18n="nav.about">About</a>
     <a class="nav-cta" href="/#contact" data-i18n="nav.contact">Contact</a>
-    <button class="switch switch-icon" id="themeToggle" aria-label="Switch between light and dark mode">☾</button>
+    <button class="switch" id="langToggle" aria-label="Switch language"><span data-lang="en" class="on">EN</span><span class="sep" aria-hidden="true">◆</span><span data-lang="nl">NL</span></button>
+    <button class="switch" id="themeToggle" aria-label="Theme: light, dark or follow system"><span data-mode="light">☀&#xFE0E;</span><span class="sep" aria-hidden="true">◆</span><span data-mode="dark">☾</span><span class="sep" aria-hidden="true">◆</span><span data-mode="system" title="Follow system">◐</span></button>
   </nav>
   <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
     <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>
@@ -123,68 +125,68 @@
 <!-- ============ HERO ============ -->
 <section class="hero page-hero">
   <div class="bg-mark bg-seal-hero" aria-hidden="true"></div>
-  <p class="kicker">SERVICES · HOW IT KEEPS RUNNING</p>
-  <h1>Your systems, cared for.<br>Still yours.</h1>
-  <p class="hero-sub">Managed Sovereignty is the ongoing custodianship of infrastructure you own: updates, backups, monitoring and response, and a monthly report you can actually read. A fixed monthly price per tier, and the exit clause applies every single month.</p>
+  <p class="kicker" data-i18n="ms.1">SERVICES · HOW IT KEEPS RUNNING</p>
+  <h1 data-i18n="ms.2">Your systems, cared for.<br>Still yours.</h1>
+  <p class="hero-sub" data-i18n="ms.3">Managed Sovereignty is the ongoing custodianship of infrastructure you own: updates, backups, monitoring and response, and a monthly report you can actually read. A fixed monthly price per tier, and the exit clause applies every single month.</p>
   <div class="hero-ctas">
-    <a class="btn btn-primary" href="/#contact">Start a conversation</a>
-    <a class="btn btn-ghost" href="/method.html">See the method</a>
+    <a class="btn btn-primary" href="/#contact" data-i18n="ms.4">Start a conversation</a>
+    <a class="btn btn-ghost" href="/method.html" data-i18n="ms.5">See the method</a>
   </div>
 </section>
 
 <!-- ============ THE PROBLEM ============ -->
 <section class="section section-alt">
-  <p class="svc-group-label">I · THE PROBLEM</p>
-  <h2 class="section-title">“Self-hosting sounds great, until something breaks”</h2>
+  <p class="svc-group-label" data-i18n="ms.6">I · THE PROBLEM</p>
+  <h2 class="section-title" data-i18n="ms.7">“Self-hosting sounds great, until something breaks”</h2>
   <div class="prose">
-    <p>Most companies do not stay on rented cloud because they love it. They stay because someone else carries the pager. The honest fear behind “we could never self-host” is rarely about features; it is the 3 a.m. question: who patches this, who notices when the disk fills up, who restores the backup, and does the backup even restore?</p>
-    <p>That fear is legitimate. A server nobody maintains is worse than a subscription. Owned infrastructure without care is not sovereignty, it is neglect with extra steps.</p>
-    <p>Managed Sovereignty exists to close exactly that gap: you get the ownership, and I carry the care. Not as a favor bolted onto a project, but as the actual product, with defined response windows and a report every month that tells you what happened in plain language.</p>
+    <p data-i18n="ms.8">Most companies do not stay on rented cloud because they love it. They stay because someone else carries the pager. The honest fear behind “we could never self-host” is rarely about features; it is the 3 a.m. question: who patches this, who notices when the disk fills up, who restores the backup, and does the backup even restore?</p>
+    <p data-i18n="ms.9">That fear is legitimate. A server nobody maintains is worse than a subscription. Owned infrastructure without care is not sovereignty, it is neglect with extra steps.</p>
+    <p data-i18n="ms.10">Managed Sovereignty exists to close exactly that gap: you get the ownership, and I carry the care. Not as a favor bolted onto a project, but as the actual product, with defined response windows and a report every month that tells you what happened in plain language.</p>
   </div>
 </section>
 
 <!-- ============ WHAT IT IS ============ -->
 <section class="section">
-  <p class="svc-group-label">II · WHAT IT IS, CONCRETELY</p>
-  <h2 class="section-title">Custodianship with a fixed price</h2>
+  <p class="svc-group-label" data-i18n="ms.11">II · WHAT IT IS, CONCRETELY</p>
+  <h2 class="section-title" data-i18n="ms.12">Custodianship with a fixed price</h2>
   <div class="prose">
-    <p>Managed Sovereignty is a monthly agreement per tier. The tiers differ in response windows and included hours, not in whether your systems are looked after; every environment I run gets the same discipline, because my monitoring does not know which tier you are on.</p>
+    <p data-i18n="ms.13">Managed Sovereignty is a monthly agreement per tier. The tiers differ in response windows and included hours, not in whether your systems are looked after; every environment I run gets the same discipline, because my monitoring does not know which tier you are on.</p>
     <div class="register">
-      <p class="register-head">What custodianship covers · every month</p>
-      <div class="register-row"><span class="register-no">I.</span><span class="register-k">Updates &amp; patching</span><span class="register-dots" aria-hidden="true"></span><span class="register-v">tested, then applied</span></div>
-      <div class="register-row"><span class="register-no">II.</span><span class="register-k">Backups</span><span class="register-dots" aria-hidden="true"></span><span class="register-v">with tested restores</span></div>
-      <div class="register-row"><span class="register-no">III.</span><span class="register-k">Monitoring &amp; response</span><span class="register-dots" aria-hidden="true"></span><span class="register-v">defined windows</span></div>
-      <div class="register-row"><span class="register-no">IV.</span><span class="register-k">Included hours</span><span class="register-dots" aria-hidden="true"></span><span class="register-v">changes &amp; questions</span></div>
-      <div class="register-row"><span class="register-no">V.</span><span class="register-k">Health report</span><span class="register-dots" aria-hidden="true"></span><span class="register-v">plain language</span></div>
-      <p class="register-foot">Fixed monthly price per tier · exit clause every month</p>
+      <p class="register-head" data-i18n="ms.14">What custodianship covers · every month</p>
+      <div class="register-row"><span class="register-no">I.</span><span class="register-k" data-i18n="ms.15">Updates &amp; patching</span><span class="register-dots" aria-hidden="true"></span><span class="register-v" data-i18n="ms.16">tested, then applied</span></div>
+      <div class="register-row"><span class="register-no">II.</span><span class="register-k" data-i18n="ms.17">Backups</span><span class="register-dots" aria-hidden="true"></span><span class="register-v" data-i18n="ms.18">with tested restores</span></div>
+      <div class="register-row"><span class="register-no">III.</span><span class="register-k" data-i18n="ms.19">Monitoring &amp; response</span><span class="register-dots" aria-hidden="true"></span><span class="register-v" data-i18n="ms.20">defined windows</span></div>
+      <div class="register-row"><span class="register-no">IV.</span><span class="register-k" data-i18n="ms.21">Included hours</span><span class="register-dots" aria-hidden="true"></span><span class="register-v" data-i18n="ms.22">changes &amp; questions</span></div>
+      <div class="register-row"><span class="register-no">V.</span><span class="register-k" data-i18n="ms.23">Health report</span><span class="register-dots" aria-hidden="true"></span><span class="register-v" data-i18n="ms.24">plain language</span></div>
+      <p class="register-foot" data-i18n="ms.25">Fixed monthly price per tier · exit clause every month</p>
       <img class="stamp-doc" src="/assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
     </div>
-    <p>What you hold in your hands: the server under your accounts, the documentation and runbooks written for your team, and twelve health reports a year that double as an audit trail. If I disappear tomorrow, any competent engineer continues from the runbook. That is not a slogan; it is the design requirement.</p>
-    <p>The price is fixed and agreed before anything starts, and the number does not move. It changes only if you change tier or your environment materially grows, and then only with a new fixed number you approve first.</p>
+    <p data-i18n="ms.26">What you hold in your hands: the server under your accounts, the documentation and runbooks written for your team, and twelve health reports a year that double as an audit trail. If I disappear tomorrow, any competent engineer continues from the runbook. That is not a slogan; it is the design requirement.</p>
+    <p data-i18n="ms.27">The price is fixed and agreed before anything starts, and the number does not move. It changes only if you change tier or your environment materially grows, and then only with a new fixed number you approve first.</p>
   </div>
 </section>
 
 <!-- ============ WHO FOR ============ -->
 <section class="section section-alt">
-  <p class="svc-group-label">III · A FAIR MATCH</p>
-  <h2 class="section-title">Who this is for, and who it is not for</h2>
+  <p class="svc-group-label" data-i18n="ms.28">III · A FAIR MATCH</p>
+  <h2 class="section-title" data-i18n="ms.29">Who this is for, and who it is not for</h2>
   <div class="svc-grid">
     <article class="svc">
-      <span class="svc-no">FOR YOU IF</span>
+      <span class="svc-no" data-i18n="ms.30">FOR YOU IF</span>
       <ul class="diamond-list">
-        <li>You want to own your systems but nobody on your team wants to be the sysadmin.</li>
-        <li>You value one accountable person over an anonymous support queue.</li>
-        <li>You want to know, every month, what your infrastructure did and what it cost.</li>
-        <li>You want the option to leave, every month, without a penalty clause.</li>
+        <li data-i18n="ms.31">You want to own your systems but nobody on your team wants to be the sysadmin.</li>
+        <li data-i18n="ms.32">You value one accountable person over an anonymous support queue.</li>
+        <li data-i18n="ms.33">You want to know, every month, what your infrastructure did and what it cost.</li>
+        <li data-i18n="ms.34">You want the option to leave, every month, without a penalty clause.</li>
       </ul>
       <img class="stamp" src="/assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
     </article>
     <article class="svc">
-      <span class="svc-no">NOT FOR YOU IF</span>
+      <span class="svc-no" data-i18n="ms.35">NOT FOR YOU IF</span>
       <ul class="diamond-list">
-        <li>You need a contractual 24/7 operations center with sub-hour response at any hour. I am one person and will not pretend otherwise.</li>
-        <li>Your environment must stay on a US hyperscaler for reasons that are real and yours. Then this whole company is the wrong fit, and I will say so on the first call.</li>
-        <li>You want the cheapest possible hosting. Care costs money; neglect costs more, but later.</li>
+        <li data-i18n="ms.36">You need a contractual 24/7 operations center with sub-hour response at any hour. I am one person and will not pretend otherwise.</li>
+        <li data-i18n="ms.37">Your environment must stay on a US hyperscaler for reasons that are real and yours. Then this whole company is the wrong fit, and I will say so on the first call.</li>
+        <li data-i18n="ms.38">You want the cheapest possible hosting. Care costs money; neglect costs more, but later.</li>
       </ul>
       <img class="stamp" src="/assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
     </article>
@@ -193,41 +195,41 @@
 
 <!-- ============ HOW IT CONNECTS ============ -->
 <section class="section">
-  <p class="svc-group-label">IV · WHERE IT SITS</p>
-  <h2 class="section-title">Every path ends here</h2>
+  <p class="svc-group-label" data-i18n="ms.39">IV · WHERE IT SITS</p>
+  <h2 class="section-title" data-i18n="ms.40">Every path ends here</h2>
   <div class="prose">
-    <p>Managed Sovereignty is the heart of Ironstack; the other services are how you arrive. <a href="/audit.html">The Audit</a> tells you what you have and what it costs. <a href="/stack.html">The Stack</a> builds fresh; <a href="/migration.html">Migration</a> moves an existing environment, both through the same <a href="/method.html">five-phase method</a>. Phase five is literally called Handover &amp; Custodianship: the moment the build ends, this service begins.</p>
-    <p>You can also arrive sideways. Some clients start with a single <a href="/ai-automation.html">automation project</a> and grow into a stack; some bring an environment someone else built. The entry matters less than the destination: systems you own, running with care.</p>
+    <p data-i18n="ms.41">Managed Sovereignty is the heart of Ironstack; the other services are how you arrive. <a href="/audit.html">The Audit</a> tells you what you have and what it costs. <a href="/stack.html">The Stack</a> builds fresh; <a href="/migration.html">Migration</a> moves an existing environment, both through the same <a href="/method.html">five-phase method</a>. Phase five is literally called Handover &amp; Custodianship: the moment the build ends, this service begins.</p>
+    <p data-i18n="ms.42">You can also arrive sideways. Some clients start with a single <a href="/ai-automation.html">automation project</a> and grow into a stack; some bring an environment someone else built. The entry matters less than the destination: systems you own, running with care.</p>
   </div>
 </section>
 
 <!-- ============ FAQ ============ -->
 <section class="section section-alt">
-  <h2 class="section-title">Fair questions</h2>
+  <h2 class="section-title" data-i18n="ms.43">Fair questions</h2>
   <div class="faq">
     <details class="faq-item">
-      <summary>What exactly is included in the monthly price?</summary>
-      <p>Updates and security patching, backups with tested restores, monitoring with response, a set of included hours for changes and questions, and a monthly health report in plain language. The tiers differ in response windows and included hours, not in whether your systems are cared for.</p>
+      <summary data-i18n="ms.44">What exactly is included in the monthly price?</summary>
+      <p data-i18n="ms.45">Updates and security patching, backups with tested restores, monitoring with response, a set of included hours for changes and questions, and a monthly health report in plain language. The tiers differ in response windows and included hours, not in whether your systems are cared for.</p>
     </details>
     <details class="faq-item">
-      <summary>What happens if the server goes down at night?</summary>
-      <p>Monitoring never sleeps and alerts me before most people notice anything. Each tier has an honestly defined response window, agreed in writing. I will not promise a 24/7 operations center, because I am one person; I promise a defined window and a documented recovery procedure that works without heroics.</p>
+      <summary data-i18n="ms.46">What happens if the server goes down at night?</summary>
+      <p data-i18n="ms.47">Monitoring never sleeps and alerts me before most people notice anything. Each tier has an honestly defined response window, agreed in writing. I will not promise a 24/7 operations center, because I am one person; I promise a defined window and a documented recovery procedure that works without heroics.</p>
     </details>
     <details class="faq-item">
-      <summary>Can we do maintenance ourselves instead?</summary>
-      <p>Yes. Everything is documented for your team, not for me, so you can take over any month. Some clients run day-to-day themselves and keep a smaller tier for escalations. Both are fine; the documentation is the same either way.</p>
+      <summary data-i18n="ms.48">Can we do maintenance ourselves instead?</summary>
+      <p data-i18n="ms.49">Yes. Everything is documented for your team, not for me, so you can take over any month. Some clients run day-to-day themselves and keep a smaller tier for escalations. Both are fine; the documentation is the same either way.</p>
     </details>
     <details class="faq-item">
-      <summary>Does the price go up once we depend on you?</summary>
-      <p>No. The monthly price is fixed per tier and agreed before anything starts. It changes only if you change tier or the environment materially grows, and then only with a new fixed number you approve first. And you never depend on me: the exit clause applies every single month.</p>
+      <summary data-i18n="ms.50">Does the price go up once we depend on you?</summary>
+      <p data-i18n="ms.51">No. The monthly price is fixed per tier and agreed before anything starts. It changes only if you change tier or the environment materially grows, and then only with a new fixed number you approve first. And you never depend on me: the exit clause applies every single month.</p>
     </details>
     <details class="faq-item">
-      <summary>What does the monthly health report contain?</summary>
-      <p>What was updated, what the backups did and whether restores were tested, uptime, anything that needs a decision from you, and what I recommend next. Written in plain language, not log excerpts.</p>
+      <summary data-i18n="ms.52">What does the monthly health report contain?</summary>
+      <p data-i18n="ms.53">What was updated, what the backups did and whether restores were tested, uptime, anything that needs a decision from you, and what I recommend next. Written in plain language, not log excerpts.</p>
     </details>
     <details class="faq-item">
-      <summary>We did not build our systems with Ironstack. Can you still run them?</summary>
-      <p>Usually yes, after an audit. I need to know what is running before I take responsibility for it, and the audit is exactly that investigation. If your environment is something I cannot honestly care for, I will say so.</p>
+      <summary data-i18n="ms.54">We did not build our systems with Ironstack. Can you still run them?</summary>
+      <p data-i18n="ms.55">Usually yes, after an audit. I need to know what is running before I take responsibility for it, and the audit is exactly that investigation. If your environment is something I cannot honestly care for, I will say so.</p>
     </details>
   </div>
 </section>
@@ -235,11 +237,11 @@
 <!-- ============ CTA ============ -->
 <section class="section cta-final">
   <div class="diamond-rule"><span>◆</span></div>
-  <h2 class="section-title">Start a conversation</h2>
-  <p class="section-sub">Tell me what runs where and what bothers you about it. You will get a straight answer. Sometimes the honest answer is that you do not need me.</p>
+  <h2 class="section-title" data-i18n="ms.56">Start a conversation</h2>
+  <p class="section-sub" data-i18n="ms.57">Tell me what runs where and what bothers you about it. You will get a straight answer. Sometimes the honest answer is that you do not need me.</p>
   <div class="hero-ctas">
-    <a class="btn btn-primary" href="/#contact">Start a conversation</a>
-    <a class="btn btn-ghost" href="/audit.html">Or begin with the audit</a>
+    <a class="btn btn-primary" href="/#contact" data-i18n="ms.58">Start a conversation</a>
+    <a class="btn btn-ghost" href="/audit.html" data-i18n="ms.59">Or begin with the audit</a>
   </div>
 </section>
 </main>
@@ -266,6 +268,8 @@
   <p class="footer-fine">Built and hosted on Ironstack’s own infrastructure. No analytics, no trackers, no cookies.</p>
 </footer>
 
-<script src="/js/main.js?v=18"></script>
+<script src="/js/i18n-data.js?v=19"></script>
+<script src="/js/i18n/managed-sovereignty.nl.js?v=19"></script>
+<script src="/js/main.js?v=19"></script>
 </body>
 </html>

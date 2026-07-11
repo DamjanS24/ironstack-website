@@ -4,11 +4,15 @@
   var toggle = document.getElementById('langToggle');
   var lang = localStorage.getItem('ironstack-lang') || 'en';
 
+  // the page's own HTML is the English source of truth; captured on first swap so EN needs no dictionary
+  var enSource = {};
   function apply(l) {
     var dict = window.I18N[l] || window.I18N.en;
     document.querySelectorAll('[data-i18n]').forEach(function (el) {
       var key = el.getAttribute('data-i18n');
+      if (!(key in enSource)) enSource[key] = el.innerHTML;
       if (dict[key]) el.innerHTML = dict[key];
+      else if (l === 'en') el.innerHTML = enSource[key];
     });
     document.documentElement.lang = l;
     toggle.querySelectorAll('[data-lang]').forEach(function (sp) {
@@ -17,7 +21,6 @@
     localStorage.setItem('ironstack-lang', l);
     lang = l;
   }
-  // subpages are EN-only: they ship without the language switch and without the dictionaries
   if (toggle && window.I18N) {
     toggle.addEventListener('click', function () { apply(lang === 'en' ? 'nl' : 'en'); });
     if (lang !== 'en') apply(lang);
@@ -25,13 +28,19 @@
     lang = 'en';
   }
 
-  // ---------- theme (light / dark) ----------
-  // the inline head script already set data-theme; here we sync the button and the seal artwork
+  // ---------- theme (light / dark / system) ----------
+  // the inline head script already set data-theme; here we run the three-way mode switch and the seal artwork
   var themeBtn = document.getElementById('themeToggle');
-  function applyTheme(t, persist) {
+  var sysDark = window.matchMedia('(prefers-color-scheme: dark)');
+  var themeMode = localStorage.getItem('ironstack-theme-mode') || 'system';
+  function applyTheme(mode, persist) {
+    themeMode = mode;
+    var t = mode === 'system' ? (sysDark.matches ? 'dark' : 'light') : mode;
     document.documentElement.setAttribute('data-theme', t);
-    if (persist) localStorage.setItem('ironstack-theme', t);
-    if (themeBtn) themeBtn.textContent = t === 'dark' ? '☀' : '☾';
+    if (persist) localStorage.setItem('ironstack-theme-mode', mode);
+    if (themeBtn) themeBtn.querySelectorAll('[data-mode]').forEach(function (sp) {
+      sp.classList.toggle('on', sp.getAttribute('data-mode') === mode);
+    });
     // seals exist in ink and cream variants; swap artwork to match the ground it sits on
     document.querySelectorAll('img[src*="-ink.svg"], img[src*="-cream.svg"], img[data-osrc]').forEach(function (img) {
       if (!img.dataset.osrc) img.dataset.osrc = img.getAttribute('src');
@@ -42,9 +51,14 @@
       img.setAttribute('src', src);
     });
   }
-  applyTheme(document.documentElement.getAttribute('data-theme') || 'light', false);
-  if (themeBtn) themeBtn.addEventListener('click', function () {
-    applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark', true);
+  applyTheme(themeMode, false);
+  if (themeBtn) themeBtn.addEventListener('click', function (e) {
+    var sp = e.target.closest('[data-mode]');
+    var order = ['light', 'dark', 'system'];
+    applyTheme(sp ? sp.getAttribute('data-mode') : order[(order.indexOf(themeMode) + 1) % 3], true);
+  });
+  if (sysDark.addEventListener) sysDark.addEventListener('change', function () {
+    if (themeMode === 'system') applyTheme('system', false);
   });
 
   // ---------- mobile nav ----------
@@ -199,6 +213,45 @@
       if (entries[0].isIntersecting) { register.classList.add('stamped'); rio.disconnect(); }
     }, { threshold: 0.5 });
     rio.observe(register);
+  }
+
+  // ---------- service cards: on touch devices the seal stamps on scroll, not on tap ----------
+  if (window.matchMedia('(hover: none)').matches) {
+    var svcCards = document.querySelectorAll('.svc');
+    if (svcCards.length) {
+      var sio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) { en.target.classList.add('stamped'); sio.unobserve(en.target); }
+        });
+      }, { threshold: 0.55 });
+      svcCards.forEach(function (el) { sio.observe(el); });
+    }
+  }
+
+  // ---------- contact: write ◆ book a call ----------
+  // the calendar is Ironstack's own self-hosted Cal.com instance; nothing loads until the visitor asks for it
+  var CAL_URL = 'https://cal.ironstack.nl/damjan/intro';
+  var cmBtn = document.getElementById('contactMode');
+  var calWrap = document.getElementById('calEmbed');
+  var leadFormEl = document.getElementById('leadForm');
+  if (cmBtn && calWrap && leadFormEl) {
+    cmBtn.addEventListener('click', function (e) {
+      var sp = e.target.closest('[data-cmode]');
+      var mode = sp ? sp.getAttribute('data-cmode') : (calWrap.hidden ? 'call' : 'write');
+      var call = mode === 'call';
+      leadFormEl.hidden = call;
+      calWrap.hidden = !call;
+      cmBtn.querySelectorAll('[data-cmode]').forEach(function (s) {
+        s.classList.toggle('on', s.getAttribute('data-cmode') === mode);
+      });
+      if (call && !calWrap.querySelector('iframe')) {
+        var f = document.createElement('iframe');
+        f.src = CAL_URL + '?theme=' + (document.documentElement.getAttribute('data-theme') || 'light') + '&hide_event_type_details=1';
+        f.loading = 'lazy';
+        f.title = 'Book a call';
+        calWrap.insertBefore(f, calWrap.firstChild);
+      }
+    });
   }
 
   // ---------- lead form ----------

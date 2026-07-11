@@ -20,14 +20,15 @@
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon-180.png">
 <script>
 (function () { try {
-  var t = new URLSearchParams(location.search).get('theme') || localStorage.getItem('ironstack-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  var m = new URLSearchParams(location.search).get('theme') || localStorage.getItem('ironstack-theme-mode') || 'system';
+  var t = (m === 'dark' || m === 'light') ? m : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
   document.documentElement.setAttribute('data-theme', t);
 } catch (e) {} })();
 </script>
 <link rel="preload" href="/assets/fonts/Fraunces-600-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/SpaceGrotesk-500-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/css/fonts.css?v=18">
-<link rel="stylesheet" href="/css/style.css?v=18">
+<link rel="stylesheet" href="/css/fonts.css?v=19">
+<link rel="stylesheet" href="/css/style.css?v=19">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -86,7 +87,8 @@
     <a href="/stack-register.html" data-i18n="nav.proof">Proof</a>
     <a href="/#about" data-i18n="nav.about">About</a>
     <a class="nav-cta" href="/#contact" data-i18n="nav.contact">Contact</a>
-    <button class="switch switch-icon" id="themeToggle" aria-label="Switch between light and dark mode">☾</button>
+    <button class="switch" id="langToggle" aria-label="Switch language"><span data-lang="en" class="on">EN</span><span class="sep" aria-hidden="true">◆</span><span data-lang="nl">NL</span></button>
+    <button class="switch" id="themeToggle" aria-label="Theme: light, dark or follow system"><span data-mode="light">☀&#xFE0E;</span><span class="sep" aria-hidden="true">◆</span><span data-mode="dark">☾</span><span class="sep" aria-hidden="true">◆</span><span data-mode="system" title="Follow system">◐</span></button>
   </nav>
   <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
     <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>
@@ -97,78 +99,78 @@
 <!-- ============ HERO ============ -->
 <section class="hero page-hero">
   <div class="bg-mark bg-seal-hero" aria-hidden="true"></div>
-  <p class="kicker">THE METHOD · FIVE PHASES</p>
-  <h1>Five phases.<br>No surprises.</h1>
-  <p class="hero-sub">Every build runs through the same five controlled phases, whether we install a fresh stack or move an existing environment. Your current setup keeps running untouched until we deliberately switch, in a window you approve, with a tested rollback. This page is each phase in full: what happens, what you approve, what the way back is, and what you hold at the end.</p>
+  <p class="kicker" data-i18n="mt.1">THE METHOD · FIVE PHASES</p>
+  <h1 data-i18n="mt.2">Five phases.<br>No surprises.</h1>
+  <p class="hero-sub" data-i18n="mt.3">Every build runs through the same five controlled phases, whether we install a fresh stack or move an existing environment. Your current setup keeps running untouched until we deliberately switch, in a window you approve, with a tested rollback. This page is each phase in full: what happens, what you approve, what the way back is, and what you hold at the end.</p>
   <div class="hero-ctas">
-    <a class="btn btn-primary" href="/#contact">Start a conversation</a>
-    <a class="btn btn-ghost" href="/audit.html">Phase one, sold on its own</a>
+    <a class="btn btn-primary" href="/#contact" data-i18n="mt.4">Start a conversation</a>
+    <a class="btn btn-ghost" href="/audit.html" data-i18n="mt.5">Phase one, sold on its own</a>
   </div>
 </section>
 
 <!-- ============ THE PHASES ============ -->
 <section class="section section-alt">
-  <p class="svc-group-label">THE FIVE PHASES · IN FULL</p>
-  <h2 class="section-title">From map to handover</h2>
-  <p class="section-sub">Two rules govern all five phases. Nothing executes without your sign-off, and every step has a rollback that was tested before it was needed. The result is that the riskiest moment of the project, the switch, is also the most rehearsed.</p>
+  <p class="svc-group-label" data-i18n="mt.6">THE FIVE PHASES · IN FULL</p>
+  <h2 class="section-title" data-i18n="mt.7">From map to handover</h2>
+  <p class="section-sub" data-i18n="mt.8">Two rules govern all five phases. Nothing executes without your sign-off, and every step has a rollback that was tested before it was needed. The result is that the riskiest moment of the project, the switch, is also the most rehearsed.</p>
   <ol class="phases">
     <li>
       <span class="phase-no">I</span>
       <div>
-        <h3>Discovery &amp; Audit</h3>
-        <p>I map your infrastructure: every system, every data flow, every dependency, what each costs per year, and where GDPR and AI expose you. This phase is pure investigation; nothing in your environment is touched, and most of your involvement is a kickoff conversation and a walkthrough.</p>
+        <h3 data-i18n="mt.9">Discovery &amp; Audit</h3>
+        <p data-i18n="mt.10">I map your infrastructure: every system, every data flow, every dependency, what each costs per year, and where GDPR and AI expose you. This phase is pure investigation; nothing in your environment is touched, and most of your involvement is a kickoff conversation and a walkthrough.</p>
         <ul class="phase-facts">
-          <li><b>You see &amp; approve</b><span>the findings, before anything is planned on top of them.</span></li>
-          <li><b>Rollback</b><span>nothing to roll back; nothing was changed.</span></li>
-          <li><b>You hold</b><span>a written audit report that stays useful even if we never work together again. <a href="/audit.html">Sold on its own</a>, at a small fixed price.</span></li>
+          <li><b data-i18n="mt.11">You see &amp; approve</b><span data-i18n="mt.12">the findings, before anything is planned on top of them.</span></li>
+          <li><b data-i18n="mt.13">Rollback</b><span data-i18n="mt.14">nothing to roll back; nothing was changed.</span></li>
+          <li><b data-i18n="mt.15">You hold</b><span data-i18n="mt.16">a written audit report that stays useful even if we never work together again. <a href="/audit.html">Sold on its own</a>, at a small fixed price.</span></li>
         </ul>
       </div>
     </li>
     <li>
       <span class="phase-no">II</span>
       <div>
-        <h3>Architecture &amp; Planning</h3>
-        <p>The audit findings become a target design and a step-by-step migration runbook: which system moves when, in what order, with what dependencies, and what happens if a step fails. Every step gets its own rollback written before we start, not improvised at midnight. This is also where the proposal lands: a fixed project fee and a fixed monthly price, and neither moves.</p>
+        <h3 data-i18n="mt.17">Architecture &amp; Planning</h3>
+        <p data-i18n="mt.18">The audit findings become a target design and a step-by-step migration runbook: which system moves when, in what order, with what dependencies, and what happens if a step fails. Every step gets its own rollback written before we start, not improvised at midnight. This is also where the proposal lands: a fixed project fee and a fixed monthly price, and neither moves.</p>
         <ul class="phase-facts">
-          <li><b>You see &amp; approve</b><span>the design, the runbook, the timeline and the numbers. Nothing executes without your sign-off.</span></li>
-          <li><b>Rollback</b><span>still nothing running; declining the proposal is the rollback, and the audit report remains yours.</span></li>
-          <li><b>You hold</b><span>the runbook itself, written for your team, not for me.</span></li>
+          <li><b data-i18n="mt.19">You see &amp; approve</b><span data-i18n="mt.20">the design, the runbook, the timeline and the numbers. Nothing executes without your sign-off.</span></li>
+          <li><b data-i18n="mt.21">Rollback</b><span data-i18n="mt.22">still nothing running; declining the proposal is the rollback, and the audit report remains yours.</span></li>
+          <li><b data-i18n="mt.23">You hold</b><span data-i18n="mt.24">the runbook itself, written for your team, not for me.</span></li>
         </ul>
       </div>
     </li>
     <li>
       <span class="phase-no">III</span>
       <div>
-        <h3>The Build</h3>
-        <p>The new environment is built and filled next to your production, which keeps running untouched. Server hardening, the systems from the design, the wiring between them, backups with tested restores, and monitoring, all constructed and loaded with real data copies while your business notices nothing.</p>
+        <h3 data-i18n="mt.25">The Build</h3>
+        <p data-i18n="mt.26">The new environment is built and filled next to your production, which keeps running untouched. Server hardening, the systems from the design, the wiring between them, backups with tested restores, and monitoring, all constructed and loaded with real data copies while your business notices nothing.</p>
         <ul class="phase-facts">
-          <li><b>You see &amp; approve</b><span>progress against the runbook, and working previews you can log into and poke at.</span></li>
-          <li><b>Rollback</b><span>trivial by design: production has not been touched. The build can pause or stop at any point with zero operational impact.</span></li>
-          <li><b>You hold</b><span>a complete parallel environment, under your accounts, from the first day of the build.</span></li>
+          <li><b data-i18n="mt.27">You see &amp; approve</b><span data-i18n="mt.28">progress against the runbook, and working previews you can log into and poke at.</span></li>
+          <li><b data-i18n="mt.29">Rollback</b><span data-i18n="mt.30">trivial by design: production has not been touched. The build can pause or stop at any point with zero operational impact.</span></li>
+          <li><b data-i18n="mt.31">You hold</b><span data-i18n="mt.32">a complete parallel environment, under your accounts, from the first day of the build.</span></li>
         </ul>
       </div>
     </li>
     <li>
       <span class="phase-no">IV</span>
       <div>
-        <h3>Validation &amp; Go-live</h3>
-        <p>Full testing against the real workload: your documents open, your workflows run, your team's daily tasks work in the new environment, verified before the switch rather than discovered after it. Then the switch itself, in a window you approve, usually outside business hours, followed by days of close monitoring.</p>
+        <h3 data-i18n="mt.33">Validation &amp; Go-live</h3>
+        <p data-i18n="mt.34">Full testing against the real workload: your documents open, your workflows run, your team's daily tasks work in the new environment, verified before the switch rather than discovered after it. Then the switch itself, in a window you approve, usually outside business hours, followed by days of close monitoring.</p>
         <ul class="phase-facts">
-          <li><b>You see &amp; approve</b><span>the validation results and the switch window. The go/no-go is yours.</span></li>
-          <li><b>Rollback</b><span>the tested plan: the old environment is still intact and can be restored to primary in minutes, not rebuilt in days.</span></li>
-          <li><b>You hold</b><span>a live environment that has already proven itself, and an old one still standing as the safety net.</span></li>
+          <li><b data-i18n="mt.35">You see &amp; approve</b><span data-i18n="mt.36">the validation results and the switch window. The go/no-go is yours.</span></li>
+          <li><b data-i18n="mt.37">Rollback</b><span data-i18n="mt.38">the tested plan: the old environment is still intact and can be restored to primary in minutes, not rebuilt in days.</span></li>
+          <li><b data-i18n="mt.39">You hold</b><span data-i18n="mt.40">a live environment that has already proven itself, and an old one still standing as the safety net.</span></li>
         </ul>
       </div>
     </li>
     <li>
       <span class="phase-no">V</span>
       <div>
-        <h3>Handover &amp; Custodianship</h3>
-        <p>Documentation, knowledge transfer, and a trained team: your people learn the new systems from me, not from a PDF alone. The old environment is safely decommissioned only after the new one has earned trust, and its subscriptions are cancelled with receipts. From here, <a href="/managed-sovereignty.html">Managed Sovereignty</a> takes over: updates, backups, monitoring and a monthly report, at a fixed monthly price with the exit clause applying every single month.</p>
+        <h3 data-i18n="mt.41">Handover &amp; Custodianship</h3>
+        <p data-i18n="mt.42">Documentation, knowledge transfer, and a trained team: your people learn the new systems from me, not from a PDF alone. The old environment is safely decommissioned only after the new one has earned trust, and its subscriptions are cancelled with receipts. From here, <a href="/managed-sovereignty.html">Managed Sovereignty</a> takes over: updates, backups, monitoring and a monthly report, at a fixed monthly price with the exit clause applying every single month.</p>
         <ul class="phase-facts">
-          <li><b>You see &amp; approve</b><span>the handover checklist and the decommissioning of the old environment, item by item.</span></li>
-          <li><b>Rollback</b><span>the exit clause itself: everything is yours, so you can continue with me, alone, or with anyone else, from the runbook.</span></li>
-          <li><b>You hold</b><span>everything. Server, accounts, domains, documentation, and a team that knows how to use it. That is the point.</span></li>
+          <li><b data-i18n="mt.43">You see &amp; approve</b><span data-i18n="mt.44">the handover checklist and the decommissioning of the old environment, item by item.</span></li>
+          <li><b data-i18n="mt.45">Rollback</b><span data-i18n="mt.46">the exit clause itself: everything is yours, so you can continue with me, alone, or with anyone else, from the runbook.</span></li>
+          <li><b data-i18n="mt.47">You hold</b><span data-i18n="mt.48">everything. Server, accounts, domains, documentation, and a team that knows how to use it. That is the point.</span></li>
         </ul>
       </div>
     </li>
@@ -177,23 +179,23 @@
 
 <!-- ============ THE DISCIPLINE ============ -->
 <section class="section">
-  <p class="svc-group-label">WHY IT LOOKS BUREAUCRATIC</p>
-  <h2 class="section-title">Boring is the deliverable</h2>
+  <p class="svc-group-label" data-i18n="mt.49">WHY IT LOOKS BUREAUCRATIC</p>
+  <h2 class="section-title" data-i18n="mt.50">Boring is the deliverable</h2>
   <div class="prose">
-    <p>Five phases with sign-offs and rollback plans can read as ceremony for what is, technically, moving software between computers. But every migration horror story you have heard is a missing phase: the discovery that skipped the one system everyone forgot, the switch attempted without a way back, the handover that never happened and turned a consultant into a hostage-taker.</p>
-    <p>The method is also why every price at Ironstack can be fixed. I can promise a number that does not move because phase one measured the work before phase two priced it. Vendors who quote before they map are guessing, and their surprises become your invoices.</p>
-    <p>Smaller projects, an <a href="/ai-automation.html">automation, an assistant</a>, follow the same discipline, just lighter: scope, build next to production, validate, hand over documented. The phases scale down; the promises do not. Where the build is a fresh <a href="/stack.html">Stack</a> with nothing to migrate, phases three and four compress, which is why a fresh build is faster than a <a href="/migration.html">migration</a>.</p>
+    <p data-i18n="mt.51">Five phases with sign-offs and rollback plans can read as ceremony for what is, technically, moving software between computers. But every migration horror story you have heard is a missing phase: the discovery that skipped the one system everyone forgot, the switch attempted without a way back, the handover that never happened and turned a consultant into a hostage-taker.</p>
+    <p data-i18n="mt.52">The method is also why every price at Ironstack can be fixed. I can promise a number that does not move because phase one measured the work before phase two priced it. Vendors who quote before they map are guessing, and their surprises become your invoices.</p>
+    <p data-i18n="mt.53">Smaller projects, an <a href="/ai-automation.html">automation, an assistant</a>, follow the same discipline, just lighter: scope, build next to production, validate, hand over documented. The phases scale down; the promises do not. Where the build is a fresh <a href="/stack.html">Stack</a> with nothing to migrate, phases three and four compress, which is why a fresh build is faster than a <a href="/migration.html">migration</a>.</p>
   </div>
 </section>
 
 <!-- ============ CTA ============ -->
 <section class="section cta-final">
   <div class="diamond-rule"><span>◆</span></div>
-  <h2 class="section-title">Start at phase one</h2>
-  <p class="section-sub">The audit is the method's front door: a small fixed price, a written report, and an exact timeline for everything after it. You commit to nothing beyond clarity.</p>
+  <h2 class="section-title" data-i18n="mt.54">Start at phase one</h2>
+  <p class="section-sub" data-i18n="mt.55">The audit is the method's front door: a small fixed price, a written report, and an exact timeline for everything after it. You commit to nothing beyond clarity.</p>
   <div class="hero-ctas">
-    <a class="btn btn-primary" href="/audit.html">Read about the audit</a>
-    <a class="btn btn-ghost" href="/#contact">Start a conversation</a>
+    <a class="btn btn-primary" href="/audit.html" data-i18n="mt.56">Read about the audit</a>
+    <a class="btn btn-ghost" href="/#contact" data-i18n="mt.57">Start a conversation</a>
   </div>
 </section>
 </main>
@@ -220,6 +222,8 @@
   <p class="footer-fine">Built and hosted on Ironstack’s own infrastructure. No analytics, no trackers, no cookies.</p>
 </footer>
 
-<script src="/js/main.js?v=18"></script>
+<script src="/js/i18n-data.js?v=19"></script>
+<script src="/js/i18n/method.nl.js?v=19"></script>
+<script src="/js/main.js?v=19"></script>
 </body>
 </html>

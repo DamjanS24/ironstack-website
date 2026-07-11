@@ -20,14 +20,15 @@
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon-180.png">
 <script>
 (function () { try {
-  var t = new URLSearchParams(location.search).get('theme') || localStorage.getItem('ironstack-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  var m = new URLSearchParams(location.search).get('theme') || localStorage.getItem('ironstack-theme-mode') || 'system';
+  var t = (m === 'dark' || m === 'light') ? m : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
   document.documentElement.setAttribute('data-theme', t);
 } catch (e) {} })();
 </script>
 <link rel="preload" href="/assets/fonts/Fraunces-600-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/SpaceGrotesk-500-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/css/fonts.css?v=18">
-<link rel="stylesheet" href="/css/style.css?v=18">
+<link rel="stylesheet" href="/css/fonts.css?v=19">
+<link rel="stylesheet" href="/css/style.css?v=19">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -112,7 +113,8 @@
     <a href="/stack-register.html" data-i18n="nav.proof">Proof</a>
     <a href="/#about" data-i18n="nav.about">About</a>
     <a class="nav-cta" href="/#contact" data-i18n="nav.contact">Contact</a>
-    <button class="switch switch-icon" id="themeToggle" aria-label="Switch between light and dark mode">☾</button>
+    <button class="switch" id="langToggle" aria-label="Switch language"><span data-lang="en" class="on">EN</span><span class="sep" aria-hidden="true">◆</span><span data-lang="nl">NL</span></button>
+    <button class="switch" id="themeToggle" aria-label="Theme: light, dark or follow system"><span data-mode="light">☀&#xFE0E;</span><span class="sep" aria-hidden="true">◆</span><span data-mode="dark">☾</span><span class="sep" aria-hidden="true">◆</span><span data-mode="system" title="Follow system">◐</span></button>
   </nav>
   <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
     <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>
@@ -123,66 +125,66 @@
 <!-- ============ HERO ============ -->
 <section class="hero page-hero">
   <div class="bg-mark bg-seal-hero" aria-hidden="true"></div>
-  <p class="kicker">SERVICES · WHAT GETS BUILT</p>
-  <h1>Move out of the cloud<br>without breaking your business</h1>
-  <p class="hero-sub">Migration is the complete transfer of an existing environment, from rented SaaS and US cloud to infrastructure you own. Your current setup keeps running untouched until we deliberately switch, in a window you approve, with a tested rollback. Fixed project fee.</p>
+  <p class="kicker" data-i18n="mi.1">SERVICES · WHAT GETS BUILT</p>
+  <h1 data-i18n="mi.2">Move out of the cloud<br>without breaking your business</h1>
+  <p class="hero-sub" data-i18n="mi.3">Migration is the complete transfer of an existing environment, from rented SaaS and US cloud to infrastructure you own. Your current setup keeps running untouched until we deliberately switch, in a window you approve, with a tested rollback. Fixed project fee.</p>
   <div class="hero-ctas">
-    <a class="btn btn-primary" href="/#contact">Start a conversation</a>
-    <a class="btn btn-ghost" href="/method.html">See the method</a>
+    <a class="btn btn-primary" href="/#contact" data-i18n="mi.4">Start a conversation</a>
+    <a class="btn btn-ghost" href="/method.html" data-i18n="mi.5">See the method</a>
   </div>
 </section>
 
 <!-- ============ THE PROBLEM ============ -->
 <section class="section section-alt">
-  <p class="svc-group-label">I · THE PROBLEM</p>
-  <h2 class="section-title">“We’d love to leave, but we can’t afford the chaos”</h2>
+  <p class="svc-group-label" data-i18n="mi.6">I · THE PROBLEM</p>
+  <h2 class="section-title" data-i18n="mi.7">“We’d love to leave, but we can’t afford the chaos”</h2>
   <div class="prose">
-    <p>Every company that has been running for a few years is welded to its tools. The CRM holds ten years of client history, the shared drive holds everything else, and half the workflows exist only as muscle memory. Leaving sounds right until you picture week two: invoices not going out, a colleague locked out of their files, a client asking why your email bounced.</p>
-    <p>That picture is what keeps businesses paying for tools they resent. The vendors know it; switching costs are the product, and every year you wait, the weld gets thicker.</p>
-    <p>The answer is not courage, it is engineering. A migration done properly is boring: the old environment keeps running, the new one is built and proven next to it, and the switch is a controlled moment with a way back. Boring is the deliverable.</p>
+    <p data-i18n="mi.8">Every company that has been running for a few years is welded to its tools. The CRM holds ten years of client history, the shared drive holds everything else, and half the workflows exist only as muscle memory. Leaving sounds right until you picture week two: invoices not going out, a colleague locked out of their files, a client asking why your email bounced.</p>
+    <p data-i18n="mi.9">That picture is what keeps businesses paying for tools they resent. The vendors know it; switching costs are the product, and every year you wait, the weld gets thicker.</p>
+    <p data-i18n="mi.10">The answer is not courage, it is engineering. A migration done properly is boring: the old environment keeps running, the new one is built and proven next to it, and the switch is a controlled moment with a way back. Boring is the deliverable.</p>
   </div>
 </section>
 
 <!-- ============ WHAT IT IS ============ -->
 <section class="section">
-  <p class="svc-group-label">II · WHAT IT IS, CONCRETELY</p>
-  <h2 class="section-title">A controlled transfer with a fixed fee</h2>
+  <p class="svc-group-label" data-i18n="mi.11">II · WHAT IT IS, CONCRETELY</p>
+  <h2 class="section-title" data-i18n="mi.12">A controlled transfer with a fixed fee</h2>
   <div class="prose">
-    <p>A migration is executed in the <a href="/method.html">five controlled phases</a>: Discovery &amp; Audit, Architecture &amp; Planning, the Build, Validation &amp; Go-live, and Handover &amp; Custodianship. Every step in the runbook has a rollback, and nothing executes without your sign-off. A typical small-business migration runs four to eight weeks from audit to handover; the audit fixes the exact timeline and the fixed project fee before you commit to anything.</p>
+    <p data-i18n="mi.13">A migration is executed in the <a href="/method.html">five controlled phases</a>: Discovery &amp; Audit, Architecture &amp; Planning, the Build, Validation &amp; Go-live, and Handover &amp; Custodianship. Every step in the runbook has a rollback, and nothing executes without your sign-off. A typical small-business migration runs four to eight weeks from audit to handover; the audit fixes the exact timeline and the fixed project fee before you commit to anything.</p>
     <div class="register">
-      <p class="register-head">What you hold afterwards</p>
-      <div class="register-row"><span class="register-no">I.</span><span class="register-k">Your systems</span><span class="register-dots" aria-hidden="true"></span><span class="register-v">on a server you own</span></div>
-      <div class="register-row"><span class="register-no">II.</span><span class="register-k">Your accounts</span><span class="register-dots" aria-hidden="true"></span><span class="register-v">server, domains, everything</span></div>
-      <div class="register-row"><span class="register-no">III.</span><span class="register-k">The runbook</span><span class="register-dots" aria-hidden="true"></span><span class="register-v">written for your team</span></div>
-      <div class="register-row"><span class="register-no">IV.</span><span class="register-k">A trained team</span><span class="register-dots" aria-hidden="true"></span><span class="register-v">handover, not abandonment</span></div>
-      <div class="register-row"><span class="register-no">V.</span><span class="register-k">The old environment</span><span class="register-dots" aria-hidden="true"></span><span class="register-v">safely decommissioned</span></div>
-      <p class="register-foot">Fixed project fee · known before anything starts</p>
+      <p class="register-head" data-i18n="mi.14">What you hold afterwards</p>
+      <div class="register-row"><span class="register-no">I.</span><span class="register-k" data-i18n="mi.15">Your systems</span><span class="register-dots" aria-hidden="true"></span><span class="register-v" data-i18n="mi.16">on a server you own</span></div>
+      <div class="register-row"><span class="register-no">II.</span><span class="register-k" data-i18n="mi.17">Your accounts</span><span class="register-dots" aria-hidden="true"></span><span class="register-v" data-i18n="mi.18">server, domains, everything</span></div>
+      <div class="register-row"><span class="register-no">III.</span><span class="register-k" data-i18n="mi.19">The runbook</span><span class="register-dots" aria-hidden="true"></span><span class="register-v" data-i18n="mi.20">written for your team</span></div>
+      <div class="register-row"><span class="register-no">IV.</span><span class="register-k" data-i18n="mi.21">A trained team</span><span class="register-dots" aria-hidden="true"></span><span class="register-v" data-i18n="mi.22">handover, not abandonment</span></div>
+      <div class="register-row"><span class="register-no">V.</span><span class="register-k" data-i18n="mi.23">The old environment</span><span class="register-dots" aria-hidden="true"></span><span class="register-v" data-i18n="mi.24">safely decommissioned</span></div>
+      <p class="register-foot" data-i18n="mi.25">Fixed project fee · known before anything starts</p>
       <img class="stamp-doc" src="/assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
     </div>
-    <p>Migrations are phased by design. If the audit says the files should move first and the CRM in autumn, that is what the plan says, and each phase leaves you in a stable, documented state. You are never standing on a half-moved environment hoping the second half gets funded.</p>
+    <p data-i18n="mi.26">Migrations are phased by design. If the audit says the files should move first and the CRM in autumn, that is what the plan says, and each phase leaves you in a stable, documented state. You are never standing on a half-moved environment hoping the second half gets funded.</p>
   </div>
 </section>
 
 <!-- ============ WHO FOR ============ -->
 <section class="section section-alt">
-  <p class="svc-group-label">III · A FAIR MATCH</p>
-  <h2 class="section-title">Who this is for, and who it is not for</h2>
+  <p class="svc-group-label" data-i18n="mi.27">III · A FAIR MATCH</p>
+  <h2 class="section-title" data-i18n="mi.28">Who this is for, and who it is not for</h2>
   <div class="svc-grid">
     <article class="svc">
-      <span class="svc-no">FOR YOU IF</span>
+      <span class="svc-no" data-i18n="mi.29">FOR YOU IF</span>
       <ul class="diamond-list">
-        <li>Your business runs on rented cloud and you feel the dependency every time a price or a policy changes.</li>
-        <li>You have data you would rather not have in an American jurisdiction: client records, legal files, health-adjacent anything.</li>
-        <li>You want the move done by someone who plans the rollback before the switch.</li>
+        <li data-i18n="mi.30">Your business runs on rented cloud and you feel the dependency every time a price or a policy changes.</li>
+        <li data-i18n="mi.31">You have data you would rather not have in an American jurisdiction: client records, legal files, health-adjacent anything.</li>
+        <li data-i18n="mi.32">You want the move done by someone who plans the rollback before the switch.</li>
       </ul>
       <img class="stamp" src="/assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
     </article>
     <article class="svc">
-      <span class="svc-no">NOT FOR YOU IF</span>
+      <span class="svc-no" data-i18n="mi.33">NOT FOR YOU IF</span>
       <ul class="diamond-list">
-        <li>Your core workflow depends on a proprietary feature with no owned equivalent, and you are not willing to work differently. The audit will find this, and I will say it.</li>
-        <li>You are happy where you are and only chasing a marginally cheaper invoice. Migration pays back in ownership first, money second.</li>
-        <li>You need it done next week. Controlled takes weeks; that is a feature.</li>
+        <li data-i18n="mi.34">Your core workflow depends on a proprietary feature with no owned equivalent, and you are not willing to work differently. The audit will find this, and I will say it.</li>
+        <li data-i18n="mi.35">You are happy where you are and only chasing a marginally cheaper invoice. Migration pays back in ownership first, money second.</li>
+        <li data-i18n="mi.36">You need it done next week. Controlled takes weeks; that is a feature.</li>
       </ul>
       <img class="stamp" src="/assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
     </article>
@@ -191,41 +193,41 @@
 
 <!-- ============ HOW IT CONNECTS ============ -->
 <section class="section">
-  <p class="svc-group-label">IV · WHERE IT SITS</p>
-  <h2 class="section-title">The build for an existing environment</h2>
+  <p class="svc-group-label" data-i18n="mi.37">IV · WHERE IT SITS</p>
+  <h2 class="section-title" data-i18n="mi.38">The build for an existing environment</h2>
   <div class="prose">
-    <p>Migration is one of the two builds. It starts where <a href="/audit.html">the Audit</a> ends: the audit maps what you have, and its findings become the migration plan and the fixed fee. If you are starting fresh instead, with little or nothing to move, <a href="/stack.html">the Stack</a> is the other build. Either way it ends in <a href="/managed-sovereignty.html">Managed Sovereignty</a>: phase five hands the environment over, and custodianship keeps it running from there.</p>
-    <p>If you want to see what specific moves look like in practice, I keep honest pages on the common ones: <a href="/replace/google-workspace.html">replacing Google Workspace</a>, <a href="/replace/microsoft-365.html">replacing Microsoft 365</a>, and <a href="/replace/hubspot.html">replacing HubSpot</a>.</p>
+    <p data-i18n="mi.39">Migration is one of the two builds. It starts where <a href="/audit.html">the Audit</a> ends: the audit maps what you have, and its findings become the migration plan and the fixed fee. If you are starting fresh instead, with little or nothing to move, <a href="/stack.html">the Stack</a> is the other build. Either way it ends in <a href="/managed-sovereignty.html">Managed Sovereignty</a>: phase five hands the environment over, and custodianship keeps it running from there.</p>
+    <p data-i18n="mi.40">If you want to see what specific moves look like in practice, I keep honest pages on the common ones: <a href="/replace/google-workspace.html">replacing Google Workspace</a>, <a href="/replace/microsoft-365.html">replacing Microsoft 365</a>, and <a href="/replace/hubspot.html">replacing HubSpot</a>.</p>
   </div>
 </section>
 
 <!-- ============ FAQ ============ -->
 <section class="section section-alt">
-  <h2 class="section-title">Fair questions</h2>
+  <h2 class="section-title" data-i18n="mi.41">Fair questions</h2>
   <div class="faq">
     <details class="faq-item">
-      <summary>Will our business be offline during the migration?</summary>
-      <p>No. The new environment is built and filled next to your production, which keeps running untouched. The switch happens in a window you approve, usually outside business hours, with a tested rollback if anything is wrong.</p>
+      <summary data-i18n="mi.42">Will our business be offline during the migration?</summary>
+      <p data-i18n="mi.43">No. The new environment is built and filled next to your production, which keeps running untouched. The switch happens in a window you approve, usually outside business hours, with a tested rollback if anything is wrong.</p>
     </details>
     <details class="faq-item">
-      <summary>How long does a migration take?</summary>
-      <p>A typical small-business migration runs four to eight weeks from audit to handover. The audit gives you an exact timeline for your environment before you commit to anything.</p>
+      <summary data-i18n="mi.44">How long does a migration take?</summary>
+      <p data-i18n="mi.45">A typical small-business migration runs four to eight weeks from audit to handover. The audit gives you an exact timeline for your environment before you commit to anything.</p>
     </details>
     <details class="faq-item">
-      <summary>Do we have to migrate everything at once?</summary>
-      <p>No. Migrations are phased by design, and starting with a single system, the CRM, the files, the automation layer, is a perfectly good way to begin. Each phase leaves you in a stable, documented state.</p>
+      <summary data-i18n="mi.46">Do we have to migrate everything at once?</summary>
+      <p data-i18n="mi.47">No. Migrations are phased by design, and starting with a single system, the CRM, the files, the automation layer, is a perfectly good way to begin. Each phase leaves you in a stable, documented state.</p>
     </details>
     <details class="faq-item">
-      <summary>What does a migration cost?</summary>
-      <p>A fixed project fee, based on the audit findings, agreed before the build starts, and it does not move. If scope grows because you ask for more, you get a new fixed number to approve first, never a surprise invoice.</p>
+      <summary data-i18n="mi.48">What does a migration cost?</summary>
+      <p data-i18n="mi.49">A fixed project fee, based on the audit findings, agreed before the build starts, and it does not move. If scope grows because you ask for more, you get a new fixed number to approve first, never a surprise invoice.</p>
     </details>
     <details class="faq-item">
-      <summary>What if something only exists in our current SaaS tool?</summary>
-      <p>Then the audit says so before anything is promised. Some proprietary features have no owned equivalent, and the honest options are to rebuild differently, keep that one subscription deliberately, or accept the loss knowingly. What I will not do is discover this in week six.</p>
+      <summary data-i18n="mi.50">What if something only exists in our current SaaS tool?</summary>
+      <p data-i18n="mi.51">Then the audit says so before anything is promised. Some proprietary features have no owned equivalent, and the honest options are to rebuild differently, keep that one subscription deliberately, or accept the loss knowingly. What I will not do is discover this in week six.</p>
     </details>
     <details class="faq-item">
-      <summary>What happens after the migration is done?</summary>
-      <p>Handover: documentation, knowledge transfer, and a trained team. The old environment is safely decommissioned only after the new one has proven itself. From there, <a href="/managed-sovereignty.html">Managed Sovereignty</a> keeps it running, updates, backups, monitoring, for a fixed monthly price with an exit clause every month.</p>
+      <summary data-i18n="mi.52">What happens after the migration is done?</summary>
+      <p data-i18n="mi.53">Handover: documentation, knowledge transfer, and a trained team. The old environment is safely decommissioned only after the new one has proven itself. From there, <a href="/managed-sovereignty.html">Managed Sovereignty</a> keeps it running, updates, backups, monitoring, for a fixed monthly price with an exit clause every month.</p>
     </details>
   </div>
 </section>
@@ -233,11 +235,11 @@
 <!-- ============ CTA ============ -->
 <section class="section cta-final">
   <div class="diamond-rule"><span>◆</span></div>
-  <h2 class="section-title">Start a conversation</h2>
-  <p class="section-sub">Tell me what runs where and what bothers you about it. You will get a straight answer. Sometimes the honest answer is that you do not need me.</p>
+  <h2 class="section-title" data-i18n="mi.54">Start a conversation</h2>
+  <p class="section-sub" data-i18n="mi.55">Tell me what runs where and what bothers you about it. You will get a straight answer. Sometimes the honest answer is that you do not need me.</p>
   <div class="hero-ctas">
-    <a class="btn btn-primary" href="/#contact">Start a conversation</a>
-    <a class="btn btn-ghost" href="/audit.html">Or begin with the audit</a>
+    <a class="btn btn-primary" href="/#contact" data-i18n="mi.56">Start a conversation</a>
+    <a class="btn btn-ghost" href="/audit.html" data-i18n="mi.57">Or begin with the audit</a>
   </div>
 </section>
 </main>
@@ -264,6 +266,8 @@
   <p class="footer-fine">Built and hosted on Ironstack’s own infrastructure. No analytics, no trackers, no cookies.</p>
 </footer>
 
-<script src="/js/main.js?v=18"></script>
+<script src="/js/i18n-data.js?v=19"></script>
+<script src="/js/i18n/migration.nl.js?v=19"></script>
+<script src="/js/main.js?v=19"></script>
 </body>
 </html>

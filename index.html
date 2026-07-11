@@ -34,14 +34,15 @@
 <link rel="apple-touch-icon" href="assets/apple-touch-icon-180.png">
 <script>
 (function () { try {
-  var t = new URLSearchParams(location.search).get('theme') || localStorage.getItem('ironstack-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  var m = new URLSearchParams(location.search).get('theme') || localStorage.getItem('ironstack-theme-mode') || 'system';
+  var t = (m === 'dark' || m === 'light') ? m : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
   document.documentElement.setAttribute('data-theme', t);
 } catch (e) {} })();
 </script>
 <link rel="preload" href="assets/fonts/Fraunces-600-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/SpaceGrotesk-500-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/fonts.css?v=18">
-<link rel="stylesheet" href="css/style.css?v=18">
+<link rel="stylesheet" href="css/fonts.css?v=19">
+<link rel="stylesheet" href="css/style.css?v=19">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -117,7 +118,7 @@
     <a href="/#about" data-i18n="nav.about">About</a>
     <a class="nav-cta" href="/#contact" data-i18n="nav.contact">Contact</a>
     <button class="switch" id="langToggle" aria-label="Switch language"><span data-lang="en" class="on">EN</span><span class="sep" aria-hidden="true">◆</span><span data-lang="nl">NL</span></button>
-    <button class="switch switch-icon" id="themeToggle" aria-label="Switch between light and dark mode">☾</button>
+    <button class="switch" id="themeToggle" aria-label="Theme: light, dark or follow system"><span data-mode="light">☀&#xFE0E;</span><span class="sep" aria-hidden="true">◆</span><span data-mode="dark">☾</span><span class="sep" aria-hidden="true">◆</span><span data-mode="system" title="Follow system">◐</span></button>
   </nav>
   <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
     <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>
@@ -130,7 +131,7 @@
   <div class="bg-mark bg-seal-hero" aria-hidden="true"></div>
   <p class="kicker" data-i18n="hero.kicker">SOVEREIGN INFRASTRUCTURE · AMSTERDAM</p>
   <h1 data-i18n="hero.title">Own your infrastructure.<br>Own your data.</h1>
-  <p class="hero-sub" data-i18n="hero.sub">Ironstack builds and runs the systems your business lives on: owned by you, cared for by me, for one fixed monthly price. Leave any month and take everything with you.</p>
+  <p class="hero-sub" data-i18n="hero.sub">Ironstack builds and runs the systems your business lives on: owned by you, cared for by me, documented for your team. Leave any month and take everything with you.</p>
   <div class="hero-ctas">
     <a class="btn btn-primary" href="#contact" data-i18n="hero.cta1">Start a conversation</a>
     <a class="btn btn-ghost" href="#services" data-i18n="hero.cta2">See the services</a>
@@ -162,14 +163,14 @@
       <article class="svc">
         <span class="svc-no">01</span>
         <h3 data-i18n="services.s1t">The Audit</h3>
-        <p data-i18n="services.s1b">The entry for clarity. Where does your data live, what does everything cost, what could you reclaim, and where do GDPR and AI expose you? A fixed price investigation with a written report that stays useful whatever you decide next.</p>
+        <p data-i18n="services.s1b">The entry for clarity. Where does your data live, what does everything cost, what could you reclaim, and where do GDPR and AI expose you? An investigation with a written report that stays useful whatever you decide next.</p>
         <a class="read-more" href="/audit.html" data-i18n="misc.more">Read more →</a>
         <img class="stamp" src="assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
       </article>
       <article class="svc">
         <span class="svc-no">02</span>
         <h3 data-i18n="services.s2t">AI &amp; Automation</h3>
-        <p data-i18n="services.s2b">The entry for quick wins. Voice assistants that answer and book, chat assistants that know your business, and automations that clear the busywork away, built on the systems you already have. Fixed scope, fixed price per project.</p>
+        <p data-i18n="services.s2b">The entry for quick wins. Voice assistants that answer and book, chat assistants that know your business, and automations that clear the busywork away, built on the systems you already have.</p>
         <a class="read-more" href="/ai-automation.html" data-i18n="misc.more">Read more →</a>
         <img class="stamp" src="assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
       </article>
@@ -182,14 +183,14 @@
       <article class="svc">
         <span class="svc-no">03</span>
         <h3 data-i18n="services.s3t">The Ironstack Stack</h3>
-        <p data-i18n="services.s3b">The build for a fresh start. Your business systems installed on a server you own, wired together and configured for how you work, with little or nothing to migrate. The core is the same stack that runs Ironstack itself: one fixed setup fee, then a fixed monthly price.</p>
+        <p data-i18n="services.s3b">The build for a fresh start. Your business systems installed on a server you own, wired together and configured for how you work, with little or nothing to migrate. The core is the same stack that runs Ironstack itself.</p>
         <a class="read-more" href="/stack.html" data-i18n="misc.more">Read more →</a>
         <img class="stamp" src="assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
       </article>
       <article class="svc">
         <span class="svc-no">04</span>
         <h3 data-i18n="services.s4t">Migration</h3>
-        <p data-i18n="services.s4b">The build for an existing environment. A complete transfer from rented cloud or legacy hosting to infrastructure you own, executed in the five phases below at a fixed project fee.</p>
+        <p data-i18n="services.s4b">The build for an existing environment. A complete transfer from rented cloud or legacy hosting to infrastructure you own, executed in the five controlled phases below.</p>
         <a class="read-more" href="/migration.html" data-i18n="misc.more">Read more →</a>
         <img class="stamp" src="assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
       </article>
@@ -201,13 +202,24 @@
     <article class="svc svc-featured">
       <span class="svc-no">05</span>
       <h3 data-i18n="services.s5t">Managed Sovereignty</h3>
-      <p data-i18n="services.s5b">Every path above ends here. I stay responsible for what we built: updates, backups, monitoring and response, included hours, and a monthly health report in plain language. A fixed monthly price per tier, and the exit clause applies every single month. This is the heart of Ironstack; the rest is how you arrive.</p>
+      <p data-i18n="services.s5b">Every path above ends here. I stay responsible for what we built: updates, backups, monitoring and response, included hours, and a monthly health report in plain language. The exit clause applies every single month. This is the heart of Ironstack; the rest is how you arrive.</p>
       <a class="read-more" href="/managed-sovereignty.html" data-i18n="misc.more">Read more →</a>
       <img class="stamp-embossed" src="assets/ironstack-seal-full-cream.svg" alt="" loading="lazy">
     </article>
   </div>
 
-  <p class="services-note" data-i18n="services.note">You will not find prices on this website, because every environment is different. You get a fixed number in the proposal before anything starts, and that number does not move.</p>
+  <p class="services-note" data-i18n="services.note">You will not find prices on this website. That is deliberate, and it is explained just below.</p>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section class="section" id="pricing">
+  <p class="svc-group-label" data-i18n="pricing.label">WHY THERE IS NO PRICE LIST</p>
+  <h2 class="section-title" data-i18n="pricing.title">The number comes before the work</h2>
+  <div class="prose">
+    <p data-i18n="pricing.p1">There are no prices on this website, and that is not a sales trick. Every environment is genuinely different: five people on Google Workspace with one shared drive is a different job than twenty-five on Microsoft 365 with ten years of SharePoint history. A price list would either be padded to cover the unknown or wrong the moment it met your environment. I refuse both.</p>
+    <p data-i18n="pricing.p2">So the number comes from looking first. A free 30-minute call to find out whether this fits at all. Then the audit, which maps what is actually there. Then a proposal with the numbers in writing, before any build starts: what the work costs, and what the monthly care costs.</p>
+    <p data-i18n="pricing.p3">What you can hold me to: the numbers in the proposal are fixed and do not move, and the exit clause applies every single month. If a number ever stopped being fair, you could simply leave. That is the point of writing it down.</p>
+  </div>
 </section>
 
 <!-- ============ METHOD ============ -->
@@ -370,6 +382,8 @@
     <li class="step"><span class="step-no">3</span><div><h3 data-i18n="start.s3t">A proposal with clear numbers</h3><p data-i18n="start.s3b">A fixed setup or project fee and a fixed monthly price, based on the audit. Neither moves.</p></div></li>
   </ol>
   <div class="contact-wrap">
+    <div class="contact-main">
+    <p class="contact-mode-row"><button class="switch" id="contactMode" aria-label="Choose: write a message or book a call"><span data-cmode="write" class="on" data-i18n="contact.modeWrite">WRITE</span><span class="sep" aria-hidden="true">◆</span><span data-cmode="call" data-i18n="contact.modeCall">BOOK A CALL</span></button></p>
     <form id="leadForm" class="lead-form" novalidate>
       <div class="form-row">
         <label><span data-i18n="contact.name">Name</span><input type="text" name="name" required autocomplete="name"></label>
@@ -382,6 +396,11 @@
       <p class="form-note" data-i18n="contact.response">You get a reply within one working day.</p>
       <p class="form-status" id="formStatus" role="status"></p>
     </form>
+    <div class="cal-embed" id="calEmbed" hidden>
+      <p class="cal-note" data-i18n="contact.calNote">Pick a moment that suits you; the call is free and without obligation. The calendar runs on Ironstack’s own server, like everything else here.</p>
+      <a class="read-more" href="https://cal.ironstack.nl/damjan/intro" target="_blank" rel="noopener" data-i18n="contact.calOpen">Or open the calendar in a new tab →</a>
+    </div>
+    </div>
     <div class="contact-aside">
       <p class="contact-direct" data-i18n="contact.direct">Prefer direct email?</p>
       <a class="contact-mail" href="mailto:d.sajinovic@ironstack.nl">d.sajinovic@ironstack.nl</a>
@@ -413,7 +432,7 @@
   <p class="footer-fine" data-i18n="footer.fine">Built and hosted on Ironstack’s own infrastructure. No analytics, no trackers, no cookies.</p>
 </footer>
 
-<script src="js/i18n-data.js?v=18"></script>
-<script src="js/main.js?v=18"></script>
+<script src="js/i18n-data.js?v=19"></script>
+<script src="js/main.js?v=19"></script>
 </body>
 </html>
