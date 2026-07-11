@@ -81,7 +81,7 @@
   }
   burger.addEventListener('click', function () { setMenu(!links.classList.contains('open')); });
   links.addEventListener('click', function (e) {
-    if (e.target.tagName === 'A') setMenu(false);
+    if (e.target.closest('a')) setMenu(false);
   });
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && links.classList.contains('open')) { setMenu(false); burger.focus(); }
@@ -102,11 +102,30 @@
       mega.classList.toggle('tap-open', open);
       megaLink.setAttribute('aria-expanded', String(open));
     };
-    mega.addEventListener('mouseenter', function () { if (navMq.matches) megaLink.setAttribute('aria-expanded', 'true'); });
+    mega.addEventListener('mouseenter', function () {
+      mega.classList.remove('is-closed');
+      if (navMq.matches) megaLink.setAttribute('aria-expanded', 'true');
+    });
     mega.addEventListener('mouseleave', function () { if (!mega.classList.contains('tap-open')) megaLink.setAttribute('aria-expanded', 'false'); });
-    mega.addEventListener('focusin', function () { if (navMq.matches) megaLink.setAttribute('aria-expanded', 'true'); });
+    mega.addEventListener('focusin', function () {
+      mega.classList.remove('is-closed');
+      if (navMq.matches) megaLink.setAttribute('aria-expanded', 'true');
+    });
     mega.addEventListener('focusout', function (e) {
       if (!mega.contains(e.relatedTarget) && !mega.classList.contains('tap-open')) megaLink.setAttribute('aria-expanded', 'false');
+    });
+    // clicking any item closes the panel for good: CSS alone keeps it open when the
+    // click does not unload the page (hash scrolls, links to the current page) —
+    // blur breaks :focus-within, .is-closed suppresses :hover until re-entry
+    mega.addEventListener('click', function (e) {
+      if (e.defaultPrevented || !e.target.closest('a')) return;
+      setMega(false);
+      mega.classList.add('is-closed');
+      if (document.activeElement && document.activeElement.blur) document.activeElement.blur();
+    });
+    // back/forward cache restores the page as it was — including an open panel
+    window.addEventListener('pageshow', function (e) {
+      if (e.persisted) { setMega(false); mega.classList.add('is-closed'); }
     });
     // touch at desktop width (tablets): first tap opens the panel, second follows the link
     megaLink.addEventListener('click', function (e) {
@@ -122,6 +141,32 @@
       if (e.key === 'Escape' && mega.classList.contains('tap-open')) setMega(false);
     });
   }
+
+  // ---------- back to top (injected here so every page gets it without markup) ----------
+  var toTop = document.createElement('button');
+  toTop.className = 'to-top';
+  toTop.setAttribute('aria-label', 'Back to top');
+  document.body.appendChild(toTop);
+  var toTopQueued = false;
+  function updateToTop() {
+    toTop.classList.toggle('show', window.scrollY > window.innerHeight * 0.8);
+    toTopQueued = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!toTopQueued) { toTopQueued = true; requestAnimationFrame(updateToTop); }
+  }, { passive: true });
+  updateToTop();
+  toTop.addEventListener('click', function () { window.scrollTo({ top: 0 }); });
+
+  // logo: href="/" everywhere for clean semantics, but when already on the
+  // homepage a click scrolls to the top instead of reloading the page
+  var brand = document.querySelector('.nav-brand');
+  var onHome = location.pathname === '/' || /\/index\.html$/.test(location.pathname);
+  if (brand && onHome) brand.addEventListener('click', function (e) {
+    e.preventDefault();
+    window.scrollTo({ top: 0 });
+    if (location.hash) history.replaceState(null, '', location.pathname);
+  });
 
   // ---------- scroll-reveal (hero stays static: no blank flash above the fold) ----------
   var revealables = document.querySelectorAll(

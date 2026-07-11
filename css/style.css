@@ -545,6 +545,38 @@ a { color: inherit; }
   .nav-links > *, .nav-links::after { opacity: 1; transform: none; }
 }
 
+/* ---------- back to top (button injected by main.js on every page) ---------- */
+.to-top {
+  position: fixed; right: clamp(16px, 3vw, 28px); bottom: clamp(16px, 3vw, 28px); z-index: 40;
+  width: 44px; height: 44px; border-radius: 50%; padding: 0;
+  display: grid; place-items: center; cursor: pointer;
+  border: 1px solid var(--rule);
+  background: color-mix(in srgb, var(--cream) 88%, transparent);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 10px 24px -16px rgba(23, 21, 15, 0.5);
+  opacity: 0; visibility: hidden; transform: translateY(10px);
+  transition: opacity .25s ease, transform .3s cubic-bezier(.2, .6, .2, 1), border-color .18s ease, visibility 0s linear .3s;
+}
+.to-top.show {
+  opacity: 1; visibility: visible; transform: none;
+  transition: opacity .25s ease, transform .3s cubic-bezier(.2, .6, .2, 1), border-color .18s ease;
+}
+.to-top::before {
+  content: ''; width: 8px; height: 8px;
+  border-left: 1.5px solid var(--ink); border-top: 1.5px solid var(--ink);
+  transform: translateY(2px) rotate(45deg);
+  transition: transform .2s cubic-bezier(.2, .6, .2, 1);
+}
+.to-top:hover { border-color: var(--ink); }
+.to-top:hover::before { transform: translateY(0) rotate(45deg); }
+.to-top:active::before { transform: translateY(-1px) rotate(45deg); }
+[data-theme="dark"] .to-top { box-shadow: 0 10px 24px -16px rgba(0, 0, 0, 0.8); }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .to-top, .to-top.show, .to-top::before { transition: none; }
+  .to-top { transform: none; }
+}
+
 /* ---------- honeypot (spam trap: visually gone, present for bots) ---------- */
 .hp-field { position: absolute !important; left: -9999px !important; width: 1px; height: 1px; overflow: hidden; }
 
@@ -618,6 +650,11 @@ a { color: inherit; }
     opacity: 1; visibility: visible; transform: none;
     transition: opacity .2s ease .05s, transform .3s cubic-bezier(.2, .6, .2, 1) .05s;
   }
+  /* after a click the panel is done: instant close that outweighs hover/focus,
+     lifted again once the pointer leaves and returns (js toggles the class) */
+  .has-mega.is-closed .mega { opacity: 0; visibility: hidden; transform: translateY(-8px); transition: none; }
+  .has-mega.is-closed::after { border-color: var(--muted); transform: translateY(-2.5px) rotate(45deg); }
+  .has-mega.is-closed > a { color: var(--body); background-size: 0% 1.5px; }
   .mega-label { font-family: var(--garamond); font-size: 11px; letter-spacing: 3px; color: var(--muted); margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px solid var(--rule); }
   .mega a { display: block; width: fit-content; padding: 7px 0 3px; font-size: 14px; }
 }
