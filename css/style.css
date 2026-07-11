@@ -191,13 +191,24 @@ a { color: inherit; }
   content: ''; position: absolute; inset: 0; border-radius: 16px;
   background: color-mix(in srgb, var(--cream) 68%, var(--ink));
   border: 1px solid color-mix(in srgb, var(--rule) 60%, var(--ink));
-  transform: translateZ(-60px);
+  transform: translateZ(-60px); z-index: -2;
   box-shadow: 0 30px 54px -24px rgba(23, 21, 15, 0.5);
 }
 /* dark theme: the edge catches light instead of shadow, or it vanishes into the page */
 [data-theme="dark"] .tilt-card::before {
   background: color-mix(in srgb, var(--cream) 45%, var(--ink));
   border-color: color-mix(in srgb, var(--cream) 30%, var(--ink));
+}
+/* a second slab halfway: the tilted edge shows two contour lines, a pressed deck */
+.tilt-card::after {
+  content: ''; position: absolute; inset: 0; border-radius: 16px;
+  background: color-mix(in srgb, var(--cream) 84%, var(--ink));
+  border: 1px solid color-mix(in srgb, var(--rule) 80%, var(--ink));
+  transform: translateZ(-30px); z-index: -1;
+}
+[data-theme="dark"] .tilt-card::after {
+  background: color-mix(in srgb, var(--cream) 68%, var(--ink));
+  border-color: color-mix(in srgb, var(--cream) 40%, var(--ink));
 }
 .tilt-inner { position: absolute; inset: 0; border-radius: 16px; overflow: hidden; transform-style: preserve-3d; }
 .tilt-media { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
@@ -219,6 +230,14 @@ a { color: inherit; }
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), inset 0 -1px 0 rgba(255, 255, 255, 0.10);
 }
 [data-theme="dark"] .tilt-glass { border-color: rgba(255, 255, 255, 0.22); }
+/* a ghost of the seal sits IN the glass, top right, and brightens as the light passes —
+   the security hologram of an identity card */
+.tilt-glass::after {
+  content: ''; position: absolute; right: 16px; top: 16px; width: 62px; height: 62px;
+  background: url('../assets/ironstack-seal-full-cream.svg') no-repeat center / contain;
+  opacity: calc(0.10 + var(--gs, 0) * 0.24);
+  transition: opacity .35s ease;
+}
 /* the moving glare is a reflection ON the glass, so it rides the same plane.
    NO blend mode here: a blended child forces the browser to flatten the card's
    whole 3D context, killing every translateZ inside it */
@@ -389,8 +408,18 @@ a { color: inherit; }
 /* ---------- motion ---------- */
 .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s cubic-bezier(.2,.6,.2,1), transform .7s cubic-bezier(.2,.6,.2,1); }
 .reveal.in { opacity: 1; transform: none; }
+/* the portrait card gets a presentation instead: it settles out of a 3D turn */
+.about-photo.reveal { transform: none; transition: opacity .7s cubic-bezier(.2,.6,.2,1); }
+/* no fill-forward: once the entrance ends the animation must release the transform,
+   or it would override the mouse and gyro tilt forever */
+.about-photo.reveal.in { animation: card-present 1.1s cubic-bezier(.16, .7, .25, 1); }
+@keyframes card-present {
+  from { opacity: 0; transform: perspective(1000px) translateY(36px) rotateX(8deg) rotateY(-13deg) scale3d(.94, .94, .94); }
+  to   { opacity: 1; transform: perspective(1000px) translateY(0) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1); }
+}
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
+  .about-photo.reveal.in { animation: none; }
   .btn:hover, .btn:active, .nav-brand:hover img, .nav-cta:active, .lang-toggle:active { transform: none; }
   .nav, .nav-links > * { animation: none; }
   .nav-burger .burger, .nav-burger .burger span { transition: none; }
