@@ -92,6 +92,37 @@
   var navMq = window.matchMedia('(min-width: 721px)');
   if (navMq.addEventListener) navMq.addEventListener('change', function (e) { if (e.matches) setMenu(false); });
 
+  // ---------- services mega (desktop): aria state + touch support ----------
+  var mega = document.querySelector('.has-mega');
+  var megaLink = mega ? mega.querySelector('a') : null;
+  if (megaLink) {
+    megaLink.setAttribute('aria-haspopup', 'true');
+    megaLink.setAttribute('aria-expanded', 'false');
+    var setMega = function (open) {
+      mega.classList.toggle('tap-open', open);
+      megaLink.setAttribute('aria-expanded', String(open));
+    };
+    mega.addEventListener('mouseenter', function () { if (navMq.matches) megaLink.setAttribute('aria-expanded', 'true'); });
+    mega.addEventListener('mouseleave', function () { if (!mega.classList.contains('tap-open')) megaLink.setAttribute('aria-expanded', 'false'); });
+    mega.addEventListener('focusin', function () { if (navMq.matches) megaLink.setAttribute('aria-expanded', 'true'); });
+    mega.addEventListener('focusout', function (e) {
+      if (!mega.contains(e.relatedTarget) && !mega.classList.contains('tap-open')) megaLink.setAttribute('aria-expanded', 'false');
+    });
+    // touch at desktop width (tablets): first tap opens the panel, second follows the link
+    megaLink.addEventListener('click', function (e) {
+      if (navMq.matches && window.matchMedia('(hover: none)').matches && !mega.classList.contains('tap-open')) {
+        e.preventDefault();
+        setMega(true);
+      }
+    });
+    document.addEventListener('click', function (e) {
+      if (mega.classList.contains('tap-open') && !e.target.closest('.has-mega')) setMega(false);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && mega.classList.contains('tap-open')) setMega(false);
+    });
+  }
+
   // ---------- scroll-reveal (hero stays static: no blank flash above the fold) ----------
   var revealables = document.querySelectorAll(
     '.section-title, .section-sub, .svc, .phases li, .register, .proof-line, ' +
