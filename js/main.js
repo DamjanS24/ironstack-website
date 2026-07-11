@@ -74,6 +74,7 @@
   var burger = document.getElementById('navBurger');
   var links = document.getElementById('navLinks');
   function setMenu(open) {
+    if (open) { links.classList.remove('no-anim'); burger.classList.remove('no-anim'); }
     links.classList.toggle('open', open);
     burger.classList.toggle('open', open);
     burger.setAttribute('aria-expanded', String(open));
@@ -81,7 +82,15 @@
   }
   burger.addEventListener('click', function () { setMenu(!links.classList.contains('open')); });
   links.addEventListener('click', function (e) {
-    if (e.target.closest('a')) setMenu(false);
+    var a = e.target.closest('a');
+    if (!a) return;
+    // leaving the page: close instantly, or the view-transition snapshot
+    // catches the curtain mid-animation and the pinned nav morphs visibly
+    if (!(a.pathname === location.pathname && a.hash)) {
+      links.classList.add('no-anim');
+      burger.classList.add('no-anim');
+    }
+    setMenu(false);
   });
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && links.classList.contains('open')) { setMenu(false); burger.focus(); }
@@ -157,6 +166,15 @@
   }, { passive: true });
   updateToTop();
   toTop.addEventListener('click', function () { window.scrollTo({ top: 0 }); });
+
+  // ---------- page transitions: forward navigations only ----------
+  // back/forward restores scroll mid-page; a transition there fights scroll
+  // restoration and smears. Skipped, traversal stays native and instant.
+  window.addEventListener('pageswap', function (e) {
+    if (!e.viewTransition) return;
+    var type = e.activation && e.activation.navigationType;
+    if (type === 'traverse' || type === 'reload') e.viewTransition.skipTransition();
+  });
 
   // logo: href="/" everywhere for clean semantics, but when already on the
   // homepage a click scrolls to the top instead of reloading the page

@@ -18,13 +18,16 @@
 html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 
 /* ---------- page transitions (cross-document view transitions) ----------
-   Browsers without support (Firefox) simply navigate instantly. */
+   Browsers without support (Firefox) simply navigate instantly.
+   One continuous cross-fade, the new page settling up a touch. No dead gap
+   (a blank beat reads as a flicker) and no large transforms (two full-page
+   snapshots at different scroll depths smear when they fly). main.js skips
+   the transition on back/forward, where it would fight scroll restoration. */
 @view-transition { navigation: auto; }
-/* the old page lifts away, a beat of bare canvas, then the new page rises into place */
-::view-transition-old(root) { animation: 240ms cubic-bezier(.4, 0, .8, .4) both vt-out; }
-::view-transition-new(root) { animation: 480ms 140ms cubic-bezier(.16, .7, .25, 1) both vt-in; }
-@keyframes vt-out { to { opacity: 0; transform: translateY(-24px); } }
-@keyframes vt-in { from { opacity: 0; transform: translateY(36px); } }
+::view-transition-old(root) { animation: 200ms ease-out both vt-out; }
+::view-transition-new(root) { animation: 360ms cubic-bezier(.16, .7, .25, 1) both vt-in; }
+@keyframes vt-out { to { opacity: 0; } }
+@keyframes vt-in { from { opacity: 0; transform: translateY(14px); } }
 /* the nav transitions as its own group: identical on both pages, so it appears to stay put */
 .nav { view-transition-name: site-nav; }
 ::view-transition-old(site-nav), ::view-transition-new(site-nav) { animation: none; }
@@ -544,6 +547,10 @@ a { color: inherit; }
   .nav-links, .nav-links > *, .nav-links::after { transition: none; }
   .nav-links > *, .nav-links::after { opacity: 1; transform: none; }
 }
+/* set by main.js when a curtain tap navigates away: the close must be instant
+   so the page-transition snapshot never catches it half-drawn */
+.nav-links.no-anim, .nav-links.no-anim > *, .nav-links.no-anim::after { transition: none !important; }
+.nav-burger.no-anim .burger, .nav-burger.no-anim .burger span { transition: none !important; }
 
 /* ---------- back to top (button injected by main.js on every page) ---------- */
 .to-top {

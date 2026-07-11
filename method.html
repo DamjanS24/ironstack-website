@@ -28,13 +28,22 @@
   if (mc) mc.setAttribute('content', t === 'dark' ? '#14120D' : '#F6F3EC');
   if (sessionStorage.getItem('is-nav-seen')) document.documentElement.classList.add('nav-seen');
   else sessionStorage.setItem('is-nav-seen', '1');
+  /* arriving on a #section: position before first paint, so the page
+     transition lands directly on the section instead of fading to the top
+     and then smooth-scrolling down */
+  if (location.hash) {
+    document.documentElement.style.scrollBehavior = 'auto';
+    addEventListener('load', function () {
+      requestAnimationFrame(function () { document.documentElement.style.scrollBehavior = ''; });
+    });
+  }
 } catch (e) {} })();
 </script>
 <link rel="preload" href="/assets/fonts/Fraunces-600-normal.woff2" as="font" type="font/woff2" crossorigin blocking="render">
 <link rel="preload" href="/assets/fonts/EBGaramond-500-normal.woff2" as="font" type="font/woff2" crossorigin blocking="render">
 <link rel="preload" href="/assets/fonts/SpaceGrotesk-500-normal.woff2" as="font" type="font/woff2" crossorigin blocking="render">
-<link rel="stylesheet" href="/css/fonts.css?v=45">
-<link rel="stylesheet" href="/css/style.css?v=45">
+<link rel="stylesheet" href="/css/fonts.css?v=46">
+<link rel="stylesheet" href="/css/style.css?v=46">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -225,8 +234,8 @@
   <p class="footer-fine">Built and hosted on Ironstack’s own infrastructure. No analytics, no trackers, no cookies.</p>
 </footer>
 
-<script src="/js/i18n-data.js?v=45"></script>
-<script src="/js/i18n/method.nl.js?v=45"></script>
-<script src="/js/main.js?v=45"></script>
+<script src="/js/i18n-data.js?v=46"></script>
+<script src="/js/i18n/method.nl.js?v=46"></script>
+<script src="/js/main.js?v=46"></script>
 </body>
 </html>
