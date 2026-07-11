@@ -20,14 +20,15 @@
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon-180.png">
 <script>
 (function () { try {
-  var t = new URLSearchParams(location.search).get('theme') || localStorage.getItem('ironstack-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  var m = new URLSearchParams(location.search).get('theme') || localStorage.getItem('ironstack-theme-mode') || 'system';
+  var t = (m === 'dark' || m === 'light') ? m : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
   document.documentElement.setAttribute('data-theme', t);
 } catch (e) {} })();
 </script>
 <link rel="preload" href="/assets/fonts/Fraunces-600-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/SpaceGrotesk-500-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/css/fonts.css?v=18">
-<link rel="stylesheet" href="/css/style.css?v=18">
+<link rel="stylesheet" href="/css/fonts.css?v=19">
+<link rel="stylesheet" href="/css/style.css?v=19">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -112,7 +113,8 @@
     <a href="/stack-register.html" data-i18n="nav.proof">Proof</a>
     <a href="/#about" data-i18n="nav.about">About</a>
     <a class="nav-cta" href="/#contact" data-i18n="nav.contact">Contact</a>
-    <button class="switch switch-icon" id="themeToggle" aria-label="Switch between light and dark mode">☾</button>
+    <button class="switch" id="langToggle" aria-label="Switch language"><span data-lang="en" class="on">EN</span><span class="sep" aria-hidden="true">◆</span><span data-lang="nl">NL</span></button>
+    <button class="switch" id="themeToggle" aria-label="Theme: light, dark or follow system"><span data-mode="light">☀&#xFE0E;</span><span class="sep" aria-hidden="true">◆</span><span data-mode="dark">☾</span><span class="sep" aria-hidden="true">◆</span><span data-mode="system" title="Follow system">◐</span></button>
   </nav>
   <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
     <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>
@@ -123,65 +125,65 @@
 <!-- ============ HERO ============ -->
 <section class="hero page-hero">
   <div class="bg-mark bg-seal-hero" aria-hidden="true"></div>
-  <p class="kicker">SERVICES · WHERE YOU START</p>
-  <h1>AI that comes to your data,<br>not the other way around</h1>
-  <p class="hero-sub">Assistants that answer and book, automations that clear the busywork away, and private search over your own knowledge, built on the systems you already have. Fixed scope, fixed price per project, and one rule throughout: your data does not go to the model.</p>
+  <p class="kicker" data-i18n="aa.1">SERVICES · WHERE YOU START</p>
+  <h1 data-i18n="aa.2">AI that comes to your data,<br>not the other way around</h1>
+  <p class="hero-sub" data-i18n="aa.3">Assistants that answer and book, automations that clear the busywork away, and private search over your own knowledge, built on the systems you already have. Fixed scope, fixed price per project, and one rule throughout: your data does not go to the model.</p>
   <div class="hero-ctas">
-    <a class="btn btn-primary" href="/#contact">Start a conversation</a>
-    <a class="btn btn-ghost" href="/#ai">The AI principles</a>
+    <a class="btn btn-primary" href="/#contact" data-i18n="aa.4">Start a conversation</a>
+    <a class="btn btn-ghost" href="/#ai" data-i18n="aa.5">The AI principles</a>
   </div>
 </section>
 
 <!-- ============ THE PROBLEM ============ -->
 <section class="section section-alt">
-  <p class="svc-group-label">I · THE PROBLEM</p>
-  <h2 class="section-title">“We should be doing something with AI, but what, and where does our data go?”</h2>
+  <p class="svc-group-label" data-i18n="aa.6">I · THE PROBLEM</p>
+  <h2 class="section-title" data-i18n="aa.7">“We should be doing something with AI, but what, and where does our data go?”</h2>
   <div class="prose">
-    <p>Every business is being told to adopt AI, usually by companies selling it. The pitch is always the same: hand over your documents, your inbox, your client conversations, and intelligence will come back. Almost every AI product wants your data in someone else’s cloud, which is exactly the trade this company exists to end.</p>
-    <p>Meanwhile, the real AI risk in most companies is already in the building: employees pasting client data into free chatbots, under terms nobody read, into training sets nobody can audit. A ban does not work; people use what helps them. The only durable fix is a sanctioned alternative that is genuinely better.</p>
-    <p>And underneath the AI question sits a quieter one that is often worth more money: the busywork. Leads that need triaging, documents that need filing, meeting notes that need to become tasks. Some of that needs a model. A lot of it needs a plain rule, well placed. Part of my job is telling you which is which.</p>
+    <p data-i18n="aa.8">Every business is being told to adopt AI, usually by companies selling it. The pitch is always the same: hand over your documents, your inbox, your client conversations, and intelligence will come back. Almost every AI product wants your data in someone else’s cloud, which is exactly the trade this company exists to end.</p>
+    <p data-i18n="aa.9">Meanwhile, the real AI risk in most companies is already in the building: employees pasting client data into free chatbots, under terms nobody read, into training sets nobody can audit. A ban does not work; people use what helps them. The only durable fix is a sanctioned alternative that is genuinely better.</p>
+    <p data-i18n="aa.10">And underneath the AI question sits a quieter one that is often worth more money: the busywork. Leads that need triaging, documents that need filing, meeting notes that need to become tasks. Some of that needs a model. A lot of it needs a plain rule, well placed. Part of my job is telling you which is which.</p>
   </div>
 </section>
 
 <!-- ============ WHAT IT IS ============ -->
 <section class="section">
-  <p class="svc-group-label">II · WHAT IT IS, CONCRETELY</p>
-  <h2 class="section-title">Three shapes, one rule</h2>
+  <p class="svc-group-label" data-i18n="aa.11">II · WHAT IT IS, CONCRETELY</p>
+  <h2 class="section-title" data-i18n="aa.12">Three shapes, one rule</h2>
   <div class="prose">
-    <p>AI and automation work at Ironstack comes in three shapes, all governed by the same rule: the model comes to your data, your data does not go to the model.</p>
+    <p data-i18n="aa.13">AI and automation work at Ironstack comes in three shapes, all governed by the same rule: the model comes to your data, your data does not go to the model.</p>
     <div class="register">
-      <p class="register-head">The three shapes</p>
-      <div class="register-row"><span class="register-no">I.</span><span class="register-k">Assistants</span><span class="register-dots" aria-hidden="true"></span><span class="register-v">chat &amp; voice, in your channels</span></div>
-      <div class="register-row"><span class="register-no">II.</span><span class="register-k">Automations</span><span class="register-dots" aria-hidden="true"></span><span class="register-v">busywork, cleared away</span></div>
-      <div class="register-row"><span class="register-no">III.</span><span class="register-k">Knowledge search</span><span class="register-dots" aria-hidden="true"></span><span class="register-v">your archives, with sources</span></div>
-      <p class="register-foot">Fixed scope · fixed price per project</p>
+      <p class="register-head" data-i18n="aa.14">The three shapes</p>
+      <div class="register-row"><span class="register-no">I.</span><span class="register-k" data-i18n="aa.15">Assistants</span><span class="register-dots" aria-hidden="true"></span><span class="register-v" data-i18n="aa.16">chat &amp; voice, in your channels</span></div>
+      <div class="register-row"><span class="register-no">II.</span><span class="register-k" data-i18n="aa.17">Automations</span><span class="register-dots" aria-hidden="true"></span><span class="register-v" data-i18n="aa.18">busywork, cleared away</span></div>
+      <div class="register-row"><span class="register-no">III.</span><span class="register-k" data-i18n="aa.19">Knowledge search</span><span class="register-dots" aria-hidden="true"></span><span class="register-v" data-i18n="aa.20">your archives, with sources</span></div>
+      <p class="register-foot" data-i18n="aa.21">Fixed scope · fixed price per project</p>
       <img class="stamp-doc" src="/assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
     </div>
-    <p><strong>Assistants</strong> live where you already talk, in Telegram, WhatsApp or your team chat, and on the phone if you want them to have a voice. They search your files, book appointments, create tasks and draft invoices, against your own systems. <strong>Automations</strong> wire your stack together and can read now: leads get triaged, documents filed, meeting notes turned into tasks. <strong>Knowledge search</strong> indexes your wiki, documents and archives on your own server and answers in plain language, with sources.</p>
-    <p>What you hold afterwards: the workflows and prompts documented in your runbook, the automation platform under your accounts, and a clear written record of which model runs where. The honest version, stated up front: small open models run on your own hardware, and some tasks need bigger ones. When they do, I use an EU-hosted model under a written agreement, disclosed in your documentation, and only for the data that task needs. You always know which is which.</p>
+    <p data-i18n="aa.22"><strong>Assistants</strong> live where you already talk, in Telegram, WhatsApp or your team chat, and on the phone if you want them to have a voice. They search your files, book appointments, create tasks and draft invoices, against your own systems. <strong>Automations</strong> wire your stack together and can read now: leads get triaged, documents filed, meeting notes turned into tasks. <strong>Knowledge search</strong> indexes your wiki, documents and archives on your own server and answers in plain language, with sources.</p>
+    <p data-i18n="aa.23">What you hold afterwards: the workflows and prompts documented in your runbook, the automation platform under your accounts, and a clear written record of which model runs where. The honest version, stated up front: small open models run on your own hardware, and some tasks need bigger ones. When they do, I use an EU-hosted model under a written agreement, disclosed in your documentation, and only for the data that task needs. You always know which is which.</p>
   </div>
 </section>
 
 <!-- ============ WHO FOR ============ -->
 <section class="section section-alt">
-  <p class="svc-group-label">III · A FAIR MATCH</p>
-  <h2 class="section-title">Who this is for, and who it is not for</h2>
+  <p class="svc-group-label" data-i18n="aa.24">III · A FAIR MATCH</p>
+  <h2 class="section-title" data-i18n="aa.25">Who this is for, and who it is not for</h2>
   <div class="svc-grid">
     <article class="svc">
-      <span class="svc-no">FOR YOU IF</span>
+      <span class="svc-no" data-i18n="aa.26">FOR YOU IF</span>
       <ul class="diamond-list">
-        <li>Hours of your week disappear into triage, filing, scheduling and retyping.</li>
-        <li>You want AI, but not at the price of client data in an American cloud.</li>
-        <li>You want a quick, contained first project before committing to anything bigger.</li>
+        <li data-i18n="aa.27">Hours of your week disappear into triage, filing, scheduling and retyping.</li>
+        <li data-i18n="aa.28">You want AI, but not at the price of client data in an American cloud.</li>
+        <li data-i18n="aa.29">You want a quick, contained first project before committing to anything bigger.</li>
       </ul>
       <img class="stamp" src="/assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
     </article>
     <article class="svc">
-      <span class="svc-no">NOT FOR YOU IF</span>
+      <span class="svc-no" data-i18n="aa.30">NOT FOR YOU IF</span>
       <ul class="diamond-list">
-        <li>You expect AI to replace a department. It replaces busywork; people keep the judgment calls.</li>
-        <li>You want the newest model demo-of-the-week. I build boring, reliable versions of proven patterns.</li>
-        <li>Your problem is a plain rule wearing an AI costume. Then I will build you the rule, cheaper, and say exactly that in the proposal.</li>
+        <li data-i18n="aa.31">You expect AI to replace a department. It replaces busywork; people keep the judgment calls.</li>
+        <li data-i18n="aa.32">You want the newest model demo-of-the-week. I build boring, reliable versions of proven patterns.</li>
+        <li data-i18n="aa.33">Your problem is a plain rule wearing an AI costume. Then I will build you the rule, cheaper, and say exactly that in the proposal.</li>
       </ul>
       <img class="stamp" src="/assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
     </article>
@@ -190,41 +192,41 @@
 
 <!-- ============ HOW IT CONNECTS ============ -->
 <section class="section">
-  <p class="svc-group-label">IV · WHERE IT SITS</p>
-  <h2 class="section-title">The entry for quick wins</h2>
+  <p class="svc-group-label" data-i18n="aa.34">IV · WHERE IT SITS</p>
+  <h2 class="section-title" data-i18n="aa.35">The entry for quick wins</h2>
   <div class="prose">
-    <p>AI &amp; Automation is one of the two entries, alongside <a href="/audit.html">the Audit</a>. It works on the systems you already have, which makes it the fastest way to feel what owned infrastructure is like without migrating anything. Smaller projects follow the same discipline as the <a href="/method.html">five-phase method</a>, just lighter: scope, build next to production, validate, hand over documented.</p>
-    <p>Automations run best when they can reach every system, which is why they get stronger on <a href="/stack.html">the Stack</a> or after a <a href="/migration.html">migration</a>, where everything lives on the same server under your keys. And like everything else, automations end up under <a href="/managed-sovereignty.html">Managed Sovereignty</a>: monitored, updated, and reported on in plain language every month.</p>
+    <p data-i18n="aa.36">AI &amp; Automation is one of the two entries, alongside <a href="/audit.html">the Audit</a>. It works on the systems you already have, which makes it the fastest way to feel what owned infrastructure is like without migrating anything. Smaller projects follow the same discipline as the <a href="/method.html">five-phase method</a>, just lighter: scope, build next to production, validate, hand over documented.</p>
+    <p data-i18n="aa.37">Automations run best when they can reach every system, which is why they get stronger on <a href="/stack.html">the Stack</a> or after a <a href="/migration.html">migration</a>, where everything lives on the same server under your keys. And like everything else, automations end up under <a href="/managed-sovereignty.html">Managed Sovereignty</a>: monitored, updated, and reported on in plain language every month.</p>
   </div>
 </section>
 
 <!-- ============ FAQ ============ -->
 <section class="section section-alt">
-  <h2 class="section-title">Fair questions</h2>
+  <h2 class="section-title" data-i18n="aa.38">Fair questions</h2>
   <div class="faq">
     <details class="faq-item">
-      <summary>Can a small company use AI without sending data to American clouds?</summary>
-      <p>Yes, if you are deliberate about it. Small open models run on your own hardware, and when a task needs a bigger model, I use an EU-hosted one under a written agreement, disclosed in your documentation, and only for the data that task needs. You always know which is which.</p>
+      <summary data-i18n="aa.39">Can a small company use AI without sending data to American clouds?</summary>
+      <p data-i18n="aa.40">Yes, if you are deliberate about it. Small open models run on your own hardware, and when a task needs a bigger model, I use an EU-hosted one under a written agreement, disclosed in your documentation, and only for the data that task needs. You always know which is which.</p>
     </details>
     <details class="faq-item">
-      <summary>What does an AI assistant for a business actually do?</summary>
-      <p>It works where you already talk, in Telegram, WhatsApp or your team chat, and on the phone if you want it to have a voice. It searches your files, books appointments, creates tasks and drafts invoices, all against your own systems rather than a third-party copy of them.</p>
+      <summary data-i18n="aa.41">What does an AI assistant for a business actually do?</summary>
+      <p data-i18n="aa.42">It works where you already talk, in Telegram, WhatsApp or your team chat, and on the phone if you want it to have a voice. It searches your files, books appointments, creates tasks and drafts invoices, all against your own systems rather than a third-party copy of them.</p>
     </details>
     <details class="faq-item">
-      <summary>Do we need to replace our systems before adding AI?</summary>
-      <p>No. AI and automation work is the entry for quick wins, built on the systems you already have. It is also, in practice, how many clients discover which of their systems are worth owning, but that step is yours to take or skip.</p>
+      <summary data-i18n="aa.43">Do we need to replace our systems before adding AI?</summary>
+      <p data-i18n="aa.44">No. AI and automation work is the entry for quick wins, built on the systems you already have. It is also, in practice, how many clients discover which of their systems are worth owning, but that step is yours to take or skip.</p>
     </details>
     <details class="faq-item">
-      <summary>What does AI and automation work cost?</summary>
-      <p>Fixed scope, fixed price per project, agreed before anything starts, and the number does not move. If it turns out your problem does not need AI, just a plain automation rule, the proposal will say that, because it is cheaper and more reliable.</p>
+      <summary data-i18n="aa.45">What does AI and automation work cost?</summary>
+      <p data-i18n="aa.46">Fixed scope, fixed price per project, agreed before anything starts, and the number does not move. If it turns out your problem does not need AI, just a plain automation rule, the proposal will say that, because it is cheaper and more reliable.</p>
     </details>
     <details class="faq-item">
-      <summary>Will the assistant hallucinate things to our clients?</summary>
-      <p>Any language model can be wrong, which is why mine answer with sources from your own documents, act only through defined tools, and get a human handover the moment a conversation leaves the script. Where an error would be expensive, the assistant asks instead of assuming; that boundary is part of the design, not an afterthought.</p>
+      <summary data-i18n="aa.47">Will the assistant hallucinate things to our clients?</summary>
+      <p data-i18n="aa.48">Any language model can be wrong, which is why mine answer with sources from your own documents, act only through defined tools, and get a human handover the moment a conversation leaves the script. Where an error would be expensive, the assistant asks instead of assuming; that boundary is part of the design, not an afterthought.</p>
     </details>
     <details class="faq-item">
-      <summary>Employees already paste things into free chatbots. Is that a problem?</summary>
-      <p>It is the biggest AI risk in most companies today: client data flowing into tools nobody vetted, under terms nobody read. The fix is not a ban that everyone ignores, it is a sanctioned alternative that is genuinely better because it knows your business. <a href="/audit.html">The audit</a> can map your current exposure.</p>
+      <summary data-i18n="aa.49">Employees already paste things into free chatbots. Is that a problem?</summary>
+      <p data-i18n="aa.50">It is the biggest AI risk in most companies today: client data flowing into tools nobody vetted, under terms nobody read. The fix is not a ban that everyone ignores, it is a sanctioned alternative that is genuinely better because it knows your business. <a href="/audit.html">The audit</a> can map your current exposure.</p>
     </details>
   </div>
 </section>
@@ -232,11 +234,11 @@
 <!-- ============ CTA ============ -->
 <section class="section cta-final">
   <div class="diamond-rule"><span>◆</span></div>
-  <h2 class="section-title">Start a conversation</h2>
-  <p class="section-sub">Tell me what eats your team’s hours and where your data goes today. You will get a straight answer, including whether your problem actually needs AI at all.</p>
+  <h2 class="section-title" data-i18n="aa.51">Start a conversation</h2>
+  <p class="section-sub" data-i18n="aa.52">Tell me what eats your team’s hours and where your data goes today. You will get a straight answer, including whether your problem actually needs AI at all.</p>
   <div class="hero-ctas">
-    <a class="btn btn-primary" href="/#contact">Start a conversation</a>
-    <a class="btn btn-ghost" href="/audit.html">Or map your AI exposure first</a>
+    <a class="btn btn-primary" href="/#contact" data-i18n="aa.53">Start a conversation</a>
+    <a class="btn btn-ghost" href="/audit.html" data-i18n="aa.54">Or map your AI exposure first</a>
   </div>
 </section>
 </main>
@@ -263,6 +265,8 @@
   <p class="footer-fine">Built and hosted on Ironstack’s own infrastructure. No analytics, no trackers, no cookies.</p>
 </footer>
 
-<script src="/js/main.js?v=18"></script>
+<script src="/js/i18n-data.js?v=19"></script>
+<script src="/js/i18n/ai-automation.nl.js?v=19"></script>
+<script src="/js/main.js?v=19"></script>
 </body>
 </html>
