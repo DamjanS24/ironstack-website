@@ -186,12 +186,12 @@ a { color: inherit; }
   box-shadow: 0 20px 50px -28px rgba(23, 21, 15, 0.4);
   transform-style: preserve-3d; will-change: transform;
 }
-/* the card has a body: a slab sits 44px behind the face, so tilting shows a real edge */
+/* the card has a body: a slab sits 60px behind the face, so tilting shows a real edge */
 .tilt-card::before {
   content: ''; position: absolute; inset: 0; border-radius: 16px;
   background: color-mix(in srgb, var(--cream) 68%, var(--ink));
   border: 1px solid color-mix(in srgb, var(--rule) 60%, var(--ink));
-  transform: translateZ(-44px);
+  transform: translateZ(-60px);
   box-shadow: 0 30px 54px -24px rgba(23, 21, 15, 0.5);
 }
 /* dark theme: the edge catches light instead of shadow, or it vanishes into the page */
@@ -219,12 +219,14 @@ a { color: inherit; }
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), inset 0 -1px 0 rgba(255, 255, 255, 0.10);
 }
 [data-theme="dark"] .tilt-glass { border-color: rgba(255, 255, 255, 0.22); }
-/* the moving glare is a reflection ON the glass, so it rides the same plane */
+/* the moving glare is a reflection ON the glass, so it rides the same plane.
+   NO blend mode here: a blended child forces the browser to flatten the card's
+   whole 3D context, killing every translateZ inside it */
 .tilt-glare {
-  position: absolute; inset: 0; pointer-events: none; mix-blend-mode: screen;
+  position: absolute; inset: 0; pointer-events: none;
   border-radius: 16px; transform: translateZ(22px);
   background:
-    radial-gradient(circle 210px at var(--gx, 50%) var(--gy, 42%), rgba(255, 251, 240, 0.45), rgba(255, 251, 240, 0.1) 45%, transparent 72%),
+    radial-gradient(circle 210px at var(--gx, 50%) var(--gy, 42%), rgba(255, 251, 240, 0.38), rgba(255, 251, 240, 0.08) 45%, transparent 72%),
     linear-gradient(105deg, transparent calc(var(--gx, 50%) - 15%), rgba(255, 251, 240, 0.2) var(--gx, 50%), transparent calc(var(--gx, 50%) + 15%));
   opacity: calc(var(--gs, 0) * 0.85);
   transition: opacity .45s ease;
