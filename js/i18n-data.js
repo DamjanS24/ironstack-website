@@ -7,6 +7,8 @@ window.I18N = {
     "nav.ai": "AI",
     "nav.about": "About",
     "nav.contact": "Contact",
+    "menu.replace": "REPLACE",
+    "menu.proof": "PROOF &amp; METHOD",
 
     "hero.kicker": "SOVEREIGN INFRASTRUCTURE · AMSTERDAM",
     "hero.title": "Own your infrastructure.<br>Own your data.",
@@ -158,6 +160,8 @@ window.I18N = {
     "nav.ai": "AI",
     "nav.about": "Over",
     "nav.contact": "Contact",
+    "menu.replace": "VERVANGEN",
+    "menu.proof": "BEWIJS &amp; METHODE",
 
     "hero.kicker": "SOEVEREINE INFRASTRUCTUUR · AMSTERDAM",
     "hero.title": "Eigen infrastructuur.<br>Eigen data.",
