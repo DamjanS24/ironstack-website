@@ -60,5 +60,15 @@ if (window.I18N && window.I18N.nl) Object.assign(window.I18N.nl, {
   "gw.58": "De eerste stap met laag risico",
   "gw.59": "De audit brengt in kaart wat je werkelijk gebruikt binnen Google Workspace, wat het je kost en wat de overstap zou vragen, voor €850 vast, excl. btw, volledig verrekend met een migratie die je binnen 60 dagen tekent, met een schriftelijk rapport dat van jou blijft, wat je ook beslist. Soms is het eerlijke antwoord dat je moet blijven. Dan staat dat in het rapport.",
   "gw.60": "Lees over de audit",
-  "gw.61": "Begin een gesprek"
+  "gw.61": "Begin een gesprek",
+  "gw.62": "Een Google Workspace-overstap kost €1.250 tot €2.500, excl. btw, geprijsd per audit.",
+  "gw.63": "Indicatief, geen rekenmachine: de audit vertelt je precies waar je uitkomt, op schrift, voordat er iets getekend wordt.",
+  "gw.64": "ONDERKANT · €1.250",
+  "gw.65": "Een handvol mailboxen op één domein, niets bijzonders in de alias- of doorstuurinstellingen.",
+  "gw.66": "Drive met een tamelijk platte mappenstructuur en consistente rechten.",
+  "gw.67": "Eén gedeelde agenda of een klein aantal, geen ruimte-reserveringssysteem om te herbouwen.",
+  "gw.68": "BOVENKANT · €2.500",
+  "gw.69": "Meer mailboxen, of mailboxen met distributielijsten, gedeelde postvakken of jarenlange filterregels om te herbouwen.",
+  "gw.70": "Drive met diepe, gemengde mappenbomen en meerdere gedeelde drives.",
+  "gw.71": "Ruimte-agenda's, kamerreserveringen of meerdere teamagenda's die precies zo moeten blijven werken als nu."
 });
