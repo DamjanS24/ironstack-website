@@ -53,5 +53,6 @@ if (window.I18N && window.I18N.nl) Object.assign(window.I18N.nl, {
   "aa.51": "Begin een gesprek",
   "aa.52": "Vertel me wat de uren van je team opeet en waar je data vandaag heen gaat. Je krijgt een eerlijk antwoord, inclusief of je probleem überhaupt AI nodig heeft.",
   "aa.53": "Plan een gratis kennismakingsgesprek",
-  "aa.54": "Of breng eerst je AI-blootstelling in kaart"
+  "aa.54": "Of breng eerst je AI-blootstelling in kaart",
+  "aa.55": "Bekijk het <a href=\"/#pricing\">volledige prijsregister</a> voor hoe deze passen bij al het andere."
 });

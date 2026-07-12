@@ -70,5 +70,6 @@ if (window.I18N && window.I18N.nl) Object.assign(window.I18N.nl, {
   "gw.68": "BOVENKANT · €2.500",
   "gw.69": "Meer mailboxen, of mailboxen met distributielijsten, gedeelde postvakken of jarenlange filterregels om te herbouwen.",
   "gw.70": "Drive met diepe, gemengde mappenbomen en meerdere gedeelde drives.",
-  "gw.71": "Ruimte-agenda's, kamerreserveringen of meerdere teamagenda's die precies zo moeten blijven werken als nu."
+  "gw.71": "Ruimte-agenda's, kamerreserveringen of meerdere teamagenda's die precies zo moeten blijven werken als nu.",
+  "gw.72": "Bekijk het <a href=\"/#pricing\">volledige prijsregister</a> voor hoe een Workspace Exit zich verhoudt tot al het andere."
 });

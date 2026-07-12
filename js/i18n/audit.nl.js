@@ -57,5 +57,6 @@ if (window.I18N && window.I18N.nl) Object.assign(window.I18N.nl, {
   "au.55": "Begin een gesprek",
   "au.56": "Vertel me wat waar draait en wat je eraan dwarszit. Je krijgt een eerlijk antwoord. Soms is het eerlijke antwoord dat je mij niet nodig hebt.",
   "au.57": "Begin een gesprek",
-  "au.58": "Bekijk alle diensten"
+  "au.58": "Bekijk alle diensten",
+  "au.59": "Bekijk het <a href=\"/#pricing\">volledige prijsregister</a> voor hoe de audit past bij al het andere."
 });

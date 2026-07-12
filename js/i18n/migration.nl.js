@@ -73,5 +73,6 @@ if (window.I18N && window.I18N.nl) Object.assign(window.I18N.nl, {
   "mi.71": "Zes of meer systemen, of minder die strak met elkaar verweven zijn: automatiseringen, maatwerkintegraties, legacy scripts.",
   "mi.72": "Grote of verwarde data: chaotische rechten, ongedocumenteerde workflows, meer dan één locatie of bedrijfsonderdeel.",
   "mi.73": "E-mail op schaal, of met gedeelde mailboxen, distributielijsten en bewaartermijnen.",
-  "mi.74": "Individueel afgebakend en geoffreerd na de audit, want “complex” beslaat een echte bandbreedte."
+  "mi.74": "Individueel afgebakend en geoffreerd na de audit, want “complex” beslaat een echte bandbreedte.",
+  "mi.75": "Bekijk het <a href=\"/#pricing\">volledige prijsregister</a> voor hoe migraties zich verhouden tot al het andere."
 });

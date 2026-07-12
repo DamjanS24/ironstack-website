@@ -66,5 +66,6 @@ if (window.I18N && window.I18N.nl) Object.assign(window.I18N.nl, {
   "ms.64": "€325",
   "ms.65": "Priority · vijf uur inbegrepen, reactie dezelfde dag, kwartaalgesprek",
   "ms.66": "€575",
-  "ms.67": "Beheerde AI-onderdelen +€75 per stuk · servers tegen kostprijs, gespecificeerd, zonder marge"
+  "ms.67": "Beheerde AI-onderdelen +€75 per stuk · servers tegen kostprijs, gespecificeerd, zonder marge",
+  "ms.68": "Bekijk het <a href=\"/#pricing\">volledige prijsregister</a> voor hoe de retainer past bij de rest van de diensten."
 });

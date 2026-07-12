@@ -59,5 +59,6 @@ if (window.I18N && window.I18N.nl) Object.assign(window.I18N.nl, {
   "st.57": "Begin een gesprek",
   "st.58": "Vertel me wat je bouwt en wat eronder moet draaien. Je krijgt een eerlijk antwoord. Soms is het eerlijke antwoord dat je mij niet nodig hebt.",
   "st.59": "Begin een gesprek",
-  "st.60": "Bekijk de stack in productie"
+  "st.60": "Bekijk de stack in productie",
+  "st.61": "Bekijk het <a href=\"/#pricing\">volledige prijsregister</a> voor hoe de Stack zich verhoudt tot een migratie en tot de retainerniveaus."
 });

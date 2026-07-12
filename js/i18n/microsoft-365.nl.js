@@ -72,5 +72,6 @@ if (window.I18N && window.I18N.nl) Object.assign(window.I18N.nl, {
   "m3.70": "BOVENKANT · €2.500",
   "m3.71": "Meer mailboxen, gedeelde of gemachtigde postvakken, of distributielijsten om te herbouwen.",
   "m3.72": "Meerdere SharePoint-sites met gelaagde rechten, of jaren aan ongedocumenteerde mappenstructuur.",
-  "m3.73": "Power Automate-flows, ingebedde lijsten of formulieren op SharePoint die bewust vervangen moeten worden."
+  "m3.73": "Power Automate-flows, ingebedde lijsten of formulieren op SharePoint die bewust vervangen moeten worden.",
+  "m3.74": "Bekijk het <a href=\"/#pricing\">volledige prijsregister</a> voor hoe een Workspace Exit zich verhoudt tot al het andere."
 });
