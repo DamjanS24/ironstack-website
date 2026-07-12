@@ -11,9 +11,9 @@ window.I18N = {
     "menu.replace": "REPLACE",
     "menu.proof": "PROOF &amp; METHOD",
 
-    "hero.kicker": "SOVEREIGN IT · AMSTERDAM",
-    "hero.title": "Ironstack moves businesses<br>off Big Tech.",
-    "hero.sub": "Your apps, data, and AI on your own European servers. Two ways in: Sovereign AI for assistants and automation that keep company data away from US tech firms, and Sovereign Infrastructure for the systems your business runs on. Your exit is built in: leave any month and take everything with you.",
+    "hero.kicker": "SOVEREIGN IT &amp; AI · AMSTERDAM",
+    "hero.title": "Your Business, Your Servers, Your Rules",
+    "hero.sub": "Your apps, data, and AI on your own European servers. Two ways in: Sovereign AI for assistants and automation that keep company data away from US tech firms, and Sovereign Infrastructure for the systems your business runs on.",
     "hero.cta1": "Book a free discovery call",
     "hero.cta2": "See services and prices",
 
@@ -194,9 +194,9 @@ window.I18N = {
     "menu.replace": "VERVANGEN",
     "menu.proof": "BEWIJS &amp; METHODE",
 
-    "hero.kicker": "SOEVEREINE IT · AMSTERDAM",
-    "hero.title": "Ironstack haalt bedrijven<br>weg bij Big Tech.",
-    "hero.sub": "Je apps, data en AI op je eigen Europese servers. Twee ingangen: Soevereine AI voor assistenten en automatisering die je bedrijfsdata weghouden bij Amerikaanse techbedrijven, en Soevereine Infrastructuur voor de systemen waar je bedrijf op draait. Je exit is ingebouwd: vertrek in elke willekeurige maand en neem alles mee.",
+    "hero.kicker": "SOEVEREINE IT &amp; AI · AMSTERDAM",
+    "hero.title": "Jouw Bedrijf, Jouw Servers, Jouw Regels",
+    "hero.sub": "Je apps, data en AI op je eigen Europese servers. Twee ingangen: Soevereine AI voor assistenten en automatisering die je bedrijfsdata weghouden bij Amerikaanse techbedrijven, en Soevereine Infrastructuur voor de systemen waar je bedrijf op draait.",
     "hero.cta1": "Plan een gratis kennismakingsgesprek",
     "hero.cta2": "Bekijk diensten en prijzen",
 
