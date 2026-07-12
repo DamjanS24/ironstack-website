@@ -42,8 +42,8 @@
 <link rel="preload" href="/assets/fonts/Fraunces-600-normal.woff2" as="font" type="font/woff2" crossorigin blocking="render">
 <link rel="preload" href="/assets/fonts/EBGaramond-500-normal.woff2" as="font" type="font/woff2" crossorigin blocking="render">
 <link rel="preload" href="/assets/fonts/SpaceGrotesk-500-normal.woff2" as="font" type="font/woff2" crossorigin blocking="render">
-<link rel="stylesheet" href="/css/fonts.css?v=46">
-<link rel="stylesheet" href="/css/style.css?v=46">
+<link rel="stylesheet" href="/css/fonts.css?v=47">
+<link rel="stylesheet" href="/css/style.css?v=47">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -137,9 +137,9 @@
 <!-- ============ HERO ============ -->
 <section class="hero page-hero">
   <div class="bg-mark bg-seal-hero" aria-hidden="true"></div>
-  <p class="kicker" data-i18n="ms.1">SERVICES · HOW IT KEEPS RUNNING</p>
+  <p class="kicker" data-i18n="ms.1">THE MONTHLY RETAINER · HOW IT KEEPS RUNNING</p>
   <h1 data-i18n="ms.2">Your systems, cared for.<br>Still yours.</h1>
-  <p class="hero-sub" data-i18n="ms.3">Managed Sovereignty is the ongoing custodianship of infrastructure you own: updates, backups, monitoring and response, and a monthly report you can actually read. A fixed monthly price per tier, and the exit clause applies every single month.</p>
+  <p class="hero-sub" data-i18n="ms.3">Managed Sovereignty is the ongoing care of infrastructure and AI you own: updates, backups, monitoring and response, and a monthly report you can actually read. Three tiers: Base €150, Standard €325, Priority €575 per month, excl. btw. The exit clause applies every single month.</p>
   <div class="hero-ctas">
     <a class="btn btn-primary" href="/#contact" data-i18n="ms.4">Start a conversation</a>
     <a class="btn btn-ghost" href="/method.html" data-i18n="ms.5">See the method</a>
@@ -174,7 +174,14 @@
       <img class="stamp-doc" src="/assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
     </div>
     <p data-i18n="ms.26">What you hold in your hands: the server under your accounts, the documentation and runbooks written for your team, and twelve health reports a year that double as an audit trail. If I disappear tomorrow, any competent engineer continues from the runbook. That is not a slogan; it is the design requirement.</p>
-    <p data-i18n="ms.27">The price is fixed and agreed before anything starts, and the number does not move. It changes only if you change tier or your environment materially grows, and then only with a new fixed number you approve first.</p>
+    <div class="register">
+      <p class="register-head" data-i18n="ms.60">The three tiers · monthly, excl. btw</p>
+      <div class="register-row"><span class="register-no">I.</span><span class="register-k" data-i18n="ms.61">Base · care only, next-business-day response</span><span class="register-dots" aria-hidden="true"></span><span class="register-v" data-i18n="ms.62">€150</span></div>
+      <div class="register-row"><span class="register-no">II.</span><span class="register-k" data-i18n="ms.63">Standard · two hours included, response within four business hours</span><span class="register-dots" aria-hidden="true"></span><span class="register-v" data-i18n="ms.64">€325</span></div>
+      <div class="register-row"><span class="register-no">III.</span><span class="register-k" data-i18n="ms.65">Priority · five hours included, same-day response, quarterly review call</span><span class="register-dots" aria-hidden="true"></span><span class="register-v" data-i18n="ms.66">€575</span></div>
+      <p class="register-foot" data-i18n="ms.67">Managed AI components add €75 each · servers billed at cost, itemized, no markup</p>
+    </div>
+    <p data-i18n="ms.27">The price is fixed and agreed before anything starts, and the number does not move. It changes only if you change tier or your environment materially grows, and then only with a new fixed number you approve first. Work beyond your tier’s hours is €90 per hour, excl. btw, and only ever after you approve it. Retainers are billed monthly in advance, with a 14-day payment term.</p>
   </div>
 </section>
 
@@ -210,7 +217,7 @@
   <p class="svc-group-label" data-i18n="ms.39">IV · WHERE IT SITS</p>
   <h2 class="section-title" data-i18n="ms.40">Every path ends here</h2>
   <div class="prose">
-    <p data-i18n="ms.41">Managed Sovereignty is the heart of Ironstack; the other services are how you arrive. <a href="/audit.html">The Audit</a> tells you what you have and what it costs. <a href="/stack.html">The Stack</a> builds fresh; <a href="/migration.html">Migration</a> moves an existing environment, both through the same <a href="/method.html">five-phase method</a>. Phase five is literally called Handover &amp; Custodianship: the moment the build ends, this service begins.</p>
+    <p data-i18n="ms.41">Managed Sovereignty is the heart of Ironstack; the other services are how you arrive. <a href="/audit.html">The Audit</a> tells you what you have and what it costs. <a href="/stack.html">The Stack</a> builds fresh; <a href="/migration.html">Migration</a> moves an existing environment, both through the same <a href="/method.html">five-phase method</a>. Phase five is literally called Handover &amp; Retainer: the moment the build ends, this service begins. AI components live under the same roof, at €75 per month each on any tier.</p>
     <p data-i18n="ms.42">You can also arrive sideways. Some clients start with a single <a href="/ai-automation.html">automation project</a> and grow into a stack; some bring an environment someone else built. The entry matters less than the destination: systems you own, running with care.</p>
   </div>
 </section>
@@ -221,7 +228,7 @@
   <div class="faq">
     <details class="faq-item">
       <summary data-i18n="ms.44">What exactly is included in the monthly price?</summary>
-      <p data-i18n="ms.45">Updates and security patching, backups with tested restores, monitoring with response, a set of included hours for changes and questions, and a monthly health report in plain language. The tiers differ in response windows and included hours, not in whether your systems are cared for.</p>
+      <p data-i18n="ms.45">Every tier covers updates and security patching, backups with tested restores, monitoring, certificate renewals, and a monthly health report in plain language. Base, at €150, is care only, with response the next business day. Standard, at €325, adds two hours of changes and questions each month, with response within four business hours. Priority, at €575, adds five hours, same-day response, and a quarterly review call. All excl. btw.</p>
     </details>
     <details class="faq-item">
       <summary data-i18n="ms.46">What happens if the server goes down at night?</summary>
@@ -280,8 +287,8 @@
   <p class="footer-fine">Built and hosted on Ironstack’s own infrastructure. No analytics, no trackers, no cookies.</p>
 </footer>
 
-<script src="/js/i18n-data.js?v=46"></script>
-<script src="/js/i18n/managed-sovereignty.nl.js?v=46"></script>
-<script src="/js/main.js?v=46"></script>
+<script src="/js/i18n-data.js?v=47"></script>
+<script src="/js/i18n/managed-sovereignty.nl.js?v=47"></script>
+<script src="/js/main.js?v=47"></script>
 </body>
 </html>
