@@ -62,5 +62,16 @@ if (window.I18N && window.I18N.nl) Object.assign(window.I18N.nl, {
   "m3.60": "De eerste stap met laag risico",
   "m3.61": "De audit brengt in kaart wat je team werkelijk gebruikt binnen Microsoft 365, wat het per jaar kost en welke werkplekken Office echt moeten houden, voor €850 vast, excl. btw, volledig verrekend met een migratie die je binnen 60 dagen tekent, met een schriftelijk rapport dat van jou blijft.",
   "m3.62": "Lees over de audit",
-  "m3.63": "Begin een gesprek"
+  "m3.63": "Begin een gesprek",
+  "m3.64": "Een Microsoft 365-overstap kost €1.250 tot €2.500, excl. btw, geprijsd per audit.",
+  "m3.65": "Indicatief, geen rekenmachine: de audit vertelt je precies waar je uitkomt, op schrift, voordat er iets getekend wordt.",
+  "m3.66": "ONDERKANT · €1.250",
+  "m3.67": "Een handvol mailboxen op één domein, geen gedeelde of gemachtigde postvakken om te ontwarren.",
+  "m3.68": "Een SharePoint- of OneDrive-omgeving die grotendeels uit platte bestanden bestaat, zonder diepe sitestructuren.",
+  "m3.69": "Teams alleen gebruikt voor chat en gesprekken, niets eraan gekoppeld via Power Automate.",
+  "m3.70": "BOVENKANT · €2.500",
+  "m3.71": "Meer mailboxen, gedeelde of gemachtigde postvakken, of distributielijsten om te herbouwen.",
+  "m3.72": "Meerdere SharePoint-sites met gelaagde rechten, of jaren aan ongedocumenteerde mappenstructuur.",
+  "m3.73": "Power Automate-flows, ingebedde lijsten of formulieren op SharePoint die bewust vervangen moeten worden.",
+  "m3.74": "Bekijk het <a href=\"/#pricing\">volledige prijsregister</a> voor hoe een Workspace Exit zich verhoudt tot al het andere."
 });

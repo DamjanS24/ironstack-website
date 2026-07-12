@@ -62,5 +62,7 @@ if (window.I18N && window.I18N.nl) Object.assign(window.I18N.nl, {
   "hs.60": "De eerste stap met laag risico",
   "hs.61": "De audit brengt in kaart wat je werkelijk gebruikt binnen HubSpot, wat het je per jaar kost en wat een CRM in eigendom zou vragen, voor €850 vast, excl. btw, volledig verrekend met een migratie die je binnen 60 dagen tekent, met een schriftelijk rapport dat van jou blijft. Dekt Starter je werkelijk, dan zegt het rapport: blijf.",
   "hs.62": "Lees over de audit",
-  "hs.63": "Begin een gesprek"
+  "hs.63": "Begin een gesprek",
+  "hs.64": "Een migratie van alleen het CRM zoals deze begint vanaf €1.750, excl. btw, vastgelegd na de audit.",
+  "hs.65": "Bekijk het <a href=\"/#pricing\">volledige prijsregister</a> voor hoe het zich verhoudt tot al het andere."
 });
