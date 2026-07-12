@@ -11,8 +11,8 @@ window.I18N = {
     "menu.proof": "PROOF &amp; METHOD",
 
     "hero.kicker": "SOVEREIGN IT · AMSTERDAM",
-    "hero.title": "Ironstack moves businesses off Big Tech:<br>your apps, data, and AI on your own European servers.",
-    "hero.sub": "Two ways in: Sovereign AI, which gives you assistants and automation without sending company data to US tech firms, and Sovereign Infrastructure, which puts the systems your business runs on onto servers you own. Whichever door you take, your exit is built in: leave any month and take everything with you.",
+    "hero.title": "Ironstack moves businesses<br>off Big Tech.",
+    "hero.sub": "Your apps, data, and AI on your own European servers. Two ways in: Sovereign AI for assistants and automation that keep company data away from US tech firms, and Sovereign Infrastructure for the systems your business runs on. Your exit is built in: leave any month and take everything with you.",
     "hero.cta1": "Book a free discovery call",
     "hero.cta2": "See services and prices",
 
@@ -105,7 +105,7 @@ window.I18N = {
     "misc.more": "Read more →",
 
     "about.title": "The person behind the seal",
-    "about.p1": "I am Damjan Sajinovic, a software engineer in Amsterdam with Serbian roots. In Serbian there’s a word, <em>inat</em>: the stubborn refusal to accept “that’s just how it is.” It’s the most accurate description of why Ironstack exists.",
+    "about.p1": "I am Damjan Šajinović, a software engineer in Amsterdam with Serbian roots. In Serbian there’s a word, <em>inat</em>: the stubborn refusal to accept “that’s just how it is.” It’s the most accurate description of why Ironstack exists.",
     "about.p2": "A few years ago I stopped accepting that my data lives in other people’s data lakes, where it is harvested, profiled, and sold as someone else’s product. So I rebuilt my digital life on servers I own, piece by piece, until nothing essential depended on anyone else’s cloud. Ironstack runs on that stack today, and builds the same ownership for businesses that feel the same discomfort.",
     "about.p3": "I come to infrastructure as an engineer, not a reseller. I write the glue code, build the automations, and document every environment as if I will not be there tomorrow. I do not ask you to take anything on faith: you see every design decision, every runbook, and every line of the audit. That’s the deal. Full transparency is what ownership looks like.",
 
@@ -193,8 +193,8 @@ window.I18N = {
     "menu.proof": "BEWIJS &amp; METHODE",
 
     "hero.kicker": "SOEVEREINE IT · AMSTERDAM",
-    "hero.title": "Ironstack haalt bedrijven weg bij Big Tech:<br>je apps, data en AI op je eigen Europese servers.",
-    "hero.sub": "Twee ingangen: Soevereine AI, die je assistenten en automatisering geeft zonder bedrijfsdata naar Amerikaanse techbedrijven te sturen, en Soevereine Infrastructuur, die de systemen waar je bedrijf op draait op servers zet die van jou zijn. Welke deur je ook kiest, je exit is ingebouwd: vertrek in elke willekeurige maand en neem alles mee.",
+    "hero.title": "Ironstack haalt bedrijven<br>weg bij Big Tech.",
+    "hero.sub": "Je apps, data en AI op je eigen Europese servers. Twee ingangen: Soevereine AI voor assistenten en automatisering die je bedrijfsdata weghouden bij Amerikaanse techbedrijven, en Soevereine Infrastructuur voor de systemen waar je bedrijf op draait. Je exit is ingebouwd: vertrek in elke willekeurige maand en neem alles mee.",
     "hero.cta1": "Plan een gratis kennismakingsgesprek",
     "hero.cta2": "Bekijk diensten en prijzen",
 
@@ -287,7 +287,7 @@ window.I18N = {
     "misc.more": "Lees verder →",
 
     "about.title": "De persoon achter het zegel",
-    "about.p1": "Ik ben Damjan Sajinovic, software-engineer in Amsterdam met Servische roots. In het Servisch bestaat een woord, <em>inat</em>: de koppige weigering om “zo is het nu eenmaal” te accepteren. Het is de meest accurate beschrijving van waarom Ironstack bestaat.",
+    "about.p1": "Ik ben Damjan Šajinović, software-engineer in Amsterdam met Servische roots. In het Servisch bestaat een woord, <em>inat</em>: de koppige weigering om “zo is het nu eenmaal” te accepteren. Het is de meest accurate beschrijving van waarom Ironstack bestaat.",
     "about.p2": "Een paar jaar geleden stopte ik met accepteren dat mijn data in andermans datalakes ligt, waar het wordt geoogst, geprofileerd en verkocht als andermans product. Dus herbouwde ik mijn digitale leven, stap voor stap, op servers die van mij zijn, tot niets essentieels meer afhing van andermans cloud. Ironstack draait vandaag op diezelfde stack, en bouwt datzelfde eigendom voor bedrijven die datzelfde ongemak voelen.",
     "about.p3": "Ik benader infrastructuur als engineer, niet als wederverkoper. Ik schrijf de koppelcode, bouw de automatiseringen en documenteer elke omgeving alsof ik er morgen niet meer ben. Ik vraag je niets op goed vertrouwen aan te nemen: je ziet elke ontwerpkeuze, elk runbook en elke regel van de audit. Dat is de afspraak. Volledige transparantie is hoe eigendom eruitziet.",
 
