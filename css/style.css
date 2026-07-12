@@ -60,6 +60,10 @@ a { color: inherit; }
   position: sticky; top: 0; z-index: 50;
   display: flex; align-items: center; justify-content: space-between;
   padding: 14px clamp(20px, 5vw, 64px);
+  /* with viewport-fit=cover the page extends behind the Dynamic Island; push
+     the nav's own (theme-reactive) background up to fill that strip while
+     keeping the logo and links clear of it */
+  padding-top: calc(14px + env(safe-area-inset-top, 0px));
   background: color-mix(in srgb, var(--cream) 88%, transparent);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--rule);
@@ -556,7 +560,9 @@ a { color: inherit; }
 
 /* ---------- back to top (button injected by main.js on every page) ---------- */
 .to-top {
-  position: fixed; right: clamp(16px, 3vw, 28px); bottom: clamp(16px, 3vw, 28px); z-index: 40;
+  position: fixed; right: clamp(16px, 3vw, 28px); z-index: 40;
+  /* viewport-fit=cover extends the layout under the home indicator; keep the button clear of it */
+  bottom: calc(clamp(16px, 3vw, 28px) + env(safe-area-inset-bottom, 0px));
   width: 44px; height: 44px; border-radius: 50%; padding: 0;
   display: grid; place-items: center; cursor: pointer;
   border: 1px solid var(--rule);
