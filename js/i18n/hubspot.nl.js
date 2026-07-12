@@ -54,13 +54,13 @@ if (window.I18N && window.I18N.nl) Object.assign(window.I18N.nl, {
   "hs.52": "Kan een zelf-gehost CRM onze marketingmails versturen?",
   "hs.53": "Campagnemail is een aparte zorg naast het CRM, en bulk versturen vanaf je eigen server is een bezorgbaarheidsval. De eerlijke opzet is een zelf-gehoste campagnetool of het CRM dat een EU-maildienst met eigen verzendreputatie voedt. Ik ga je nieuwsbrief niet stilletjes zelf-hosten en in spammappen laten belanden.",
   "hs.54": "Wat kost HubSpot werkelijk vergeleken met zelf hosten?",
-  "hs.55": "HubSpot Starter kost ongeveer €15 per werkplek per maand, en de Professional-tiers springen naar ruwweg €90 per werkplek plus een verplichte onboarding-fee, anno begin 2026. Het equivalent in eigendom draait op servercapaciteit die een paar euro per maand kost, ongeacht het aantal werkplekken; wat je betaalt is de bouw, eenmalig, tegen een vaste prijs.",
+  "hs.55": "HubSpot Starter kost ongeveer €15 per gebruiker per maand, en de Professional-niveaus springen naar zo’n €90 per gebruiker plus een verplichte onboardingprijs, per begin 2026. Het equivalent in eigendom draait op servercapaciteit die een paar euro per maand kost, ongeacht het aantal gebruikers; wat je betaalt is de bouw, eenmalig: een migratie vanaf €1.750, excl. btw, vastgelegd na de audit.",
   "hs.56": "Hoe lang duurt een HubSpot-migratie?",
   "hs.57": "Voor alleen een CRM meestal aan de korte kant van de vier-tot-acht-weken-marge, omdat het datamodel klein is: contacten, bedrijven, deals, notities. HubSpot blijft draaien tot het nieuwe systeem gevalideerd is en je team erdoorheen is geleid.",
   "hs.58": "Integreert Twenty CRM met onze websiteformulieren?",
   "hs.59": "Ja, via de API. Deze website is zelf de demonstratie: het contactformulier stroomt via zelf-gehoste automatisering Twenty in, zonder één externe verwerker ertussen. <a href=\"/stack-register.html\">Het stackregister</a> toont de hele keten.",
   "hs.60": "De eerste stap met laag risico",
-  "hs.61": "De audit brengt in kaart wat je werkelijk gebruikt binnen HubSpot, wat het je per jaar kost, en wat een CRM in eigendom zou vergen, voor een kleine vaste prijs, met een schriftelijk rapport dat van jou is, wat je ook beslist. Dekt Starter je werkelijk, dan zegt het rapport: blijf.",
+  "hs.61": "De audit brengt in kaart wat je werkelijk gebruikt binnen HubSpot, wat het je per jaar kost en wat een CRM in eigendom zou vragen, voor €850 vast, excl. btw, volledig verrekend met een migratie die je binnen 60 dagen tekent, met een schriftelijk rapport dat van jou blijft. Dekt Starter je werkelijk, dan zegt het rapport: blijf.",
   "hs.62": "Lees over de audit",
   "hs.63": "Begin een gesprek"
 });

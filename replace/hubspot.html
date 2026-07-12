@@ -42,8 +42,8 @@
 <link rel="preload" href="/assets/fonts/Fraunces-600-normal.woff2" as="font" type="font/woff2" crossorigin blocking="render">
 <link rel="preload" href="/assets/fonts/EBGaramond-500-normal.woff2" as="font" type="font/woff2" crossorigin blocking="render">
 <link rel="preload" href="/assets/fonts/SpaceGrotesk-500-normal.woff2" as="font" type="font/woff2" crossorigin blocking="render">
-<link rel="stylesheet" href="/css/fonts.css?v=47">
-<link rel="stylesheet" href="/css/style.css?v=47">
+<link rel="stylesheet" href="/css/fonts.css?v=48">
+<link rel="stylesheet" href="/css/style.css?v=48">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -62,7 +62,7 @@
   "@type": "Service",
   "name": "HubSpot replacement",
   "serviceType": "Migration from HubSpot to self-hosted CRM",
-  "description": "Migration from HubSpot to Twenty CRM on a client-owned EU server, wired to self-hosted automation. Fixed project fee, five-phase method, no lock-in.",
+  "description": "Migration from HubSpot to Twenty CRM on a client-owned EU server, wired to self-hosted automation. A migration from €1,750 excl. btw, five-phase method, no lock-in.",
   "url": "https://ironstack.nl/replace/hubspot.html",
   "provider": { "@type": "Organization", "name": "Ironstack", "url": "https://ironstack.nl" },
   "areaServed": "NL"
@@ -76,7 +76,7 @@
     {"@type": "Question", "name": "Is there a real self-hosted alternative to HubSpot for a small company?", "acceptedAnswer": {"@type": "Answer", "text": "For the CRM core, yes: Twenty covers contacts, companies, pipelines, notes, tasks and a full API, and it is what runs Ironstack's own sales. For the full marketing suite around it, the honest answer is that no single open-source tool replaces everything; the automation and email pieces come from separate tools, wired together."}},
     {"@type": "Question", "name": "Do we lose our HubSpot data if we leave?", "acceptedAnswer": {"@type": "Answer", "text": "No. Contacts, companies and deals export cleanly and import into Twenty, where they land in a Postgres database on your own server. What does not transfer one-to-one is configuration: workflows and email templates are rebuilt deliberately, which is also the moment to drop the ones nobody remembers making."}},
     {"@type": "Question", "name": "Can a self-hosted CRM send our marketing emails?", "acceptedAnswer": {"@type": "Answer", "text": "Campaign email is a separate concern from the CRM, and bulk sending from your own server is a deliverability trap. The honest setup is a self-hosted campaign tool or the CRM feeding an EU email service with its own sending reputation. I will not quietly self-host your newsletter and let it land in spam."}},
-    {"@type": "Question", "name": "What does HubSpot actually cost compared to self-hosting?", "acceptedAnswer": {"@type": "Answer", "text": "HubSpot Starter runs about €15 per seat per month, and the Professional tiers jump to roughly €90 per seat plus a mandatory onboarding fee, as of early 2026. The owned equivalent runs on server capacity that costs a few euros a month regardless of seats; what you pay for is the build, once, at a fixed fee."}},
+    {"@type": "Question", "name": "What does HubSpot actually cost compared to self-hosting?", "acceptedAnswer": {"@type": "Answer", "text": "HubSpot Starter runs about €15 per seat per month, and the Professional tiers jump to roughly €90 per seat plus a mandatory onboarding fee, as of early 2026. The owned equivalent runs on server capacity that costs a few euros a month regardless of seats; what you pay for is the build, once: a migration from €1,750, excl. btw, fixed after the audit."}},
     {"@type": "Question", "name": "How long does a HubSpot migration take?", "acceptedAnswer": {"@type": "Answer", "text": "For a CRM alone, usually at the short end of the four-to-eight-week range, because the data model is small: contacts, companies, deals, notes. HubSpot keeps running until the new system is validated and your team has been walked through it."}},
     {"@type": "Question", "name": "Does Twenty CRM integrate with our website forms?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, over its API. This exact website is the demonstration: the contact form flows through self-hosted automation into Twenty without a single third-party processor in between. The stack register page shows the whole chain."}}
   ]
@@ -292,8 +292,8 @@
   <p class="footer-fine">Built and hosted on Ironstack’s own infrastructure. No analytics, no trackers, no cookies.</p>
 </footer>
 
-<script src="/js/i18n-data.js?v=47"></script>
-<script src="/js/i18n/hubspot.nl.js?v=47"></script>
-<script src="/js/main.js?v=47"></script>
+<script src="/js/i18n-data.js?v=48"></script>
+<script src="/js/i18n/hubspot.nl.js?v=48"></script>
+<script src="/js/main.js?v=48"></script>
 </body>
 </html>

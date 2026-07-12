@@ -38,7 +38,7 @@ if (window.I18N && window.I18N.nl) Object.assign(window.I18N.nl, {
   "sr.40": "Van formulier tot factuur passeert je data precies nul externe verwerkers. Geen “vertrouwde partners”, geen “geanonimiseerde analytics”: nul. Daarom is <a href=\"/privacy.html\">de privacypagina</a> van deze site kort, en past mijn AVG-verwerkersregister op één hand.",
   "sr.41": "Twee eerlijke voetnoten. E-mail is de bewuste uitzondering: die leeft bij een gespecialiseerde EU-provider op mijn eigen domein, omdat de bezorgbaarheid van zelf-gehoste e-mail een risico is dat ik klanten afraad, en ik volg mijn eigen advies. En dit register is wat <em>mijn</em> bedrijf nodig heeft; dat van jou ziet er anders uit, en dat is precies de bedoeling. Dropbox heeft een equivalent in eigendom. Slack, Notion, Zoom, Calendly, Mailchimp, Typeform, Zendesk en Shopify ook. Draait je bedrijf erop, dan is er vrijwel zeker een versie die je kunt bezitten, en waar die er niet is, zeg ik dat eerlijk.",
   "sr.42": "Jouw register zal er anders uitzien",
-  "sr.43": "Dat is het punt van een audit: in kaart brengen welke van jouw systemen een equivalent in eigendom hebben dat de moeite waard is, en welke eerlijk gezegd niet. Kleine vaste prijs, schriftelijk rapport, blijft van jou.",
+  "sr.43": "Dat is precies waar de audit voor is: in kaart brengen welke van jouw systemen een equivalent in eigendom hebben dat de moeite waard is, en welke eerlijk gezegd niet. €850 vast, excl. btw, volledig verrekend met een migratie die je binnen 60 dagen tekent, en het schriftelijke rapport blijft van jou.",
   "sr.44": "Lees over de audit",
   "sr.45": "Begin een gesprek"
 });

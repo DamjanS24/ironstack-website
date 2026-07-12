@@ -1,8 +1,8 @@
 // NL dictionary for stack.html — the English source lives in the page HTML itself.
 if (window.I18N && window.I18N.nl) Object.assign(window.I18N.nl, {
-  "st.1": "DIENSTEN · WAT ER GEBOUWD WORDT",
+  "st.1": "SOEVEREINE INFRASTRUCTUUR · DE VERSE BOUW",
   "st.2": "Een complete bedrijfsstack,<br>op een server die van jou is",
-  "st.3": "De Ironstack Stack is de bouw voor een frisse start: CRM, bestanden, projecten, facturatie, automatisering en monitoring, geïnstalleerd op je eigen server, aan elkaar gekoppeld, en ingericht op hoe jij werkt. Eén vaste installatieprijs, daarna een vast maandbedrag.",
+  "st.3": "De Ironstack Stack is de bouw voor een frisse start: CRM, bestanden, projecten, facturatie, automatisering en monitoring, geïnstalleerd op je eigen server, gekoppeld en ingericht op hoe jij werkt. Een vaste installatieprijs in het voorstel, daarna de maandelijkse retainer vanaf €150, excl. btw.",
   "st.4": "Begin een gesprek",
   "st.5": "Bekijk de stack die ik zelf draai",
   "st.6": "I · HET PROBLEEM",
@@ -28,7 +28,7 @@ if (window.I18N && window.I18N.nl) Object.assign(window.I18N.nl, {
   "st.26": "in plaats van Pingdom",
   "st.27": "Op jouw server · onder jouw accounts · aan elkaar gekoppeld",
   "st.28": "“Aan elkaar gekoppeld” is wat een stack onderscheidt van een stapel installaties: een lead van je website landt in het CRM, een gewonnen deal wordt een project, een afgerond project wordt een factuur, en de monitoring waakt over alles. E-mail gaat naar een EU-provider op je eigen domein in plaats van de stack-server, omdat de bezorgbaarheid van zelf-gehoste e-mail een risico is dat ik afraad, en dat zet ik op papier.",
-  "st.29": "De inrichting duurt meestal twee tot vier weken, via een lichtere versie van de <a href=\"/method.html\">vijf-fasen-methode</a>. Je houdt de server, de accounts, de documentatie, en een systeem waar je team werkelijk in getraind is. Eén vaste installatieprijs, daarna een vast maandbedrag onder <a href=\"/managed-sovereignty.html\">Beheerde Soevereiniteit</a>; beide bedragen zijn bekend voordat er iets begint, en geen van beide beweegt.",
+  "st.29": "De installatie duurt meestal twee tot vier weken via een lichtere versie van de <a href=\"/method.html\">vijf-fasen-methode</a>. Je houdt de server, de accounts, de documentatie en een systeem waar je team echt op is getraind. Een vaste installatieprijs in het voorstel, gefactureerd als 50% bij ondertekening en 50% bij livegang, daarna de maandelijkse retainer onder <a href=\"/managed-sovereignty.html\">Beheerde Soevereiniteit</a> vanaf €150; beide bedragen zijn bekend voordat er iets begint, en geen van beide beweegt.",
   "st.30": "III · EEN EERLIJKE MATCH",
   "st.31": "Voor wie dit is, en voor wie niet",
   "st.32": "VOOR JOU ALS",
@@ -49,7 +49,7 @@ if (window.I18N && window.I18N.nl) Object.assign(window.I18N.nl, {
   "st.47": "Hoe verschilt de Stack van een migratie?",
   "st.48": "De Stack is de bouw voor een frisse start: weinig of niets te verhuizen, dus geen parallel draaien en overstap-choreografie. Hij is sneller en goedkoper dan een migratie, om dezelfde reden waarom een nieuw huis makkelijker is dan een verbouwing.",
   "st.49": "Wat kost de Stack?",
-  "st.50": "Eén vaste installatieprijs, daarna een vast maandbedrag voor de zorg onder <a href=\"/managed-sovereignty.html\">Beheerde Soevereiniteit</a>. Beide bedragen staan in het voorstel voordat er iets begint, en geen van beide beweegt. De server zelf is van jou en kost doorgaans minder dan €20 per maand bij een EU-provider.",
+  "st.50": "Een vaste installatieprijs, geoffreerd in het voorstel na een gratis kennismakingsgesprek en in dezelfde orde als de migratieniveaus in het <a href=\"/#pricing\">prijsregister</a>. Daarna de retainer onder <a href=\"/managed-sovereignty.html\">Beheerde Soevereiniteit</a> vanaf €150 per maand. Alles excl. btw, gefactureerd als 50% bij ondertekening en 50% bij livegang, en geen van beide bedragen beweegt. De server zelf is van jou, doorgaans onder de €20 per maand bij een EU-provider, doorberekend tegen kostprijs zonder marge.",
   "st.51": "Hoe lang duurt de inrichting?",
   "st.52": "Meestal twee tot vier weken van start tot overdracht, omdat er weinig te migreren valt. De vijf-fasen-methode geldt nog steeds, alleen lichter: ontwerpen, bouwen, valideren, overdragen.",
   "st.53": "Kan de Stack met ons meegroeien?",

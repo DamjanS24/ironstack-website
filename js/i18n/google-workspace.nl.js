@@ -56,9 +56,9 @@ if (window.I18N && window.I18N.nl) Object.assign(window.I18N.nl, {
   "gw.54": "Hoe lang duurt het verlaten van Google Workspace?",
   "gw.55": "Een typische mkb-migratie duurt vier tot acht weken van audit tot overdracht, met Google onaangetast draaiend tot de bewuste overstap. Je bent nooit in een toestand waarin de oude omgeving weg is en de nieuwe nog niet klaar.",
   "gw.56": "Is zelf hosten goedkoper dan Google Workspace?",
-  "gw.57": "De lopende kosten zijn lager en, belangrijker, ze schalen niet meer per werkplek: een server plus EU-mailboxen kost doorgaans minder dan een Workspace-abonnement voor 10 werkplekken en verdubbelt niet als je team dat doet. De bouw zelf is een vaste projectprijs, dus de eerlijke vergelijking is een investering die zich in de tijd terugbetaalt, geen directe besparing.",
+  "gw.57": "De doorlopende kosten zijn lager en, belangrijker, ze schalen niet meer per gebruiker: een server plus EU-mailboxen kost doorgaans minder dan een Workspace-abonnement voor tien personen en verdubbelt niet wanneer je team dat doet. De overstap zelf is een Workspace Exit van €1.250 tot €2.500, excl. btw, geprijsd per audit, dus de eerlijke vergelijking is een investering die zich over tijd terugverdient, geen directe besparing.",
   "gw.58": "De eerste stap met laag risico",
-  "gw.59": "De audit brengt in kaart wat je werkelijk gebruikt binnen Google Workspace, wat het je kost, en wat de overstap zou vergen, voor een kleine vaste prijs, met een schriftelijk rapport dat van jou is, wat je ook beslist. Soms is het eerlijke antwoord dat je moet blijven. Dan staat dat in het rapport.",
+  "gw.59": "De audit brengt in kaart wat je werkelijk gebruikt binnen Google Workspace, wat het je kost en wat de overstap zou vragen, voor €850 vast, excl. btw, volledig verrekend met een migratie die je binnen 60 dagen tekent, met een schriftelijk rapport dat van jou blijft, wat je ook beslist. Soms is het eerlijke antwoord dat je moet blijven. Dan staat dat in het rapport.",
   "gw.60": "Lees over de audit",
   "gw.61": "Begin een gesprek"
 });

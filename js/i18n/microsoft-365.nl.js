@@ -58,9 +58,9 @@ if (window.I18N && window.I18N.nl) Object.assign(window.I18N.nl, {
   "m3.56": "Hoe lang duurt het verlaten van Microsoft 365?",
   "m3.57": "Een typische mkb-migratie duurt vier tot acht weken van audit tot overdracht. Microsoft 365 blijft onaangetast draaien tot de bewuste overstap, in een venster dat jij goedkeurt, met een geteste rollback.",
   "m3.58": "Is zelf hosten goedkoper dan Microsoft 365?",
-  "m3.59": "De lopende kosten schalen niet meer per werkplek: een server plus EU-mailboxen kost doorgaans minder dan een Business Standard-abonnement voor 10 werkplekken, en het gat groeit met elke nieuwe collega en elke Copilot-achtige upsell die je overslaat. De bouw is een vaste projectprijs, dus denk aan terugverdienen in een jaar of twee, geen besparing van vandaag op morgen.",
+  "m3.59": "De doorlopende kosten schalen niet meer per gebruiker: een server plus EU-mailboxen zit doorgaans onder een Business Standard-abonnement voor tien personen, en het gat groeit met elke nieuwe collega en elke Copilot-achtige upsell die je overslaat. De overstap zelf is een Workspace Exit van €1.250 tot €2.500, excl. btw, geprijsd per audit, dus denk aan terugverdienen over een jaar of twee, geen besparing van vandaag op morgen.",
   "m3.60": "De eerste stap met laag risico",
-  "m3.61": "De audit brengt in kaart wat je team werkelijk gebruikt binnen Microsoft 365, wat het per jaar kost, en welke werkplekken echt Office moeten houden, voor een kleine vaste prijs, met een schriftelijk rapport dat van jou is, wat je ook beslist.",
+  "m3.61": "De audit brengt in kaart wat je team werkelijk gebruikt binnen Microsoft 365, wat het per jaar kost en welke werkplekken Office echt moeten houden, voor €850 vast, excl. btw, volledig verrekend met een migratie die je binnen 60 dagen tekent, met een schriftelijk rapport dat van jou blijft.",
   "m3.62": "Lees over de audit",
   "m3.63": "Begin een gesprek"
 });

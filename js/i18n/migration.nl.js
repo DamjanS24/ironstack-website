@@ -1,9 +1,9 @@
 // NL dictionary for migration.html — the English source lives in the page HTML itself.
 if (window.I18N && window.I18N.nl) Object.assign(window.I18N.nl, {
-  "mi.1": "DIENSTEN · WAT ER GEBOUWD WORDT",
+  "mi.1": "SOEVEREINE INFRASTRUCTUUR · DE VERHUIZING",
   "mi.2": "Verlaat de cloud<br>zonder je bedrijf te breken",
-  "mi.3": "Migratie is de complete overstap van een bestaande omgeving, van gehuurde SaaS en Amerikaanse cloud naar infrastructuur die van jou is. Je huidige omgeving blijft onaangetast draaien tot we bewust overschakelen, in een venster dat jij goedkeurt, met een getest rollback-plan. Vaste projectprijs.",
-  "mi.4": "Begin een gesprek",
+  "mi.3": "Migratie is de complete overstap van een bestaande omgeving, van gehuurde SaaS en Amerikaanse cloud naar infrastructuur die van jou is. Je huidige omgeving blijft onaangetast draaien tot we bewust overschakelen, in een venster dat jij goedkeurt, met een geteste rollback. Eenvoudige migraties €1.750, middelgrote €3.750, complexe vanaf €7.500, alles vast en excl. btw.",
+  "mi.4": "Begin met de audit",
   "mi.5": "Bekijk de methode",
   "mi.6": "I · HET PROBLEEM",
   "mi.7": "“We willen graag weg, maar we kunnen ons de chaos niet veroorloven”",
@@ -12,7 +12,7 @@ if (window.I18N && window.I18N.nl) Object.assign(window.I18N.nl, {
   "mi.10": "Het antwoord is geen moed, het is engineering. Een goed uitgevoerde migratie is saai: de oude omgeving blijft draaien, de nieuwe wordt ernaast gebouwd en bewezen, en de overstap is een beheerst moment met een weg terug. Saai is het eindproduct.",
   "mi.11": "II · WAT HET CONCREET IS",
   "mi.12": "Een beheerste overstap met een vaste prijs",
-  "mi.13": "Een migratie wordt uitgevoerd in de <a href=\"/method.html\">vijf beheerste fasen</a>: Discovery &amp; Audit, Architectuur &amp; Planning, de Bouw, Validatie &amp; Livegang, en Overdracht &amp; Beheer. Elke stap in het runbook heeft een rollback, en niets wordt uitgevoerd zonder jouw akkoord. Een typische mkb-migratie duurt vier tot acht weken van audit tot overdracht; de audit legt de exacte planning en de vaste projectprijs vast voordat je ergens aan vastzit.",
+  "mi.13": "Een migratie wordt uitgevoerd in de <a href=\"/method.html\">vijf beheerste fasen</a>: Discovery & Audit, Architectuur & Planning, Migratie-uitvoering, Validatie & Overschakeling, en Overdracht & Retainer. Elke stap in het runbook heeft een rollback, en niets wordt uitgevoerd zonder jouw akkoord. Een typische mkb-migratie duurt vier tot acht weken van audit tot overdracht; de audit legt de exacte planning en het exacte niveau vast voordat je ergens aan vastzit, en de auditprijs van €850 wordt volledig verrekend als je binnen 60 dagen tekent.",
   "mi.14": "Wat je daarna in handen hebt",
   "mi.15": "Jouw systemen",
   "mi.16": "op een server die van jou is",
@@ -24,7 +24,7 @@ if (window.I18N && window.I18N.nl) Object.assign(window.I18N.nl, {
   "mi.22": "overdracht, geen achterlating",
   "mi.23": "De oude omgeving",
   "mi.24": "veilig uitgefaseerd",
-  "mi.25": "Vaste projectprijs · bekend voordat er iets begint",
+  "mi.25": "Eenvoudig €1.750 · middelgroot €3.750 · complex vanaf €7.500 · excl. btw",
   "mi.26": "Migraties zijn bewust gefaseerd. Zegt de audit dat de bestanden eerst moeten en het CRM in het najaar, dan staat dat zo in het plan, en elke fase laat je achter in een stabiele, gedocumenteerde toestand. Je staat nooit op een half verhuisde omgeving te hopen dat de tweede helft budget krijgt.",
   "mi.27": "III · EEN EERLIJKE MATCH",
   "mi.28": "Voor wie dit is, en voor wie niet",
@@ -48,13 +48,13 @@ if (window.I18N && window.I18N.nl) Object.assign(window.I18N.nl, {
   "mi.46": "Moeten we alles in één keer migreren?",
   "mi.47": "Nee. Migraties zijn bewust gefaseerd, en beginnen met één systeem, het CRM, de bestanden, de automatiseringslaag, is een prima start. Elke fase laat je achter in een stabiele, gedocumenteerde toestand.",
   "mi.48": "Wat kost een migratie?",
-  "mi.49": "Een vaste projectprijs, op basis van de auditbevindingen, afgesproken voordat de bouw begint, en die beweegt niet. Groeit de scope omdat jij meer vraagt, dan krijg je eerst een nieuw vast bedrag om goed te keuren, nooit een verrassingsfactuur.",
+  "mi.49": "€1.750 voor een eenvoudige omgeving, €3.750 voor een middelgrote, en vanaf €7.500 voor een complexe, geoffreerd na de audit. Alles vast, excl. btw, gefactureerd als 50% bij ondertekening en 50% bij livegang, en de audit van €850 wordt volledig verrekend als je binnen 60 dagen tekent. Groeit de scope omdat jij meer vraagt, dan krijg je eerst een nieuw vast bedrag om goed te keuren, nooit een verrassingsfactuur.",
   "mi.50": "Wat als iets alleen in onze huidige SaaS-tool bestaat?",
   "mi.51": "Dan zegt de audit dat voordat er iets wordt beloofd. Sommige propriëtaire functies hebben geen equivalent in eigendom, en de eerlijke opties zijn anders herbouwen, dat ene abonnement bewust houden, of het verlies wetend accepteren. Wat ik niet doe, is dit in week zes ontdekken.",
   "mi.52": "Wat gebeurt er nadat de migratie klaar is?",
-  "mi.53": "Overdracht: documentatie, kennisoverdracht en een getraind team. De oude omgeving wordt pas veilig uitgefaseerd nadat de nieuwe zich heeft bewezen. Vanaf daar houdt <a href=\"/managed-sovereignty.html\">Beheerde Soevereiniteit</a> hem draaiend, updates, back-ups, monitoring, voor een vast maandbedrag met een exit-clausule elke maand.",
+  "mi.53": "Overdracht: documentatie, kennisoverdracht en een getraind team. De oude omgeving wordt pas veilig ontmanteld nadat de nieuwe zich heeft bewezen. Vanaf daar houdt <a href=\"/managed-sovereignty.html\">Beheerde Soevereiniteit</a> alles draaiend, updates, back-ups, monitoring, vanaf €150 per maand met een exit-clausule die elke maand geldt.",
   "mi.54": "Begin een gesprek",
   "mi.55": "Vertel me wat waar draait en wat je eraan dwarszit. Je krijgt een eerlijk antwoord. Soms is het eerlijke antwoord dat je mij niet nodig hebt.",
-  "mi.56": "Begin een gesprek",
-  "mi.57": "Of begin met de audit"
+  "mi.56": "Begin met de audit",
+  "mi.57": "Of begin een gesprek"
 });
