@@ -328,6 +328,7 @@ a { color: inherit; }
 }
 .tilt-tag-text { display: flex; flex-direction: column; min-width: 0; transform-style: preserve-3d; }
 .tilt-tag-text strong { font-family: var(--serif); font-weight: 600; font-size: 14px; line-height: 1.25; white-space: nowrap; color: var(--ink); transform: translateZ(16px); text-shadow: 0 5px 12px rgba(23, 21, 15, 0.22); }
+.tilt-tag-text strong .tag-diamond { font-size: 7.5px; vertical-align: 2px; }
 .tilt-tag-text span { font-family: var(--garamond); font-size: 9.5px; line-height: 1.45; letter-spacing: 2px; color: var(--muted); margin: 4px 0; transform: translateZ(10px); text-shadow: 0 3px 8px rgba(23, 21, 15, 0.16); }
 .tilt-tag-text a { font-size: 11.5px; line-height: 1.2; color: var(--body); text-decoration: none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; transform: translateZ(6px); text-shadow: 0 3px 8px rgba(23, 21, 15, 0.14); }
 .tilt-tag-text a:hover { color: var(--ink); }
