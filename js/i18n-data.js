@@ -12,8 +12,8 @@ window.I18N = {
     "menu.proof": "PROOF &amp; METHOD",
 
     "hero.kicker": "SOVEREIGN IT · AMSTERDAM",
-    "hero.title": "Ironstack moves businesses<br>off Big Tech.",
-    "hero.sub": "Your apps, data, and AI on your own European servers. Two ways in: Sovereign AI for assistants and automation that keep company data away from US tech firms, and Sovereign Infrastructure for the systems your business runs on. Your exit is built in: leave any month and take everything with you.",
+    "hero.title": "Sovereign IT &amp; AI.",
+    "hero.sub": "Your apps, data, and AI on European iron you own. Two ways in: Sovereign AI for assistants and automation that keep company data away from US tech firms, and Sovereign Infrastructure for the systems your business runs on. Your exit is built in: leave any month and take everything with you.",
     "hero.cta1": "Book a free discovery call",
     "hero.cta2": "See services and prices",
 
@@ -195,8 +195,8 @@ window.I18N = {
     "menu.proof": "BEWIJS &amp; METHODE",
 
     "hero.kicker": "SOEVEREINE IT · AMSTERDAM",
-    "hero.title": "Ironstack haalt bedrijven<br>weg bij Big Tech.",
-    "hero.sub": "Je apps, data en AI op je eigen Europese servers. Twee ingangen: Soevereine AI voor assistenten en automatisering die je bedrijfsdata weghouden bij Amerikaanse techbedrijven, en Soevereine Infrastructuur voor de systemen waar je bedrijf op draait. Je exit is ingebouwd: vertrek in elke willekeurige maand en neem alles mee.",
+    "hero.title": "Soevereine IT &amp; AI.",
+    "hero.sub": "Je apps, data en AI op Europese servers die je zelf bezit. Twee ingangen: Soevereine AI voor assistenten en automatisering die je bedrijfsdata weghouden bij Amerikaanse techbedrijven, en Soevereine Infrastructuur voor de systemen waar je bedrijf op draait. Je exit is ingebouwd: vertrek in elke willekeurige maand en neem alles mee.",
     "hero.cta1": "Plan een gratis kennismakingsgesprek",
     "hero.cta2": "Bekijk diensten en prijzen",
 
