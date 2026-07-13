@@ -852,3 +852,16 @@ a { color: inherit; }
   .lead-modal.closing .lead-modal-backdrop, .lead-modal.closing .lead-modal-panel { animation: none; }
   .form-status.shake { animation: none; }
 }
+
+/* ---------- lead form: live positive feedback ----------
+   --ok is functional feedback like --err: a moss green that stays in the
+   ink/cream world. The check mark rides the label; the underline agrees. */
+:root { --ok: #55794B; }
+[data-theme="dark"] { --ok: #9CBF8D; }
+
+.lead-form label > span:first-child { transition: color .16s ease; }
+.lead-form label.valid > span:first-child { color: var(--ok); }
+.lead-form label.valid > span:first-child::after { content: ' ✓'; color: var(--ok); font-family: var(--sans); letter-spacing: 0; }
+.lead-form label.valid input,
+.lead-form label.valid select { border-bottom-color: var(--ok); }
+.lead-form label.valid textarea { border-color: var(--ok); }
