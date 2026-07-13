@@ -436,6 +436,123 @@
     input.addEventListener('change', live);
   });
 
+  // ----- country-code picker: the native select becomes a searchable panel -----
+  // the <select> stays the form value and the no-JS fallback; the button + panel are
+  // presentation on top of it. Country names come from Intl at the current site language.
+  var ccPicker = form && form.phoneCountry ? form.phoneCountry.closest('.cc-picker') : null;
+  if (ccPicker) (function () {
+    var select = form.phoneCountry;
+    var options = Array.prototype.map.call(select.options, function (o) {
+      return { iso: o.value, code: o.textContent.trim().split(/\s+/)[1] };
+    });
+    function countryName(iso) {
+      try { return new Intl.DisplayNames([HTML_LANG[lang] || 'en'], { type: 'region' }).of(iso) || iso; }
+      catch (e) { return iso; }
+    }
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'cc-btn';
+    btn.setAttribute('aria-haspopup', 'listbox');
+    btn.setAttribute('aria-expanded', 'false');
+    var panel = document.createElement('span');
+    panel.className = 'cc-panel';
+    panel.hidden = true;
+    var search = document.createElement('input');
+    search.type = 'text';
+    search.className = 'cc-search';
+    search.autocomplete = 'off';
+    var list = document.createElement('ul');
+    list.className = 'cc-list';
+    list.setAttribute('role', 'listbox');
+    panel.appendChild(search);
+    panel.appendChild(list);
+    ccPicker.appendChild(btn);
+    ccPicker.appendChild(panel);
+    ccPicker.classList.add('enhanced');
+
+    function label() {
+      var o = options.filter(function (x) { return x.iso === select.value; })[0] || options[0];
+      btn.textContent = o.iso + ' ' + o.code;
+    }
+    // rebuilt on every open so a language switch renames the countries for free
+    function rebuild() {
+      list.textContent = '';
+      options.forEach(function (o) {
+        var li = document.createElement('li');
+        li.setAttribute('role', 'option');
+        li.dataset.value = o.iso;
+        li.dataset.text = (o.iso + ' ' + countryName(o.iso) + ' ' + o.code).toLowerCase();
+        li.setAttribute('aria-selected', o.iso === select.value ? 'true' : 'false');
+        var name = document.createElement('span');
+        name.textContent = countryName(o.iso);
+        var code = document.createElement('span');
+        code.className = 'cc-code';
+        code.textContent = o.code;
+        li.appendChild(name);
+        li.appendChild(code);
+        list.appendChild(li);
+      });
+    }
+    var active = null;
+    function mark(li) {
+      if (active) active.classList.remove('active');
+      active = li || null;
+      if (active) { active.classList.add('active'); active.scrollIntoView({ block: 'nearest' }); }
+    }
+    function visible() {
+      return Array.prototype.filter.call(list.children, function (li) { return !li.hidden; });
+    }
+    function filter() {
+      var q = search.value.trim().toLowerCase();
+      Array.prototype.forEach.call(list.children, function (li) {
+        li.hidden = q !== '' && li.dataset.text.indexOf(q) === -1;
+      });
+      mark(q === '' ? list.querySelector('[aria-selected="true"]') : visible()[0]);
+    }
+    function open() {
+      rebuild();
+      search.placeholder = dict()['contact.ccSearch'] || 'Search…';
+      search.setAttribute('aria-label', search.placeholder);
+      search.value = '';
+      panel.hidden = false;
+      btn.setAttribute('aria-expanded', 'true');
+      filter();
+      search.focus();
+    }
+    function close(refocus) {
+      if (panel.hidden) return;
+      panel.hidden = true;
+      btn.setAttribute('aria-expanded', 'false');
+      if (refocus) btn.focus();
+    }
+    function choose(li) {
+      select.value = li.dataset.value;
+      label();
+      close(true);
+    }
+    btn.addEventListener('click', function () { if (panel.hidden) open(); else close(true); });
+    // mousedown would steal focus from the search field before the click lands
+    list.addEventListener('mousedown', function (e) { e.preventDefault(); });
+    list.addEventListener('click', function (e) {
+      var li = e.target.closest('li');
+      if (li) choose(li);
+    });
+    search.addEventListener('input', filter);
+    panel.addEventListener('keydown', function (e) {
+      var vis = visible();
+      var i = vis.indexOf(active);
+      if (e.key === 'ArrowDown') { e.preventDefault(); mark(vis[Math.min(i + 1, vis.length - 1)] || vis[0]); }
+      else if (e.key === 'ArrowUp') { e.preventDefault(); mark(vis[Math.max(i - 1, 0)] || vis[0]); }
+      else if (e.key === 'Enter') { e.preventDefault(); if (active) choose(active); }
+      else if (e.key === 'Escape') { e.stopPropagation(); close(true); }
+    });
+    document.addEventListener('click', function (e) {
+      if (!ccPicker.contains(e.target)) close(false);
+    });
+    form.addEventListener('reset', function () { close(false); setTimeout(label, 0); });
+    label();
+  })();
+
   if (form) form.addEventListener('submit', function (e) {
     e.preventDefault();
     status.classList.remove('error', 'shake');
