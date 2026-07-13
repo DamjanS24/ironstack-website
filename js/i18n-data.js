@@ -134,7 +134,6 @@ window.I18N = {
     "contact.size4": "50+ people",
     "contact.message": "What runs where today?",
     "contact.send": "Send",
-    "contact.response": "You get a reply within one working day.",
     "contact.direct": "Prefer to reach out directly?",
     "contact.emailLabel": "EMAIL:",
     "contact.telLabel": "TEL:",
@@ -152,6 +151,7 @@ window.I18N = {
     "contact.errEmail": "That email address does not look right.",
     "contact.errPhone": "That phone number does not look right.",
     "contact.errMessage": "Please write a short message.",
+    "contact.ccSearch": "Search…",
 
     "exit.title": "The exit clause",
     "exit.p1": "Everything is yours from day one. The servers run under your accounts, the domains are registered to you, and the documentation is written for your team, not for me.",
@@ -346,7 +346,6 @@ window.I18N = {
     "contact.size4": "50+ mensen",
     "contact.message": "Wat draait er vandaag waar?",
     "contact.send": "Versturen",
-    "contact.response": "Je krijgt binnen één werkdag antwoord.",
     "contact.direct": "Liever rechtstreeks contact?",
     "contact.emailLabel": "E-MAIL:",
     "contact.telLabel": "TEL:",
@@ -364,6 +363,7 @@ window.I18N = {
     "contact.errEmail": "Dat e-mailadres klopt niet.",
     "contact.errPhone": "Dat telefoonnummer klopt niet.",
     "contact.errMessage": "Schrijf een kort bericht.",
+    "contact.ccSearch": "Zoeken…",
 
     "exit.title": "De exit-clausule",
     "exit.p1": "Alles is vanaf dag één van jou. De servers draaien onder jouw accounts, de domeinen staan op jouw naam en de documentatie is geschreven voor jouw team, niet voor mij.",
@@ -558,7 +558,6 @@ window.I18N = {
     "contact.size4": "50+ ljudi",
     "contact.message": "Šta danas radi gde?",
     "contact.send": "Pošalji",
-    "contact.response": "Odgovor dobijaš u roku od jednog radnog dana.",
     "contact.direct": "Radije direktan kontakt?",
     "contact.emailLabel": "EMAIL:",
     "contact.telLabel": "TEL:",
@@ -576,6 +575,7 @@ window.I18N = {
     "contact.errEmail": "Ova email adresa ne izgleda ispravno.",
     "contact.errPhone": "Ovaj broj telefona ne izgleda ispravno.",
     "contact.errMessage": "Napiši kratku poruku.",
+    "contact.ccSearch": "Pretraži…",
 
     "exit.title": "Klauzula o izlasku",
     "exit.p1": "Sve je tvoje od prvog dana. Serveri rade pod tvojim nalozima, domeni su registrovani na tvoje ime, a dokumentacija je napisana za tvoj tim, ne za mene.",
@@ -770,7 +770,6 @@ window.I18N = {
     "contact.size4": "50+ људи",
     "contact.message": "Шта данас ради где?",
     "contact.send": "Пошаљи",
-    "contact.response": "Одговор добијаш у року од једног радног дана.",
     "contact.direct": "Радије директан контакт?",
     "contact.emailLabel": "ЕМАИЛ:",
     "contact.telLabel": "ТЕЛ:",
@@ -788,6 +787,7 @@ window.I18N = {
     "contact.errEmail": "Ова email адреса не изгледа исправно.",
     "contact.errPhone": "Овај број телефона не изгледа исправно.",
     "contact.errMessage": "Напиши кратку поруку.",
+    "contact.ccSearch": "Претражи…",
 
     "exit.title": "Клаузула о изласку",
     "exit.p1": "Све је твоје од првог дана. Сервери раде под твојим налозима, домени су регистровани на твоје име, а документација је написана за твој тим, не за мене.",

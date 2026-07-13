@@ -365,11 +365,65 @@ a { color: inherit; }
 .lead-form input:focus, .lead-form select:focus { outline: none; border-bottom-color: var(--ink); }
 .lead-form textarea:focus { outline: none; border-color: var(--ink); }
 .select-wrap:focus-within::after { border-color: var(--ink); }
-/* phone splits into a narrow country-code select and the number itself */
-.phone-group { display: flex; gap: 14px; }
-.phone-group .phone-cc { flex: 0 0 auto; }
+/* phone splits into a narrow country-code picker and the number itself */
+.phone-group { display: flex; gap: 14px; align-items: flex-end; }
+.phone-group .cc-picker { flex: 0 0 auto; position: relative; }
 .phone-group select { width: auto; }
-.phone-group input { flex: 1 1 auto; min-width: 0; }
+.phone-group input[type="tel"] { flex: 1 1 auto; min-width: 0; }
+/* no-JS fallback keeps the native select, dressed with the usual chevron */
+.cc-picker:not(.enhanced)::after {
+  content: ''; position: absolute; right: 3px; top: 50%; width: 6px; height: 6px;
+  border-right: 1.5px solid var(--muted); border-bottom: 1.5px solid var(--muted);
+  transform: translateY(-65%) rotate(45deg); pointer-events: none;
+}
+.cc-picker.enhanced > select { display: none; }
+.cc-btn {
+  display: inline-flex; align-items: center; gap: 10px; cursor: pointer;
+  background: transparent; border: none; border-bottom: 1px solid var(--rule); border-radius: 0;
+  padding: 10px 2px; font-family: var(--sans); font-size: 15px; color: var(--ink);
+  transition: border-color .16s ease;
+}
+.cc-btn::after {
+  content: ''; width: 6px; height: 6px; margin-top: -3px;
+  border-right: 1.5px solid var(--muted); border-bottom: 1.5px solid var(--muted);
+  transform: rotate(45deg); transition: border-color .18s ease;
+}
+.cc-btn:hover { border-bottom-color: #B8B09C; }
+.cc-btn:focus { outline: none; border-bottom-color: var(--ink); }
+.cc-btn:hover::after, .cc-btn:focus::after { border-color: var(--ink); }
+.lead-form label.invalid .cc-btn { border-bottom-color: var(--err); }
+.lead-form label.valid .cc-btn { border-bottom-color: var(--ok); }
+/* the picker panel: a search field on top, the country register scrolling below it;
+   dressed like .select-menu so the form's dropdowns read as one family */
+.cc-panel {
+  position: absolute; left: 0; top: calc(100% + 6px); z-index: 70; display: block;
+  width: min(300px, 78vw);
+  background: color-mix(in srgb, var(--cream) 97%, transparent);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--rule);
+  box-shadow: 0 26px 40px -28px rgba(23, 21, 15, 0.45);
+}
+.cc-panel[hidden] { display: none; }
+.cc-search {
+  width: 100%; background: transparent; border: none; border-bottom: 1px solid var(--rule);
+  padding: 11px 14px; font-family: var(--sans); font-size: 14px; color: var(--ink);
+}
+.cc-search:focus { outline: none; border-bottom-color: var(--ink); }
+.cc-list { list-style: none; margin: 0; padding: 6px 0; max-height: 234px; overflow-y: auto; overscroll-behavior: contain; }
+.cc-list li {
+  position: relative; display: flex; justify-content: space-between; align-items: baseline; gap: 14px;
+  padding: 9px 16px 9px 34px; cursor: pointer; font-family: var(--sans); font-size: 14.5px; color: var(--body);
+  transition: color .14s ease, background .14s ease;
+}
+.cc-list li[hidden] { display: none; }
+.cc-list li .cc-code { font-family: var(--mono); font-size: 12px; letter-spacing: 0.5px; color: var(--muted); }
+.cc-list li:hover, .cc-list li.active { color: var(--ink); background: color-mix(in srgb, var(--ink) 6%, transparent); }
+.cc-list li[aria-selected="true"], .cc-list li[aria-selected="true"] .cc-code { color: var(--ink); }
+.cc-list li[aria-selected="true"]::before {
+  content: '◆'; position: absolute; left: 15px; top: 50%; transform: translateY(-50%);
+  font-size: 8px; color: var(--muted);
+}
+[data-theme="dark"] .cc-panel { box-shadow: 0 26px 40px -28px rgba(0, 0, 0, 0.8); }
 /* Chrome/Safari autofill paints its own background; force it back to the page ground */
 .lead-form input:-webkit-autofill,
 .lead-form input:-webkit-autofill:hover,
