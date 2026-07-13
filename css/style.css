@@ -393,12 +393,15 @@ a { color: inherit; }
 .cc-btn:hover::after, .cc-btn:focus::after { border-color: var(--ink); }
 .lead-form label.invalid .cc-btn { border-bottom-color: var(--err); }
 .lead-form label.valid .cc-btn { border-bottom-color: var(--ok); }
-/* the picker panel: a search field on top, the country register scrolling below it */
+/* the picker panel: a search field on top, the country register scrolling below it;
+   dressed like .select-menu so the form's dropdowns read as one family */
 .cc-panel {
-  position: absolute; left: 0; top: calc(100% + 8px); z-index: 70; display: block;
+  position: absolute; left: 0; top: calc(100% + 6px); z-index: 70; display: block;
   width: min(300px, 78vw);
-  background: var(--paper); border: 1px solid var(--rule);
-  box-shadow: 0 16px 40px rgba(23, 21, 15, 0.14);
+  background: color-mix(in srgb, var(--cream) 97%, transparent);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--rule);
+  box-shadow: 0 26px 40px -28px rgba(23, 21, 15, 0.45);
 }
 .cc-panel[hidden] { display: none; }
 .cc-search {
@@ -408,15 +411,19 @@ a { color: inherit; }
 .cc-search:focus { outline: none; border-bottom-color: var(--ink); }
 .cc-list { list-style: none; margin: 0; padding: 6px 0; max-height: 234px; overflow-y: auto; overscroll-behavior: contain; }
 .cc-list li {
-  display: flex; justify-content: space-between; align-items: baseline; gap: 14px;
-  padding: 8px 14px; cursor: pointer; font-family: var(--sans); font-size: 14px; color: var(--body);
+  position: relative; display: flex; justify-content: space-between; align-items: baseline; gap: 14px;
+  padding: 9px 16px 9px 34px; cursor: pointer; font-family: var(--sans); font-size: 14.5px; color: var(--body);
+  transition: color .14s ease, background .14s ease;
 }
 .cc-list li[hidden] { display: none; }
 .cc-list li .cc-code { font-family: var(--mono); font-size: 12px; letter-spacing: 0.5px; color: var(--muted); }
-.cc-list li:hover, .cc-list li.active { background: rgba(23, 21, 15, 0.06); color: var(--ink); }
+.cc-list li:hover, .cc-list li.active { color: var(--ink); background: color-mix(in srgb, var(--ink) 6%, transparent); }
 .cc-list li[aria-selected="true"], .cc-list li[aria-selected="true"] .cc-code { color: var(--ink); }
-[data-theme="dark"] .cc-list li:hover, [data-theme="dark"] .cc-list li.active { background: rgba(234, 227, 210, 0.09); }
-[data-theme="dark"] .cc-panel { box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5); }
+.cc-list li[aria-selected="true"]::before {
+  content: '◆'; position: absolute; left: 15px; top: 50%; transform: translateY(-50%);
+  font-size: 8px; color: var(--muted);
+}
+[data-theme="dark"] .cc-panel { box-shadow: 0 26px 40px -28px rgba(0, 0, 0, 0.8); }
 /* Chrome/Safari autofill paints its own background; force it back to the page ground */
 .lead-form input:-webkit-autofill,
 .lead-form input:-webkit-autofill:hover,
@@ -851,6 +858,7 @@ a { color: inherit; }
 .lead-form label.invalid > span:first-child { color: var(--err); }
 .lead-form label.invalid > span:first-child::after { content: ' ✕'; color: var(--err); font-family: var(--sans); letter-spacing: 0; }
 .lead-form label.invalid input,
+.lead-form label.invalid .select-btn,
 .lead-form label.invalid select { border-bottom-color: var(--err); }
 .lead-form label.invalid textarea { border-color: var(--err); }
 .form-status.error { color: var(--err); }
@@ -928,5 +936,49 @@ a { color: inherit; }
 .lead-form label.valid > span:first-child { color: var(--ok); }
 .lead-form label.valid > span:first-child::after { content: ' ✓'; color: var(--ok); font-family: var(--sans); letter-spacing: 0; }
 .lead-form label.valid input,
+.lead-form label.valid .select-btn,
 .lead-form label.valid select { border-bottom-color: var(--ok); }
 .lead-form label.valid textarea { border-color: var(--ok); }
+
+/* ---------- styled select: the option list, in the site's own clothes ----------
+   The native select stays as the form field; .select-btn and .select-menu are
+   its face. The panel is kin to the nav's mega menu: cream over blur, hairline
+   border, soft shadow, diamond on the chosen entry. */
+.select-wrap.enhanced select { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.select-btn {
+  width: 100%; text-align: left; cursor: pointer;
+  background: transparent; border: none; border-bottom: 1px solid var(--rule); border-radius: 0;
+  padding: 10px 20px 10px 2px; font-family: var(--sans); font-size: 15px; color: var(--ink);
+  transition: border-color .16s ease;
+}
+.select-btn.placeholder { color: var(--muted); }
+.select-btn:hover { border-bottom-color: #B8B09C; }
+.select-btn:focus { outline: none; border-bottom-color: var(--ink); }
+[data-theme="dark"] .select-btn:hover { border-bottom-color: #565040; }
+[data-theme="dark"] .select-btn:focus { border-bottom-color: var(--ink); }
+.select-wrap.open::after { transform: translateY(-25%) rotate(-135deg); border-color: var(--ink); }
+.select-menu {
+  position: absolute; top: calc(100% + 6px); left: 0; right: 0; z-index: 60;
+  margin: 0; padding: 6px 0; list-style: none;
+  background: color-mix(in srgb, var(--cream) 97%, transparent);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--rule);
+  box-shadow: 0 26px 40px -28px rgba(23, 21, 15, 0.45);
+  opacity: 0; visibility: hidden; transform: translateY(-8px);
+  transition: opacity .2s ease, transform .3s cubic-bezier(.2, .6, .2, 1), visibility 0s linear .3s;
+}
+.select-wrap.open .select-menu {
+  opacity: 1; visibility: visible; transform: none;
+  transition: opacity .2s ease, transform .3s cubic-bezier(.2, .6, .2, 1);
+}
+[data-theme="dark"] .select-menu { box-shadow: 0 26px 40px -28px rgba(0, 0, 0, 0.8); }
+.select-opt { position: relative; padding: 9px 16px 9px 34px; font-size: 14.5px; color: var(--body); cursor: pointer; transition: color .14s ease, background .14s ease; }
+.select-opt.active { color: var(--ink); background: color-mix(in srgb, var(--ink) 6%, transparent); }
+.select-opt[aria-selected="true"] { color: var(--ink); }
+.select-opt[aria-selected="true"]::before {
+  content: '◆'; position: absolute; left: 15px; top: 50%; transform: translateY(-50%);
+  font-size: 8px; color: var(--muted);
+}
+@media (prefers-reduced-motion: reduce) {
+  .select-menu, .select-wrap.open .select-menu { transition: none; transform: none; }
+}
