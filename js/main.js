@@ -23,6 +23,7 @@
     });
     localStorage.setItem('ironstack-lang', l);
     lang = l;
+    document.dispatchEvent(new CustomEvent('i18n-applied'));
   }
   if (toggle && window.I18N) {
     toggle.addEventListener('click', function () {
@@ -435,6 +436,117 @@
     input.addEventListener('input', live);
     input.addEventListener('change', live);
   });
+
+  // ----- custom dropdowns: the native option list can't be styled, so the
+  // select stays as the form field and a styled listbox takes over the UI -----
+  function enhanceSelect(sel) {
+    var wrap = sel.closest('.select-wrap');
+    if (!wrap) return;
+    wrap.classList.add('enhanced');
+    sel.setAttribute('tabindex', '-1');
+    sel.setAttribute('aria-hidden', 'true');
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'select-btn';
+    btn.setAttribute('aria-haspopup', 'listbox');
+    btn.setAttribute('aria-expanded', 'false');
+    var menu = document.createElement('ul');
+    menu.className = 'select-menu';
+    menu.setAttribute('role', 'listbox');
+    menu.id = 'menu-' + sel.name;
+    wrap.appendChild(btn);
+    wrap.appendChild(menu);
+
+    var active = -1;
+    function options() {
+      return Array.prototype.filter.call(sel.options, function (o) { return !o.disabled; });
+    }
+    function syncLabel() {
+      var o = sel.options[sel.selectedIndex];
+      btn.textContent = o ? o.textContent : '';
+      btn.classList.toggle('placeholder', !sel.value);
+    }
+    function setActive(i) {
+      active = i;
+      Array.prototype.forEach.call(menu.children, function (li, j) {
+        li.classList.toggle('active', j === i);
+      });
+      if (i > -1) btn.setAttribute('aria-activedescendant', menu.id + '-' + i);
+      else btn.removeAttribute('aria-activedescendant');
+    }
+    function render() {
+      menu.textContent = '';
+      options().forEach(function (o, i) {
+        var li = document.createElement('li');
+        li.className = 'select-opt';
+        li.id = menu.id + '-' + i;
+        li.setAttribute('role', 'option');
+        li.setAttribute('aria-selected', String(o.value === sel.value && sel.value !== ''));
+        li.textContent = o.textContent;
+        li.addEventListener('mouseenter', function () { setActive(i); });
+        li.addEventListener('click', function () { choose(i); });
+        menu.appendChild(li);
+      });
+    }
+    function isOpen() { return wrap.classList.contains('open'); }
+    function open() {
+      render();
+      setActive(Math.max(0, options().indexOf(sel.options[sel.selectedIndex])));
+      wrap.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+    function close() {
+      wrap.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+      setActive(-1);
+    }
+    function choose(i) {
+      var o = options()[i];
+      if (!o) return;
+      sel.value = o.value;
+      sel.dispatchEvent(new Event('change', { bubbles: true }));
+      syncLabel();
+      close();
+      btn.focus();
+    }
+    btn.addEventListener('click', function () { isOpen() ? close() : open(); });
+    btn.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        if (!isOpen()) { open(); return; }
+        var last = options().length - 1;
+        setActive(e.key === 'ArrowDown' ? Math.min(active + 1, last) : Math.max(active - 1, 0));
+      } else if ((e.key === 'Enter' || e.key === ' ') && isOpen()) {
+        e.preventDefault();
+        choose(active);
+      } else if (e.key === 'Escape' && isOpen()) {
+        e.preventDefault();
+        close();
+      } else if (e.key === 'Home' && isOpen()) {
+        e.preventDefault();
+        setActive(0);
+      } else if (e.key === 'End' && isOpen()) {
+        e.preventDefault();
+        setActive(options().length - 1);
+      }
+    });
+    document.addEventListener('click', function (e) {
+      if (isOpen() && !wrap.contains(e.target)) close();
+    });
+    wrap.addEventListener('focusout', function (e) {
+      if (!wrap.contains(e.relatedTarget)) close();
+    });
+    // clicking the label focuses the hidden select: hand that focus to the button
+    sel.addEventListener('focus', function () { btn.focus(); });
+    sel.addEventListener('change', syncLabel);
+    form.addEventListener('reset', function () { setTimeout(syncLabel, 0); });
+    document.addEventListener('i18n-applied', function () {
+      syncLabel();
+      if (isOpen()) render();
+    });
+    syncLabel();
+  }
+  if (form) Array.prototype.forEach.call(form.querySelectorAll('select'), enhanceSelect);
 
   if (form) form.addEventListener('submit', function (e) {
     e.preventDefault();
