@@ -57,8 +57,8 @@
 <link rel="preload" href="assets/fonts/Fraunces-600-normal.woff2" as="font" type="font/woff2" crossorigin blocking="render">
 <link rel="preload" href="assets/fonts/EBGaramond-500-normal.woff2" as="font" type="font/woff2" crossorigin blocking="render">
 <link rel="preload" href="assets/fonts/SpaceGrotesk-500-normal.woff2" as="font" type="font/woff2" crossorigin blocking="render">
-<link rel="stylesheet" href="css/fonts.css?v=62">
-<link rel="stylesheet" href="css/style.css?v=62">
+<link rel="stylesheet" href="css/fonts.css?v=63">
+<link rel="stylesheet" href="css/style.css?v=63">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -558,7 +558,19 @@
   </div>
 </div>
 
-<script src="js/i18n-data.js?v=62"></script>
-<script src="js/main.js?v=62"></script>
+<!-- lead form problem dialog -->
+<div class="lead-modal" id="leadErrModal" hidden>
+  <div class="lead-modal-backdrop" data-close></div>
+  <div class="lead-modal-panel" role="alertdialog" aria-modal="true" aria-labelledby="leadErrTitle">
+    <div class="lead-modal-mark" aria-hidden="true">&#10005;</div>
+    <h3 class="lead-modal-title" id="leadErrTitle" data-i18n="contact.badTitle">Not sent yet.</h3>
+    <p class="lead-modal-body" data-i18n="contact.badBody">This still needs attention:</p>
+    <ul class="lead-modal-list" id="leadErrList"></ul>
+    <button type="button" class="btn btn-primary lead-modal-close" data-close data-i18n="contact.badClose">Back to the form</button>
+  </div>
+</div>
+
+<script src="js/i18n-data.js?v=63"></script>
+<script src="js/main.js?v=63"></script>
 </body>
 </html>

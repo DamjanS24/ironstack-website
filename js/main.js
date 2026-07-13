@@ -357,28 +357,40 @@
     status.textContent = key ? dict()[key] : '';
   }
 
-  // ----- success dialog -----
+  // ----- dialogs: one opener for the receipt and the problem list -----
+  var errModal = document.getElementById('leadErrModal');
   var lastFocus = null;
-  function openModal() {
-    if (!modal) { msg('contact.ok'); return; }
+  var activeModal = null;
+  var activeOnClose = null;
+  function openModal(m, onClose) {
+    if (!m) { msg('contact.ok'); return; }
     lastFocus = document.activeElement;
-    modal.hidden = false;
-    modal.querySelector('.lead-modal-close').focus();
+    activeModal = m;
+    activeOnClose = onClose || null;
+    m.hidden = false;
+    m.querySelector('.lead-modal-close').focus();
     document.addEventListener('keydown', onModalKey);
   }
   function closeModal() {
-    if (!modal || modal.hidden) return;
+    if (!activeModal || activeModal.hidden) return;
+    var m = activeModal;
+    var after = activeOnClose;
+    activeModal = null;
+    activeOnClose = null;
     document.removeEventListener('keydown', onModalKey);
-    modal.classList.add('closing');
+    m.classList.add('closing');
     setTimeout(function () {
-      modal.classList.remove('closing');
-      modal.hidden = true;
-      if (lastFocus && lastFocus.focus) lastFocus.focus();
+      m.classList.remove('closing');
+      m.hidden = true;
+      if (after) after();
+      else if (lastFocus && lastFocus.focus) lastFocus.focus();
     }, 230);
   }
   function onModalKey(e) { if (e.key === 'Escape') closeModal(); }
-  if (modal) modal.addEventListener('click', function (e) {
-    if (e.target.hasAttribute('data-close')) closeModal();
+  [modal, errModal].forEach(function (m) {
+    if (m) m.addEventListener('click', function (e) {
+      if (e.target.hasAttribute('data-close')) closeModal();
+    });
   });
 
   // ----- live field validation: judge on leave, reward while typing -----
@@ -398,22 +410,12 @@
     message: { err: 'contact.errMessage', check: function (v) { return v !== ''; } }
   };
   function judge(key) { return FIELDS[key].check(form[key].value.trim()); }
+  // the label carries the verdict: green check or red cross, the sentences live in the dialog
   function setFieldState(key, state) {
     var label = form[key].closest('label');
     if (!label) return;
     label.classList.toggle('valid', state === true);
     label.classList.toggle('invalid', state === false);
-    var em = label.querySelector('.field-msg');
-    if (state === false) {
-      if (!em) {
-        em = document.createElement('em');
-        em.className = 'field-msg';
-        label.appendChild(em);
-      }
-      em.textContent = dict()[FIELDS[key].err];
-    } else if (em) {
-      em.remove();
-    }
   }
   function resetFieldStates() {
     Object.keys(FIELDS).forEach(function (key) { setFieldState(key, null); });
@@ -442,7 +444,7 @@
       form.reset();
       resetFieldStates();
       msg('');
-      openModal();
+      openModal(modal);
       return;
     }
     var data = {
@@ -464,9 +466,20 @@
       if (state === false) blockers.push(key);
     });
     if (blockers.length) {
-      form[blockers[0]].focus();
-      msg('contact.invalid');
-      status.classList.add('error');
+      var list = document.getElementById('leadErrList');
+      if (errModal && list) {
+        list.textContent = '';
+        blockers.forEach(function (key) {
+          var li = document.createElement('li');
+          li.textContent = dict()[FIELDS[key].err];
+          list.appendChild(li);
+        });
+        openModal(errModal, function () { form[blockers[0]].focus(); });
+      } else {
+        form[blockers[0]].focus();
+        msg('contact.invalid');
+        status.classList.add('error');
+      }
       return;
     }
     var sendBtn = form.querySelector('button[type="submit"]');
@@ -481,7 +494,7 @@
       form.reset();
       resetFieldStates();
       msg('');
-      openModal();
+      openModal(modal);
     }).catch(function () {
       msg('contact.err');
       status.classList.add('error', 'shake');
