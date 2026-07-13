@@ -13,7 +13,7 @@ window.I18N = {
 
     "hero.kicker": "SOVEREIGN IT &amp; AI · AMSTERDAM",
     "hero.title": "Your Business, Your Servers, Your Rules",
-    "hero.sub": "Your apps, data, and AI on your own European servers. Two ways in: Sovereign AI for assistants and automation that keep company data away from US tech firms, and Sovereign Infrastructure for the systems your business runs on.",
+    "hero.sub": "Your apps, data, and AI on European iron you own. Two ways in: Sovereign AI for assistants and automation that keep company data away from US tech firms, and Sovereign Infrastructure for the systems your business runs on.",
     "hero.cta1": "Book a free discovery call",
     "hero.cta2": "See services and prices",
 
@@ -215,7 +215,7 @@ window.I18N = {
 
     "hero.kicker": "SOEVEREINE IT &amp; AI · AMSTERDAM",
     "hero.title": "Jouw Bedrijf, Jouw Servers, Jouw Regels",
-    "hero.sub": "Je apps, data en AI op je eigen Europese servers. Twee ingangen: Soevereine AI voor assistenten en automatisering die je bedrijfsdata weghouden bij Amerikaanse techbedrijven, en Soevereine Infrastructuur voor de systemen waar je bedrijf op draait.",
+    "hero.sub": "Je apps, data en AI op Europese servers die je zelf bezit. Twee ingangen: Soevereine AI voor assistenten en automatisering die je bedrijfsdata weghouden bij Amerikaanse techbedrijven, en Soevereine Infrastructuur voor de systemen waar je bedrijf op draait.",
     "hero.cta1": "Plan een gratis kennismakingsgesprek",
     "hero.cta2": "Bekijk diensten en prijzen",
 
@@ -417,7 +417,7 @@ window.I18N = {
 
     "hero.kicker": "SUVERENA IT &amp; AI · AMSTERDAM",
     "hero.title": "Tvoja Firma, Tvoji Serveri, Tvoja Pravila",
-    "hero.sub": "Tvoje aplikacije, podaci i AI na sopstvenim evropskim serverima. Dva puta do cilja: Suverena AI za asistente i automatizaciju koji čuvaju podatke firme dalje od američkih tehnoloških kompanija, i Suverena infrastruktura za sisteme na kojima tvoja firma radi.",
+    "hero.sub": "Tvoje aplikacije, podaci i AI na evropskim serverima koje sam poseduješ. Dva puta do cilja: Suverena AI za asistente i automatizaciju koji čuvaju podatke firme dalje od američkih tehnoloških kompanija, i Suverena infrastruktura za sisteme na kojima tvoja firma radi.",
     "hero.cta1": "Zakaži besplatan uvodni poziv",
     "hero.cta2": "Pogledaj usluge i cene",
 
@@ -619,7 +619,7 @@ window.I18N = {
 
     "hero.kicker": "СУВЕРЕНА ИТ &amp; AI · АМСТЕРДАМ",
     "hero.title": "Твоја Фирма, Твоји Сервери, Твоја Правила",
-    "hero.sub": "Твоје апликације, подаци и AI на сопственим европским серверима. Два пута до циља: Суверена AI за асистенте и аутоматизацију који чувају податке фирме даље од америчких технолошких компанија, и Суверена инфраструктура за системе на којима твоја фирма ради.",
+    "hero.sub": "Твоје апликације, подаци и AI на европским серверима које сам поседујеш. Два пута до циља: Суверена AI за асистенте и аутоматизацију који чувају податке фирме даље од америчких технолошких компанија, и Суверена инфраструктура за системе на којима твоја фирма ради.",
     "hero.cta1": "Закажи бесплатан уводни позив",
     "hero.cta2": "Погледај услуге и цене",
 
