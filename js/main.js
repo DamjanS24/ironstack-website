@@ -2,7 +2,10 @@
 (function () {
   // ---------- i18n ----------
   var toggle = document.getElementById('langToggle');
+  var LANGS = ['en', 'nl', 'sr-latn', 'sr-cyrl'];
+  var HTML_LANG = { en: 'en', nl: 'nl', 'sr-latn': 'sr-Latn', 'sr-cyrl': 'sr-Cyrl' };
   var lang = localStorage.getItem('ironstack-lang') || 'en';
+  if (LANGS.indexOf(lang) === -1) lang = 'en';
 
   // the page's own HTML is the English source of truth; captured on first swap so EN needs no dictionary
   var enSource = {};
@@ -14,7 +17,7 @@
       if (dict[key]) el.innerHTML = dict[key];
       else if (l === 'en') el.innerHTML = enSource[key];
     });
-    document.documentElement.lang = l;
+    document.documentElement.lang = HTML_LANG[l] || l;
     toggle.querySelectorAll('[data-lang]').forEach(function (sp) {
       sp.classList.toggle('on', sp.getAttribute('data-lang') === l);
     });
@@ -22,7 +25,9 @@
     lang = l;
   }
   if (toggle && window.I18N) {
-    toggle.addEventListener('click', function () { apply(lang === 'en' ? 'nl' : 'en'); });
+    toggle.addEventListener('click', function () {
+      apply(LANGS[(LANGS.indexOf(lang) + 1) % LANGS.length]);
+    });
     if (lang !== 'en') apply(lang);
   } else {
     lang = 'en';
@@ -362,6 +367,9 @@
       name: form.name.value.trim(),
       company: form.company.value.trim(),
       email: form.email.value.trim(),
+      phone: form.phone.value.trim(),
+      reason: form.reason.value,
+      size: form.size.value,
       message: form.message.value.trim(),
       website: form.website.value,
       lang: lang,
