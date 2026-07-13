@@ -381,39 +381,66 @@
     if (e.target.hasAttribute('data-close')) closeModal();
   });
 
-  // ----- field-level errors -----
-  function fieldError(input, key) {
-    var label = input.closest('label');
-    if (!label || label.classList.contains('invalid')) return;
-    label.classList.add('invalid');
-    var em = document.createElement('em');
-    em.className = 'field-msg';
-    em.textContent = dict()[key];
-    label.appendChild(em);
+  // ----- live field validation: judge on leave, reward while typing -----
+  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  function phoneShaped(v) {
+    var digits = v.replace(/\D/g, '');
+    return /^[+0-9][0-9 ()\/.\-]*$/.test(v) && digits.length >= 8 && digits.length <= 15;
   }
-  function clearFieldError(input) {
-    var label = input.closest ? input.closest('label') : null;
+  // true = good (green), false = wrong (red + hint), null = nothing to say yet
+  var FIELDS = {
+    name:    { err: 'contact.errName',    check: function (v) { return v !== ''; } },
+    company: { check: function (v) { return v !== '' ? true : null; } },
+    email:   { err: 'contact.errEmail',   check: function (v) { return EMAIL_RE.test(v); } },
+    phone:   { err: 'contact.errPhone',   check: function (v) { return v === '' ? null : phoneShaped(v); } },
+    reason:  { check: function (v) { return v ? true : null; } },
+    size:    { check: function (v) { return v ? true : null; } },
+    message: { err: 'contact.errMessage', check: function (v) { return v !== ''; } }
+  };
+  function judge(key) { return FIELDS[key].check(form[key].value.trim()); }
+  function setFieldState(key, state) {
+    var label = form[key].closest('label');
     if (!label) return;
-    label.classList.remove('invalid');
+    label.classList.toggle('valid', state === true);
+    label.classList.toggle('invalid', state === false);
     var em = label.querySelector('.field-msg');
-    if (em) em.remove();
+    if (state === false) {
+      if (!em) {
+        em = document.createElement('em');
+        em.className = 'field-msg';
+        label.appendChild(em);
+      }
+      em.textContent = dict()[FIELDS[key].err];
+    } else if (em) {
+      em.remove();
+    }
   }
-  function clearAllErrors() {
-    form.querySelectorAll('label.invalid').forEach(function (l) { l.classList.remove('invalid'); });
-    form.querySelectorAll('.field-msg').forEach(function (m) { m.remove(); });
-    status.classList.remove('error', 'shake');
+  function resetFieldStates() {
+    Object.keys(FIELDS).forEach(function (key) { setFieldState(key, null); });
   }
-
-  if (form) form.addEventListener('input', function (e) {
-    if (e.target) clearFieldError(e.target);
+  if (form) Object.keys(FIELDS).forEach(function (key) {
+    var input = form[key];
+    // leaving the field is the moment of judgement, in both directions
+    input.addEventListener('blur', function () { setFieldState(key, judge(key)); });
+    // while typing: good news lands immediately, bad news only while fixing a known error
+    function live() {
+      var state = judge(key);
+      var label = input.closest('label');
+      if (state === true) setFieldState(key, true);
+      else if (state === null || label.classList.contains('invalid')) setFieldState(key, state);
+      else label.classList.remove('valid'); // not right yet, still typing: back to neutral
+    }
+    input.addEventListener('input', live);
+    input.addEventListener('change', live);
   });
 
   if (form) form.addEventListener('submit', function (e) {
     e.preventDefault();
-    clearAllErrors();
+    status.classList.remove('error', 'shake');
     // spam gate: honeypot filled or form submitted inhumanly fast → pretend success, send nothing
     if (form.website.value !== '' || Date.now() - loadedAt < 3000) {
       form.reset();
+      resetFieldStates();
       msg('');
       openModal();
       return;
@@ -430,13 +457,14 @@
       lang: lang,
       page: location.href
     };
-    var invalid = [];
-    if (!data.name) invalid.push([form.name, 'contact.errName']);
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) invalid.push([form.email, 'contact.errEmail']);
-    if (!data.message) invalid.push([form.message, 'contact.errMessage']);
-    if (invalid.length) {
-      invalid.forEach(function (f) { fieldError(f[0], f[1]); });
-      invalid[0][0].focus();
+    var blockers = [];
+    Object.keys(FIELDS).forEach(function (key) {
+      var state = judge(key);
+      setFieldState(key, state);
+      if (state === false) blockers.push(key);
+    });
+    if (blockers.length) {
+      form[blockers[0]].focus();
       msg('contact.invalid');
       status.classList.add('error');
       return;
@@ -451,6 +479,7 @@
     }).then(function (r) {
       if (!r.ok) throw new Error(r.status);
       form.reset();
+      resetFieldStates();
       msg('');
       openModal();
     }).catch(function () {

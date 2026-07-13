@@ -147,6 +147,7 @@ window.I18N = {
     "contact.okClose": "Close",
     "contact.errName": "Please fill in your name.",
     "contact.errEmail": "That email address does not look right.",
+    "contact.errPhone": "That phone number does not look right.",
     "contact.errMessage": "Please write a short message.",
 
     "exit.title": "The exit clause",
@@ -355,6 +356,7 @@ window.I18N = {
     "contact.okClose": "Sluiten",
     "contact.errName": "Vul je naam in.",
     "contact.errEmail": "Dat e-mailadres klopt niet.",
+    "contact.errPhone": "Dat telefoonnummer klopt niet.",
     "contact.errMessage": "Schrijf een kort bericht.",
 
     "exit.title": "De exit-clausule",
@@ -563,6 +565,7 @@ window.I18N = {
     "contact.okClose": "Zatvori",
     "contact.errName": "Upiši svoje ime.",
     "contact.errEmail": "Ova email adresa ne izgleda ispravno.",
+    "contact.errPhone": "Ovaj broj telefona ne izgleda ispravno.",
     "contact.errMessage": "Napiši kratku poruku.",
 
     "exit.title": "Klauzula o izlasku",
@@ -771,6 +774,7 @@ window.I18N = {
     "contact.okClose": "Затвори",
     "contact.errName": "Упиши своје име.",
     "contact.errEmail": "Ова email адреса не изгледа исправно.",
+    "contact.errPhone": "Овај број телефона не изгледа исправно.",
     "contact.errMessage": "Напиши кратку поруку.",
 
     "exit.title": "Клаузула о изласку",
