@@ -57,8 +57,8 @@
 <link rel="preload" href="assets/fonts/Fraunces-600-normal.woff2" as="font" type="font/woff2" crossorigin blocking="render">
 <link rel="preload" href="assets/fonts/EBGaramond-500-normal.woff2" as="font" type="font/woff2" crossorigin blocking="render">
 <link rel="preload" href="assets/fonts/SpaceGrotesk-500-normal.woff2" as="font" type="font/woff2" crossorigin blocking="render">
-<link rel="stylesheet" href="css/fonts.css?v=60">
-<link rel="stylesheet" href="css/style.css?v=60">
+<link rel="stylesheet" href="css/fonts.css?v=61">
+<link rel="stylesheet" href="css/style.css?v=61">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -547,7 +547,18 @@
   <p class="footer-fine" data-i18n="footer.fine">Built and hosted on Ironstack’s own infrastructure. No analytics, no trackers, no cookies.</p>
 </footer>
 
-<script src="js/i18n-data.js?v=60"></script>
-<script src="js/main.js?v=60"></script>
+<!-- lead form result dialog -->
+<div class="lead-modal" id="leadModal" hidden>
+  <div class="lead-modal-backdrop" data-close></div>
+  <div class="lead-modal-panel" role="dialog" aria-modal="true" aria-labelledby="leadModalTitle">
+    <div class="lead-modal-seal" aria-hidden="true"></div>
+    <h3 class="lead-modal-title" id="leadModalTitle" data-i18n="contact.okTitle">Received.</h3>
+    <p class="lead-modal-body" data-i18n="contact.okBody">Your message is in. You hear from me within one business day.</p>
+    <button type="button" class="btn btn-primary lead-modal-close" data-close data-i18n="contact.okClose">Close</button>
+  </div>
+</div>
+
+<script src="js/i18n-data.js?v=61"></script>
+<script src="js/main.js?v=61"></script>
 </body>
 </html>

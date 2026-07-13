@@ -349,18 +349,73 @@
   var WEBHOOK = 'https://n8n.ironstack.nl/webhook/website-lead';
   var form = document.getElementById('leadForm');
   var status = document.getElementById('formStatus');
+  var modal = document.getElementById('leadModal');
   var loadedAt = Date.now();
 
+  function dict() { return window.I18N[lang] || window.I18N.en; }
   function msg(key) {
-    status.textContent = (window.I18N[lang] || window.I18N.en)[key];
+    status.textContent = key ? dict()[key] : '';
   }
+
+  // ----- success dialog -----
+  var lastFocus = null;
+  function openModal() {
+    if (!modal) { msg('contact.ok'); return; }
+    lastFocus = document.activeElement;
+    modal.hidden = false;
+    modal.querySelector('.lead-modal-close').focus();
+    document.addEventListener('keydown', onModalKey);
+  }
+  function closeModal() {
+    if (!modal || modal.hidden) return;
+    document.removeEventListener('keydown', onModalKey);
+    modal.classList.add('closing');
+    setTimeout(function () {
+      modal.classList.remove('closing');
+      modal.hidden = true;
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    }, 230);
+  }
+  function onModalKey(e) { if (e.key === 'Escape') closeModal(); }
+  if (modal) modal.addEventListener('click', function (e) {
+    if (e.target.hasAttribute('data-close')) closeModal();
+  });
+
+  // ----- field-level errors -----
+  function fieldError(input, key) {
+    var label = input.closest('label');
+    if (!label || label.classList.contains('invalid')) return;
+    label.classList.add('invalid');
+    var em = document.createElement('em');
+    em.className = 'field-msg';
+    em.textContent = dict()[key];
+    label.appendChild(em);
+  }
+  function clearFieldError(input) {
+    var label = input.closest ? input.closest('label') : null;
+    if (!label) return;
+    label.classList.remove('invalid');
+    var em = label.querySelector('.field-msg');
+    if (em) em.remove();
+  }
+  function clearAllErrors() {
+    form.querySelectorAll('label.invalid').forEach(function (l) { l.classList.remove('invalid'); });
+    form.querySelectorAll('.field-msg').forEach(function (m) { m.remove(); });
+    status.classList.remove('error', 'shake');
+  }
+
+  if (form) form.addEventListener('input', function (e) {
+    if (e.target) clearFieldError(e.target);
+  });
 
   if (form) form.addEventListener('submit', function (e) {
     e.preventDefault();
+    clearAllErrors();
     // spam gate: honeypot filled or form submitted inhumanly fast → pretend success, send nothing
     if (form.website.value !== '' || Date.now() - loadedAt < 3000) {
       form.reset();
-      msg('contact.ok');
+      msg('');
+      openModal();
       return;
     }
     var data = {
@@ -375,8 +430,15 @@
       lang: lang,
       page: location.href
     };
-    if (!data.name || !data.message || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
+    var invalid = [];
+    if (!data.name) invalid.push([form.name, 'contact.errName']);
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) invalid.push([form.email, 'contact.errEmail']);
+    if (!data.message) invalid.push([form.message, 'contact.errMessage']);
+    if (invalid.length) {
+      invalid.forEach(function (f) { fieldError(f[0], f[1]); });
+      invalid[0][0].focus();
       msg('contact.invalid');
+      status.classList.add('error');
       return;
     }
     var sendBtn = form.querySelector('button[type="submit"]');
@@ -389,9 +451,11 @@
     }).then(function (r) {
       if (!r.ok) throw new Error(r.status);
       form.reset();
-      msg('contact.ok');
+      msg('');
+      openModal();
     }).catch(function () {
       msg('contact.err');
+      status.classList.add('error', 'shake');
     }).finally(function () {
       sendBtn.disabled = false;
     });
