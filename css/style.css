@@ -365,6 +365,11 @@ a { color: inherit; }
 .lead-form input:focus, .lead-form select:focus { outline: none; border-bottom-color: var(--ink); }
 .lead-form textarea:focus { outline: none; border-color: var(--ink); }
 .select-wrap:focus-within::after { border-color: var(--ink); }
+/* phone splits into a narrow country-code select and the number itself */
+.phone-group { display: flex; gap: 14px; }
+.phone-group .phone-cc { flex: 0 0 auto; }
+.phone-group select { width: auto; }
+.phone-group input { flex: 1 1 auto; min-width: 0; }
 /* Chrome/Safari autofill paints its own background; force it back to the page ground */
 .lead-form input:-webkit-autofill,
 .lead-form input:-webkit-autofill:hover,

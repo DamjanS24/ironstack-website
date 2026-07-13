@@ -564,6 +564,7 @@
       company: form.company.value.trim(),
       email: form.email.value.trim(),
       phone: form.phone.value.trim(),
+      phoneCountry: form.phoneCountry.value,
       reason: form.reason.value,
       size: form.size.value,
       message: form.message.value.trim(),
