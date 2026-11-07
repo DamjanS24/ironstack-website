@@ -9,7 +9,7 @@ window.I18N = {
     "nav.about": "About",
     "nav.contact": "Contact",
     "menu.replace": "REPLACE",
-    "menu.proof": "PROOF &amp; METHOD",
+    "menu.proof": "THE METHOD",
 
     "hero.kicker": "SOVEREIGN IT &amp; AI · AMSTERDAM",
     "hero.title": "Your Business, Your Servers, Your Rules",
@@ -179,7 +179,6 @@ window.I18N = {
     "footer.migration": "Migration",
     "footer.managed": "Managed Sovereignty",
     "footer.method": "The Method",
-    "footer.register": "Stack Register",
 
     "privacy.title": "Privacy",
     "privacy.updated": "Last updated: 10 July 2026",
@@ -379,7 +378,6 @@ window.I18N = {
     "footer.migration": "Migratie",
     "footer.managed": "Beheerde Soevereiniteit",
     "footer.method": "De Methode",
-    "footer.register": "Stackregister",
 
     "privacy.title": "Privacy",
     "privacy.updated": "Laatst bijgewerkt: 10 juli 2026",
@@ -579,7 +577,6 @@ window.I18N = {
     "footer.migration": "Migracija",
     "footer.managed": "Upravljani suverenitet",
     "footer.method": "Metod",
-    "footer.register": "Stack registar",
 
     "privacy.title": "Privatnost",
     "privacy.updated": "Poslednje ažurirano: 10. jul 2026.",
@@ -779,7 +776,6 @@ window.I18N = {
     "footer.migration": "Миграција",
     "footer.managed": "Управљани суверенитет",
     "footer.method": "Метод",
-    "footer.register": "Stack регистар",
 
     "privacy.title": "Приватност",
     "privacy.updated": "Последње ажурирано: 10. јул 2026.",
