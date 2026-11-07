@@ -9,7 +9,6 @@ window.I18N = {
     "nav.about": "About",
     "nav.contact": "Contact",
     "menu.replace": "REPLACE",
-    "menu.proof": "THE METHOD",
 
     "hero.kicker": "SOVEREIGN IT &amp; AI · AMSTERDAM",
     "hero.title": "Your Business, Your Servers, Your Rules",
@@ -208,7 +207,6 @@ window.I18N = {
     "nav.about": "Over",
     "nav.contact": "Contact",
     "menu.replace": "VERVANGEN",
-    "menu.proof": "BEWIJS &amp; METHODE",
 
     "hero.kicker": "SOEVEREINE IT &amp; AI · AMSTERDAM",
     "hero.title": "Jouw Bedrijf, Jouw Servers, Jouw Regels",
@@ -407,7 +405,6 @@ window.I18N = {
     "nav.about": "O meni",
     "nav.contact": "Kontakt",
     "menu.replace": "ZAMENA",
-    "menu.proof": "DOKAZI &amp; METOD",
 
     "hero.kicker": "SUVERENA IT &amp; AI · AMSTERDAM",
     "hero.title": "Tvoja Firma, Tvoji Serveri, Tvoja Pravila",
@@ -606,7 +603,6 @@ window.I18N = {
     "nav.about": "О мени",
     "nav.contact": "Контакт",
     "menu.replace": "ЗАМЕНА",
-    "menu.proof": "ДОКАЗИ &amp; МЕТОД",
 
     "hero.kicker": "СУВЕРЕНА ИТ &amp; AI · АМСТЕРДАМ",
     "hero.title": "Твоја Фирма, Твоји Сервери, Твоја Правила",
