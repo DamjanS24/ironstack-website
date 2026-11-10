@@ -23,6 +23,7 @@
     });
     localStorage.setItem('ironstack-lang', l);
     lang = l;
+    document.dispatchEvent(new CustomEvent('i18n-applied'));
   }
   if (toggle && window.I18N) {
     toggle.addEventListener('click', function () {
@@ -349,18 +350,330 @@
   var WEBHOOK = 'https://n8n.ironstack.nl/webhook/website-lead';
   var form = document.getElementById('leadForm');
   var status = document.getElementById('formStatus');
+  var modal = document.getElementById('leadModal');
   var loadedAt = Date.now();
 
+  function dict() { return window.I18N[lang] || window.I18N.en; }
   function msg(key) {
-    status.textContent = (window.I18N[lang] || window.I18N.en)[key];
+    status.textContent = key ? dict()[key] : '';
   }
+
+  // ----- dialogs: one opener for the receipt and the problem list -----
+  var errModal = document.getElementById('leadErrModal');
+  var lastFocus = null;
+  var activeModal = null;
+  var activeOnClose = null;
+  function openModal(m, onClose) {
+    if (!m) { msg('contact.ok'); return; }
+    lastFocus = document.activeElement;
+    activeModal = m;
+    activeOnClose = onClose || null;
+    m.hidden = false;
+    m.querySelector('.lead-modal-close').focus();
+    document.addEventListener('keydown', onModalKey);
+  }
+  function closeModal() {
+    if (!activeModal || activeModal.hidden) return;
+    var m = activeModal;
+    var after = activeOnClose;
+    activeModal = null;
+    activeOnClose = null;
+    document.removeEventListener('keydown', onModalKey);
+    m.classList.add('closing');
+    setTimeout(function () {
+      m.classList.remove('closing');
+      m.hidden = true;
+      if (after) after();
+      else if (lastFocus && lastFocus.focus) lastFocus.focus();
+    }, 230);
+  }
+  function onModalKey(e) { if (e.key === 'Escape') closeModal(); }
+  [modal, errModal].forEach(function (m) {
+    if (m) m.addEventListener('click', function (e) {
+      if (e.target.hasAttribute('data-close')) closeModal();
+    });
+  });
+
+  // ----- live field validation: judge on leave, reward while typing -----
+  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  function phoneShaped(v) {
+    var digits = v.replace(/\D/g, '');
+    return /^[+0-9][0-9 ()\/.\-]*$/.test(v) && digits.length >= 8 && digits.length <= 15;
+  }
+  // true = good (green), false = wrong (red + hint), null = nothing to say yet
+  var FIELDS = {
+    name:    { err: 'contact.errName',    check: function (v) { return v !== ''; } },
+    company: { check: function (v) { return v !== '' ? true : null; } },
+    email:   { err: 'contact.errEmail',   check: function (v) { return EMAIL_RE.test(v); } },
+    phone:   { err: 'contact.errPhone',   check: function (v) { return v === '' ? null : phoneShaped(v); } },
+    reason:  { check: function (v) { return v ? true : null; } },
+    size:    { check: function (v) { return v ? true : null; } },
+    message: { err: 'contact.errMessage', check: function (v) { return v !== ''; } }
+  };
+  function judge(key) { return FIELDS[key].check(form[key].value.trim()); }
+  // the label carries the verdict: green check or red cross, the sentences live in the dialog
+  function setFieldState(key, state) {
+    var label = form[key].closest('label');
+    if (!label) return;
+    label.classList.toggle('valid', state === true);
+    label.classList.toggle('invalid', state === false);
+  }
+  function resetFieldStates() {
+    Object.keys(FIELDS).forEach(function (key) { setFieldState(key, null); });
+  }
+  if (form) Object.keys(FIELDS).forEach(function (key) {
+    var input = form[key];
+    // leaving the field is the moment of judgement, in both directions
+    input.addEventListener('blur', function () { setFieldState(key, judge(key)); });
+    // while typing: good news lands immediately, bad news only while fixing a known error
+    function live() {
+      var state = judge(key);
+      var label = input.closest('label');
+      if (state === true) setFieldState(key, true);
+      else if (state === null || label.classList.contains('invalid')) setFieldState(key, state);
+      else label.classList.remove('valid'); // not right yet, still typing: back to neutral
+    }
+    input.addEventListener('input', live);
+    input.addEventListener('change', live);
+  });
+
+  // ----- country-code picker: the native select becomes a searchable panel -----
+  // the <select> stays the form value and the no-JS fallback; the button + panel are
+  // presentation on top of it. Country names come from Intl at the current site language.
+  var ccPicker = form && form.phoneCountry ? form.phoneCountry.closest('.cc-picker') : null;
+  if (ccPicker) (function () {
+    var select = form.phoneCountry;
+    var options = Array.prototype.map.call(select.options, function (o) {
+      return { iso: o.value, code: o.textContent.trim().split(/\s+/)[1] };
+    });
+    function countryName(iso) {
+      try { return new Intl.DisplayNames([HTML_LANG[lang] || 'en'], { type: 'region' }).of(iso) || iso; }
+      catch (e) { return iso; }
+    }
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'cc-btn';
+    btn.setAttribute('aria-haspopup', 'listbox');
+    btn.setAttribute('aria-expanded', 'false');
+    var panel = document.createElement('span');
+    panel.className = 'cc-panel';
+    panel.hidden = true;
+    var search = document.createElement('input');
+    search.type = 'text';
+    search.className = 'cc-search';
+    search.autocomplete = 'off';
+    var list = document.createElement('ul');
+    list.className = 'cc-list';
+    list.setAttribute('role', 'listbox');
+    panel.appendChild(search);
+    panel.appendChild(list);
+    ccPicker.appendChild(btn);
+    ccPicker.appendChild(panel);
+    ccPicker.classList.add('enhanced');
+
+    function label() {
+      var o = options.filter(function (x) { return x.iso === select.value; })[0] || options[0];
+      btn.textContent = o.iso + ' ' + o.code;
+    }
+    // rebuilt on every open so a language switch renames the countries for free
+    function rebuild() {
+      list.textContent = '';
+      options.forEach(function (o) {
+        var li = document.createElement('li');
+        li.setAttribute('role', 'option');
+        li.dataset.value = o.iso;
+        li.dataset.text = (o.iso + ' ' + countryName(o.iso) + ' ' + o.code).toLowerCase();
+        li.setAttribute('aria-selected', o.iso === select.value ? 'true' : 'false');
+        var name = document.createElement('span');
+        name.textContent = countryName(o.iso);
+        var code = document.createElement('span');
+        code.className = 'cc-code';
+        code.textContent = o.code;
+        li.appendChild(name);
+        li.appendChild(code);
+        list.appendChild(li);
+      });
+    }
+    var active = null;
+    function mark(li) {
+      if (active) active.classList.remove('active');
+      active = li || null;
+      if (active) { active.classList.add('active'); active.scrollIntoView({ block: 'nearest' }); }
+    }
+    function visible() {
+      return Array.prototype.filter.call(list.children, function (li) { return !li.hidden; });
+    }
+    function filter() {
+      var q = search.value.trim().toLowerCase();
+      Array.prototype.forEach.call(list.children, function (li) {
+        li.hidden = q !== '' && li.dataset.text.indexOf(q) === -1;
+      });
+      mark(q === '' ? list.querySelector('[aria-selected="true"]') : visible()[0]);
+    }
+    function open() {
+      rebuild();
+      search.placeholder = dict()['contact.ccSearch'] || 'Search…';
+      search.setAttribute('aria-label', search.placeholder);
+      search.value = '';
+      panel.hidden = false;
+      btn.setAttribute('aria-expanded', 'true');
+      filter();
+      search.focus();
+    }
+    function close(refocus) {
+      if (panel.hidden) return;
+      panel.hidden = true;
+      btn.setAttribute('aria-expanded', 'false');
+      if (refocus) btn.focus();
+    }
+    function choose(li) {
+      select.value = li.dataset.value;
+      label();
+      close(true);
+    }
+    btn.addEventListener('click', function () { if (panel.hidden) open(); else close(true); });
+    // mousedown would steal focus from the search field before the click lands
+    list.addEventListener('mousedown', function (e) { e.preventDefault(); });
+    list.addEventListener('click', function (e) {
+      var li = e.target.closest('li');
+      if (li) choose(li);
+    });
+    search.addEventListener('input', filter);
+    panel.addEventListener('keydown', function (e) {
+      var vis = visible();
+      var i = vis.indexOf(active);
+      if (e.key === 'ArrowDown') { e.preventDefault(); mark(vis[Math.min(i + 1, vis.length - 1)] || vis[0]); }
+      else if (e.key === 'ArrowUp') { e.preventDefault(); mark(vis[Math.max(i - 1, 0)] || vis[0]); }
+      else if (e.key === 'Enter') { e.preventDefault(); if (active) choose(active); }
+      else if (e.key === 'Escape') { e.stopPropagation(); close(true); }
+    });
+    document.addEventListener('click', function (e) {
+      if (!ccPicker.contains(e.target)) close(false);
+    });
+    form.addEventListener('reset', function () { close(false); setTimeout(label, 0); });
+    label();
+  })();
+
+  // ----- custom dropdowns: the native option list can't be styled, so the
+  // select stays as the form field and a styled listbox takes over the UI -----
+  function enhanceSelect(sel) {
+    var wrap = sel.closest('.select-wrap');
+    if (!wrap) return;
+    wrap.classList.add('enhanced');
+    sel.setAttribute('tabindex', '-1');
+    sel.setAttribute('aria-hidden', 'true');
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'select-btn';
+    btn.setAttribute('aria-haspopup', 'listbox');
+    btn.setAttribute('aria-expanded', 'false');
+    var menu = document.createElement('ul');
+    menu.className = 'select-menu';
+    menu.setAttribute('role', 'listbox');
+    menu.id = 'menu-' + sel.name;
+    wrap.appendChild(btn);
+    wrap.appendChild(menu);
+
+    var active = -1;
+    function options() {
+      return Array.prototype.filter.call(sel.options, function (o) { return !o.disabled; });
+    }
+    function syncLabel() {
+      var o = sel.options[sel.selectedIndex];
+      btn.textContent = o ? o.textContent : '';
+      btn.classList.toggle('placeholder', !sel.value);
+    }
+    function setActive(i) {
+      active = i;
+      Array.prototype.forEach.call(menu.children, function (li, j) {
+        li.classList.toggle('active', j === i);
+      });
+      if (i > -1) btn.setAttribute('aria-activedescendant', menu.id + '-' + i);
+      else btn.removeAttribute('aria-activedescendant');
+    }
+    function render() {
+      menu.textContent = '';
+      options().forEach(function (o, i) {
+        var li = document.createElement('li');
+        li.className = 'select-opt';
+        li.id = menu.id + '-' + i;
+        li.setAttribute('role', 'option');
+        li.setAttribute('aria-selected', String(o.value === sel.value && sel.value !== ''));
+        li.textContent = o.textContent;
+        li.addEventListener('mouseenter', function () { setActive(i); });
+        li.addEventListener('click', function () { choose(i); });
+        menu.appendChild(li);
+      });
+    }
+    function isOpen() { return wrap.classList.contains('open'); }
+    function open() {
+      render();
+      setActive(Math.max(0, options().indexOf(sel.options[sel.selectedIndex])));
+      wrap.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+    function close() {
+      wrap.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+      setActive(-1);
+    }
+    function choose(i) {
+      var o = options()[i];
+      if (!o) return;
+      sel.value = o.value;
+      sel.dispatchEvent(new Event('change', { bubbles: true }));
+      syncLabel();
+      close();
+      btn.focus();
+    }
+    btn.addEventListener('click', function () { isOpen() ? close() : open(); });
+    btn.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        if (!isOpen()) { open(); return; }
+        var last = options().length - 1;
+        setActive(e.key === 'ArrowDown' ? Math.min(active + 1, last) : Math.max(active - 1, 0));
+      } else if ((e.key === 'Enter' || e.key === ' ') && isOpen()) {
+        e.preventDefault();
+        choose(active);
+      } else if (e.key === 'Escape' && isOpen()) {
+        e.preventDefault();
+        close();
+      } else if (e.key === 'Home' && isOpen()) {
+        e.preventDefault();
+        setActive(0);
+      } else if (e.key === 'End' && isOpen()) {
+        e.preventDefault();
+        setActive(options().length - 1);
+      }
+    });
+    document.addEventListener('click', function (e) {
+      if (isOpen() && !wrap.contains(e.target)) close();
+    });
+    wrap.addEventListener('focusout', function (e) {
+      if (!wrap.contains(e.relatedTarget)) close();
+    });
+    // clicking the label focuses the hidden select: hand that focus to the button
+    sel.addEventListener('focus', function () { btn.focus(); });
+    sel.addEventListener('change', syncLabel);
+    form.addEventListener('reset', function () { setTimeout(syncLabel, 0); });
+    document.addEventListener('i18n-applied', function () {
+      syncLabel();
+      if (isOpen()) render();
+    });
+    syncLabel();
+  }
+  if (form) Array.prototype.forEach.call(form.querySelectorAll('select'), enhanceSelect);
 
   if (form) form.addEventListener('submit', function (e) {
     e.preventDefault();
+    status.classList.remove('error', 'shake');
     // spam gate: honeypot filled or form submitted inhumanly fast → pretend success, send nothing
     if (form.website.value !== '' || Date.now() - loadedAt < 3000) {
       form.reset();
-      msg('contact.ok');
+      resetFieldStates();
+      msg('');
+      openModal(modal);
       return;
     }
     var data = {
@@ -368,6 +681,7 @@
       company: form.company.value.trim(),
       email: form.email.value.trim(),
       phone: form.phone.value.trim(),
+      phoneCountry: form.phoneCountry.value,
       reason: form.reason.value,
       size: form.size.value,
       message: form.message.value.trim(),
@@ -375,8 +689,27 @@
       lang: lang,
       page: location.href
     };
-    if (!data.name || !data.message || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
-      msg('contact.invalid');
+    var blockers = [];
+    Object.keys(FIELDS).forEach(function (key) {
+      var state = judge(key);
+      setFieldState(key, state);
+      if (state === false) blockers.push(key);
+    });
+    if (blockers.length) {
+      var list = document.getElementById('leadErrList');
+      if (errModal && list) {
+        list.textContent = '';
+        blockers.forEach(function (key) {
+          var li = document.createElement('li');
+          li.textContent = dict()[FIELDS[key].err];
+          list.appendChild(li);
+        });
+        openModal(errModal, function () { form[blockers[0]].focus(); });
+      } else {
+        form[blockers[0]].focus();
+        msg('contact.invalid');
+        status.classList.add('error');
+      }
       return;
     }
     var sendBtn = form.querySelector('button[type="submit"]');
@@ -389,9 +722,12 @@
     }).then(function (r) {
       if (!r.ok) throw new Error(r.status);
       form.reset();
-      msg('contact.ok');
+      resetFieldStates();
+      msg('');
+      openModal(modal);
     }).catch(function () {
       msg('contact.err');
+      status.classList.add('error', 'shake');
     }).finally(function () {
       sendBtn.disabled = false;
     });

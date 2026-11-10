@@ -333,6 +333,7 @@ a { color: inherit; }
 }
 .tilt-tag-text { display: flex; flex-direction: column; min-width: 0; transform-style: preserve-3d; }
 .tilt-tag-text strong { font-family: var(--serif); font-weight: 600; font-size: 14px; line-height: 1.25; white-space: nowrap; color: var(--ink); transform: translateZ(16px); text-shadow: 0 5px 12px rgba(23, 21, 15, 0.22); }
+.tilt-tag-text strong .tag-diamond { font-size: 7.5px; vertical-align: 2px; }
 .tilt-tag-text span { font-family: var(--garamond); font-size: 9.5px; line-height: 1.45; letter-spacing: 2px; color: var(--muted); margin: 4px 0; transform: translateZ(10px); text-shadow: 0 3px 8px rgba(23, 21, 15, 0.16); }
 .tilt-tag-text a { font-size: 11.5px; line-height: 1.2; color: var(--body); text-decoration: none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; transform: translateZ(6px); text-shadow: 0 3px 8px rgba(23, 21, 15, 0.14); }
 .tilt-tag-text a:hover { color: var(--ink); }
@@ -370,6 +371,65 @@ a { color: inherit; }
 .lead-form input:focus, .lead-form select:focus { outline: none; border-bottom-color: var(--ink); }
 .lead-form textarea:focus { outline: none; border-color: var(--ink); }
 .select-wrap:focus-within::after { border-color: var(--ink); }
+/* phone splits into a narrow country-code picker and the number itself */
+.phone-group { display: flex; gap: 14px; align-items: flex-end; }
+.phone-group .cc-picker { flex: 0 0 auto; position: relative; }
+.phone-group select { width: auto; }
+.phone-group input[type="tel"] { flex: 1 1 auto; min-width: 0; }
+/* no-JS fallback keeps the native select, dressed with the usual chevron */
+.cc-picker:not(.enhanced)::after {
+  content: ''; position: absolute; right: 3px; top: 50%; width: 6px; height: 6px;
+  border-right: 1.5px solid var(--muted); border-bottom: 1.5px solid var(--muted);
+  transform: translateY(-65%) rotate(45deg); pointer-events: none;
+}
+.cc-picker.enhanced > select { display: none; }
+.cc-btn {
+  display: inline-flex; align-items: center; gap: 10px; cursor: pointer;
+  background: transparent; border: none; border-bottom: 1px solid var(--rule); border-radius: 0;
+  padding: 10px 2px; font-family: var(--sans); font-size: 15px; color: var(--ink);
+  transition: border-color .16s ease;
+}
+.cc-btn::after {
+  content: ''; width: 6px; height: 6px; margin-top: -3px;
+  border-right: 1.5px solid var(--muted); border-bottom: 1.5px solid var(--muted);
+  transform: rotate(45deg); transition: border-color .18s ease;
+}
+.cc-btn:hover { border-bottom-color: #B8B09C; }
+.cc-btn:focus { outline: none; border-bottom-color: var(--ink); }
+.cc-btn:hover::after, .cc-btn:focus::after { border-color: var(--ink); }
+.lead-form label.invalid .cc-btn { border-bottom-color: var(--err); }
+.lead-form label.valid .cc-btn { border-bottom-color: var(--ok); }
+/* the picker panel: a search field on top, the country register scrolling below it;
+   dressed like .select-menu so the form's dropdowns read as one family */
+.cc-panel {
+  position: absolute; left: 0; top: calc(100% + 6px); z-index: 70; display: block;
+  width: min(300px, 78vw);
+  background: color-mix(in srgb, var(--cream) 97%, transparent);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--rule);
+  box-shadow: 0 26px 40px -28px rgba(23, 21, 15, 0.45);
+}
+.cc-panel[hidden] { display: none; }
+.cc-search {
+  width: 100%; background: transparent; border: none; border-bottom: 1px solid var(--rule);
+  padding: 11px 14px; font-family: var(--sans); font-size: 14px; color: var(--ink);
+}
+.cc-search:focus { outline: none; border-bottom-color: var(--ink); }
+.cc-list { list-style: none; margin: 0; padding: 6px 0; max-height: 234px; overflow-y: auto; overscroll-behavior: contain; }
+.cc-list li {
+  position: relative; display: flex; justify-content: space-between; align-items: baseline; gap: 14px;
+  padding: 9px 16px 9px 34px; cursor: pointer; font-family: var(--sans); font-size: 14.5px; color: var(--body);
+  transition: color .14s ease, background .14s ease;
+}
+.cc-list li[hidden] { display: none; }
+.cc-list li .cc-code { font-family: var(--mono); font-size: 12px; letter-spacing: 0.5px; color: var(--muted); }
+.cc-list li:hover, .cc-list li.active { color: var(--ink); background: color-mix(in srgb, var(--ink) 6%, transparent); }
+.cc-list li[aria-selected="true"], .cc-list li[aria-selected="true"] .cc-code { color: var(--ink); }
+.cc-list li[aria-selected="true"]::before {
+  content: '◆'; position: absolute; left: 15px; top: 50%; transform: translateY(-50%);
+  font-size: 8px; color: var(--muted);
+}
+[data-theme="dark"] .cc-panel { box-shadow: 0 26px 40px -28px rgba(0, 0, 0, 0.8); }
 /* Chrome/Safari autofill paints its own background; force it back to the page ground */
 .lead-form input:-webkit-autofill,
 .lead-form input:-webkit-autofill:hover,
@@ -818,3 +878,137 @@ a { color: inherit; }
 [data-theme="dark"] .tag-plate { background: rgba(20, 18, 13, 0.78); border-color: rgba(234, 227, 210, 0.16); box-shadow: 0 18px 34px -18px rgba(0, 0, 0, 0.8); }
 [data-theme="dark"] .tilt-tag-text strong { text-shadow: 0 5px 12px rgba(0, 0, 0, 0.55); }
 [data-theme="dark"] .tilt-tag-text span, [data-theme="dark"] .tilt-tag-text a { text-shadow: 0 3px 8px rgba(0, 0, 0, 0.45); }
+
+/* ---------- lead form: validation + submission feedback ----------
+   --err is functional feedback, not a brand accent: a brick red that sits
+   in the ink/cream world instead of alarm-red */
+:root { --err: #9C4130; }
+[data-theme="dark"] { --err: #D08E76; }
+
+.lead-form label.invalid > span:first-child { color: var(--err); }
+.lead-form label.invalid > span:first-child::after { content: ' ✕'; color: var(--err); font-family: var(--sans); letter-spacing: 0; }
+.lead-form label.invalid input,
+.lead-form label.invalid .select-btn,
+.lead-form label.invalid select { border-bottom-color: var(--err); }
+.lead-form label.invalid textarea { border-color: var(--err); }
+.form-status.error { color: var(--err); }
+.form-status.shake { animation: status-shake .45s ease; }
+@keyframes status-shake {
+  20% { transform: translateX(-6px); }
+  45% { transform: translateX(5px); }
+  70% { transform: translateX(-3px); }
+  90% { transform: translateX(2px); }
+}
+
+/* ---------- lead modal: the receipt ---------- */
+.lead-modal { position: fixed; inset: 0; z-index: 90; display: grid; place-items: center; padding: 22px; }
+.lead-modal[hidden] { display: none; }
+.lead-modal-backdrop {
+  position: absolute; inset: 0;
+  background: rgba(23, 21, 15, 0.44);
+  -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px);
+  animation: lead-fade-in .3s ease both;
+}
+.lead-modal-panel {
+  position: relative; width: min(430px, 100%);
+  background: var(--paper); border: 1px solid var(--rule);
+  padding: 46px 42px 38px; text-align: center;
+  box-shadow: 0 34px 70px -32px rgba(23, 21, 15, 0.55);
+  animation: lead-panel-in .55s cubic-bezier(.16, 1, .3, 1) both;
+}
+.lead-modal-seal {
+  width: 78px; aspect-ratio: 1; margin: 0 auto 20px;
+  background: url('../assets/ironstack-seal-small-ink.svg') center/contain no-repeat;
+  animation: lead-seal-press .6s cubic-bezier(.16, 1.1, .3, 1) .22s both;
+}
+[data-theme="dark"] .lead-modal-seal { background-image: url('../assets/ironstack-seal-small-cream.svg'); }
+[data-theme="dark"] .lead-modal-panel { box-shadow: 0 34px 70px -32px rgba(0, 0, 0, 0.85); }
+/* the problem dialog: a crossed ring where the seal would sit, and the list of what to fix */
+.lead-modal-mark {
+  width: 78px; height: 78px; margin: 0 auto 20px;
+  border: 1.5px solid var(--err); border-radius: 50%;
+  display: grid; place-items: center;
+  font-family: var(--sans); font-size: 28px; line-height: 1; color: var(--err);
+  animation: lead-seal-press .6s cubic-bezier(.16, 1.1, .3, 1) .22s both;
+}
+.lead-modal-list {
+  list-style: none; margin: 0 0 28px; padding: 0;
+  font-family: var(--garamond); font-style: italic; font-size: 16.5px; line-height: 1.75; color: var(--body);
+}
+.lead-modal-list li::before { content: '✕'; color: var(--err); font-family: var(--sans); font-style: normal; font-size: 11px; margin-right: 9px; vertical-align: 1px; }
+.lead-modal-title { font-family: var(--serif); font-weight: 600; font-size: 30px; letter-spacing: .2px; color: var(--ink); margin-bottom: 10px; }
+.lead-modal-body { font-family: var(--garamond); font-style: italic; font-size: 17px; line-height: 1.55; color: var(--body); margin-bottom: 28px; }
+.lead-modal.closing .lead-modal-backdrop { animation: lead-fade-out .22s ease both; }
+.lead-modal.closing .lead-modal-panel { animation: lead-panel-out .22s ease both; }
+@keyframes lead-fade-in { from { opacity: 0; } }
+@keyframes lead-fade-out { to { opacity: 0; } }
+@keyframes lead-panel-in { from { opacity: 0; transform: translateY(28px) scale(.96); } }
+@keyframes lead-panel-out { to { opacity: 0; transform: translateY(12px) scale(.98); } }
+@keyframes lead-seal-press {
+  0%   { opacity: 0; transform: scale(1.65) rotate(-11deg); }
+  60%  { opacity: 1; transform: scale(.95) rotate(-1deg); }
+  80%  { transform: scale(1.03) rotate(-2.5deg); }
+  100% { opacity: 1; transform: scale(1) rotate(-2deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lead-modal-backdrop, .lead-modal-panel, .lead-modal-seal, .lead-modal-mark,
+  .lead-modal.closing .lead-modal-backdrop, .lead-modal.closing .lead-modal-panel { animation: none; }
+  .form-status.shake { animation: none; }
+}
+
+/* ---------- lead form: live positive feedback ----------
+   --ok is functional feedback like --err: a moss green that stays in the
+   ink/cream world. The check mark rides the label; the underline agrees. */
+:root { --ok: #55794B; }
+[data-theme="dark"] { --ok: #9CBF8D; }
+
+.lead-form label > span:first-child { transition: color .16s ease; }
+.lead-form label.valid > span:first-child { color: var(--ok); }
+.lead-form label.valid > span:first-child::after { content: ' ✓'; color: var(--ok); font-family: var(--sans); letter-spacing: 0; }
+.lead-form label.valid input,
+.lead-form label.valid .select-btn,
+.lead-form label.valid select { border-bottom-color: var(--ok); }
+.lead-form label.valid textarea { border-color: var(--ok); }
+
+/* ---------- styled select: the option list, in the site's own clothes ----------
+   The native select stays as the form field; .select-btn and .select-menu are
+   its face. The panel is kin to the nav's mega menu: cream over blur, hairline
+   border, soft shadow, diamond on the chosen entry. */
+.select-wrap.enhanced select { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.select-btn {
+  width: 100%; text-align: left; cursor: pointer;
+  background: transparent; border: none; border-bottom: 1px solid var(--rule); border-radius: 0;
+  padding: 10px 20px 10px 2px; font-family: var(--sans); font-size: 15px; color: var(--ink);
+  transition: border-color .16s ease;
+}
+.select-btn.placeholder { color: var(--muted); }
+.select-btn:hover { border-bottom-color: #B8B09C; }
+.select-btn:focus { outline: none; border-bottom-color: var(--ink); }
+[data-theme="dark"] .select-btn:hover { border-bottom-color: #565040; }
+[data-theme="dark"] .select-btn:focus { border-bottom-color: var(--ink); }
+.select-wrap.open::after { transform: translateY(-25%) rotate(-135deg); border-color: var(--ink); }
+.select-menu {
+  position: absolute; top: calc(100% + 6px); left: 0; right: 0; z-index: 60;
+  margin: 0; padding: 6px 0; list-style: none;
+  background: color-mix(in srgb, var(--cream) 97%, transparent);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--rule);
+  box-shadow: 0 26px 40px -28px rgba(23, 21, 15, 0.45);
+  opacity: 0; visibility: hidden; transform: translateY(-8px);
+  transition: opacity .2s ease, transform .3s cubic-bezier(.2, .6, .2, 1), visibility 0s linear .3s;
+}
+.select-wrap.open .select-menu {
+  opacity: 1; visibility: visible; transform: none;
+  transition: opacity .2s ease, transform .3s cubic-bezier(.2, .6, .2, 1);
+}
+[data-theme="dark"] .select-menu { box-shadow: 0 26px 40px -28px rgba(0, 0, 0, 0.8); }
+.select-opt { position: relative; padding: 9px 16px 9px 34px; font-size: 14.5px; color: var(--body); cursor: pointer; transition: color .14s ease, background .14s ease; }
+.select-opt.active { color: var(--ink); background: color-mix(in srgb, var(--ink) 6%, transparent); }
+.select-opt[aria-selected="true"] { color: var(--ink); }
+.select-opt[aria-selected="true"]::before {
+  content: '◆'; position: absolute; left: 15px; top: 50%; transform: translateY(-50%);
+  font-size: 8px; color: var(--muted);
+}
+@media (prefers-reduced-motion: reduce) {
+  .select-menu, .select-wrap.open .select-menu { transition: none; transform: none; }
+}
