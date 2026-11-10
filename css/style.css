@@ -146,6 +146,11 @@ a { color: inherit; }
 .svc-group { margin-bottom: 40px; }
 .svc-group-label { font-family: var(--garamond); font-size: 12px; letter-spacing: 3.5px; color: var(--muted); margin-bottom: 16px; }
 .svc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 34px 40px; }
+/* the 2-item "who this is for" comparisons carry longer paragraph-style bullets than the
+   3-4 card service grids, so they get a higher floor: without it, auto-fit flips to a cramped
+   2-column state (~300px cards) right at the 712-740px window, just before the grid would
+   otherwise sit comfortably as one column until the desktop width has room to spare */
+.svc-grid-pair { grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); }
 .svc { position: relative; border-top: 2px solid var(--ink); padding: 16px 2px 26px 0; overflow: hidden; }
 .svc-no { font-family: var(--mono); font-size: 12px; letter-spacing: 2px; color: var(--muted); }
 .svc h3 { font-family: var(--serif); font-weight: 600; font-size: 20px; margin: 10px 0 8px; }
@@ -788,6 +793,30 @@ a { color: inherit; }
 .prose a:hover { border-color: var(--ink); }
 .prose h3 { font-family: var(--serif); font-weight: 600; font-size: 19px; margin: 26px 0 8px; }
 .prose .register { margin: 26px 0; }
+
+/* pull-quote: one line lifted out of a left-aligned prose block as a visual break.
+   Not an external quotation — styled as an emphasized beat in the page's own voice. */
+.pull-quote {
+  position: relative;
+  max-width: 620px;
+  margin: 34px 0;
+  padding-left: 26px;
+  border-left: 2px solid var(--ink);
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(20px, 2.3vw, 25px);
+  line-height: 1.45;
+  color: var(--ink);
+}
+.pull-quote::before { content: '◆'; display: block; font-size: 9px; color: var(--muted); margin-bottom: 10px; }
+
+/* stat-strip: 2-3 standalone numbers as a single inline beat, lighter than the
+   boxed .register ledger — for pages that don't already have a register doing this job */
+.stat-strip { display: flex; flex-wrap: wrap; gap: 26px 44px; margin: 30px 0; padding: 22px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.stat { display: flex; flex-direction: column; gap: 4px; }
+.stat-v { font-family: var(--garamond); font-style: italic; font-size: 22px; color: var(--ink); }
+.stat-k { font-family: var(--mono); font-size: 10.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); }
+
 .diamond-list { list-style: none; max-width: 720px; }
 .diamond-list li { position: relative; padding: 8px 0 8px 26px; color: var(--body); font-size: 15px; }
 .diamond-list li::before { content: '◆'; position: absolute; left: 2px; top: 15px; font-size: 8px; color: var(--muted); }

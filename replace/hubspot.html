@@ -75,10 +75,8 @@
   "mainEntity": [
     {"@type": "Question", "name": "Is there a real self-hosted alternative to HubSpot for a small company?", "acceptedAnswer": {"@type": "Answer", "text": "For the CRM core, yes: Twenty covers contacts, companies, pipelines, notes, tasks and a full API, and it is what runs Ironstack's own sales. For the full marketing suite around it, the honest answer is that no single open-source tool replaces everything; the automation and email pieces come from separate tools, wired together."}},
     {"@type": "Question", "name": "Do we lose our HubSpot data if we leave?", "acceptedAnswer": {"@type": "Answer", "text": "No. Contacts, companies and deals export cleanly and import into Twenty, where they land in a Postgres database on your own server. What does not transfer one-to-one is configuration: workflows and email templates are rebuilt deliberately, which is also the moment to drop the ones nobody remembers making."}},
-    {"@type": "Question", "name": "Can a self-hosted CRM send our marketing emails?", "acceptedAnswer": {"@type": "Answer", "text": "Campaign email is a separate concern from the CRM, and bulk sending from your own server is a deliverability trap. The honest setup is a self-hosted campaign tool or the CRM feeding an EU email service with its own sending reputation. I will not quietly self-host your newsletter and let it land in spam."}},
     {"@type": "Question", "name": "What does HubSpot actually cost compared to self-hosting?", "acceptedAnswer": {"@type": "Answer", "text": "HubSpot Starter runs about €15 per seat per month, and the Professional tiers jump to roughly €90 per seat plus a mandatory onboarding fee, as of early 2026. The owned equivalent runs on server capacity that costs a few euros a month regardless of seats; what you pay for is the build, once: a migration from €1,750, excl. btw, fixed after the audit."}},
-    {"@type": "Question", "name": "How long does a HubSpot migration take?", "acceptedAnswer": {"@type": "Answer", "text": "For a CRM alone, usually at the short end of the four-to-eight-week range, because the data model is small: contacts, companies, deals, notes. HubSpot keeps running until the new system is validated and your team has been walked through it."}},
-    {"@type": "Question", "name": "Does Twenty CRM integrate with our website forms?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, over its API. This exact website is the demonstration: the contact form flows through self-hosted automation into Twenty without a single third-party processor in between. The stack register page shows the whole chain."}}
+    {"@type": "Question", "name": "Does Twenty CRM integrate with our website forms?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, over its API. This exact website is the demonstration: the contact form flows through self-hosted automation into Twenty without a single third-party processor in between."}}
   ]
 }
 </script>
@@ -100,11 +98,8 @@
           <p class="mega-label" data-i18n="services.g1">WHERE YOU START</p>
           <a href="/audit.html" data-i18n="footer.audit">The Audit</a>
           <a href="/ai-automation.html" data-i18n="footer.ai">AI &amp; Automation</a>
-        </div>
-        <div class="mega-col">
-          <p class="mega-label" data-i18n="services.g2">WHAT GETS BUILT</p>
-          <a href="/stack.html" data-i18n="footer.stack">The Stack</a>
           <a href="/migration.html" data-i18n="footer.migration">Migration</a>
+          <a href="/method.html" data-i18n="footer.method">The Method</a>
         </div>
         <div class="mega-col">
           <p class="mega-label" data-i18n="services.g3">HOW IT KEEPS RUNNING</p>
@@ -116,14 +111,8 @@
           <a href="/replace/hubspot.html">HubSpot</a>
           <a href="/replace/microsoft-365.html">Microsoft 365</a>
         </div>
-        <div class="mega-col">
-          <p class="mega-label" data-i18n="menu.proof">PROOF &amp; METHOD</p>
-          <a href="/method.html" data-i18n="footer.method">The Method</a>
-          <a href="/stack-register.html" data-i18n="footer.register">Stack Register</a>
-        </div>
       </div>
     </div>
-    <a href="/#pricing" data-i18n="nav.pricing">Pricing</a>
     <a href="/#about" data-i18n="nav.about">About</a>
     <a class="nav-cta" href="/#contact" data-i18n="nav.contact">Contact</a>
     <button class="switch" id="langToggle" aria-label="Switch language"><span data-lang="en" class="on">EN</span><span class="sep" aria-hidden="true">◆</span><span data-lang="nl">NL</span><span class="sep" aria-hidden="true">◆</span><span data-lang="sr-latn">SR</span><span class="sep" aria-hidden="true">◆</span><span data-lang="sr-cyrl">СР</span></button>
@@ -143,7 +132,7 @@
   <p class="hero-sub" data-i18n="hs.3">Your pipeline, contacts and deal history are some of the most sensitive data your company holds. Twenty CRM puts them in a database on your own EU server, without the per-seat meter, and it is the CRM Ironstack itself runs on.</p>
   <div class="hero-ctas">
     <a class="btn btn-primary" href="/audit.html" data-i18n="hs.4">Start with the audit</a>
-    <a class="btn btn-ghost" href="/stack-register.html" data-i18n="hs.5">See it in my own stack</a>
+    <a class="btn btn-ghost" href="/method.html" data-i18n="hs.5">See the method</a>
   </div>
 </section>
 
@@ -162,7 +151,7 @@
       <p class="register-foot" data-i18n="hs.18">The step to Professional is where the lock-in earns its keep</p>
       <img class="stamp-doc" src="/assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
     </div>
-    <p data-i18n="hs.19">By the time Professional is on the table, leaving feels unthinkable: the CRM holds your entire commercial memory. That is not an accident of pricing. It is the business model, and it is exactly the kind of dependency this company exists to end.</p>
+    <p class="pull-quote" data-i18n="hs.19">By the time Professional is on the table, leaving feels unthinkable: the CRM holds your entire commercial memory. That is not an accident of pricing. It is the business model, and it is exactly the kind of dependency this company exists to end.</p>
   </div>
 </section>
 
@@ -171,7 +160,7 @@
   <p class="svc-group-label" data-i18n="hs.20">II · THE OWNED EQUIVALENT</p>
   <h2 class="section-title" data-i18n="hs.21">Twenty CRM, on your own server</h2>
   <div class="prose">
-    <p data-i18n="hs.22"><strong>Twenty</strong> is a modern open-source CRM: contacts, companies, deal pipelines, notes, tasks, and a full API, backed by a Postgres database that sits on a server you own. It looks and feels like the current generation of SaaS CRMs rather than a nostalgia project, and it is not a hypothetical recommendation: it is the CRM <a href="/stack-register.html">Ironstack itself runs on</a>, receiving the leads from this very website.</p>
+    <p data-i18n="hs.22"><strong>Twenty</strong> is a modern open-source CRM: contacts, companies, deal pipelines, notes, tasks, and a full API, backed by a Postgres database that sits on a server you own. It looks and feels like the current generation of SaaS CRMs rather than a nostalgia project, and it is not a hypothetical recommendation: it is the CRM Ironstack itself runs on, receiving the leads from this very website.</p>
     <p data-i18n="hs.23">The honest framing: HubSpot is not just a CRM, it is a suite. The owned equivalent is a CRM plus an automation layer, wired together. That wiring is real work, which is why this is a service and not a download link.</p>
   </div>
   <div class="svc-grid" style="margin-top:34px">
@@ -214,10 +203,9 @@
   <div class="prose">
     <p data-i18n="hs.40">The move follows the <a href="/method.html">five-phase method</a>. For a CRM alone it usually sits at the short end of the four-to-eight-week range, because the data model is small: contacts, companies, deals, notes and their history export cleanly and import into Twenty, where every record is verified against the source.</p>
     <p data-i18n="hs.41">What does not transfer one-to-one is configuration. Workflows, templates and automations are rebuilt deliberately in n8n rather than copied, which is also the healthiest moment your CRM will ever have: the automations nobody remembers making simply do not get rebuilt.</p>
-    <p data-i18n="hs.42">HubSpot stays live and untouched until validation is done, your team has been walked through the new system, and you approve the switch. The rollback is unusually gentle here: until the day you cancel the subscription, the old system is still there, read-only in practice, holding nothing you have not already taken.</p>
+    <p class="pull-quote" data-i18n="hs.42">HubSpot stays live and untouched until validation is done, your team has been walked through the new system, and you approve the switch. The rollback is unusually gentle here: until the day you cancel the subscription, the old system is still there, read-only in practice, holding nothing you have not already taken.</p>
     <p data-i18n="hs.64">A CRM-only migration like this one starts from €1,750, excl. btw, fixed after the audit.</p>
   </div>
-  <p class="services-note" data-i18n="hs.65">See the <a href="/#pricing">full price register</a> for how it compares with everything else.</p>
 </section>
 
 <!-- ============ WHERE THE DATA ENDS UP ============ -->
@@ -243,20 +231,12 @@
       <p data-i18n="hs.51">No. Contacts, companies and deals export cleanly and import into Twenty, where they land in a Postgres database on your own server. What does not transfer one-to-one is configuration: workflows and email templates are rebuilt deliberately, which is also the moment to drop the ones nobody remembers making.</p>
     </details>
     <details class="faq-item">
-      <summary data-i18n="hs.52">Can a self-hosted CRM send our marketing emails?</summary>
-      <p data-i18n="hs.53">Campaign email is a separate concern from the CRM, and bulk sending from your own server is a deliverability trap. The honest setup is a self-hosted campaign tool or the CRM feeding an EU email service with its own sending reputation. I will not quietly self-host your newsletter and let it land in spam.</p>
-    </details>
-    <details class="faq-item">
       <summary data-i18n="hs.54">What does HubSpot actually cost compared to self-hosting?</summary>
       <p data-i18n="hs.55">HubSpot Starter runs about €15 per seat per month, and the Professional tiers jump to roughly €90 per seat plus a mandatory onboarding fee, as of early 2026. The owned equivalent runs on server capacity that costs a few euros a month regardless of seats; what you pay for is the build, once: a migration from €1,750, excl. btw, fixed after the audit.</p>
     </details>
     <details class="faq-item">
-      <summary data-i18n="hs.56">How long does a HubSpot migration take?</summary>
-      <p data-i18n="hs.57">For a CRM alone, usually at the short end of the four-to-eight-week range, because the data model is small: contacts, companies, deals, notes. HubSpot keeps running until the new system is validated and your team has been walked through it.</p>
-    </details>
-    <details class="faq-item">
       <summary data-i18n="hs.58">Does Twenty CRM integrate with our website forms?</summary>
-      <p data-i18n="hs.59">Yes, over its API. This exact website is the demonstration: the contact form flows through self-hosted automation into Twenty without a single third-party processor in between. The <a href="/stack-register.html">stack register</a> shows the whole chain.</p>
+      <p data-i18n="hs.59">Yes, over its API. This exact website is the demonstration: the contact form flows through self-hosted automation into Twenty without a single third-party processor in between.</p>
     </details>
   </div>
 </section>
@@ -280,11 +260,9 @@
   <div class="footer-nav">
     <a href="/audit.html">The Audit</a>
     <a href="/ai-automation.html">AI &amp; Automation</a>
-    <a href="/stack.html">The Stack</a>
     <a href="/migration.html">Migration</a>
     <a href="/managed-sovereignty.html">Managed Sovereignty</a>
     <a href="/method.html">The Method</a>
-    <a href="/stack-register.html">Stack Register</a>
   </div>
   <div class="footer-links">
     <a href="mailto:d.sajinovic@ironstack.nl">d.sajinovic@ironstack.nl</a>

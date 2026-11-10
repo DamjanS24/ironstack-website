@@ -75,9 +75,7 @@
   "mainEntity": [
     {"@type": "Question", "name": "Is Nextcloud a real alternative to Google Drive for a company?", "acceptedAnswer": {"@type": "Answer", "text": "For files, sharing, calendars and contacts, yes, and it has been for years. Nextcloud runs desktop sync on Windows and Mac, mobile apps, link sharing with passwords and expiry, and document collaboration through Nextcloud Office. The honest caveats are search and third-party integrations, where Google is still ahead."}},
     {"@type": "Question", "name": "Can we keep using Gmail addresses after we leave Google Workspace?", "acceptedAnswer": {"@type": "Answer", "text": "You keep your email addresses because they are on your own domain, and the domain moves with you. What changes is the provider behind them. Mail history migrates over IMAP, and the switch is a DNS change performed in a window you approve."}},
-    {"@type": "Question", "name": "Why do you recommend an EU mail provider instead of self-hosting email?", "acceptedAnswer": {"@type": "Answer", "text": "Because self-hosted email deliverability is genuinely hard: one reputation problem on your IP and your invoices land in spam folders. A specialized EU provider on your own domain gives you EU jurisdiction and portability without that risk. If you insist on fully self-hosted mail, I will build it, but I will put the trade-off in writing first."}},
     {"@type": "Question", "name": "What happens to Google Docs files in a migration?", "acceptedAnswer": {"@type": "Answer", "text": "They are exported to open formats and imported into Nextcloud, where Nextcloud Office edits them collaboratively. Complex documents get spot-checked during validation, before the switch, not after. Formatting quirks are found in the test phase or not at all."}},
-    {"@type": "Question", "name": "How long does leaving Google Workspace take?", "acceptedAnswer": {"@type": "Answer", "text": "A typical small-business migration runs four to eight weeks from audit to handover, with Google running untouched until the deliberate switch. You are never in a state where the old environment is gone and the new one is not ready."}},
     {"@type": "Question", "name": "Is self-hosted cheaper than Google Workspace?", "acceptedAnswer": {"@type": "Answer", "text": "The running costs are lower and, more importantly, they stop scaling per seat: a server plus EU mailboxes typically costs less than a 10-seat Workspace subscription and does not double when your team does. The move itself is a Workspace Exit at €1,250 to €2,500, excl. btw, priced per audit, so the honest comparison is an investment that pays back over time, not instant savings."}}
   ]
 }
@@ -100,11 +98,8 @@
           <p class="mega-label" data-i18n="services.g1">WHERE YOU START</p>
           <a href="/audit.html" data-i18n="footer.audit">The Audit</a>
           <a href="/ai-automation.html" data-i18n="footer.ai">AI &amp; Automation</a>
-        </div>
-        <div class="mega-col">
-          <p class="mega-label" data-i18n="services.g2">WHAT GETS BUILT</p>
-          <a href="/stack.html" data-i18n="footer.stack">The Stack</a>
           <a href="/migration.html" data-i18n="footer.migration">Migration</a>
+          <a href="/method.html" data-i18n="footer.method">The Method</a>
         </div>
         <div class="mega-col">
           <p class="mega-label" data-i18n="services.g3">HOW IT KEEPS RUNNING</p>
@@ -116,14 +111,8 @@
           <a href="/replace/hubspot.html">HubSpot</a>
           <a href="/replace/microsoft-365.html">Microsoft 365</a>
         </div>
-        <div class="mega-col">
-          <p class="mega-label" data-i18n="menu.proof">PROOF &amp; METHOD</p>
-          <a href="/method.html" data-i18n="footer.method">The Method</a>
-          <a href="/stack-register.html" data-i18n="footer.register">Stack Register</a>
-        </div>
       </div>
     </div>
-    <a href="/#pricing" data-i18n="nav.pricing">Pricing</a>
     <a href="/#about" data-i18n="nav.about">About</a>
     <a class="nav-cta" href="/#contact" data-i18n="nav.contact">Contact</a>
     <button class="switch" id="langToggle" aria-label="Switch language"><span data-lang="en" class="on">EN</span><span class="sep" aria-hidden="true">◆</span><span data-lang="nl">NL</span><span class="sep" aria-hidden="true">◆</span><span data-lang="sr-latn">SR</span><span class="sep" aria-hidden="true">◆</span><span data-lang="sr-cyrl">СР</span></button>
@@ -161,7 +150,7 @@
       <p class="register-foot" data-i18n="gw.16">Every hire raises it · every price increase compounds it</p>
       <img class="stamp-doc" src="/assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
     </div>
-    <p data-i18n="gw.17">The number on the invoice is only half the price. The other half is that your files, mail and calendars sit in an American cloud, under American jurisdiction, inside a business model that profiles usage. You pay the meter and you are still the product surface.</p>
+    <p class="pull-quote" data-i18n="gw.17">The number on the invoice is only half the price. The other half is that your files, mail and calendars sit in an American cloud, under American jurisdiction, inside a business model that profiles usage. You pay the meter and you are still the product surface.</p>
   </div>
 </section>
 
@@ -217,7 +206,7 @@
     <p data-i18n="gw.62">A Google Workspace exit is €1,250 to €2,500, excl. btw, priced per audit.</p>
   </div>
   <p class="services-note" data-i18n="gw.63">Indicative, not a calculator: the audit tells you exactly where you land, in writing, before anything is signed.</p>
-  <div class="svc-grid" style="margin-top:16px">
+  <div class="svc-grid svc-grid-pair" style="margin-top:16px">
     <article class="svc">
       <span class="svc-no" data-i18n="gw.64">LOWER END · €1,250</span>
       <ul class="diamond-list">
@@ -237,7 +226,6 @@
       <img class="stamp" src="/assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
     </article>
   </div>
-  <p class="services-note" data-i18n="gw.72">See the <a href="/#pricing">full price register</a> for how a Workspace Exit compares with everything else.</p>
 </section>
 
 <!-- ============ WHERE THE DATA ENDS UP ============ -->
@@ -263,16 +251,8 @@
       <p data-i18n="gw.49">You keep your email addresses because they are on your own domain, and the domain moves with you. What changes is the provider behind them. Mail history migrates over IMAP, and the switch is a DNS change performed in a window you approve.</p>
     </details>
     <details class="faq-item">
-      <summary data-i18n="gw.50">Why do you recommend an EU mail provider instead of self-hosting email?</summary>
-      <p data-i18n="gw.51">Because self-hosted email deliverability is genuinely hard: one reputation problem on your IP and your invoices land in spam folders. A specialized EU provider on your own domain gives you EU jurisdiction and portability without that risk. If you insist on fully self-hosted mail, I will build it, but I will put the trade-off in writing first.</p>
-    </details>
-    <details class="faq-item">
       <summary data-i18n="gw.52">What happens to Google Docs files in a migration?</summary>
       <p data-i18n="gw.53">They are exported to open formats and imported into Nextcloud, where Nextcloud Office edits them collaboratively. Complex documents get spot-checked during validation, before the switch, not after. Formatting quirks are found in the test phase or not at all.</p>
-    </details>
-    <details class="faq-item">
-      <summary data-i18n="gw.54">How long does leaving Google Workspace take?</summary>
-      <p data-i18n="gw.55">A typical small-business migration runs four to eight weeks from audit to handover, with Google running untouched until the deliberate switch. You are never in a state where the old environment is gone and the new one is not ready.</p>
     </details>
     <details class="faq-item">
       <summary data-i18n="gw.56">Is self-hosted cheaper than Google Workspace?</summary>
@@ -300,11 +280,9 @@
   <div class="footer-nav">
     <a href="/audit.html">The Audit</a>
     <a href="/ai-automation.html">AI &amp; Automation</a>
-    <a href="/stack.html">The Stack</a>
     <a href="/migration.html">Migration</a>
     <a href="/managed-sovereignty.html">Managed Sovereignty</a>
     <a href="/method.html">The Method</a>
-    <a href="/stack-register.html">Stack Register</a>
   </div>
   <div class="footer-links">
     <a href="mailto:d.sajinovic@ironstack.nl">d.sajinovic@ironstack.nl</a>

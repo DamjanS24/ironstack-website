@@ -75,9 +75,7 @@
   "mainEntity": [
     {"@type": "Question", "name": "What exactly is included in the monthly price?", "acceptedAnswer": {"@type": "Answer", "text": "Every tier covers updates and security patching, backups with tested restores, monitoring, certificate renewals, and a monthly health report in plain language. Base, at €150, is care only with next-business-day response. Standard, at €325, adds two hours of changes with a four-hour response. Priority, at €575, adds five hours, same-day response, and a quarterly review call. All excl. btw."}},
     {"@type": "Question", "name": "What happens if the server goes down at night?", "acceptedAnswer": {"@type": "Answer", "text": "Monitoring never sleeps and alerts me before most people notice anything. Each tier has an honestly defined response window, agreed in writing. I will not promise a 24/7 operations center, because I am one person; I promise a defined window and a documented recovery procedure that works without heroics."}},
-    {"@type": "Question", "name": "Can we do maintenance ourselves instead?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Everything is documented for your team, not for me, so you can take over any month. Some clients run day-to-day themselves and keep a smaller tier for escalations. Both are fine; the documentation is the same either way."}},
     {"@type": "Question", "name": "Does the price go up once we depend on you?", "acceptedAnswer": {"@type": "Answer", "text": "No. The monthly price is fixed per tier and agreed before anything starts. It changes only if you change tier or the environment materially grows, and then only with a new fixed number you approve first. And you never depend on me: the exit clause applies every single month."}},
-    {"@type": "Question", "name": "What does the monthly health report contain?", "acceptedAnswer": {"@type": "Answer", "text": "What was updated, what the backups did and whether restores were tested, uptime, anything that needs a decision from you, and what I recommend next. Written in plain language, not log excerpts."}},
     {"@type": "Question", "name": "We did not build our systems with Ironstack. Can you still run them?", "acceptedAnswer": {"@type": "Answer", "text": "Usually yes, after an audit. I need to know what is running before I take responsibility for it, and the audit is exactly that investigation. If your environment is something I cannot honestly care for, I will say so."}}
   ]
 }
@@ -100,11 +98,8 @@
           <p class="mega-label" data-i18n="services.g1">WHERE YOU START</p>
           <a href="/audit.html" data-i18n="footer.audit">The Audit</a>
           <a href="/ai-automation.html" data-i18n="footer.ai">AI &amp; Automation</a>
-        </div>
-        <div class="mega-col">
-          <p class="mega-label" data-i18n="services.g2">WHAT GETS BUILT</p>
-          <a href="/stack.html" data-i18n="footer.stack">The Stack</a>
           <a href="/migration.html" data-i18n="footer.migration">Migration</a>
+          <a href="/method.html" data-i18n="footer.method">The Method</a>
         </div>
         <div class="mega-col">
           <p class="mega-label" data-i18n="services.g3">HOW IT KEEPS RUNNING</p>
@@ -116,14 +111,8 @@
           <a href="/replace/hubspot.html">HubSpot</a>
           <a href="/replace/microsoft-365.html">Microsoft 365</a>
         </div>
-        <div class="mega-col">
-          <p class="mega-label" data-i18n="menu.proof">PROOF &amp; METHOD</p>
-          <a href="/method.html" data-i18n="footer.method">The Method</a>
-          <a href="/stack-register.html" data-i18n="footer.register">Stack Register</a>
-        </div>
       </div>
     </div>
-    <a href="/#pricing" data-i18n="nav.pricing">Pricing</a>
     <a href="/#about" data-i18n="nav.about">About</a>
     <a class="nav-cta" href="/#contact" data-i18n="nav.contact">Contact</a>
     <button class="switch" id="langToggle" aria-label="Switch language"><span data-lang="en" class="on">EN</span><span class="sep" aria-hidden="true">◆</span><span data-lang="nl">NL</span><span class="sep" aria-hidden="true">◆</span><span data-lang="sr-latn">SR</span><span class="sep" aria-hidden="true">◆</span><span data-lang="sr-cyrl">СР</span></button>
@@ -153,7 +142,7 @@
   <h2 class="section-title" data-i18n="ms.7">“Self-hosting sounds great, until something breaks”</h2>
   <div class="prose">
     <p data-i18n="ms.8">Most companies do not stay on rented cloud because they love it. They stay because someone else carries the pager. The honest fear behind “we could never self-host” is rarely about features; it is the 3 a.m. question: who patches this, who notices when the disk fills up, who restores the backup, and does the backup even restore?</p>
-    <p data-i18n="ms.9">That fear is legitimate. A server nobody maintains is worse than a subscription. Owned infrastructure without care is not sovereignty, it is neglect with extra steps.</p>
+    <p class="pull-quote" data-i18n="ms.9">That fear is legitimate. A server nobody maintains is worse than a subscription. Owned infrastructure without care is not sovereignty, it is neglect with extra steps.</p>
     <p data-i18n="ms.10">Managed Sovereignty exists to close exactly that gap: you get the ownership, and I carry the care. Not as a favor bolted onto a project, but as the actual product, with defined response windows and a report every month that tells you what happened in plain language.</p>
   </div>
 </section>
@@ -184,14 +173,13 @@
     </div>
     <p data-i18n="ms.27">The price is fixed and agreed before anything starts, and the number does not move. It changes only if you change tier or your environment materially grows, and then only with a new fixed number you approve first. Work beyond your tier’s hours is €90 per hour, excl. btw, and only ever after you approve it. Retainers are billed monthly in advance, with a 14-day payment term.</p>
   </div>
-  <p class="services-note" data-i18n="ms.68">See the <a href="/#pricing">full price register</a> for how the retainer fits with the rest of the services.</p>
 </section>
 
 <!-- ============ WHO FOR ============ -->
 <section class="section section-alt">
   <p class="svc-group-label" data-i18n="ms.28">III · A FAIR MATCH</p>
   <h2 class="section-title" data-i18n="ms.29">Who this is for, and who it is not for</h2>
-  <div class="svc-grid">
+  <div class="svc-grid svc-grid-pair">
     <article class="svc">
       <span class="svc-no" data-i18n="ms.30">FOR YOU IF</span>
       <ul class="diamond-list">
@@ -219,7 +207,7 @@
   <p class="svc-group-label" data-i18n="ms.39">IV · WHERE IT SITS</p>
   <h2 class="section-title" data-i18n="ms.40">Every path ends here</h2>
   <div class="prose">
-    <p data-i18n="ms.41">Managed Sovereignty is the heart of Ironstack; the other services are how you arrive. <a href="/audit.html">The Audit</a> tells you what you have and what it costs. <a href="/stack.html">The Stack</a> builds fresh; <a href="/migration.html">Migration</a> moves an existing environment, both through the same <a href="/method.html">five-phase method</a>. Phase five is literally called Handover &amp; Retainer: the moment the build ends, this service begins. AI components live under the same roof, at €75 per month each on any tier.</p>
+    <p data-i18n="ms.41">Managed Sovereignty is the heart of Ironstack; the other services are how you arrive. <a href="/audit.html">The Audit</a> tells you what you have and what it costs. <a href="/migration.html">Migration</a> moves an existing environment through the <a href="/method.html">five-phase method</a>. Phase five is literally called Handover &amp; Retainer: the moment the build ends, this service begins. AI components live under the same roof, at €75 per month each on any tier.</p>
     <p data-i18n="ms.42">You can also arrive sideways. Some clients start with a single <a href="/ai-automation.html">automation project</a> and grow into a stack; some bring an environment someone else built. The entry matters less than the destination: systems you own, running with care.</p>
   </div>
 </section>
@@ -237,16 +225,8 @@
       <p data-i18n="ms.47">Monitoring never sleeps and alerts me before most people notice anything. Each tier has an honestly defined response window, agreed in writing. I will not promise a 24/7 operations center, because I am one person; I promise a defined window and a documented recovery procedure that works without heroics.</p>
     </details>
     <details class="faq-item">
-      <summary data-i18n="ms.48">Can we do maintenance ourselves instead?</summary>
-      <p data-i18n="ms.49">Yes. Everything is documented for your team, not for me, so you can take over any month. Some clients run day-to-day themselves and keep a smaller tier for escalations. Both are fine; the documentation is the same either way.</p>
-    </details>
-    <details class="faq-item">
       <summary data-i18n="ms.50">Does the price go up once we depend on you?</summary>
       <p data-i18n="ms.51">No. The monthly price is fixed per tier and agreed before anything starts. It changes only if you change tier or the environment materially grows, and then only with a new fixed number you approve first. And you never depend on me: the exit clause applies every single month.</p>
-    </details>
-    <details class="faq-item">
-      <summary data-i18n="ms.52">What does the monthly health report contain?</summary>
-      <p data-i18n="ms.53">What was updated, what the backups did and whether restores were tested, uptime, anything that needs a decision from you, and what I recommend next. Written in plain language, not log excerpts.</p>
     </details>
     <details class="faq-item">
       <summary data-i18n="ms.54">We did not build our systems with Ironstack. Can you still run them?</summary>
@@ -274,11 +254,9 @@
   <div class="footer-nav">
     <a href="/audit.html">The Audit</a>
     <a href="/ai-automation.html">AI &amp; Automation</a>
-    <a href="/stack.html">The Stack</a>
     <a href="/migration.html">Migration</a>
     <a href="/managed-sovereignty.html">Managed Sovereignty</a>
     <a href="/method.html">The Method</a>
-    <a href="/stack-register.html">Stack Register</a>
   </div>
   <div class="footer-links">
     <a href="mailto:d.sajinovic@ironstack.nl">d.sajinovic@ironstack.nl</a>
