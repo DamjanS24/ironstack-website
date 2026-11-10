@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Web Design · Ironstack · Sovereign Infrastructure</title>
+<meta name="description" content="A website built once and hosted on a server you own: static or self-hosted CMS, from €600 excl. btw. No page-builder subscription, no rented domain.">
+<link rel="canonical" href="https://ironstack.nl/web-design.html">
+<meta property="og:title" content="Web Design · Ironstack">
+<meta property="og:description" content="A website you own, not rent: built once, hosted on your own EU server, from €600 excl. btw.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ironstack.nl/web-design.html">
+<meta property="og:image" content="https://ironstack.nl/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ironstack.nl/assets/og-image.png">
+<link rel="icon" href="/assets/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon-180.png">
+<meta name="theme-color" content="#F6F3EC">
+<script>
+(function () { try {
+  var m = new URLSearchParams(location.search).get('theme') || localStorage.getItem('ironstack-theme-mode') || 'system';
+  var t = (m === 'dark' || m === 'light') ? m : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  document.documentElement.setAttribute('data-theme', t);
+  var mc = document.querySelector('meta[name="theme-color"]');
+  if (mc) mc.setAttribute('content', t === 'dark' ? '#14120D' : '#F6F3EC');
+  if (sessionStorage.getItem('is-nav-seen')) document.documentElement.classList.add('nav-seen');
+  else sessionStorage.setItem('is-nav-seen', '1');
+  /* arriving on a #section: position before first paint, so the page
+     transition lands directly on the section instead of fading to the top
+     and then smooth-scrolling down */
+  if (location.hash) {
+    document.documentElement.style.scrollBehavior = 'auto';
+    addEventListener('load', function () {
+      requestAnimationFrame(function () { document.documentElement.style.scrollBehavior = ''; });
+    });
+  }
+} catch (e) {} })();
+</script>
+<link rel="preload" href="/assets/fonts/Fraunces-600-normal.woff2" as="font" type="font/woff2" crossorigin blocking="render">
+<link rel="preload" href="/assets/fonts/EBGaramond-500-normal.woff2" as="font" type="font/woff2" crossorigin blocking="render">
+<link rel="preload" href="/assets/fonts/SpaceGrotesk-500-normal.woff2" as="font" type="font/woff2" crossorigin blocking="render">
+<link rel="stylesheet" href="/css/fonts.css?v=66">
+<link rel="stylesheet" href="/css/style.css?v=66">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Ironstack",
+  "url": "https://ironstack.nl",
+  "logo": "https://ironstack.nl/assets/ironstack-seal-full-ink.svg",
+  "founder": { "@type": "Person", "name": "Damjan Sajinovic" },
+  "address": { "@type": "PostalAddress", "addressLocality": "Amsterdam", "addressCountry": "NL" },
+  "sameAs": ["https://www.linkedin.com/in/dsajinovic/", "https://github.com/DamjanS24"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Web Design",
+  "serviceType": "Website design and hosting",
+  "description": "A website built once and hosted on a client-owned EU server: static or self-hosted CMS, from €600 excl. btw. Everything beyond the base build is scoped and quoted after a discovery call.",
+  "url": "https://ironstack.nl/web-design.html",
+  "provider": { "@type": "Organization", "name": "Ironstack", "url": "https://ironstack.nl" },
+  "areaServed": "NL"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "How long does a website take?", "acceptedAnswer": {"@type": "Answer", "text": "A few weeks from kickoff for the base build. A self-hosted CMS, extra languages or anything beyond the base extends that, and the exact timeline is fixed during the discovery call, before anything starts."}},
+    {"@type": "Question", "name": "Can I update the content myself?", "acceptedAnswer": {"@type": "Answer", "text": "Depends which path fits you. A static site is edited on request, which keeps it simple and cheap. A self-hosted CMS means you log in and edit your own pages, for a bit more up front. We agree which one before the build starts, not after."}},
+    {"@type": "Question", "name": "What about an online shop or a booking system?", "acceptedAnswer": {"@type": "Answer", "text": "Both are possible, self-hosted like everything else, but they are substantial enough to be their own project rather than a line item on a website build. Scoped and quoted individually once the requirements are clear."}},
+    {"@type": "Question", "name": "What happens to the site if I leave?", "acceptedAnswer": {"@type": "Answer", "text": "You take it with you. The server, the domain and the code are yours from day one, the same exit clause as everything else Ironstack builds."}}
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <a class="nav-brand" href="/">
+    <img src="/assets/ironstack-seal-small-ink.svg" alt="Ironstack seal" width="38" height="38">
+    <span>Ironstack</span>
+  </a>
+  <nav class="nav-links" id="navLinks">
+    <div class="has-mega">
+      <a href="/#services" data-i18n="nav.services">Services</a>
+      <div class="mega">
+        <div class="mega-col">
+          <p class="mega-label" data-i18n="services.g1">WHERE YOU START</p>
+          <a href="/audit.html" data-i18n="footer.audit">The Audit</a>
+          <a href="/ai-automation.html" data-i18n="footer.ai">AI &amp; Automation</a>
+          <a href="/migration.html" data-i18n="footer.migration">Migration</a>
+          <a href="/web-design.html" data-i18n="footer.webdesign">Web Design</a>
+          <a href="/method.html" data-i18n="footer.method">The Method</a>
+        </div>
+        <div class="mega-col">
+          <p class="mega-label" data-i18n="services.g3">HOW IT KEEPS RUNNING</p>
+          <a href="/managed-sovereignty.html" data-i18n="footer.managed">Managed Sovereignty</a>
+        </div>
+        <div class="mega-col">
+          <p class="mega-label" data-i18n="menu.replace">REPLACE</p>
+          <a href="/replace/google-workspace.html">Google Workspace</a>
+          <a href="/replace/hubspot.html">HubSpot</a>
+          <a href="/replace/microsoft-365.html">Microsoft 365</a>
+        </div>
+      </div>
+    </div>
+    <a href="/#about" data-i18n="nav.about">About</a>
+    <a class="nav-cta" href="/#contact" data-i18n="nav.contact">Contact</a>
+    <button class="switch" id="langToggle" aria-label="Switch language"><span data-lang="en" class="on">EN</span><span class="sep" aria-hidden="true">◆</span><span data-lang="nl">NL</span><span class="sep" aria-hidden="true">◆</span><span data-lang="sr-latn">SR</span><span class="sep" aria-hidden="true">◆</span><span data-lang="sr-cyrl">СР</span></button>
+    <button class="switch" id="themeToggle" aria-label="Theme: light, dark or follow system"><span data-mode="light">☀&#xFE0E;</span><span class="sep" aria-hidden="true">◆</span><span data-mode="dark">☾</span><span class="sep" aria-hidden="true">◆</span><span data-mode="system" title="Follow system">◐</span></button>
+  </nav>
+  <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
+    <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>
+  </button>
+</header>
+
+<main id="content">
+<!-- ============ HERO ============ -->
+<section class="hero page-hero">
+  <div class="bg-mark bg-seal-hero" aria-hidden="true"></div>
+  <p class="kicker" data-i18n="wd.1">SOVEREIGN INFRASTRUCTURE · YOUR WEBSITE</p>
+  <h1 data-i18n="wd.2">A website you own,<br>not rent</h1>
+  <p class="hero-sub" data-i18n="wd.3">Built once and hosted on your own EU server: a plain static site, or a self-hosted CMS if you want to edit it yourself. Not a page-builder subscription, not rented from whoever built it. From €600, excl. btw.</p>
+  <div class="hero-ctas">
+    <a class="btn btn-primary" href="/#contact" data-i18n="wd.4">Start a conversation</a>
+    <a class="btn btn-ghost" href="/method.html" data-i18n="wd.5">See the method</a>
+  </div>
+</section>
+
+<!-- ============ THE PROBLEM ============ -->
+<section class="section section-alt">
+  <p class="svc-group-label" data-i18n="wd.6">I · THE PROBLEM</p>
+  <h2 class="section-title" data-i18n="wd.7">“Every new company ends up renting its own front door”</h2>
+  <div class="prose">
+    <p data-i18n="wd.8">A new company almost always starts the same way: a page-builder subscription, a template, a domain bought through whichever platform built the site. It works, and it is rented from day one. The content is yours; the thing it lives on is not, and leaving means rebuilding from scratch on someone else’s terms.</p>
+    <p class="pull-quote" data-i18n="wd.9">A website should be the one thing a new company owns outright from day one. Instead it is usually the first subscription, and the last thing anyone thinks to move.</p>
+  </div>
+</section>
+
+<!-- ============ WHAT IT IS ============ -->
+<section class="section">
+  <p class="svc-group-label" data-i18n="wd.10">II · WHAT IT IS, CONCRETELY</p>
+  <h2 class="section-title" data-i18n="wd.11">Built once, hosted on your own server</h2>
+  <div class="prose">
+    <p data-i18n="wd.12">Every site is built the same honest way this one is: plain HTML and CSS where that is enough, a self-hosted CMS wired in when you need to edit it yourself, and served from a server you own rather than rented from whoever built it.</p>
+  </div>
+  <div class="svc-grid svc-grid-pair" style="margin-top:34px">
+    <article class="svc">
+      <span class="svc-no" data-i18n="wd.13">STATIC</span>
+      <h3 data-i18n="wd.14">Fixed content, lowest cost</h3>
+      <ul class="diamond-list">
+        <li data-i18n="wd.15">Fastest and cheapest to build; nothing to break, nothing to patch.</li>
+        <li data-i18n="wd.16">Content changes go through me on request, usually turned around in a day or two.</li>
+        <li data-i18n="wd.17">The right default for a brochure site that does not change often.</li>
+      </ul>
+      <img class="stamp" src="/assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
+    </article>
+    <article class="svc">
+      <span class="svc-no" data-i18n="wd.18">SELF-HOSTED CMS</span>
+      <h3 data-i18n="wd.19">You edit it yourself</h3>
+      <ul class="diamond-list">
+        <li data-i18n="wd.20">Log in and change text, images and pages whenever you want.</li>
+        <li data-i18n="wd.21">Still on your own server; no monthly platform fee on top of hosting.</li>
+        <li data-i18n="wd.22">Worth it the moment content changes often enough that waiting on me would be the wrong call.</li>
+      </ul>
+      <img class="stamp" src="/assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
+    </article>
+  </div>
+  <div class="prose" style="margin-top:34px">
+    <div class="register">
+      <p class="register-head" data-i18n="wd.23">Website build · from €600, excl. btw</p>
+      <div class="register-row"><span class="register-no">I.</span><span class="register-k" data-i18n="wd.24">Base build</span><span class="register-dots" aria-hidden="true"></span><span class="register-v" data-i18n="wd.25">up to 5 pages, responsive</span></div>
+      <div class="register-row"><span class="register-no">II.</span><span class="register-k" data-i18n="wd.26">Hosting &amp; domain</span><span class="register-dots" aria-hidden="true"></span><span class="register-v" data-i18n="wd.27">your own EU server, at cost</span></div>
+      <p class="register-foot" data-i18n="wd.28">Everything beyond the base · scoped and quoted after a discovery call</p>
+      <img class="stamp-doc" src="/assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
+    </div>
+    <p data-i18n="wd.29">The base covers a standard five-page site: Home, Services, About, Projects and Contact is the usual shape, swapped for whatever actually fits your business. A self-hosted CMS, extra pages, extra languages, a blog, a CRM-wired contact form, online booking or a shop all add to that base, each scoped and priced before anything starts, never discovered afterward. The server and domain are billed at cost, no markup, the same as everywhere else at Ironstack.</p>
+  </div>
+</section>
+
+<!-- ============ WHO FOR ============ -->
+<section class="section section-alt">
+  <p class="svc-group-label" data-i18n="wd.30">III · A FAIR MATCH</p>
+  <h2 class="section-title" data-i18n="wd.31">Who this is for, and who it is not for</h2>
+  <div class="svc-grid svc-grid-pair">
+    <article class="svc">
+      <span class="svc-no" data-i18n="wd.32">FOR YOU IF</span>
+      <ul class="diamond-list">
+        <li data-i18n="wd.33">You are starting fresh and do not have a website yet.</li>
+        <li data-i18n="wd.34">You would rather own your site outright than rent a page-builder subscription forever.</li>
+        <li data-i18n="wd.35">You want it on the same server as the rest of your infrastructure, if you have any.</li>
+        <li data-i18n="wd.36">You want a fixed price for the base, agreed before anything starts.</li>
+      </ul>
+      <img class="stamp" src="/assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
+    </article>
+    <article class="svc">
+      <span class="svc-no" data-i18n="wd.37">NOT FOR YOU IF</span>
+      <ul class="diamond-list">
+        <li data-i18n="wd.38">You need something live in days, not weeks. Controlled takes a little longer; that is deliberate.</li>
+        <li data-i18n="wd.39">You need an enterprise-scale build with its own procurement process. I serve small companies, honestly.</li>
+        <li data-i18n="wd.40">You already have a site you are happy with. Then you do not need me for this, and I will say so.</li>
+      </ul>
+      <img class="stamp" src="/assets/ironstack-seal-full-ink.svg" alt="" loading="lazy">
+    </article>
+  </div>
+</section>
+
+<!-- ============ HOW IT CONNECTS ============ -->
+<section class="section">
+  <p class="svc-group-label" data-i18n="wd.41">IV · WHERE IT SITS</p>
+  <h2 class="section-title" data-i18n="wd.42">Where a new company starts</h2>
+  <div class="prose">
+    <p data-i18n="wd.43">A website is one of two entries alongside <a href="/audit.html">the Audit</a>: if you have nothing yet, start here; if you already have systems and want to know what they cost and where your data sits, start with the audit instead. Either way it ends in <a href="/managed-sovereignty.html">Managed Sovereignty</a>, where I stay responsible for what we built, hosting included.</p>
+    <p data-i18n="wd.44">And once the site needs to do real work, not just sit there, a form that reaches your CRM, a chat assistant, online booking, that is the <a href="/ai-automation.html">AI &amp; Automation</a> layer, wired in once the site itself is live.</p>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section section-alt">
+  <h2 class="section-title" data-i18n="wd.45">Fair questions</h2>
+  <div class="faq">
+    <details class="faq-item">
+      <summary data-i18n="wd.46">How long does a website take?</summary>
+      <p data-i18n="wd.47">A few weeks from kickoff for the base build. A self-hosted CMS, extra languages or anything beyond the base extends that, and the exact timeline is fixed during the discovery call, before anything starts.</p>
+    </details>
+    <details class="faq-item">
+      <summary data-i18n="wd.48">Can I update the content myself?</summary>
+      <p data-i18n="wd.49">Depends which path fits you. A static site is edited on request, which keeps it simple and cheap. A self-hosted CMS means you log in and edit your own pages, for a bit more up front. We agree which one before the build starts, not after.</p>
+    </details>
+    <details class="faq-item">
+      <summary data-i18n="wd.50">What about an online shop or a booking system?</summary>
+      <p data-i18n="wd.51">Both are possible, self-hosted like everything else, but they are substantial enough to be their own project rather than a line item on a website build. Scoped and quoted individually once the requirements are clear.</p>
+    </details>
+    <details class="faq-item">
+      <summary data-i18n="wd.52">What happens to the site if I leave?</summary>
+      <p data-i18n="wd.53">You take it with you. The server, the domain and the code are yours from day one, the same exit clause as everything else Ironstack builds.</p>
+    </details>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="section cta-final">
+  <div class="diamond-rule"><span>◆</span></div>
+  <h2 class="section-title" data-i18n="wd.54">Start a conversation</h2>
+  <p class="section-sub" data-i18n="wd.55">Tell me what the site needs to do and who it is for. You will get a straight answer, including the base price before the call ends.</p>
+  <div class="hero-ctas">
+    <a class="btn btn-primary" href="/#contact" data-i18n="wd.56">Start a conversation</a>
+    <a class="btn btn-ghost" href="/#services" data-i18n="wd.57">See all services</a>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <img src="/assets/ironstack-seal-full-cream.svg" alt="Ironstack seal" width="104" height="104">
+  <p class="footer-line">IRONSTACK · AMSTERDAM · EST MMXXVI</p>
+  <div class="footer-nav">
+    <a href="/audit.html">The Audit</a>
+    <a href="/ai-automation.html">AI &amp; Automation</a>
+    <a href="/migration.html">Migration</a>
+    <a href="/web-design.html">Web Design</a>
+    <a href="/managed-sovereignty.html">Managed Sovereignty</a>
+    <a href="/method.html">The Method</a>
+  </div>
+  <div class="footer-links">
+    <a href="mailto:d.sajinovic@ironstack.nl">d.sajinovic@ironstack.nl</a>
+    <a href="https://www.linkedin.com/in/dsajinovic/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/DamjanS24" target="_blank" rel="noopener">GitHub</a>
+    <a href="/privacy.html">Privacy</a>
+  </div>
+  <div class="footer-icons">
+    <a href="tel:+31634717477" aria-label="Call Ironstack"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.9 15.9 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 9.3 9.3 0 0 0 3 .48 1 1 0 0 1 1 1v3.4a1 1 0 0 1-1 1A17.5 17.5 0 0 1 2 3.5a1 1 0 0 1 1-1H6.4a1 1 0 0 1 1 1 9.3 9.3 0 0 0 .48 3 1 1 0 0 1-.24 1L6.6 10.8z"/></svg></a>
+    <a href="https://www.instagram.com/ironstack.nl/" target="_blank" rel="noopener" aria-label="Ironstack on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor" stroke="none"/></svg></a>
+    <a href="https://www.facebook.com/share/18zaXuhyA2/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Ironstack on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M13.5 21v-7.2h2.4l.4-2.8h-2.8v-1.8c0-.8.2-1.3 1.4-1.3H16V5.3c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 3.9v2.1H7.5v2.8h2.3V21z" fill="currentColor" stroke="none"/></svg></a>
+  </div>
+  <p class="footer-fine">Built and hosted on Ironstack’s own infrastructure. No analytics, no trackers, no cookies.</p>
+</footer>
+
+<script src="/js/i18n-data.js?v=66"></script>
+<script src="/js/main.js?v=66"></script>
+</body>
+</html>
